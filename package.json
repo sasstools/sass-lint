@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Node version of the awesome scss-lint",
   "main": "lib/scss-lint.js",
+  "bin": {
+    "scss-lint": "./bin/scss-lint.js"
+  },
   "scripts": {
     "install": "napa causes/scss-lint"
   },
