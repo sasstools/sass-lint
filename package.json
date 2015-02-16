@@ -2,9 +2,9 @@
   "name": "node-scss-lint",
   "version": "0.0.0",
   "description": "Node version of the awesome scss-lint",
-  "main": "index.js",
+  "main": "lib/scss-lint.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "napa causes/scss-lint"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/Snugug/node-scss-lint/issues"
   },
-  "homepage": "https://github.com/Snugug/node-scss-lint"
+  "homepage": "https://github.com/Snugug/node-scss-lint",
+  "dependencies": {
+    "bluebird": "^2.9.9",
+    "js-yaml": "^3.2.6",
+    "merge": "^1.2.0"
+  },
+  "devDependencies": {
+    "napa": "^1.2.0"
+  }
 }
