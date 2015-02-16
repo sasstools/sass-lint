@@ -1,0 +1,24 @@
+{
+  "name": "node-scss-lint",
+  "version": "0.0.0",
+  "description": "Node version of the awesome scss-lint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Snugug/node-scss-lint.git"
+  },
+  "keywords": [
+    "Sass",
+    "SCSS",
+    "lint"
+  ],
+  "author": "Sam Richard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Snugug/node-scss-lint/issues"
+  },
+  "homepage": "https://github.com/Snugug/node-scss-lint"
+}
