@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Snugug/Sass-lint.git"
+    "url": "https://github.com/Snugug/sass-lint.git"
   },
   "keywords": [
     "Sass",
@@ -21,9 +21,9 @@
   "author": "Sam Richard",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Snugug/Sass-lint/issues"
+    "url": "https://github.com/Snugug/sass-lint/issues"
   },
-  "homepage": "https://github.com/Snugug/Sass-lint",
+  "homepage": "https://github.com/Snugug/sass-lint",
   "dependencies": {
     "bluebird": "^2.9.9",
     "gonzales-pe": "^3.0.0-26",
