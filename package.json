@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Snugug/sass-lint",
   "dependencies": {
     "bluebird": "^2.9.9",
+    "glob": "^4.3.5",
     "gonzales-pe": "^3.0.0-26",
     "js-yaml": "^3.2.6",
     "merge": "^1.2.0"

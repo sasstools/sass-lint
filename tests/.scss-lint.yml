@@ -1,3 +1,4 @@
+files: '**/*.s+(a|c)ss'
 linters:
   # Reports when you use improper spacing around ! (the "bang") in !important and !default declarations.
   BangFormat:
