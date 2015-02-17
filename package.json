@@ -1,17 +1,17 @@
 {
-  "name": "node-scss-lint",
+  "name": "sass-lint",
   "version": "0.0.0",
-  "description": "Node version of the awesome scss-lint",
+  "description": "Sass linter. Compatible but different from scss-lint",
   "main": "lib/scss-lint.js",
   "bin": {
-    "scss-lint": "./bin/scss-lint.js"
+    "sass-lint": "./bin/sass-lint.js"
   },
   "scripts": {
     "install": "napa causes/scss-lint"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Snugug/node-scss-lint.git"
+    "url": "https://github.com/Snugug/Sass-lint.git"
   },
   "keywords": [
     "Sass",
@@ -21,11 +21,12 @@
   "author": "Sam Richard",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Snugug/node-scss-lint/issues"
+    "url": "https://github.com/Snugug/Sass-lint/issues"
   },
-  "homepage": "https://github.com/Snugug/node-scss-lint",
+  "homepage": "https://github.com/Snugug/Sass-lint",
   "dependencies": {
     "bluebird": "^2.9.9",
+    "gonzales-pe": "^3.0.0-26",
     "js-yaml": "^3.2.6",
     "merge": "^1.2.0"
   },
