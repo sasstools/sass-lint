@@ -2,7 +2,7 @@
   "name": "sass-lint",
   "version": "0.0.0",
   "description": "Sass linter. Compatible but different from scss-lint",
-  "main": "lib/scss-lint.js",
+  "main": "lib/sass-lint.js",
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
   },
