@@ -29,7 +29,8 @@
     "glob": "^4.3.5",
     "gonzales-pe": "^3.0.0-26",
     "js-yaml": "^3.2.6",
-    "merge": "^1.2.0"
+    "merge": "^1.2.0",
+    "underscore": "^1.8.2"
   },
   "devDependencies": {
     "napa": "^1.2.0"
