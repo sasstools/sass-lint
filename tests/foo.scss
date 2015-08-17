@@ -8,6 +8,8 @@ $primary: red;
   @extend %bar;
   $secondary:green;
   color : red;
+  font-size: 0.4em;
+  box-shadow: .5em .5em black, 0.1em .4em red;
 }
 
 .baz {
