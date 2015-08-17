@@ -6,7 +6,7 @@ rules:
   final-newline: 0
   id-selector: 0
   indentation: 0
-  leading-zero: 0
+  leading-zero: 1
   name-format: 0
   nesting-depth: 0
   placeholder-in-extend: 1
