@@ -23,6 +23,7 @@ sassLint.getConfig = function (config) {
 sassLint.lintText = function (text, format, filename) {
   var rules = slRules(this.getConfig()),
       ast = groot(text, format, filename),
+      detects,
       results = [],
       errors = 0,
       warnings = 0;
@@ -30,35 +31,36 @@ sassLint.lintText = function (text, format, filename) {
   // console.log(ast);
 
   rules.forEach(function (rule) {
-    results.push(rule.rule.detect(ast, rule));
+    detects = rule.rule.detect(ast, rule);
+    results.push(detects);
+    if (detects.length) {
+      if (rule.severity === 1) {
+	warnings += detects.length;
+      }
+      else if (rule.severity === 2) {
+	errors += detects.length;
+      }
+    }
   });
 
-  console.log(results);
-  // console.log(rules);
+  return {
+    'filePath': filename,
+    'warningCount': warnings,
+    'errorCount': errors,
+    'messages': detects
+  };
 }
 
-// sassLint.lintPaths = function (paths) {
-//   glob.globAsync(paths)
-//     .then(function (matches) {
-//       matches.forEach(function (match) {
-//         fs.readFileAsync(match)
-//           .then(function (file) {
-//             var tree = groot(file, 'scss');
-//             console.log(tree);
-//           })
-//           .catch(function (e) {
-//             throw e;
-//           });
-//       });
-//     })
-//     .catch(function (e) {
-//       throw e;
-//     });
-// }
 
 sassLint.formatResults = function (results) {
   var stylish = require('eslint/lib/formatters/stylish');
-  console.log(stylish(results));
+  return stylish(results);
+}
+
+sassLint.failOnError = function (results) {
+  if (results.errorCount > 0) {
+    throw new Error(results.errorCount + ' errors detected in ' + results.filePath);
+  }
 }
 
 

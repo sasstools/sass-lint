@@ -20,9 +20,7 @@ rules:
     - 0
     - include: false
   # Space surrounding colons
-  space-before-colon:
-    - 1
-    - include: false
+  space-before-colon: 1
   space-after-colon:
     - 0
     - include: false
