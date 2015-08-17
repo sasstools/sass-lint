@@ -28,11 +28,9 @@ sassLint.lintText = function (text, format, filename) {
       errors = 0,
       warnings = 0;
 
-  // console.log(ast);
-
   rules.forEach(function (rule) {
     detects = rule.rule.detect(ast, rule);
-    results.push(detects);
+    results = results.concat(detects);
     if (detects.length) {
       if (rule.severity === 1) {
 	warnings += detects.length;
@@ -47,7 +45,7 @@ sassLint.lintText = function (text, format, filename) {
     'filePath': filename,
     'warningCount': warnings,
     'errorCount': errors,
-    'messages': detects
+    'messages': results
   };
 }
 
