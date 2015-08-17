@@ -4,7 +4,7 @@ rules:
   empty-line-between-blocks: 0
   empty-rule: 0
   final-newline: 0
-  id-selector: 0
+  no-ids: 1
   indentation: 0
   leading-zero: 1
   name-format: 0
