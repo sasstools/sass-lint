@@ -2,12 +2,9 @@
   "name": "sass-lint",
   "version": "0.0.0",
   "description": "Sass linter. Compatible but different from scss-lint",
-  "main": "lib/sass-lint.js",
+  "main": "index.js",
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
-  },
-  "scripts": {
-    "install": "napa causes/scss-lint"
   },
   "repository": {
     "type": "git",
@@ -26,13 +23,15 @@
   "homepage": "https://github.com/Snugug/sass-lint",
   "dependencies": {
     "bluebird": "^2.9.9",
+    "eslint": "^1.1.0",
+    "fs-extra": "^0.23.1",
     "glob": "^4.3.5",
-    "gonzales-pe": "^3.0.0-26",
+    "gonzales-pe": "^3.0.0-31",
     "js-yaml": "^3.2.6",
     "merge": "^1.2.0",
     "underscore": "^1.8.2"
   },
   "devDependencies": {
-    "napa": "^1.2.0"
+    "util": "^0.10.3"
   }
 }
