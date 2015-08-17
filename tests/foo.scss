@@ -8,12 +8,13 @@ $primary: red;
   content: 'An ID';
 }
 
-.foo {
+.foo, .waldo {
   @extend %bar;
   $secondary:green;
   color : red;
   font-size: 0.4em;
   box-shadow: .5em .5em black, 0.1em .4em red;
+  background: red,blue;
 
   .bar {
     background:blue;

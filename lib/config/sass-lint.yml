@@ -16,9 +16,7 @@ rules:
   shorthand: 0
   single-line-per-property: 0
   single-line-per-selector: 0
-  space-after-comma:
-    - 0
-    - include: false
+  space-after-comma: 1
   # Space surrounding colons
   space-before-colon: 1
   space-after-colon: 1
