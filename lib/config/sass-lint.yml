@@ -9,7 +9,7 @@ rules:
   leading-zero: 0
   name-format: 0
   nesting-depth: 0
-  placeholder-in-extend: 0
+  placeholder-in-extend: 1
   property-sort-order: 0
   property-spelling: 0
   selector-depth: 0
