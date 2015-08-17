@@ -1,0 +1,37 @@
+files: '**/*.s+(a|c)ss'
+rules:
+  # Require an empty line between blocks
+  empty-line-between-blocks: 0
+  empty-rule: 0
+  final-newline: 0
+  id-selector: 0
+  indentation: 0
+  leading-zero: 0
+  name-format: 0
+  nesting-depth: 0
+  placeholder-in-extend: 0
+  property-sort-order: 0
+  property-spelling: 0
+  selector-depth: 0
+  shorthand: 0
+  single-line-per-property: 0
+  single-line-per-selector: 0
+  space-after-comma:
+    - 0
+    - include: false
+  # Space surrounding colons
+  space-before-colon:
+    - 1
+    - include: false
+  space-after-colon:
+    - 0
+    - include: false
+
+  space-after-property:
+    - 0
+    - include: false
+  space-before-brace:
+    - 0
+    - include: false
+  space-between-parens: 0
+  trailing-semicolon: 0
