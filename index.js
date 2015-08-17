@@ -28,18 +28,21 @@ sassLint.lintText = function (text, format, filename) {
       errors = 0,
       warnings = 0;
 
-  rules.forEach(function (rule) {
-    detects = rule.rule.detect(ast, rule);
-    results = results.concat(detects);
-    if (detects.length) {
-      if (rule.severity === 1) {
-	warnings += detects.length;
+  ast.traverse(function (node) {
+    rules.forEach(function (rule) {
+      detects = rule.rule.detect(node, rule);
+      results = results.concat(detects);
+      if (detects.length) {
+	if (rule.severity === 1) {
+	  warnings += detects.length;
+	}
+	else if (rule.severity === 2) {
+	  errors += detects.length;
+	}
       }
-      else if (rule.severity === 2) {
-	errors += detects.length;
-      }
-    }
+    });
   });
+
 
   return {
     'filePath': filename,
