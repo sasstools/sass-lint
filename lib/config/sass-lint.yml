@@ -21,9 +21,7 @@ rules:
     - include: false
   # Space surrounding colons
   space-before-colon: 1
-  space-after-colon:
-    - 0
-    - include: false
+  space-after-colon: 1
 
   space-after-property:
     - 0
