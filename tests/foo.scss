@@ -1,6 +1,19 @@
 $primary: red;
 
+%bar {
+  background: $primary;
+}
+
 .foo {
+  @extend %bar;
   $secondary:green;
   color : red;
+}
+
+.baz {
+  @extend .foo%bar;
+}
+
+.qux {
+  @extend .foo;
 }
