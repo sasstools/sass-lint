@@ -1,9 +1,16 @@
 # Sass Lint [![npm version](https://badge.fury.io/js/sass-lint.svg)](http://badge.fury.io/js/sass-lint)
 
-A Node based [Sass](http://sass-lang.com/) linter. Designed (eventually) as a drop-in replacement for [SCSS-Lint](https://github.com/causes/scss-lint).
+A Node-only Sass linter for both `sass` and `scss` syntax! See the sample [config file](https://github.com/sasstools/sass-lint/blob/playground/lib/config/sass-lint.yml) to see how to write a configuration file, and our [release issue](https://github.com/sasstools/sass-lint/issues/6) to track what's missing for an initial release.
 
-## Why does this exist?
+## Creating Rules
 
-We love SCSS-Lint, and if we worked in a Ruby environment, there wouldn't be a question as to whether or not we would use it. However, as the vast majority of frontend tooling today is written in Node, many of us would like to see this tool be available not as Node bindings into Ruby, but as a truly stand-alone Node project. For many people, and many organisation, using languages that are not already established (in their environment) can almost be impossible to do. Since much of our existing frontend tool chains are in Node, supporting it in our environments is a known cost, but the cost of supporting Ruby and it's overhead (RVM, rbenv, Bundler, RubyGems, all additional cost and all potential addition point of failure) can be simply unjustifiable for new projects. Coupled with [Libsass](http://github.com/sass/libsass) getting closer and closer to full Ruby Sass parity, many teams have in fact transitioned to a full Node stack and have dropped (or are loooking to drop) Ruby dependencies all together for new and existing projects. This would provide them with a way of doing so.
+Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Each rule will be passed a node as the AST is traversed. There are many different [node types](https://github.com/tonyganch/gonzales-pe/blob/dev/doc/node-types.md) that may be traversed, and an extensive [API for working with nodes](https://github.com/tonyganch/gonzales-pe/tree/dev#api). The file of the rule must have the same name as the name of the rule. All of the available rules are in our [rules directory](https://github.com/sasstools/sass-lint/tree/playground/lib/rules). Default options will be merged in with user config.
 
-There are signifigant gains we can make with a native Node project beyond removing the Ruby dependency. To start, we gain Node's tremendous speed and the ability to work directly with native file streams (which will boost speed even more by negating the need to touch the file system). We can also take the opportunity architect the projet to better align with the Node ecosystem, including building it to be fully pluggable like [ESLint](https://github.com/eslint/eslint) and providing 1st class support for Node task runners like [Grunt](http://gruntjs.com/) and [Gulp](http://gulpjs.com/).
+```
+TODO: Should we traverse the whole node tree and pass in each node to each rule, or pass the whole AST to each rule to let them do with it what they'd like? Originally it was the later to give the widest birth of flexibility, but thought the former may be faster because each rule wouldn't have to traverse the whole tree. Thoughts?
+```
+
+## Road to Release
+
+Keep track of the [path to a full release](https://github.com/sasstools/sass-lint/issues/6). If you can help contribute by writing rules that are missing (or have a rule you really want to see in there and add), please do so! PRs accepted!
+>>>>>>> Update README
