@@ -5,8 +5,6 @@ var slConfig = require('./lib/config'),
     glob = require('glob'),
     path = require('path'),
     fs = require('fs'),
-    // fs = $.promisifyAll(require('fs')),
-    // path = $.promisifyAll(require('path')),
     util = require('util'),
     slRules = require('./lib/rules');
 
