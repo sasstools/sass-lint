@@ -5,9 +5,15 @@ var lint = require('../index'),
     detects = [],
     fs = require('fs');
 
-var file = fs.readFileSync('./foo.scss', 'utf-8');
+// var file = fs.readFileSync('./foo.scss', 'utf-8');
 
-detects.push(lint.lintText(file, 'scss', 'foo.scss'));
+// detects.push(lint.lintText({
+//   'text': file,
+//   'format': 'scss',
+//   'filename': 'foo.scss'
+// }));
+
+detects = lint.lintFiles('**/*.s+(a|c)ss');
 
 console.log(lint.formatResults(detects));
 

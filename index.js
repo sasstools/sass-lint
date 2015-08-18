@@ -1,9 +1,10 @@
 'use strict';
 
-var $ = require('bluebird'),
-    slConfig = require('./lib/config'),
+var slConfig = require('./lib/config'),
     groot = require('./lib/groot'),
-    // glob = $.promisifyAll(require('glob')),
+    glob = require('glob'),
+    path = require('path'),
+    fs = require('fs'),
     // fs = $.promisifyAll(require('fs')),
     // path = $.promisifyAll(require('path')),
     util = require('util'),
@@ -14,15 +15,15 @@ var sassLint = function (config) {
 
   console.log(this);
   return;
-}
+};
 
 sassLint.getConfig = function (config) {
   return slConfig(config);
-}
+};
 
-sassLint.lintText = function (text, format, filename) {
-  var rules = slRules(this.getConfig()),
-      ast = groot(text, format, filename),
+sassLint.lintText = function (file, options) {
+  var rules = slRules(this.getConfig(options)),
+      ast = groot(file.text, file.format, file.filename),
       detects,
       results = [],
       errors = 0,
@@ -43,26 +44,43 @@ sassLint.lintText = function (text, format, filename) {
     });
   });
 
-
   return {
-    'filePath': filename,
+    'filePath': file.filename,
     'warningCount': warnings,
     'errorCount': errors,
     'messages': results
   };
-}
+};
+
+sassLint.lintFiles = function (files, options) {
+  var files = glob.sync(files),
+      _this = this,
+      results = [];
+
+
+  files.forEach(function (file) {
+    var lint = _this.lintText({
+      'text': fs.readFileSync(file),
+      'format': path.extname(file).replace('.', ''),
+      'filename': file
+    }, options);
+    results.push(lint);
+  });
+
+  return results;
+};
 
 
 sassLint.formatResults = function (results) {
   var stylish = require('eslint/lib/formatters/stylish');
   return stylish(results);
-}
+};
 
 sassLint.failOnError = function (results) {
   if (results.errorCount > 0) {
     throw new Error(results.errorCount + ' errors detected in ' + results.filePath);
   }
-}
+};
 
 
 module.exports = sassLint;
