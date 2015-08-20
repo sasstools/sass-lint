@@ -88,7 +88,7 @@ sassLint.lintFiles = function (files, options) {
 };
 
 
-sassLint.formatResults = function (results) {
+sassLint.format = function (results) {
   var stylish = require('eslint/lib/formatters/stylish');
   return stylish(results);
 };
