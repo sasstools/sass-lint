@@ -1,6 +1,6 @@
 {
   "name": "sass-lint",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "Sass linter. Compatible but different from scss-lint",
   "main": "index.js",
   "bin": {
