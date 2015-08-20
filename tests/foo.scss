@@ -32,3 +32,38 @@ $primary: red;
 .bar span #quz {
   content: 'Another ID';
 }
+
+.foo {
+  content: 'bar';
+
+  .baz {
+    content: 'qux';
+
+    .qux {
+      content: 'waldo';
+    }
+
+    .waldo, div {
+      content: 'where';
+
+      .fail,
+      #cats {
+	content: 'blog';
+
+	&:hover {
+	  content: 'hover';
+	}
+      }
+    }
+  }
+
+  .nan {
+    .boo {
+      content: 'nan';
+
+      .fail {
+	content: 'blog';
+      }
+    }
+  }
+}

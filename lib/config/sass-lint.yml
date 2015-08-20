@@ -12,7 +12,7 @@ rules:
   placeholder-in-extend: 1
   property-sort-order: 0
   property-spelling: 0
-  selector-depth: 0
+  nesting-depth: 1
   shorthand: 0
   single-line-per-property: 0
   single-line-per-selector: 0
