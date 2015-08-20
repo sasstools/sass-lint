@@ -8,6 +8,25 @@ var slConfig = require('./lib/config'),
     util = require('util'),
     slRules = require('./lib/rules');
 
+var sortDetects = function (a, b) {
+  if (a.line < b.line) {
+    return -1
+  }
+  if (a.line > b.line) {
+    return 1;
+  }
+  if (a.line === b.line) {
+    if (a.column < b.column) {
+      return -1;
+    }
+    if (a.column > b.column) {
+      return 1
+    }
+    return 0;
+  }
+  return 0;
+}
+
 var sassLint = function (config) {
   config = require('./lib/config')(config);
 
@@ -39,6 +58,8 @@ sassLint.lintText = function (file, options) {
       }
     }
   });
+
+  results.sort(sortDetects);
 
   return {
     'filePath': file.filename,
