@@ -9,3 +9,7 @@ Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Eac
 ## Road to Release
 
 Keep track of the [path to a full release](https://github.com/sasstools/sass-lint/issues/6). If you can help contribute by writing rules that are missing (or have a rule you really want to see in there and add), please do so! PRs accepted!
+
+## Task Runner Integration
+
+* [Gulp](https://www.npmjs.com/package/gulp-sass-lint)
