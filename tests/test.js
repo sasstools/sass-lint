@@ -15,6 +15,6 @@ var lint = require('../index'),
 
 detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-console.log(lint.formatResults(detects));
+console.log(lint.format(detects));
 
 // console.log(util.inspect(detects, false, null));
