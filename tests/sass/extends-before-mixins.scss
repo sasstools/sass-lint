@@ -1,0 +1,15 @@
+.foo {
+  @extend %waldo;
+  @include foo;
+}
+
+.bar {
+  @include foo;
+  @extend %waldo;
+}
+
+.baz {
+  @extend %waldo;
+  @include foo;
+  @extend %qux;
+}

@@ -13,7 +13,9 @@ var lint = require('../index'),
 //   'filename': 'foo.scss'
 // }));
 
-detects = lint.lintFiles('**/*.s+(a|c)ss');
+// detects = lint.lintFiles('**/*.s+(a|c)ss');
+
+detects = lint.lintFiles('sass/extends-before-mixins.scss');
 
 console.log(lint.format(detects));
 
