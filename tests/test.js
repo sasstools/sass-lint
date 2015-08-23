@@ -15,7 +15,7 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/extends-before-mixins.scss');
+detects = lint.lintFiles('sass/mixins-before-declarations.scss');
 
 console.log(lint.format(detects));
 

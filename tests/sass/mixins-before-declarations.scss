@@ -1,0 +1,23 @@
+.foo {
+  @include waldo;
+  content: 'baz';
+}
+
+.bar {
+  content: 'baz';
+  @include waldo;
+}
+
+.qux {
+  content: 'baz';
+  @include waldo;
+  content: 'where';
+}
+
+.breakpoint {
+  content: 'baz';
+
+  @include breakpoint(500px) {
+    content: 'waldo';
+  }
+}
