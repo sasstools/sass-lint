@@ -1,5 +1,8 @@
 files: '**/*.s+(a|c)ss'
 rules:
+  # Consistency Rules
+  extends-before-mixins: 1
+  mixins-before-properties: 0
   # Require an empty line between blocks
   empty-line-between-blocks: 0
   empty-rule: 0
