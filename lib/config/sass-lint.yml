@@ -6,7 +6,7 @@ rules:
   mixins-before-declarations: 1
   # Require an empty line between blocks
   empty-line-between-blocks: 0
-  empty-rule: 0
+  empty-ruleset: 1
   final-newline: 1
   no-ids: 1
   indentation: 0
@@ -25,9 +25,6 @@ rules:
   space-before-colon: 1
   space-after-colon: 1
 
-  space-after-property:
-    - 0
-    - include: false
   space-before-brace: 0
 
   space-between-parens: 0
