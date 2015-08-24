@@ -2,6 +2,7 @@ files: '**/*.s+(a|c)ss'
 rules:
   # Consistency Rules
   extends-before-mixins: 1
+  extends-before-declarations: 1
   mixins-before-declarations: 1
   # Require an empty line between blocks
   empty-line-between-blocks: 0
