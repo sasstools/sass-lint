@@ -20,4 +20,10 @@
   @include breakpoint(500px) {
     content: 'waldo';
   }
+
+  .foo {
+    content: 'where';
+
+    @include waldo;
+  }
 }
