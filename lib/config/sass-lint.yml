@@ -7,7 +7,7 @@ rules:
   # Require an empty line between blocks
   empty-line-between-blocks: 0
   empty-rule: 0
-  final-newline: 0
+  final-newline: 1
   no-ids: 1
   indentation: 0
   leading-zero: 1
@@ -28,8 +28,7 @@ rules:
   space-after-property:
     - 0
     - include: false
-  space-before-brace:
-    - 0
-    - include: false
+  space-before-brace: 0
+
   space-between-parens: 0
   trailing-semicolon: 0
