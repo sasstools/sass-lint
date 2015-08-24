@@ -1,0 +1,12 @@
+.foo {
+  content: 'bar';
+}
+
+.bar {
+  content: 'qux';
+  content: 'baz', 'fail'
+
+  .qux {
+    content: 'waldo'
+  }
+}

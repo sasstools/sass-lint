@@ -15,7 +15,7 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/empty-ruleset.scss');
+detects = lint.lintFiles('sass/trailing-semicolon.scss');
 
 console.log(lint.format(detects));
 

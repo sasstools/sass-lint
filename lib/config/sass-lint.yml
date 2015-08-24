@@ -28,4 +28,4 @@ rules:
   space-before-brace: 0
 
   space-between-parens: 0
-  trailing-semicolon: 0
+  trailing-semicolon: 1
