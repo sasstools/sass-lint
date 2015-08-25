@@ -25,7 +25,7 @@ rules:
   space-before-colon: 1
   space-after-colon: 1
 
-  space-before-brace: 0
+  space-before-brace: 1
 
   space-between-parens: 0
   trailing-semicolon: 1

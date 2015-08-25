@@ -1,0 +1,26 @@
+.foo {
+  content: 'bar';
+}
+
+.bar{
+  content: 'baz';
+}
+
+.qux {
+  content: 'bar';
+}
+
+@mixin foo {
+  content: 'qux';
+}
+
+@mixin bar{
+  content: 'qux';
+}
+
+.qux {
+  content: 'bar';
+  @include breakpoint{
+    content: bar;
+  }
+}

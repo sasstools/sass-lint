@@ -15,7 +15,7 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/trailing-semicolon.scss');
+detects = lint.lintFiles('sass/space-before-brace.scss');
 
 console.log(lint.format(detects));
 
