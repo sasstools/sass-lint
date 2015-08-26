@@ -1,0 +1,13 @@
+@function foo( $bar) {
+  @return $bar;
+}
+
+@mixin bar($baz ) {
+  content: $baz;
+}
+
+.foo {
+  @include bar( 'Hello' );
+  width: calc( 100% - 10px);
+  content: foo('bar');
+}
