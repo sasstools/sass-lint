@@ -1,0 +1,10 @@
+.foo {
+  content: 'bar';
+
+   .foo {
+    content: 'bar';
+  }
+  .bar {
+    content: 'baz';
+  }
+}

@@ -5,7 +5,7 @@ rules:
   extends-before-declarations: 1
   mixins-before-declarations: 1
   # Require an empty line between blocks
-  empty-line-between-blocks: 0
+  empty-line-between-blocks: 1
   no-empty-rulesets: 1
   final-newline: 1
   no-ids: 1

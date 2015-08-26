@@ -15,7 +15,7 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/space-before-parens.scss');
+detects = lint.lintFiles('sass/empty-line-between-blocks.scss');
 
 console.log(lint.format(detects));
 
