@@ -14,7 +14,7 @@ rules:
   name-format: 0
   nesting-depth: 0
   placeholder-in-extend: 1
-  property-sort-order: 0
+  property-sort-order: 1
   property-spelling: 0
   nesting-depth: 1
   shorthand: 0

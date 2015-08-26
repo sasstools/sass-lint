@@ -15,7 +15,7 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/single-line-per-selector.scss');
+detects = lint.lintFiles('sass/property-sort-order.scss');
 
 console.log(lint.format(detects));
 
