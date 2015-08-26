@@ -19,7 +19,7 @@ rules:
   nesting-depth: 1
   shorthand: 0
   one-declaration-per-line: 1
-  single-line-per-selector: 0
+  single-line-per-selector: 1
   space-after-comma: 1
   # Space surrounding colons
   space-before-colon: 1
