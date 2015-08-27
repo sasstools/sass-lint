@@ -11,8 +11,6 @@ var slConfig = require('./lib/config'),
 
 var sassLint = function (config) {
   config = require('./lib/config')(config);
-
-  console.log(this);
   return;
 };
 
@@ -71,9 +69,6 @@ sassLint.lintFiles = function (files, options) {
       });
     }
   }
-
-  console.log(files);
-
 
   files.forEach(function (file) {
     var lint = _this.lintText({
