@@ -1,0 +1,27 @@
+$foo: (
+  'foo': 'bar',
+  'bar': (
+    'foo': 'bze'
+  )
+);
+
+.foo,
+.bar {
+  content: 'bar';
+
+    content: 'baz';
+content: 'bar';
+
+  @include breakpoint(500) {
+    content: 'baz';
+  content: 'qux';
+  }
+
+    .qux {
+      content: 'bar';
+    }
+}
+
+@mixin foo {
+    content: 'bar';
+}

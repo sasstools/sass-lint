@@ -15,7 +15,7 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/empty-line-with-comments.scss');
+detects = lint.lintFiles('sass/indentation.scss');
 
 console.log(lint.format(detects));
 
