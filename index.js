@@ -2,30 +2,12 @@
 
 var slConfig = require('./lib/config'),
     groot = require('./lib/groot'),
+    helpers = require('./lib/helpers'),
+    slRules = require('./lib/rules'),
     glob = require('glob'),
     path = require('path'),
-    fs = require('fs'),
-    util = require('util'),
-    slRules = require('./lib/rules');
+    fs = require('fs');
 
-var sortDetects = function (a, b) {
-  if (a.line < b.line) {
-    return -1
-  }
-  if (a.line > b.line) {
-    return 1;
-  }
-  if (a.line === b.line) {
-    if (a.column < b.column) {
-      return -1;
-    }
-    if (a.column > b.column) {
-      return 1
-    }
-    return 0;
-  }
-  return 0;
-}
 
 var sassLint = function (config) {
   config = require('./lib/config')(config);
@@ -51,15 +33,15 @@ sassLint.lintText = function (file, options) {
     results = results.concat(detects);
     if (detects.length) {
       if (rule.severity === 1) {
-	warnings += detects.length;
+      	warnings += detects.length;
       }
       else if (rule.severity === 2) {
-	errors += detects.length;
+      	errors += detects.length;
       }
     }
   });
 
-  results.sort(sortDetects);
+  results.sort(helpers.sortDetects);
 
   return {
     'filePath': file.filename,
@@ -70,9 +52,18 @@ sassLint.lintText = function (file, options) {
 };
 
 sassLint.lintFiles = function (files, options) {
-  var files = glob.sync(files),
+  var files,
       _this = this,
       results = [];
+
+  if (files) {
+    files = glob.sync(files);
+  }
+  else {
+    files = glob.sync(this.getConfig(options).files);
+  }
+
+  console.log(files);
 
 
   files.forEach(function (file) {
