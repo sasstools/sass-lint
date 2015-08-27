@@ -1,4 +1,6 @@
-files: '**/*.s+(a|c)ss'
+files:
+  include: '**/*.s+(a|c)ss'
+  ignore:
 rules:
   # Consistency Rules
   extends-before-mixins: 1

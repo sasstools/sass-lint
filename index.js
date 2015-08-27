@@ -60,7 +60,16 @@ sassLint.lintFiles = function (files, options) {
     files = glob.sync(files);
   }
   else {
-    files = glob.sync(this.getConfig(options).files);
+    files = this.getConfig(options).files;
+
+    if (typeof files === 'string') {
+      files = glob.sync(files);
+    }
+    else {
+      files = glob.sync(files.include, {
+        'ignore': files.ignore
+      });
+    }
   }
 
   console.log(files);
