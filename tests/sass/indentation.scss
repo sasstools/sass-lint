@@ -22,6 +22,7 @@ content: 'bar';
     }
 }
 
-@mixin foo {
+@mixin bar {
     content: 'bar';
+	content: 'baz';
 }
