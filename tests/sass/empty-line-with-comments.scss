@@ -1,0 +1,39 @@
+// This comment doesn't cause an error/warning
+.block {
+
+  //////////////////////////////
+  // nested block - comment causes an error/warning
+  //////////////////////////////
+  .nested-block {
+    color: orange;
+  }
+  /**
+  * Bar
+  **/
+  .nested-goodies {
+    color: blue;
+  }
+  .bar {
+    content: 'foo';
+  }
+
+  // BEM element - comment causes an error/warning
+  &__element {
+    color: pink;
+  }
+
+  // BEM modifier - comment causes an error/warning
+  &--modifier {
+    color: purple;
+  }
+
+  // pseudo element - comment causes an error/warning
+  &:before {
+    color: blue;
+  }
+
+  // pseudo element - comment causes an error/warning
+  &::first-letter {
+    color: green;
+  }
+}

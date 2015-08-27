@@ -15,7 +15,7 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/property-sort-order.scss');
+detects = lint.lintFiles('sass/empty-line-with-comments.scss');
 
 console.log(lint.format(detects));
 
