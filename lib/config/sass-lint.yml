@@ -32,3 +32,5 @@ rules:
 
   space-between-parens: 1
   trailing-semicolon: 1
+
+  no-debug: 1
