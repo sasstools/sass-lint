@@ -267,4 +267,20 @@ describe('rules', function () {
       done();
     });
   });
+
+
+  //////////////////////////////
+  // Space Before Bang
+  //////////////////////////////
+  it('space before bang', function (done) {
+    lintFile('space-before-bang.scss', {
+      'rules': {
+        'space-before-bang': 1,
+        'no-important': 0
+      }
+    }, function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
 });
