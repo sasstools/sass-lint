@@ -1,0 +1,9 @@
+.foo {
+  @include mixin('foo', 'bar');
+  @include mixin('foo','bar');
+
+  box-shadow: 1px 1px black, 1px 1px black;
+  box-shadow: 1px 1px black,1px 1px black;
+
+
+}

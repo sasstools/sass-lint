@@ -18,7 +18,6 @@ rules:
   nesting-depth: 1
   placeholder-in-extend: 1
   property-sort-order: 1
-  nesting-depth: 1
   one-declaration-per-line: 1
   single-line-per-selector: 1
   space-after-comma: 1

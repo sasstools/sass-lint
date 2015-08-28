@@ -1,0 +1,5 @@
+.foo {
+  @extend .bar;
+
+  @extend %baz;
+}

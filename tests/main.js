@@ -1,0 +1,243 @@
+'use strict';
+
+var fs = require('fs'),
+    assert = require('assert'),
+    lint = require('../index');
+
+var lintFile = function (file, cb) {
+  var results = lint.lintFiles(process.cwd() + '/tests/sass/' + file);
+
+  cb(results[0]);
+}
+
+describe('rules', function () {
+  //////////////////////////////
+  // Indentation
+  //////////////////////////////
+  it('indentation', function (done) {
+    lintFile('indentation.scss', function (data) {
+      assert.equal(7, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Empty Line Between Blocks
+  //////////////////////////////
+  it('empty line between blocks', function (done) {
+    lintFile('empty-line-between-blocks.scss', function (data) {
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Empty Line With Comment
+  //////////////////////////////
+  it('empty line between blocks with comments', function (done) {
+    lintFile('empty-line-with-comments.scss', function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Empty Ruleset
+  //////////////////////////////
+  it('no empty ruleset', function (done) {
+    lintFile('empty-ruleset.scss', function (data) {
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Extends Before Declaration
+  //////////////////////////////
+  it('extends before declarations', function (done) {
+    lintFile('extends-before-declarations.scss', function (data) {
+      assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Extends Before Mixins
+  //////////////////////////////
+  it('extends before mixins', function (done) {
+    lintFile('extends-before-mixins.scss', function (data) {
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Final Newline w/Return
+  //////////////////////////////
+  it('final newline - return', function (done) {
+    lintFile('final-newline--return.scss', function (data) {
+      assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Final Newline w/space
+  //////////////////////////////
+  it('final newline - space', function (done) {
+    lintFile('final-newline--space.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Final Newline
+  //////////////////////////////
+  it('final newline', function (done) {
+    lintFile('final-newline.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Mixins Before DEclarations
+  //////////////////////////////
+  it('mixins before declarations', function (done) {
+    lintFile('mixins-before-declarations.scss', function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Property Sort Order
+  //////////////////////////////
+  it('property sort order', function (done) {
+    lintFile('property-sort-order.scss', function (data) {
+      assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Single Line per Selector
+  //////////////////////////////
+  it('single line per selector', function (done) {
+    lintFile('single-line-per-selector.scss', function (data) {
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Space Before Brace
+  //////////////////////////////
+  it('space before brace', function (done) {
+    lintFile('space-before-brace.scss', function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Trailing Semicolon
+  //////////////////////////////
+  it('trailing semicolon', function (done) {
+    lintFile('trailing-semicolon.scss', function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // No IDs
+  //////////////////////////////
+  it('no ids', function (done) {
+    lintFile('no-ids.scss', function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Leading Zero
+  //////////////////////////////
+  it('leading zero', function (done) {
+    lintFile('leading-zero.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Nesting Depth
+  //////////////////////////////
+  it('nesting depth', function (done) {
+    lintFile('nesting-depth.scss', function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Placeholder In Extends
+  //////////////////////////////
+  it('placeholder in extends', function (done) {
+    lintFile('placeholder-in-extend.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // One Declaration Per Line
+  //////////////////////////////
+  it('one declaration per line', function (done) {
+    lintFile('one-declaration-per-line.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Space After Comma
+  //////////////////////////////
+  it('space after comma', function (done) {
+    lintFile('space-after-comma.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Space After Colon
+  //////////////////////////////
+  it('space after colon', function (done) {
+    lintFile('space-after-colon.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Space Before Colon
+  //////////////////////////////
+  it('space before colon', function (done) {
+    lintFile('space-before-colon.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Space Between Parens
+  //////////////////////////////
+  it('space between parens', function (done) {
+    lintFile('space-between-parens.scss', function (data) {
+      assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+});
