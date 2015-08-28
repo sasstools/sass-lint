@@ -311,7 +311,7 @@ describe('rules', function () {
   //////////////////////////////
   it('no debug', function (done) {
     lintFile('no-debug.scss', function (data) {
-      assert.equal(2, data.warningCount);
+      assert.equal(3, data.warningCount);
       done();
     });
   });
@@ -321,7 +321,7 @@ describe('rules', function () {
   //////////////////////////////
   it('no warn', function (done) {
     lintFile('no-warn.scss', function (data) {
-      assert.equal(2, data.warningCount);
+      assert.equal(3, data.warningCount);
       done();
     });
   });

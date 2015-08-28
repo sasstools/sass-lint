@@ -1,3 +1,5 @@
+@warn 'foo';
+
 @function foo {
   @warn 'bar';
 }
