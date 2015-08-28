@@ -2,7 +2,7 @@
 'use strict';
 
 var exitCode = 0,
-    lint = require('../lib/sass-lint');
+    lint = require('../index');
 
 process.on('exit', function () {
   process.exit(exitCode);
