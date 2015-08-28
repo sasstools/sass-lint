@@ -9,11 +9,11 @@
       content: 'bob';
 
       &:hover {
-	content: 'fail';
+        content: 'fail';
       }
 
       .bar {
-	content: 'fail';
+        content: 'fail';
       }
     }
   }
