@@ -4,8 +4,14 @@ var fs = require('fs'),
     assert = require('assert'),
     lint = require('../index');
 
-var lintFile = function (file, cb) {
-  var results = lint.lintFiles(process.cwd() + '/tests/sass/' + file);
+var lintFile = function (file, options, cb) {
+  if (typeof options === 'function') {
+    cb = options;
+  }
+
+  options = options || {};
+
+  var results = lint.lintFiles(process.cwd() + '/tests/sass/' + file, options);
 
   cb(results[0]);
 }
@@ -237,6 +243,21 @@ describe('rules', function () {
   it('space between parens', function (done) {
     lintFile('space-between-parens.scss', function (data) {
       assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // No Extends
+  //////////////////////////////
+  it('no extends', function (done) {
+    lintFile('no-extend.scss', {
+      'rules': {
+        'no-extends': 1,
+        'placeholder-in-extend': 0
+      }
+    }, function (data) {
+      assert.equal(1, data.warningCount);
       done();
     });
   });

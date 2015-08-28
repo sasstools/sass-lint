@@ -3,6 +3,6 @@
 }
 
 .bar {
-  @extend foo;
+  @extend %foo;
   content: 'baz';
 }
