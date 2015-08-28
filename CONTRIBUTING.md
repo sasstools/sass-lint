@@ -3,11 +3,10 @@
 * Before creating a new issue, perform a [cursory search](https://github.com/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Asasstools) to see if a similar issue has already been submitted.
 * Can create an issue [here](https://github.com/sasstools/sass-lint/issues). Please include as many details as possible when filing an issue.
 * Issue titles should be descriptive, explaining at the high level what it is about, and should be written in the same style as [Git commit messages](#git-commit-messages).
-* Please include the version of the Design Guide being used or viewed
+* Please include the version of Sass Lint being used
 * Do not open a [pull request](#pull-requests) to resolve an issue without first receiving feedback from a `collaborator` or `owner` and having them agree on a solution forward.
 * Include screenshots and animated GIFs whenever possible; they are immensely helpful.
 * When submitting a browser bug, please include the browser, version, operating system, and operating system version.
-* When submitting an update to or a new feature, pattern, guideline, etc… we prefer to see user research associated with the suggestion including testing methods, results, and sample size, whenever possible. This allows us to make more user-centered decisions and cut through assumptions and individual preferences.
 * Issues that have a number of sub-items that need to be complete should use [task lists](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments) to track the sub-items in the main issue comment.
 
 ## Pull Requests
@@ -15,6 +14,7 @@
 * **DO NOT ISSUE A PULL REQUEST WITHOUT FIRST [SUBMITTING AN ISSUE](#submitting-issues)**
 * **ALL PULL REQUESTS MUST INCLUDE A [DEVELOPER CERTIFICATE OF ORIGIN](#developer-certificate-of-origin)**
 * Pull requests should reference their related issues. If the pull request closes an issue, [please reference its closing from a commit messages](https://help.github.com/articles/closing-issues-via-commit-messages/). Pull requests not referencing any issues will be closed.
+* Pull requests should include tests describing and codifying their functionality.
 * Pull request titles should be descriptive, explaining at the high level what it is doing, and should be written in the same style as [Git commit messages](#git-commit-messages).
 * Follow our JavaScript styleguides. We have linters set up to catch most of it.
 * Ensure that [EditorConfig](http://editorconfig.org/) installed in the editor used to work on the site and that it is functioning properly.
