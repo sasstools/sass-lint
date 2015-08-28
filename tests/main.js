@@ -261,4 +261,14 @@ describe('rules', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // No Important
+  //////////////////////////////
+  it('no important', function (done) {
+    lintFile('no-important.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
 });
