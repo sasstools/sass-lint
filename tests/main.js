@@ -265,7 +265,8 @@ describe('rules', function () {
     lintFile('no-important.scss', {
       'rules': {
         'no-important': 1,
-        'space-before-bang': 0
+        'space-before-bang': 0,
+        'space-after-bang': 0
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -280,10 +281,27 @@ describe('rules', function () {
     lintFile('space-before-bang.scss', {
       'rules': {
         'space-before-bang': 1,
+        'space-after-bang': 0,
         'no-important': 0
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Space After Bang
+  //////////////////////////////
+  it('space after bang', function (done) {
+    lintFile('space-after-bang.scss', {
+      'rules': {
+        'space-after-bang': 1,
+        'space-before-bang': 0,
+        'no-important': 0
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });

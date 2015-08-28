@@ -28,6 +28,7 @@ rules:
   space-before-brace: 1
 
   space-before-bang: 1
+  space-after-bang: 1
 
   space-between-parens: 1
   trailing-semicolon: 1
