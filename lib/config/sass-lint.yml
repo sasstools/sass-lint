@@ -9,7 +9,7 @@ rules:
   # Require an empty line between blocks
   empty-line-between-blocks: 1
   no-empty-rulesets: 1
-  no-extend: 1
+  no-extends: 0
   final-newline: 1
   no-ids: 1
   indentation: 1
