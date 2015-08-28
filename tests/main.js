@@ -1,20 +1,16 @@
 'use strict';
 
-var fs = require('fs'),
-    assert = require('assert'),
+var assert = require('assert'),
     lint = require('../index');
 
-var lintFile = function (file, options, cb) {
-  if (typeof options === 'function') {
-    cb = options;
-  }
-
+var lintFile = function lintFile (file, options, cb) {
+  cb = cb || options;
   options = options || {};
 
   var results = lint.lintFiles(process.cwd() + '/tests/sass/' + file, options);
 
   cb(results[0]);
-}
+};
 
 describe('rules', function () {
   //////////////////////////////

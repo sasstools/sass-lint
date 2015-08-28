@@ -33,6 +33,7 @@
     "util": "^0.10.3"
   },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "should": "^7.0.4"
   }
 }
