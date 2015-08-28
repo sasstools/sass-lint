@@ -262,12 +262,16 @@ describe('rules', function () {
   // No Important
   //////////////////////////////
   it('no important', function (done) {
-    lintFile('no-important.scss', function (data) {
+    lintFile('no-important.scss', {
+      'rules': {
+        'no-important': 1,
+        'space-before-bang': 0
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
   });
-
 
   //////////////////////////////
   // Space Before Bang
