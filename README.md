@@ -39,3 +39,4 @@ Keep track of the [path to a full release](https://github.com/sasstools/sass-lin
 ## Task Runner Integration
 
 * [Gulp](https://www.npmjs.com/package/gulp-sass-lint)
+* [Grunt](https://github.com/sasstools/grunt-sass-lint)
