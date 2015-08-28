@@ -315,4 +315,14 @@ describe('rules', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // No Warn
+  //////////////////////////////
+  it('no warn', function (done) {
+    lintFile('no-warn.scss', function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
 });

@@ -34,3 +34,4 @@ rules:
   trailing-semicolon: 1
 
   no-debug: 1
+  no-warn: 1
