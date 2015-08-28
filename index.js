@@ -31,10 +31,10 @@ sassLint.lintText = function (file, options) {
     results = results.concat(detects);
     if (detects.length) {
       if (rule.severity === 1) {
-      	warnings += detects.length;
+        warnings += detects.length;
       }
       else if (rule.severity === 2) {
-      	errors += detects.length;
+        errors += detects.length;
       }
     }
   });
@@ -50,8 +50,7 @@ sassLint.lintText = function (file, options) {
 };
 
 sassLint.lintFiles = function (files, options) {
-  var files,
-      _this = this,
+  var that = this,
       results = [];
 
   if (files) {
@@ -71,7 +70,7 @@ sassLint.lintFiles = function (files, options) {
   }
 
   files.forEach(function (file) {
-    var lint = _this.lintText({
+    var lint = that.lintText({
       'text': fs.readFileSync(file),
       'format': path.extname(file).replace('.', ''),
       'filename': file
@@ -94,5 +93,5 @@ sassLint.failOnError = function (results) {
   }
 };
 
-
 module.exports = sassLint;
+
