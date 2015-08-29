@@ -6,6 +6,7 @@
 * Please include the version of Sass Lint being used
 * Do not open a [pull request](#pull-requests) to resolve an issue without first receiving feedback from a `collaborator` or `owner` and having them agree on a solution forward.
 * Include screenshots and animated GIFs whenever possible; they are immensely helpful.
+* Please include full error messages/output when submitting issues where appropriate.
 * When submitting a browser bug, please include the browser, version, operating system, and operating system version.
 * Issues that have a number of sub-items that need to be complete should use [task lists](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments) to track the sub-items in the main issue comment.
 
