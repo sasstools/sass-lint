@@ -18,7 +18,7 @@ describe('rules', function () {
   //////////////////////////////
   it('indentation', function (done) {
     lintFile('indentation.scss', function (data) {
-      assert.equal(7, data.warningCount);
+      assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -48,7 +48,7 @@ describe('rules', function () {
   //////////////////////////////
   it('no empty ruleset', function (done) {
     lintFile('empty-ruleset.scss', function (data) {
-      assert.equal(3, data.warningCount);
+      assert.equal(4, data.warningCount);
       done();
     });
   });
