@@ -15,7 +15,17 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/indentation.scss');
+detects = lint.lintFiles('sass/indentation--tabs.scss', {
+  'rules': {
+    'indentation': [
+      1,
+      {
+        'size': 2,
+        'type': 'space'
+      }
+    ]
+  }
+});
 
 console.log(lint.format(detects));
 
