@@ -76,7 +76,7 @@ When creating creating commits or updating the CHANGELOG, please **start** the c
 
 * :art: `:art:` when improving the format/structure of the code
 * :racehorse: `:racehorse:` when improving performance
-* :memo: `:memo:` when writing long-form text (documentation, guidelines, principles, etc…)
+* :memo: `:memo:` when writing long-form text (documentation, CHANGELOG, README, etc…)
 * :bug: `:bug:` when fixing a bug
 * :fire: `:fire:` when removing code or files
 * :green_heart: `:green_heart:` when fixing the CI build
