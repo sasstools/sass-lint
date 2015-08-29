@@ -33,3 +33,4 @@ Initial Release!
 * [final-newline](docs/rules/final-newline.md)
 * [no-debug](docs/rules/no-debug.md)
 * [no-warn](docs/rules/no-warn.md)
+* [quotes](docs/rules/quotes.md)

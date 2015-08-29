@@ -28,6 +28,7 @@ rules:
   leading-zero: 1
   nesting-depth: 1
   property-sort-order: 1
+  quotes: 1
 
   # Inner Spacing
   space-after-comma: 1
