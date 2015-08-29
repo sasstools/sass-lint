@@ -31,3 +31,5 @@ Initial Release!
 * [space-between-parens](docs/rules/space-between-parens.md)
 * [trailing-semicolon](docs/rules/trailing-semicolon.md)
 * [final-newline](docs/rules/final-newline.md)
+* [no-debug](docs/rules/no-debug.md)
+* [no-warn](docs/rules/no-warn.md)
