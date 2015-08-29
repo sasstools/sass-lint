@@ -305,4 +305,24 @@ describe('rules', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // No Debug
+  //////////////////////////////
+  it('no debug', function (done) {
+    lintFile('no-debug.scss', function (data) {
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // No Warn
+  //////////////////////////////
+  it('no warn', function (done) {
+    lintFile('no-warn.scss', function (data) {
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
 });

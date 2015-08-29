@@ -16,10 +16,12 @@ rules:
   single-line-per-selector: 1
 
   # Disallows
+  no-debug: 1
   no-empty-rulesets: 1
   no-extends: 0
   no-ids: 1
   no-important: 1
+  no-warn: 1
 
   # Style Guide
   indentation: 1

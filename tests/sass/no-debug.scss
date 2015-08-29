@@ -1,0 +1,9 @@
+@debug 'foo';
+
+@function foo {
+  @debug 'bar';
+}
+
+@mixin baz {
+  @debug 'qux';
+}
