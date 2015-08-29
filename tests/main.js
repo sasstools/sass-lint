@@ -325,4 +325,14 @@ describe('rules', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // String Quotes
+  //////////////////////////////
+  it('quotes', function (done) {
+    lintFile('quotes.scss', function (data) {
+      assert.equal(1, data.warningCount);
+      done();
+    });
+  });
 });
