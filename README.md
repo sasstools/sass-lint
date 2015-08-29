@@ -24,9 +24,18 @@ The `files` option can either be set to a [glob](https://github.com/isaacs/node-
 
 #### Rules
 
-For all [rules](#rules), setting their severity to `0` turns it off, setting to `1` sets it as a warning (something that should not be committed in), and setting to `2` set it to an error (something that should not be written). If a rule is set to just a severity, it will use the default configuration (where available).
+For all [rules](docs/rules), setting their severity to `0` turns it off, setting to `1` sets it as a warning (something that should not be committed in), and setting to `2` set it to an error (something that should not be written). If a rule is set to just a severity, it will use the default configuration (where available).
 
 If you want to configure options, set the rule to an array, where the first item in the array is the severity, and the second item in the array is an object including the options you would like to set.
+
+An example configuration of a rule with options look like the following:
+
+```yml
+indentation:
+  - 2
+  -
+    size: 2
+```
 
 ## Creating Rules
 
