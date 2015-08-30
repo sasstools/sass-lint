@@ -87,6 +87,11 @@ sassLint.format = function (results) {
   return stylish(results);
 };
 
+sassLint.outputResults = function (results) {
+  console.log(results);
+  return results;
+};
+
 sassLint.failOnError = function (results) {
   var result,
       i;
