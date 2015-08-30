@@ -88,8 +88,15 @@ sassLint.format = function (results) {
 };
 
 sassLint.failOnError = function (results) {
-  if (results.errorCount > 0) {
-    throw new Error(results.errorCount + ' errors detected in ' + results.filePath);
+  var result,
+      i;
+
+  for (i = 0; i < results.length; i++) {
+    result = results[i];
+
+    if (result.errorCount > 0) {
+      throw new Error(result.errorCount + ' errors detected in ' + result.filePath);
+    }
   }
 };
 
