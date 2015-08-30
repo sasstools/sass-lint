@@ -12,7 +12,7 @@ var lintFile = function lintFile (file, options, cb) {
   cb(results[0]);
 };
 
-describe('rules', function () {
+describe('rule', function () {
   //////////////////////////////
   // Indentation
   //////////////////////////////
@@ -28,7 +28,7 @@ describe('rules', function () {
   //////////////////////////////
   it('empty line between blocks', function (done) {
     lintFile('empty-line-between-blocks.scss', function (data) {
-      assert.equal(3, data.warningCount);
+      assert.equal(2, data.warningCount);
       done();
     });
   });
@@ -58,7 +58,7 @@ describe('rules', function () {
   //////////////////////////////
   it('extends before declarations', function (done) {
     lintFile('extends-before-declarations.scss', function (data) {
-      assert.equal(5, data.warningCount);
+      assert.equal(4, data.warningCount);
       done();
     });
   });
@@ -68,7 +68,7 @@ describe('rules', function () {
   //////////////////////////////
   it('extends before mixins', function (done) {
     lintFile('extends-before-mixins.scss', function (data) {
-      assert.equal(3, data.warningCount);
+      assert.equal(2, data.warningCount);
       done();
     });
   });
@@ -138,7 +138,7 @@ describe('rules', function () {
   //////////////////////////////
   it('space before brace', function (done) {
     lintFile('space-before-brace.scss', function (data) {
-      assert.equal(4, data.warningCount);
+      assert.equal(3, data.warningCount);
       done();
     });
   });
