@@ -5,7 +5,8 @@ var program = require('commander'),
     meta = require('../package.json'),
     lint = require('../index');
 
-var detects;
+var detects,
+    formatted;
 
 program
   .version(meta.version)
@@ -15,9 +16,9 @@ program
 
 
 detects = lint.lintFiles(program.args[0]);
-detects = lint.format(detects);
+formatted = lint.format(detects);
 
-lint.outputResults(detects);
+lint.outputResults(formatted);
 
 if (program.exit) {
   lint.failOnError(detects);
