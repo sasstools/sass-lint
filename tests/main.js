@@ -198,7 +198,7 @@ describe('rules', function () {
   //////////////////////////////
   it('one declaration per line', function (done) {
     lintFile('one-declaration-per-line.scss', function (data) {
-      assert.equal(1, data.warningCount);
+      assert.equal(2, data.warningCount);
       done();
     });
   });
