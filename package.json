@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Snugug/sass-lint",
   "dependencies": {
+    "commander": "^2.8.1",
     "eslint": "^1.1.0",
     "glob": "^4.3.5",
     "gonzales-pe": "^3.0.0-31",

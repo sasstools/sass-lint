@@ -13,6 +13,7 @@ describe('code style guide', function () {
   it('library files should follow our JavaScript style guide', function (done) {
     var files = glob.sync('lib/**/*.js');
     files.push('index.js');
+    files.push('bin/sass-lint.js');
 
     report = cli.executeOnFiles(files);
     if (report.errorCount > 0 || report.warningCount > 0) {
