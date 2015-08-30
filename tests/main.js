@@ -285,7 +285,7 @@ describe('rules', function () {
         'no-important': 0
       }
     }, function (data) {
-      assert.equal(2, data.warningCount);
+      assert.equal(4, data.warningCount);
       done();
     });
   });
@@ -301,7 +301,7 @@ describe('rules', function () {
         'no-important': 0
       }
     }, function (data) {
-      assert.equal(2, data.warningCount);
+      assert.equal(4, data.warningCount);
       done();
     });
   });

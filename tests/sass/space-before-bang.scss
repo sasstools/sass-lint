@@ -1,3 +1,5 @@
+// Imporant
+
 .foo {
   color: red!important;
 }
@@ -13,3 +15,13 @@
 .quz {
   color: pink ! important;
 }
+
+// Default
+
+$foo: red!default;
+
+$foo: red !default;
+
+$foo: red! default;
+
+$foo: red ! default;
