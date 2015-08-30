@@ -1,5 +1,14 @@
 # Sass Lint Changelog
 
+## v1.1.0
+
+CLI Goodness
+
+**New**
+
+* Add Command Line Interface usage for Sass Lint! ([#42](https://github.com/sasstools/sass-lint/issues/42))
+* Add ability to define custom config path ([#47](https://github.com/sasstools/sass-lint/issues/47))
+
 ## v1.0.0
 **August 29, 2015**
 
