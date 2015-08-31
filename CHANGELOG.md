@@ -8,6 +8,7 @@ CLI Goodness
 
 * Add Command Line Interface usage for Sass Lint! ([#42](https://github.com/sasstools/sass-lint/issues/42))
 * Add ability to define custom config path ([#47](https://github.com/sasstools/sass-lint/issues/47))
+* Add ability for config to be found recursively up the directory tree to a user's home directory
 
 ## v1.0.0
 **August 29, 2015**
