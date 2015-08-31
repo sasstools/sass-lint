@@ -1,6 +1,7 @@
 # Sass Lint Changelog
 
 ## v1.1.0
+**August 31, 2015**
 
 CLI Goodness
 
@@ -9,6 +10,14 @@ CLI Goodness
 * Add Command Line Interface usage for Sass Lint! ([#42](https://github.com/sasstools/sass-lint/issues/42))
 * Add ability to define custom config path ([#47](https://github.com/sasstools/sass-lint/issues/47))
 * Add ability for config to be found recursively up the directory tree to a user's home directory
+
+**Fixes**
+
+* Empty line between root-level blocks ([#54](https://github.com/sasstools/sass-lint/issues/54))
+* Bang whitespace include `!default` flag ([#53](https://github.com/sasstools/sass-lint/issues/53))
+* One declaration per line inside arguments ([#51](https://github.com/sasstools/sass-lint/issues/51))
+* Leading zero non-decimal issues ([#49](https://github.com/sasstools/sass-lint/issues/49))
+* Indentation rule with parenthesis ([#46](https://github.com/sasstools/sass-lint/issues/46))
 
 ## v1.0.0
 **August 29, 2015**
