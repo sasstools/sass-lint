@@ -35,10 +35,6 @@ indentation:
     size: 2
 ```
 
-## CLI
-
-There currently is **NO COMMAND LINE INTERFACE FOR SASS LINT**. To get our 1.0 out the door, we focused on [Task Runner Integration](#task-runnerintegration) as that's where we saw the majoirty use case. [Release 1.1](https://github.com/sasstools/sass-lint/milestones/1.1.0) is where we have our CLI work slated for, so chck back there, especially the [Add CLI issue](https://github.com/sasstools/sass-lint/issues/42)
-
 ## Creating Rules
 
 Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Each rule will be passed the full AST which they can traverse as they please. There are many different [node types](https://github.com/tonyganch/gonzales-pe/blob/dev/doc/node-types.md) that may be traversed, and an extensive [API for working with nodes](https://github.com/tonyganch/gonzales-pe/tree/dev#api). The file of the rule must have the same name as the name of the rule. All of the available rules are in our [rules directory](https://github.com/sasstools/sass-lint/tree/playground/lib/rules). Default options will be merged in with user config.
