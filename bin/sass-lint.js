@@ -13,11 +13,11 @@ var detects,
 
 program
   .version(meta.version)
-  .usage('[options] \'<file or glob>\'')
+  .usage('[options] <pattern>')
+  .option('-c, --config [path]', 'path to custom config file')
+  .option('-i, --ignore [pattern]', 'pattern to ignore. For multiple ignores, separate each pattern by `, `')
   .option('-q, --no-exit', 'do not exit on errors')
   .option('-v, --verbose', 'verbose output')
-  .option('-c, --config [path]', 'path to custom config file')
-  .option('-i, --ignore \'[pattern]\'', 'pattern to ignore. For multiple ignores, separate each pattern by `, `')
   .parse(process.argv);
 
 
