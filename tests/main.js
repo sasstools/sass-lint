@@ -28,7 +28,7 @@ describe('rules', function () {
   //////////////////////////////
   it('empty line between blocks', function (done) {
     lintFile('empty-line-between-blocks.scss', function (data) {
-      assert.equal(3, data.warningCount);
+      assert.equal(2, data.warningCount);
       done();
     });
   });
