@@ -14,12 +14,12 @@ var sassLint = function (config) {
   return;
 };
 
-sassLint.getConfig = function (config) {
-  return slConfig(config);
+sassLint.getConfig = function (config, configPath) {
+  return slConfig(config, configPath);
 };
 
-sassLint.lintText = function (file, options) {
-  var rules = slRules(this.getConfig(options)),
+sassLint.lintText = function (file, options, configPath) {
+  var rules = slRules(this.getConfig(options, configPath)),
       ast = groot(file.text, file.format, file.filename),
       detects,
       results = [],
@@ -49,7 +49,7 @@ sassLint.lintText = function (file, options) {
   };
 };
 
-sassLint.lintFiles = function (files, options) {
+sassLint.lintFiles = function (files, options, configPath) {
   var that = this,
       results = [];
 
@@ -57,7 +57,7 @@ sassLint.lintFiles = function (files, options) {
     files = glob.sync(files);
   }
   else {
-    files = this.getConfig(options).files;
+    files = this.getConfig(options, configPath).files;
 
     if (typeof files === 'string') {
       files = glob.sync(files);
