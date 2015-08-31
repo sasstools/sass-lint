@@ -29,6 +29,7 @@ rules:
   nesting-depth: 1
   property-sort-order: 1
   quotes: 1
+  clean-import-paths: 1
 
   # Inner Spacing
   space-after-comma: 1
