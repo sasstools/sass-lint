@@ -1,10 +1,17 @@
 .foo {
   content: 'bar';
 
-   .foo {
+  .foo {
     content: 'bar';
   }
   .bar {
     content: 'baz';
   }
+}
+.waldo {
+  content: 'foo';
+}
+
+.baz {
+  content: 'fail';
 }

@@ -1,5 +1,25 @@
+// Should cause issue
+.foo {
+  content: 'baz'; content: 'qux';
+}
+
+.bar { color: red; content: 'bar'; }
+
+// Should be ok
 .foo {
   content: 'bar';
+}
 
-  content: 'baz'; content: 'qux';
+$foo: adjust-color(rgb(255, 0, 0), $lightness: -20%);
+
+.bar {
+  color: adjust-color(rgb(255, 0, 0), $blue: 5);
+}
+
+.baz {
+  color: scale-color(hsl(120, 70%, 80%), $lightness: 50%);
+}
+
+.qux {
+  color: change-color(hsl(25, 100%, 80%), $lightness: 40%, $alpha: .8);
 }

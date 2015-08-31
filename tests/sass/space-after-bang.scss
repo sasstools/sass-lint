@@ -1,3 +1,5 @@
+// Important
+
 .foo {
   color: orange !important;
 }
@@ -13,3 +15,13 @@
 .qux {
   color: orange! important;
 }
+
+// Default
+
+$foo: red!default;
+
+$foo: red !default;
+
+$foo: red! default;
+
+$foo: red ! default;
