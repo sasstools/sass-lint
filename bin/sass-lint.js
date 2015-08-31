@@ -5,11 +5,27 @@ var program = require('commander'),
     meta = require('../package.json'),
     lint = require('../index');
 
-var detects,
-    formatted,
-    configPath,
+var configPath,
     ignores,
     configOptions = {};
+
+var detectPattern = function (pattern) {
+  var detects,
+      formatted;
+
+  detects = lint.lintFiles(pattern, configOptions, configPath);
+  formatted = lint.format(detects);
+
+
+  if (program.verbose) {
+    lint.outputResults(formatted);
+  }
+
+
+  if (program.exit) {
+    lint.failOnError(detects);
+  }
+};
 
 program
   .version(meta.version)
@@ -34,15 +50,11 @@ if (program.ignore && program.ignore !== true) {
   };
 }
 
-detects = lint.lintFiles(program.args[0], configOptions, configPath);
-formatted = lint.format(detects);
-
-
-if (program.verbose) {
-  lint.outputResults(formatted);
+if (program.args.length === 0) {
+  detectPattern(null);
 }
-
-
-if (program.exit) {
-  lint.failOnError(detects);
+else {
+  program.args.forEach(function (path) {
+    detectPattern(path);
+  });
 }
