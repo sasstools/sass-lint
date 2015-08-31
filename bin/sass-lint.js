@@ -6,19 +6,42 @@ var program = require('commander'),
     lint = require('../index');
 
 var detects,
-    formatted;
+    formatted,
+    configPath,
+    ignores,
+    configOptions = {};
 
 program
   .version(meta.version)
   .usage('[options] \'<file or glob>\'')
   .option('-q, --no-exit', 'do not exit on errors')
+  .option('-v, --verbose', 'verbose output')
+  .option('-c, --config [path]', 'path to custom config file')
+  .option('-i, --ignore \'[pattern]\'', 'pattern to ignore. For multiple ignores, separate each pattern by `, `')
   .parse(process.argv);
 
 
-detects = lint.lintFiles(program.args[0]);
+if (program.config && program.config !== true) {
+  configPath = program.config;
+}
+
+if (program.ignore && program.ignore !== true) {
+  ignores = program.ignore.split(', ');
+  configOptions = {
+    'files': {
+      'ignore': ignores
+    }
+  };
+}
+
+detects = lint.lintFiles(program.args[0], configOptions, configPath);
 formatted = lint.format(detects);
 
-lint.outputResults(formatted);
+
+if (program.verbose) {
+  lint.outputResults(formatted);
+}
+
 
 if (program.exit) {
   lint.failOnError(detects);
