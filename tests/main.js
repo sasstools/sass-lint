@@ -335,4 +335,14 @@ describe('rule', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // Clean Import Paths
+  //////////////////////////////
+  it('clean import paths', function (done) {
+    lintFile('clean-import-paths.scss', function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
 });
