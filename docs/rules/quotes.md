@@ -8,7 +8,7 @@ Rule `quotes` will enforce whether single quotes (`''`) or double quotes (`""`) 
 
 ## Examples
 
-When `style: string`, the following are allowed. When `style: double`, the following are disallowed:
+When `style: single`, the following are allowed. When `style: double`, the following are disallowed:
 
 ```scss
 .foo {

@@ -1,0 +1,15 @@
+// Clean paths
+@import 'foo';
+@import 'bar/foo';
+
+// Only filename extensions
+@import 'foo.scss';
+@import 'bar/foo.scss';
+
+// Only leading underscores
+@import '_foo';
+@import 'bar/_foo';
+
+// Both leading underscores and filename extensions
+@import '_foo.scss';
+@import 'bar/_foo.scss';

@@ -1,6 +1,13 @@
 .foo {
   content: 'bar';
 
+  @include breakpoint($tab1) {
+    &:after {
+      content: '|';
+      padding-left: 12px;
+    }
+  }
+
   .foo {
     content: 'bar';
   }
@@ -14,4 +21,17 @@
 
 .baz {
   content: 'fail';
+}
+
+.block {
+  .element {
+    content: 'baz';
+  }
+}
+
+.block {
+
+  .element {
+    content: 'baz';
+  }
 }
