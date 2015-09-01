@@ -347,13 +347,24 @@ describe('rule', function () {
   //////////////////////////////
   // Zero Unit
   //////////////////////////////
-  it('zero unit', function (done) {
+  it('zero unit - default - [include: false]', function (done) {
     lintFile('zero-unit.scss', {
       'rules': {
         'zero-unit': 1
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('zero unit - [include: true]', function (done) {
+    lintFile('zero-unit.scss', {
+      'rules': {
+        'zero-unit': [1, { 'include': true }]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });
