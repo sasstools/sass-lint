@@ -335,4 +335,14 @@ describe('rule', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // Empty Args
+  //////////////////////////////
+  it('empty args', function (done) {
+    lintFile('empty-args.scss', function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
 });
