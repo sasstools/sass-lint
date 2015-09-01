@@ -1,13 +1,17 @@
-$foo-color: #456;
+$foo-color: #123;
 
 .foo {
-  background: linear-gradient(top, #3ff, #ddd);
+  background: linear-gradient(top, #cc2, #44d);
   color: #fff;
 }
 
-$bar-color: #456345;
+$bar-color: #123123;
 
 .bar {
-  background: linear-gradient(top, #333fff, #555ddd);
+  background: linear-gradient(top, #cc2cc2, #44d44d);
   color: #ffffff;
+}
+
+.baz {
+  border-color: #123456;
 }
