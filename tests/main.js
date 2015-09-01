@@ -104,6 +104,35 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Hex Length Short - Default
+  //////////////////////////////
+  it('hex length - short', function (done) {
+    lintFile('hex-length.scss', function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Length Long
+  //////////////////////////////
+  it('hex length - long', function (done) {
+    lintFile('hex-length.scss', {
+      'rules': {
+        'hex-length': [
+          1,
+          {
+            'style': 'long'
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Mixins Before DEclarations
   //////////////////////////////
   it('mixins before declarations', function (done) {

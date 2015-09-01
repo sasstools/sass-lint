@@ -1,0 +1,13 @@
+$foo-color: #456;
+
+.foo {
+  background: linear-gradient(top, #3ff, #ddd);
+  color: #fff;
+}
+
+$bar-color: #456345;
+
+.bar {
+  background: linear-gradient(top, #333fff, #555ddd);
+  color: #ffffff;
+}
