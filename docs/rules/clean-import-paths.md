@@ -1,6 +1,6 @@
 # Clean Import Paths
 
-Rule `clean-import-path` will enforce whether or not import paths should have leading underscores, filename extensions or both.
+Rule `clean-import-paths` will enforce whether or not import paths should have leading underscores and/or filename extensions.
 
 ## Options
 
