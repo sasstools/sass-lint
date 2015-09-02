@@ -347,7 +347,9 @@ describe('rule', function () {
   //////////////////////////////
   // Zero Unit
   //////////////////////////////
-  it('zero unit - default - [include: false]', function (done) {
+
+  // Default
+  it('zero unit - [include: false]', function (done) {
     lintFile('zero-unit.scss', {
       'rules': {
         'zero-unit': 1
