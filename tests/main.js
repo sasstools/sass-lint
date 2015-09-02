@@ -367,4 +367,36 @@ describe('rule', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // Comment - no allowed
+  //////////////////////////////
+  it('comment', function (done) {
+    lintFile('comment.scss', function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Comment - 2 allowed
+  //////////////////////////////
+  it('comment', function (done) {
+    lintFile('comment.scss', {
+      'rules': {
+        'comment': [
+          1,
+          {
+            'allowed': [
+              '^[\/* ]*Bad',
+              '/\* Test Comment'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
 });
