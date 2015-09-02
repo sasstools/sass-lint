@@ -4,11 +4,11 @@ Rule `border-zero` will enforce whether one should use `0` or `none` when specif
 
 ## Options
 
-* `convention`: `0`/`'none'` (defaults to `0`)
+* `convention`: `'0'`/`'none'` (defaults to `0`)
 
 ## Examples
 
-When `convention: 0`, the following are allowed. When `convention: none`, the following are disallowed:
+When `convention: '0'`, the following are allowed. When `convention: 'none'`, the following are disallowed:
 
 ```scss
 .foo {
@@ -20,7 +20,7 @@ When `convention: 0`, the following are allowed. When `convention: none`, the fo
 }
 ```
 
-When `convention: none`, the following are allowed. When `convention: 0`, the following are disallowed:
+When `convention: 'none'`, the following are allowed. When `convention: '0'`, the following are disallowed:
 
 ```scss
 .foo {
