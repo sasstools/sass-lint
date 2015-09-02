@@ -344,21 +344,21 @@ describe('rule', function () {
     });
   });
 
-  //////////////////////////////
-  // Zero Unit
-  //////////////////////////////
+  // //////////////////////////////
+  // // Zero Unit
+  // //////////////////////////////
 
-  // Default
-  it('zero unit - [include: false]', function (done) {
-    lintFile('zero-unit.scss', {
-      'rules': {
-        'zero-unit': 1
-      }
-    }, function (data) {
-      assert.equal(4, data.warningCount);
-      done();
-    });
-  });
+  // // Default
+  // it('zero unit - [include: false]', function (done) {
+  //   lintFile('zero-unit.scss', {
+  //     'rules': {
+  //       'zero-unit': 1
+  //     }
+  //   }, function (data) {
+  //     assert.equal(4, data.warningCount);
+  //     done();
+  //   });
+  // });
 
   it('zero unit - [include: true]', function (done) {
     lintFile('zero-unit.scss', {
@@ -377,6 +377,34 @@ describe('rule', function () {
   it('clean import paths', function (done) {
     lintFile('clean-import-paths.scss', function (data) {
       assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Border Zero
+  //////////////////////////////
+
+  // Default
+  it('border zero - [convention: \'0\']', function (done) {
+    lintFile('border-zero.scss', {
+      'rules': {
+        'zero-unit': 0
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('border zero - [convention: \'none\']', function (done) {
+    lintFile('border-zero.scss', {
+      'rules': {
+        'zero-unit': 0,
+        'border-zero': [1, { 'convention': 'none' }]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });
