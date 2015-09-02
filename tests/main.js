@@ -37,7 +37,11 @@ describe('rule', function () {
   // Empty Line With Comment
   //////////////////////////////
   it('empty line between blocks with comments', function (done) {
-    lintFile('empty-line-with-comments.scss', function (data) {
+    lintFile('empty-line-with-comments.scss', {
+      'rules': {
+        'comment': 0
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
