@@ -37,7 +37,7 @@ indentation:
 
 ## CLI
 
-There currently is **NO COMMAND LINE INTERFACE FOR SASS LINT**. To get our 1.0 out the door, we focused on [Task Runner Integration](#task-runnerintegration) as that's where we saw the majoirty use case. [Release 1.1](https://github.com/sasstools/sass-lint/milestones/1.1.0) is where we have our CLI work slated for, so chck back there, especially the [Add CLI issue](https://github.com/sasstools/sass-lint/issues/42)
+Sass Lint [`v1.1.0`](https://github.com/sasstools/sass-lint/releases/tag/v1.1.0) introduced the ability to run Sass Lint through a command line interface. See the [CLI Docs](docs/cli) for full documentation on how to use the CLI.
 
 ## Creating Rules
 

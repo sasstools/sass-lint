@@ -117,7 +117,11 @@ describe('rule', function () {
   // Property Sort Order
   //////////////////////////////
   it('property sort order', function (done) {
-    lintFile('property-sort-order.scss', function (data) {
+    lintFile('property-sort-order.scss', {
+      'rules': {
+        'zero-unit': 0
+      }
+    }, function (data) {
       assert.equal(6, data.warningCount);
       done();
     });
@@ -167,7 +171,11 @@ describe('rule', function () {
   // Leading Zero
   //////////////////////////////
   it('leading zero', function (done) {
-    lintFile('leading-zero.scss', function (data) {
+    lintFile('leading-zero.scss', {
+      'rules': {
+        'zero-unit': 0
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
@@ -332,6 +340,30 @@ describe('rule', function () {
   it('quotes', function (done) {
     lintFile('quotes.scss', function (data) {
       assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Zero Unit
+  //////////////////////////////
+  it('zero unit', function (done) {
+    lintFile('zero-unit.scss', {
+      'rules': {
+        'zero-unit': 1
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Clean Import Paths
+  //////////////////////////////
+  it('clean import paths', function (done) {
+    lintFile('clean-import-paths.scss', function (data) {
+      assert.equal(8, data.warningCount);
       done();
     });
   });

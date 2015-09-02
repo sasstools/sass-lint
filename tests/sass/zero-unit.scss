@@ -1,0 +1,25 @@
+.baz {
+  border-right-width: 0px;
+}
+
+.foo {
+  margin: 0px;
+  padding: 0;
+}
+
+.bar {
+  padding: 5px 0 0px;
+}
+
+$foo: 0px;
+$bar: '0px';
+
+.foo {
+  @if $bar == 0 {
+    content: 'bar';
+  }
+
+  @if $foo == '0px' {
+    content: 'foo';
+  }
+}
