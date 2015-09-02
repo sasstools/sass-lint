@@ -104,6 +104,35 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Hex notation Lowercase - Default
+  //////////////////////////////
+  it('hex notation - lowercase', function (done) {
+    lintFile('hex-notation.scss', function (data) {
+      assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Notation Uppercase
+  //////////////////////////////
+  it('hex length - uppercase', function (done) {
+    lintFile('hex-notation.scss', {
+      'rules': {
+        'hex-notation': [
+          1,
+          {
+            'style': 'uppercase'
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(7, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Mixins Before DEclarations
   //////////////////////////////
   it('mixins before declarations', function (done) {
