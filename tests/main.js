@@ -427,7 +427,7 @@ describe('rule', function () {
   //////////////////////////////
   // Comment - 2 allowed
   //////////////////////////////
-  it('comment', function (done) {
+  it('comment - allowed regEx', function (done) {
     lintFile('comment.scss', {
       'rules': {
         'comment': [
