@@ -39,9 +39,9 @@ $foo-color: #456456;
 In both cases the following will be allowed as the values cannot be shortened:
 
 ```scss
-$quz-color: #abcdef
+$quz-color: #abcdef;
 
 .qux {
-  color: #123456
+  color: #123456;
 }
 ```
