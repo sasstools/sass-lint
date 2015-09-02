@@ -339,9 +339,22 @@ describe('rule', function () {
   //////////////////////////////
   // Empty Args
   //////////////////////////////
-  it('empty args', function (done) {
+
+  // Default
+  it('empty args - [include: false]', function (done) {
     lintFile('empty-args.scss', function (data) {
       assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('empty args - [include: true]', function (done) {
+    lintFile('empty-args.scss', {
+      'rules': {
+        'empty-args': [1, { include: true }]
+      }
+    }, function (data) {
+      assert.equal(3, data.warningCount);
       done();
     });
   });
