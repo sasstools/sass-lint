@@ -114,6 +114,35 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Hex Length Short - Default
+  //////////////////////////////
+  it('hex length - short', function (done) {
+    lintFile('hex-length.scss', function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Length Long
+  //////////////////////////////
+  it('hex length - long', function (done) {
+    lintFile('hex-length.scss', {
+      'rules': {
+        'hex-length': [
+          1,
+          {
+            'style': 'long'
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Mixins Before DEclarations
   //////////////////////////////
   it('mixins before declarations', function (done) {
@@ -357,13 +386,26 @@ describe('rule', function () {
   //////////////////////////////
   // Zero Unit
   //////////////////////////////
-  it('zero unit', function (done) {
+
+  // Default
+  it('zero unit - [include: false]', function (done) {
     lintFile('zero-unit.scss', {
       'rules': {
         'zero-unit': 1
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('zero unit - [include: true]', function (done) {
+    lintFile('zero-unit.scss', {
+      'rules': {
+        'zero-unit': [1, { 'include': true }]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });
