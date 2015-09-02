@@ -418,7 +418,11 @@ describe('rule', function () {
   // Comment - no allowed
   //////////////////////////////
   it('comment', function (done) {
-    lintFile('comment.scss', function (data) {
+    lintFile('comment.scss', {
+      'rules': {
+        'comment': 1
+      }
+    }, function (data) {
       assert.equal(4, data.warningCount);
       done();
     });
