@@ -104,10 +104,47 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Hex Length Short - Default
+  //////////////////////////////
+  it('hex length - short', function (done) {
+    lintFile('hex-length.scss', {
+      'rules': {
+        'hex-length': 1
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Length Long
+  //////////////////////////////
+  it('hex length - long', function (done) {
+    lintFile('hex-length.scss', {
+      'rules': {
+        'hex-length': [
+          1,
+          {
+            'style': 'long'
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Hex notation Lowercase - Default
   //////////////////////////////
   it('hex notation - lowercase', function (done) {
-    lintFile('hex-notation.scss', function (data) {
+    lintFile('hex-notation.scss', {
+      'rules': {
+        'hex-length': 0
+      }
+    }, function (data) {
       assert.equal(6, data.warningCount);
       done();
     });
@@ -124,7 +161,8 @@ describe('rule', function () {
           {
             'style': 'uppercase'
           }
-        ]
+        ],
+        'hex-length': 0
       }
     }, function (data) {
       assert.equal(7, data.warningCount);
@@ -376,13 +414,26 @@ describe('rule', function () {
   //////////////////////////////
   // Zero Unit
   //////////////////////////////
-  it('zero unit', function (done) {
+
+  // Default
+  it('zero unit - [include: false]', function (done) {
     lintFile('zero-unit.scss', {
       'rules': {
         'zero-unit': 1
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('zero unit - [include: true]', function (done) {
+    lintFile('zero-unit.scss', {
+      'rules': {
+        'zero-unit': [1, { 'include': true }]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });
