@@ -1,0 +1,52 @@
+//valid
+
+$numbers-long: #123456;
+$numbers-short: #123
+$letters-long: #abcdef;
+$letters-short: #abc;
+$mixed-long: #a12a12;
+$mixed-short: #a12;
+$mixed-num-long: #12a12a;
+$mixed-num-short: #12a;
+
+$upper-letters-long: #ABCDEF;
+$upper-letters-short: #ABC;
+$upper-mixed-long: #A12A12;
+$upper-mixed-short: #A12;
+$upper-mixed-num-long: #12A12A;
+$upper-mixed-num-short: #12A;
+
+
+//invalid
+
+$invalid-long: #1234567;
+$invalid-med: #1234;
+$invalid-short: #12;
+
+$invalid-letters-long: #abcdefg;
+$invalid-letters-med: #abcd;
+$invalid-letters-short: #ab;
+
+$invalid-mixed-long: #1bcdefg;
+$invalid-mixed-med: #1bcd;
+$invalid-mixed-short: #1b;
+
+$invalid-mixed-letters-long: #abcdef7;
+$invalid-mixed-letters-med: #abc4;
+$invalid-mixed-letters-short: #a1;
+
+$invalid-character-map: (
+  invalid-characters-upper-letters: #GHIJKL,
+  invalid-characters-upper-letters-short: #GHI,
+  even-more-invalid-map: (
+    invalid-characters-lower-letters-short: #ghijkl,
+    invalid-characters-lower-letters-short: #ghi
+  )
+);
+// check that only hex colours are being parsed
+
+$literal-color: red;
+$rgb-color: rgb(255, 255, 255);
+$rgba-color: rgba(0, 0, 0, .1);
+$hsl-color: hsl(40, 50%, 50%);
+$hsla-color: hsla(40, 50%, 50%, .3);

@@ -104,6 +104,16 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Hex Validation
+  //////////////////////////////
+  it('hex validation', function (done) {
+    lintFile('hex-validation.scss', function (data) {
+      assert.equal(16, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Mixins Before DEclarations
   //////////////////////////////
   it('mixins before declarations', function (done) {
