@@ -17,7 +17,11 @@ describe('rule', function () {
   // Indentation
   //////////////////////////////
   it('indentation', function (done) {
-    lintFile('indentation.scss', function (data) {
+    lintFile('indentation.scss', {
+      'rules': {
+        'no-duplicate-property': 0
+      }
+    }, function (data) {
       assert.equal(8, data.warningCount);
       done();
     });
@@ -99,6 +103,20 @@ describe('rule', function () {
   it('final newline', function (done) {
     lintFile('final-newline.scss', function (data) {
       assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Validation
+  //////////////////////////////
+  it('hex validation', function (done) {
+    lintFile('hex-validation.scss', {
+      'rules': {
+        'hex-length': 0
+      }
+    }, function (data) {
+      assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -444,6 +462,21 @@ describe('rule', function () {
   it('clean import paths', function (done) {
     lintFile('clean-import-paths.scss', function (data) {
       assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Duplicate Property
+  //////////////////////////////
+  it('no duplicate property', function (done) {
+    lintFile('no-duplicate-property.scss', {
+      'rules': {
+        'no-duplicate-property': 1,
+        'zero-unit': 0
+      }
+    }, function (data) {
+      assert.equal(3, data.warningCount);
       done();
     });
   });
