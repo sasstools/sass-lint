@@ -17,6 +17,7 @@ rules:
 
   # Disallows
   no-debug: 1
+  no-duplicate-property: 1
   no-empty-rulesets: 1
   no-extends: 0
   no-ids: 1
@@ -44,5 +45,3 @@ rules:
   # Final Items
   trailing-semicolon: 1
   final-newline: 1
-
-  no-duplicate-property: 1
