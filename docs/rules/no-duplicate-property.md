@@ -1,6 +1,6 @@
 # No Duplicate Property
 
-Rule `no-duplicate-property` will enforce that duplicate properties are not allowed within a block.
+Rule `no-duplicate-property` will enforce that duplicate properties are not allowed within the same block.
 
 ## Examples
 
