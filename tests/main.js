@@ -153,7 +153,7 @@ describe('rule', function () {
   //////////////////////////////
   // Hex Notation Uppercase
   //////////////////////////////
-  it('hex length - uppercase', function (done) {
+  it('hex notation - uppercase', function (done) {
     lintFile('hex-notation.scss', {
       'rules': {
         'hex-notation': [
