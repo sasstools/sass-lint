@@ -108,10 +108,28 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Hex Validation
+  //////////////////////////////
+  it('hex validation', function (done) {
+    lintFile('hex-validation.scss', {
+      'rules': {
+        'hex-length': 0
+      }
+    }, function (data) {
+      assert.equal(16, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Hex Length Short - Default
   //////////////////////////////
   it('hex length - short', function (done) {
-    lintFile('hex-length.scss', function (data) {
+    lintFile('hex-length.scss', {
+      'rules': {
+        'hex-length': 1
+      }
+    }, function (data) {
       assert.equal(4, data.warningCount);
       done();
     });
