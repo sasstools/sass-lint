@@ -1,0 +1,17 @@
+.foo {
+  margin: 0 0 15px;
+  padding: 10px;
+  margin: 0;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  display: none;
+
+  .baz {
+    display: block;
+    width: 50%;
+    display: none;
+  }
+}
