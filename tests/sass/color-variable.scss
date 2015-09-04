@@ -83,6 +83,18 @@ $hsla: hsla(40, 50%, 50%, .3);
   color: $hexVar;
 }
 
+.adj {
+  color: adjust-color($off-red, $blue: 5);
+}
+
+.scale {
+  color: scale-color($off-blue, $lightness: 50%);
+}
+
+.change {
+  color: change-color($orange-extra, $lightness: 40%, $alpha: .8);
+}
+
 .function {
   color: test($hexVar);
 }
