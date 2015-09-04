@@ -5,13 +5,13 @@
   // nested block - comment causes an error/warning
   //////////////////////////////
   .nested-block {
-    color: orange;
+    content: 'bar';
   }
   /**
   * Bar
   **/
   .nested-goodies {
-    color: blue;
+    content: 'bar';
   }
   .bar {
     content: 'foo';
@@ -19,21 +19,21 @@
 
   // BEM element - comment causes an error/warning
   &__element {
-    color: pink;
+    content: 'bar';
   }
 
   // BEM modifier - comment causes an error/warning
   &--modifier {
-    color: purple;
+    content: 'bar';
   }
 
   // pseudo element - comment causes an error/warning
   &:before {
-    color: blue;
+    content: 'bar';
   }
 
   // pseudo element - comment causes an error/warning
   &::first-letter {
-    color: green;
+    content: 'bar';
   }
 }
