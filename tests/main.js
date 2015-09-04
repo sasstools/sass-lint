@@ -61,7 +61,11 @@ describe('rule', function () {
   // Extends Before Declaration
   //////////////////////////////
   it('extends before declarations', function (done) {
-    lintFile('extends-before-declarations.scss', function (data) {
+    lintFile('extends-before-declarations.scss', {
+      'rules': {
+        'no-duplicate-property': 0
+      }
+    }, function (data) {
       assert.equal(4, data.warningCount);
       done();
     });
@@ -113,7 +117,8 @@ describe('rule', function () {
   it('hex validation', function (done) {
     lintFile('hex-validation.scss', {
       'rules': {
-        'hex-length': 0
+        'hex-length': 0,
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(16, data.warningCount);
@@ -127,7 +132,8 @@ describe('rule', function () {
   it('hex length - short', function (done) {
     lintFile('hex-length.scss', {
       'rules': {
-        'hex-length': 1
+        'hex-length': 1,
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -146,7 +152,8 @@ describe('rule', function () {
           {
             'style': 'long'
           }
-        ]
+        ],
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -155,7 +162,7 @@ describe('rule', function () {
   });
 
   //////////////////////////////
-  // Mixins Before DEclarations
+  // Mixins Before Declarations
   //////////////////////////////
   it('mixins before declarations', function (done) {
     lintFile('mixins-before-declarations.scss', function (data) {
@@ -256,7 +263,11 @@ describe('rule', function () {
   // One Declaration Per Line
   //////////////////////////////
   it('one declaration per line', function (done) {
-    lintFile('one-declaration-per-line.scss', function (data) {
+    lintFile('one-declaration-per-line.scss', {
+      'rules': {
+        'color-variable': 0
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -266,7 +277,11 @@ describe('rule', function () {
   // Space After Comma
   //////////////////////////////
   it('space after comma', function (done) {
-    lintFile('space-after-comma.scss', function (data) {
+    lintFile('space-after-comma.scss', {
+      'rules': {
+        'color-variable': 0
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
@@ -309,7 +324,8 @@ describe('rule', function () {
     lintFile('no-extend.scss', {
       'rules': {
         'no-extends': 1,
-        'placeholder-in-extend': 0
+        'placeholder-in-extend': 0,
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -325,7 +341,8 @@ describe('rule', function () {
       'rules': {
         'no-important': 1,
         'space-before-bang': 0,
-        'space-after-bang': 0
+        'space-after-bang': 0,
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -341,7 +358,8 @@ describe('rule', function () {
       'rules': {
         'space-before-bang': 1,
         'space-after-bang': 0,
-        'no-important': 0
+        'no-important': 0,
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -357,7 +375,8 @@ describe('rule', function () {
       'rules': {
         'space-after-bang': 1,
         'space-before-bang': 0,
-        'no-important': 0
+        'no-important': 0,
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -451,8 +470,13 @@ describe('rule', function () {
   // Color Variable
   //////////////////////////////
   it('color variable', function (done) {
-    lintFile('color-variable.scss', function (data) {
-      assert.equal(13, data.warningCount);
+    lintFile('color-variable.scss', {
+      'rules': {
+        'hex-length': 0,
+        'color-variable': 1
+      }
+    }, function (data) {
+      assert.equal(15, data.warningCount);
       done();
     });
   });

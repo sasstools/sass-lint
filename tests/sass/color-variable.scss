@@ -7,12 +7,28 @@
   background: linear-gradient(top, #fff, white);
 }
 
+.box-shadow {
+  box-shadow: 1px 1px black, 1px 1px black;
+}
+
 .background {
   background: 1px solid white;
 }
 
 .hex {
   color: #fff;
+}
+
+.adj {
+  color: adjust-color(rgb(255, 0, 0), $blue: 5);
+}
+
+.scale {
+  color: scale-color(hsl(120, 70%, 80%), $lightness: 50%);
+}
+
+.change {
+  color: change-color(hsl(25, 100%, 80%), $lightness: 40%, $alpha: .8);
 }
 
 .function {
