@@ -1,6 +1,7 @@
 'use strict';
 
 var lint = require('../index'),
+    config = require('../lib/config'),
     util = require('util'),
     detects = [],
     fs = require('fs');
@@ -15,8 +16,10 @@ var lint = require('../index'),
 
 // detects = lint.lintFiles('**/*.s+(a|c)ss');
 
-detects = lint.lintFiles('sass/empty-line-between-blocks.scss');
+// detects = lint.lintFiles('sass/empty-line-between-blocks.scss');
 
-console.log(lint.format(detects));
+var conf = config();
+
+// console.log(conf);
 
 // console.log(util.inspect(detects, false, null));

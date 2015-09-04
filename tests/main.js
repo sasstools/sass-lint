@@ -18,8 +18,11 @@ describe('rule', function () {
   //////////////////////////////
   it('indentation', function (done) {
     lintFile('indentation.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 0
+        'indentation': 1
       }
     }, function (data) {
       assert.equal(8, data.warningCount);
@@ -31,7 +34,14 @@ describe('rule', function () {
   // Empty Line Between Blocks
   //////////////////////////////
   it('empty line between blocks', function (done) {
-    lintFile('empty-line-between-blocks.scss', function (data) {
+    lintFile('empty-line-between-blocks.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'empty-line-between-blocks': 1
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -42,8 +52,11 @@ describe('rule', function () {
   //////////////////////////////
   it('empty line between blocks with comments', function (done) {
     lintFile('empty-line-with-comments.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'comment': 0
+        'empty-line-between-blocks': 1
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -55,8 +68,15 @@ describe('rule', function () {
   // Empty Ruleset
   //////////////////////////////
   it('no empty ruleset', function (done) {
-    lintFile('empty-ruleset.scss', function (data) {
-      assert.equal(4, data.warningCount);
+    lintFile('empty-ruleset.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'empty-ruleset': 1
+      }
+    }, function (data) {
+      assert.equal(3, data.warningCount);
       done();
     });
   });
@@ -66,8 +86,11 @@ describe('rule', function () {
   //////////////////////////////
   it('extends before declarations', function (done) {
     lintFile('extends-before-declarations.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 0
+        'extends-before-declarations': 1
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -79,7 +102,14 @@ describe('rule', function () {
   // Extends Before Mixins
   //////////////////////////////
   it('extends before mixins', function (done) {
-    lintFile('extends-before-mixins.scss', function (data) {
+    lintFile('extends-before-mixins.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'extends-before-mixins': 1
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -89,7 +119,14 @@ describe('rule', function () {
   // Final Newline w/Return
   //////////////////////////////
   it('final newline - return', function (done) {
-    lintFile('final-newline--return.scss', function (data) {
+    lintFile('final-newline--return.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'final-newline': 1
+      }
+    }, function (data) {
       assert.equal(0, data.warningCount);
       done();
     });
@@ -99,7 +136,14 @@ describe('rule', function () {
   // Final Newline w/space
   //////////////////////////////
   it('final newline - space', function (done) {
-    lintFile('final-newline--space.scss', function (data) {
+    lintFile('final-newline--space.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'final-newline': 1
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
@@ -109,7 +153,14 @@ describe('rule', function () {
   // Final Newline
   //////////////////////////////
   it('final newline', function (done) {
-    lintFile('final-newline.scss', function (data) {
+    lintFile('final-newline.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'final-newline': 1
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
@@ -120,6 +171,9 @@ describe('rule', function () {
   //////////////////////////////
   it('hex length - short', function (done) {
     lintFile('hex-length.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
         'hex-length': 1,
         'color-variable': 0
@@ -135,6 +189,9 @@ describe('rule', function () {
   //////////////////////////////
   it('hex length - long', function (done) {
     lintFile('hex-length.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
         'hex-length': [
           1,
@@ -155,11 +212,11 @@ describe('rule', function () {
   //////////////////////////////
   it('hex notation - lowercase', function (done) {
     lintFile('hex-notation.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'hex-notation': 1,
-        'hex-length': 0,
-        'hex-validation': 0,
-        'color-variable': 0
+        'hex-notation': 1
       }
     }, function (data) {
       assert.equal(6, data.warningCount);
@@ -172,16 +229,16 @@ describe('rule', function () {
   //////////////////////////////
   it('hex notation - uppercase', function (done) {
     lintFile('hex-notation.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
         'hex-notation': [
           1,
           {
             'style': 'uppercase'
           }
-        ],
-        'hex-length': 0,
-        'hex-validation': 0,
-        'color-variable': 0
+        ]
       }
     }, function (data) {
       assert.equal(7, data.warningCount);
@@ -194,9 +251,10 @@ describe('rule', function () {
   //////////////////////////////
   it('hex validation', function (done) {
     lintFile('hex-validation.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'hex-length': 0,
-        'hex-notation': 0,
         'hex-validation': 1
       }
     }, function (data) {
@@ -210,8 +268,11 @@ describe('rule', function () {
   //////////////////////////////
   it('mixins before declarations', function (done) {
     lintFile('mixins-before-declarations.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 0
+        'mixins-before-declarations': 1
       }
     }, function (data) {
       assert.equal(5, data.warningCount);
@@ -224,6 +285,9 @@ describe('rule', function () {
   //////////////////////////////
   it('mixins before declarations - excludes', function (done) {
     lintFile('mixins-before-declarations.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
         'mixins-before-declarations': [
           1,
@@ -248,8 +312,11 @@ describe('rule', function () {
   //////////////////////////////
   it('property sort order', function (done) {
     lintFile('property-sort-order.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'zero-unit': 0
+        'property-sort-order': 1
       }
     }, function (data) {
       assert.equal(6, data.warningCount);
@@ -261,7 +328,14 @@ describe('rule', function () {
   // Single Line per Selector
   //////////////////////////////
   it('single line per selector', function (done) {
-    lintFile('single-line-per-selector.scss', function (data) {
+    lintFile('single-line-per-selector.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'single-line-per-selector': 1
+      }
+    }, function (data) {
       assert.equal(3, data.warningCount);
       done();
     });
@@ -271,7 +345,14 @@ describe('rule', function () {
   // Space Before Brace
   //////////////////////////////
   it('space before brace', function (done) {
-    lintFile('space-before-brace.scss', function (data) {
+    lintFile('space-before-brace.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'space-before-brace': 1
+      }
+    }, function (data) {
       assert.equal(3, data.warningCount);
       done();
     });
@@ -282,8 +363,11 @@ describe('rule', function () {
   //////////////////////////////
   it('trailing semicolon', function (done) {
     lintFile('trailing-semicolon.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 0
+        'trailing-semicolon': 1
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -295,7 +379,14 @@ describe('rule', function () {
   // No IDs
   //////////////////////////////
   it('no ids', function (done) {
-    lintFile('no-ids.scss', function (data) {
+    lintFile('no-ids.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'no-ids': 1
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -306,8 +397,11 @@ describe('rule', function () {
   //////////////////////////////
   it('leading zero', function (done) {
     lintFile('leading-zero.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'zero-unit': 0
+        'leading-zero': 1
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -319,7 +413,14 @@ describe('rule', function () {
   // Nesting Depth
   //////////////////////////////
   it('nesting depth', function (done) {
-    lintFile('nesting-depth.scss', function (data) {
+    lintFile('nesting-depth.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'nesting-depth': 1
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -329,7 +430,14 @@ describe('rule', function () {
   // Placeholder In Extends
   //////////////////////////////
   it('placeholder in extends', function (done) {
-    lintFile('placeholder-in-extend.scss', function (data) {
+    lintFile('placeholder-in-extend.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'placeholder-in-extend': 1
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
@@ -340,9 +448,11 @@ describe('rule', function () {
   //////////////////////////////
   it('one declaration per line', function (done) {
     lintFile('one-declaration-per-line.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'color-variable': 0,
-        'no-duplicate-property': 0
+        'one-declaration-per-line': 1
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -355,9 +465,11 @@ describe('rule', function () {
   //////////////////////////////
   it('space after comma', function (done) {
     lintFile('space-after-comma.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'color-variable': 0,
-        'no-duplicate-property': 0
+        'space-after-comma': 1
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -370,8 +482,11 @@ describe('rule', function () {
   //////////////////////////////
   it('space after colon', function (done) {
     lintFile('space-after-colon.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 0
+        'space-after-colon': 1
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -384,8 +499,11 @@ describe('rule', function () {
   //////////////////////////////
   it('space before colon', function (done) {
     lintFile('space-before-colon.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 0
+        'space-before-colon': 1
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -397,7 +515,14 @@ describe('rule', function () {
   // Space Between Parens
   //////////////////////////////
   it('space between parens', function (done) {
-    lintFile('space-between-parens.scss', function (data) {
+    lintFile('space-between-parens.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'space-between-parens': 1
+      }
+    }, function (data) {
       assert.equal(5, data.warningCount);
       done();
     });
@@ -408,10 +533,11 @@ describe('rule', function () {
   //////////////////////////////
   it('no extends', function (done) {
     lintFile('no-extend.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-extends': 1,
-        'placeholder-in-extend': 0,
-        'color-variable': 0
+        'no-extend': 1
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -424,11 +550,11 @@ describe('rule', function () {
   //////////////////////////////
   it('no important', function (done) {
     lintFile('no-important.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-important': 1,
-        'space-before-bang': 0,
-        'space-after-bang': 0,
-        'color-variable': 0
+        'no-important': 1
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -441,11 +567,11 @@ describe('rule', function () {
   //////////////////////////////
   it('space before bang', function (done) {
     lintFile('space-before-bang.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'space-before-bang': 1,
-        'space-after-bang': 0,
-        'no-important': 0,
-        'color-variable': 0
+        'space-before-bang': 1
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -458,11 +584,11 @@ describe('rule', function () {
   //////////////////////////////
   it('space after bang', function (done) {
     lintFile('space-after-bang.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'space-after-bang': 1,
-        'space-before-bang': 0,
-        'no-important': 0,
-        'color-variable': 0
+        'space-after-bang': 1
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -474,7 +600,14 @@ describe('rule', function () {
   // No Debug
   //////////////////////////////
   it('no debug', function (done) {
-    lintFile('no-debug.scss', function (data) {
+    lintFile('no-debug.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'no-debug': 1
+      }
+    }, function (data) {
       assert.equal(3, data.warningCount);
       done();
     });
@@ -484,7 +617,14 @@ describe('rule', function () {
   // No Warn
   //////////////////////////////
   it('no warn', function (done) {
-    lintFile('no-warn.scss', function (data) {
+    lintFile('no-warn.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'no-warn': 1
+      }
+    }, function (data) {
       assert.equal(3, data.warningCount);
       done();
     });
@@ -495,8 +635,11 @@ describe('rule', function () {
   //////////////////////////////
   it('quotes', function (done) {
     lintFile('quotes.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 0
+        'quotes': 1
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -511,6 +654,9 @@ describe('rule', function () {
   // Default
   it('zero unit - [include: false]', function (done) {
     lintFile('zero-unit.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
         'zero-unit': 1
       }
@@ -522,8 +668,16 @@ describe('rule', function () {
 
   it('zero unit - [include: true]', function (done) {
     lintFile('zero-unit.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'zero-unit': [1, { 'include': true }]
+        'zero-unit': [
+          1,
+          {
+            'include': true
+          }
+        ]
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -535,7 +689,14 @@ describe('rule', function () {
   // Clean Import Paths
   //////////////////////////////
   it('clean import paths', function (done) {
-    lintFile('clean-import-paths.scss', function (data) {
+    lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'clean-import-paths': 1
+      }
+    }, function (data) {
       assert.equal(8, data.warningCount);
       done();
     });
@@ -547,7 +708,14 @@ describe('rule', function () {
 
   // Default
   it('empty args - [include: false]', function (done) {
-    lintFile('empty-args.scss', function (data) {
+    lintFile('empty-args.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'empty-args': 1
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -555,8 +723,16 @@ describe('rule', function () {
 
   it('empty args - [include: true]', function (done) {
     lintFile('empty-args.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'empty-args': [1, { include: true }]
+        'empty-args': [
+          1,
+          {
+            'include': true
+          }
+        ]
       }
     }, function (data) {
       assert.equal(3, data.warningCount);
@@ -571,8 +747,11 @@ describe('rule', function () {
   // Default
   it('border zero - [convention: \'0\']', function (done) {
     lintFile('border-zero.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'zero-unit': 0
+        'border-zero': 1
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -582,9 +761,16 @@ describe('rule', function () {
 
   it('border zero - [convention: \'none\']', function (done) {
     lintFile('border-zero.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'zero-unit': 0,
-        'border-zero': [1, { 'convention': 'none' }]
+        'border-zero': [
+          1,
+          {
+            'contention': 'none'
+          }
+        ]
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -597,6 +783,9 @@ describe('rule', function () {
   //////////////////////////////
   it('comment', function (done) {
     lintFile('comment.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
         'comment': 1
       }
@@ -611,6 +800,9 @@ describe('rule', function () {
   //////////////////////////////
   it('comment - allowed regEx', function (done) {
     lintFile('comment.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
         'comment': [
           1,
@@ -633,9 +825,11 @@ describe('rule', function () {
   //////////////////////////////
   it('no duplicate property', function (done) {
     lintFile('no-duplicate-property.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'no-duplicate-property': 1,
-        'zero-unit': 0
+        'no-duplicate-property': 1
       }
     }, function (data) {
       assert.equal(3, data.warningCount);
