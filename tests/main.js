@@ -653,6 +653,26 @@ describe('rule', function () {
         'color-variable': 1
       }
     }, function (data) {
+      assert.equal(19, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Color Variable - allow rgba
+  //////////////////////////////
+  it('color variable - allow rgba', function (done) {
+    lintFile('color-variable.scss', {
+      'rules': {
+        'hex-length': 0,
+        'color-variable': [
+          1,
+          {
+            allowRgba: true
+          }
+        ]
+      }
+    }, function (data) {
       assert.equal(18, data.warningCount);
       done();
     });

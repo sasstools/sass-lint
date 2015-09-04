@@ -114,3 +114,7 @@ $hsla: hsla(40, 50%, 50%, .3);
 .hsla {
   color: $hsla;
 }
+
+.rgba-enabled {
+  color: rgba($hexVar, .3);
+}

@@ -8,19 +8,21 @@ Using the names of css color literals such as `red` for map property names is al
 
 The list of affected color functions are as follows:
 * rgb
-* rgba
+* rgba [ \* ]
 * hsl
 * hsla
 
 You can still use functions such as `adjust-color` but you must pass the original color in as a variable.
 
+\* See options below
+
 ## Options
 
-* There are no configurable options
+* `allowRgba`: `true`:`false` defaults to `false`
 
 ## Examples
 
-When `enabled`, the following are disallowed. When `disabled`, the following are allowed:
+When `enabled` and `allowRgba` is set to `false` the following are disallowed.
 
 ```scss
 .literal {
@@ -84,7 +86,7 @@ $colors: (
 );
 ```
 
-When `enabled`, the following are allowed.
+When `enabled` and `allowRgba` is set to `false` the following are allowed .
 
 ```scss
 $literal: mediumslateblue;
@@ -140,5 +142,28 @@ $hsla: hsla(40, 50%, 50%, .3);
 
 .hsla {
   color: $hsla;
+}
+```
+
+if option `allowRgba` is set to `true` the following will be allowed
+
+```scss
+// rgba in variables is still fine
+$rgba: rgba(255, 0, 0, .5);
+$red: rgb(255, 255, 255,);
+
+// you can now use rgba directly to alter a variables opacity
+.color {
+  color: rgba($red, .3);
+}
+```
+
+and the following will still be disallowed
+
+```scss
+.color {
+  // you must use variables and not literals
+  color: rgba(0, 0, 0, .3);
+  color: rgba(black, .3);
 }
 ```
