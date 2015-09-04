@@ -18,11 +18,11 @@ You can still use functions such as `adjust-color` but you must pass the origina
 
 ## Options
 
-* `allowRgba`: `true`:`false` defaults to `false`
+* `allow-rgba`: `true`:`false` defaults to `false`
 
 ## Examples
 
-When `enabled` and `allowRgba` is set to `false` the following are disallowed.
+When `enabled` and `allow-rgba` is set to `false` the following are disallowed.
 
 ```scss
 .literal {
@@ -86,7 +86,7 @@ $colors: (
 );
 ```
 
-When `enabled` and `allowRgba` is set to `false` the following are allowed .
+When `enabled` and `allow-rgba` is set to `false` the following are allowed .
 
 ```scss
 $literal: mediumslateblue;
@@ -145,7 +145,7 @@ $hsla: hsla(40, 50%, 50%, .3);
 }
 ```
 
-if option `allowRgba` is set to `true` the following will be allowed
+if option `allow-rgba` is set to `true` the following will be allowed
 
 ```scss
 // rgba in variables is still fine
