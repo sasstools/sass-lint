@@ -41,7 +41,11 @@ describe('rule', function () {
   // Empty Line With Comment
   //////////////////////////////
   it('empty line between blocks with comments', function (done) {
-    lintFile('empty-line-with-comments.scss', function (data) {
+    lintFile('empty-line-with-comments.scss', {
+      'rules': {
+        'comment': 0
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -491,6 +495,42 @@ describe('rule', function () {
   it('clean import paths', function (done) {
     lintFile('clean-import-paths.scss', function (data) {
       assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Comment - no allowed
+  //////////////////////////////
+  it('comment', function (done) {
+    lintFile('comment.scss', {
+      'rules': {
+        'comment': 1
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Comment - 2 allowed
+  //////////////////////////////
+  it('comment - allowed regEx', function (done) {
+    lintFile('comment.scss', {
+      'rules': {
+        'comment': [
+          1,
+          {
+            'allowed': [
+              '^[\/* ]*Bad',
+              '/\* Test Comment'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });
