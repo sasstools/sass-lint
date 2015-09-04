@@ -36,6 +36,17 @@ describe('code style guide', function () {
     done();
   });
 
+  it('tests/cli.js should follow our JavaScript style guide', function (done) {
+    report = cli.executeOnFiles(['cli.js']);
+    if (report.errorCount > 0 || report.warningCount > 0) {
+      console.log(formatter(report.results));
+    }
+
+    should(report.errorCount).equal(0);
+    should(report.warningCount).equal(0);
+    done();
+  });
+
   it('tesst/lint.js should follow our JavaScript style guide', function (done) {
     cli = new eslint.CLIEngine({
       'rules': {
