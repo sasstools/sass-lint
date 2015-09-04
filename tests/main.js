@@ -490,6 +490,67 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Clean Import Paths
+  //////////////////////////////
+  it('clean import paths', function (done) {
+    lintFile('clean-import-paths.scss', function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Empty Args
+  //////////////////////////////
+
+  // Default
+  it('empty args - [include: false]', function (done) {
+    lintFile('empty-args.scss', function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('empty args - [include: true]', function (done) {
+    lintFile('empty-args.scss', {
+      'rules': {
+        'empty-args': [1, { include: true }]
+      }
+    }, function (data) {
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Border Zero
+  //////////////////////////////
+
+  // Default
+  it('border zero - [convention: \'0\']', function (done) {
+    lintFile('border-zero.scss', {
+      'rules': {
+        'zero-unit': 0
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('border zero - [convention: \'none\']', function (done) {
+    lintFile('border-zero.scss', {
+      'rules': {
+        'zero-unit': 0,
+        'border-zero': [1, { 'convention': 'none' }]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Comment - no allowed
   //////////////////////////////
   it('comment', function (done) {
@@ -545,7 +606,7 @@ describe('rule', function () {
   //////////////////////////////
 
   // Default
-  it('clean import paths', function (done) {
+  it('clean import paths - [leading-underscore: false, filename-extension: false]', function (done) {
     lintFile('clean-import-paths.scss', function (data) {
       assert.equal(8, data.warningCount);
       done();
