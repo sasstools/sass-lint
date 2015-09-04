@@ -600,4 +600,44 @@ describe('rule', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // Variable for Property
+  //////////////////////////////
+  it('variable for property - no properties', function (done) {
+    lintFile('variable-for-property.scss', {
+      'rules': {
+        'color-variable': 0,
+        'variable-for-property': 1
+      }
+    }, function (data) {
+      assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Variable for Property - with properties
+  //////////////////////////////
+  it('variable for property - properties', function (done) {
+    lintFile('variable-for-property.scss', {
+      'rules': {
+        'color-variable': 0,
+        'variable-for-property': [
+          1,
+          {
+            'properties': [
+              'margin',
+              'content'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+
 });
