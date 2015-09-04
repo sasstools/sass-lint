@@ -342,9 +342,26 @@ describe('rule', function () {
   //////////////////////////////
   // Space After Colon
   //////////////////////////////
-  it('space after colon', function (done) {
-    lintFile('space-after-colon.scss', function (data) {
-      assert.equal(1, data.warningCount);
+
+  it('space after colon - [include: false]', function (done) {
+    lintFile('space-after-colon.scss', {
+      'rules': {
+        'space-after-colon': [1, { 'include': false }]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  // Default
+  it('space after colon - [include: true]', function (done) {
+    lintFile('space-after-colon.scss', {
+      'rules': {
+        'space-after-colon': [1, { 'include': true }]
+      }
+    }, function (data) {
+      assert.equal(3, data.warningCount);
       done();
     });
   });
