@@ -602,7 +602,7 @@ describe('rule', function () {
         'color-variable': 1
       }
     }, function (data) {
-      assert.equal(15, data.warningCount);
+      assert.equal(18, data.warningCount);
       done();
     });
   });
