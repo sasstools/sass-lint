@@ -34,6 +34,7 @@
     "util": "^0.10.3"
   },
   "devDependencies": {
+    "deep-equal": "^1.0.1",
     "mocha": "^2.2.5",
     "should": "^7.0.4"
   }
