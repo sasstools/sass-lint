@@ -668,7 +668,7 @@ describe('rule', function () {
         'color-variable': [
           1,
           {
-            allowRgba: true
+            'allow-rgba': true
           }
         ]
       }
