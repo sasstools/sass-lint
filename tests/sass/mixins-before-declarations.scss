@@ -25,5 +25,25 @@
     content: 'where';
 
     @include waldo;
+
+  }
+
+  &__element {
+    @include element;
+    width: 100%;
+
+    @include mq(500px) {
+      content: 'mq';
+    }
+
+    @include waldo;
+
+    &--modifier {
+      @include foo('yo');
+      @include hello;
+      @include test;
+      height: 100px;
+      @include test-again;
+    }
   }
 }
