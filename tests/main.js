@@ -43,7 +43,8 @@ describe('rule', function () {
   it('empty line between blocks with comments', function (done) {
     lintFile('empty-line-with-comments.scss', {
       'rules': {
-        'comment': 0
+        'comment': 0,
+        'color-keyword': 0
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -597,6 +598,21 @@ describe('rule', function () {
       }
     }, function (data) {
       assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Color Keyword
+  //////////////////////////////
+  it('color keyword', function (done) {
+    lintFile('color-keyword.scss', {
+      'rules': {
+        'color-keyword': 1,
+        'color-variable': 0
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
       done();
     });
   });
