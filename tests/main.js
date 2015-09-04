@@ -41,7 +41,11 @@ describe('rule', function () {
   // Empty Line With Comment
   //////////////////////////////
   it('empty line between blocks with comments', function (done) {
-    lintFile('empty-line-with-comments.scss', function (data) {
+    lintFile('empty-line-with-comments.scss', {
+      'rules': {
+        'comment': 0
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -112,21 +116,6 @@ describe('rule', function () {
   });
 
   //////////////////////////////
-  // Hex Validation
-  //////////////////////////////
-  it('hex validation', function (done) {
-    lintFile('hex-validation.scss', {
-      'rules': {
-        'hex-length': 0,
-        'color-variable': 0
-      }
-    }, function (data) {
-      assert.equal(16, data.warningCount);
-      done();
-    });
-  });
-
-  //////////////////////////////
   // Hex Length Short - Default
   //////////////////////////////
   it('hex length - short', function (done) {
@@ -162,11 +151,90 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Hex notation Lowercase - Default
+  //////////////////////////////
+  it('hex notation - lowercase', function (done) {
+    lintFile('hex-notation.scss', {
+      'rules': {
+        'hex-notation': 1,
+        'hex-length': 0,
+        'hex-validation': 0,
+        'color-variable': 0
+      }
+    }, function (data) {
+      assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Notation Uppercase
+  //////////////////////////////
+  it('hex notation - uppercase', function (done) {
+    lintFile('hex-notation.scss', {
+      'rules': {
+        'hex-notation': [
+          1,
+          {
+            'style': 'uppercase'
+          }
+        ],
+        'hex-length': 0,
+        'hex-validation': 0,
+        'color-variable': 0
+      }
+    }, function (data) {
+      assert.equal(7, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Validation
+  //////////////////////////////
+  it('hex validation', function (done) {
+    lintFile('hex-validation.scss', {
+      'rules': {
+        'hex-length': 0,
+        'hex-notation': 0,
+        'hex-validation': 1
+      }
+    }, function (data) {
+      assert.equal(16, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Mixins Before Declarations
   //////////////////////////////
   it('mixins before declarations', function (done) {
     lintFile('mixins-before-declarations.scss', function (data) {
-      assert.equal(4, data.warningCount);
+      assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Mixins Before Declarations - overwrite
+  //////////////////////////////
+  it('mixins before declarations - excludes', function (done) {
+    lintFile('mixins-before-declarations.scss', {
+      'rules': {
+        'mixins-before-declarations': [
+          1,
+          {
+            'exclude': [
+              'test-again',
+              'waldo',
+              'mq',
+              'breakpoint'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(0, data.warningCount);
       done();
     });
   });
@@ -447,6 +515,42 @@ describe('rule', function () {
   it('clean import paths', function (done) {
     lintFile('clean-import-paths.scss', function (data) {
       assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Comment - no allowed
+  //////////////////////////////
+  it('comment', function (done) {
+    lintFile('comment.scss', {
+      'rules': {
+        'comment': 1
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Comment - 2 allowed
+  //////////////////////////////
+  it('comment - allowed regEx', function (done) {
+    lintFile('comment.scss', {
+      'rules': {
+        'comment': [
+          1,
+          {
+            'allowed': [
+              '^[\/* ]*Bad',
+              '/\* Test Comment'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });

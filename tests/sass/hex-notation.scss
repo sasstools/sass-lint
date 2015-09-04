@@ -1,0 +1,33 @@
+// numbers only won't match
+$foo-color: #123;
+
+.foo {
+  background: linear-gradient(top, #cc2, #44d);
+  color: #fff;
+}
+
+$bar-color: #123456;
+
+.bar {
+  background: linear-gradient(top, #CC2, #44D);
+  color: #FFF;
+}
+
+.qux {
+  color: #cC2;
+}
+
+$lower-numbers-color: #123cc2;
+$upper-lower-color: #CCCCCc;
+
+$map-vals: (
+  mixed: #123Cde,
+);
+
+// check that only hex colours are being parsed
+
+$literal-color: red;
+$rgb-color: rgb(255, 255, 255);
+$rgba-color: rgba(0, 0, 0, .1);
+$hsl-color: hsl(40, 50%, 50%);
+$hsla-color: hsla(40, 50%, 50%, .3);
