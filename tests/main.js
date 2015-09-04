@@ -840,8 +840,10 @@ describe('rule', function () {
   //////////////////////////////
   it('variable for property - no properties', function (done) {
     lintFile('variable-for-property.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'color-variable': 0,
         'variable-for-property': 1
       }
     }, function (data) {
@@ -855,8 +857,10 @@ describe('rule', function () {
   //////////////////////////////
   it('variable for property - properties', function (done) {
     lintFile('variable-for-property.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'color-variable': 0,
         'variable-for-property': [
           1,
           {
