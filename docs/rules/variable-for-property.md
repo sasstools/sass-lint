@@ -22,7 +22,7 @@ variable-for-property:
 
 By default `properties` is an empty array and therefore no properties are forced to use variables as values.
 
-When `properties` contains the values shown in the options section example the following would be disallowed
+When `properties` contains the values shown in the options section example the following would be disallowed:
 
 ```scss
 .bar {
@@ -39,7 +39,7 @@ When `properties` contains the values shown in the options section example the f
 }
 ```
 
-When `properties` contains the values shown in the options section example the following would be allowed
+When `properties` contains the values shown in the options section example the following would be allowed:
 
 ```scss
 .foo {
