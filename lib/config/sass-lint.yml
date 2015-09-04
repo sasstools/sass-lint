@@ -28,6 +28,7 @@ rules:
   border-zero: 1
   clean-import-paths: 1
   comment: 1
+  empty-args: 1
   hex-length: 1
   hex-notation: 1
   hex-validation: 1
