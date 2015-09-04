@@ -209,7 +209,11 @@ describe('rule', function () {
   // Mixins Before Declarations
   //////////////////////////////
   it('mixins before declarations', function (done) {
-    lintFile('mixins-before-declarations.scss', function (data) {
+    lintFile('mixins-before-declarations.scss', {
+      'rules': {
+        'no-duplicate-property': 0
+      }
+    }, function (data) {
       assert.equal(5, data.warningCount);
       done();
     });
@@ -277,7 +281,11 @@ describe('rule', function () {
   // Trailing Semicolon
   //////////////////////////////
   it('trailing semicolon', function (done) {
-    lintFile('trailing-semicolon.scss', function (data) {
+    lintFile('trailing-semicolon.scss', {
+      'rules': {
+        'no-duplicate-property': 0
+      }
+    }, function (data) {
       assert.equal(2, data.warningCount);
       done();
     });
@@ -333,7 +341,8 @@ describe('rule', function () {
   it('one declaration per line', function (done) {
     lintFile('one-declaration-per-line.scss', {
       'rules': {
-        'color-variable': 0
+        'color-variable': 0,
+        'no-duplicate-property': 0
       }
     }, function (data) {
       assert.equal(2, data.warningCount);
@@ -347,7 +356,8 @@ describe('rule', function () {
   it('space after comma', function (done) {
     lintFile('space-after-comma.scss', {
       'rules': {
-        'color-variable': 0
+        'color-variable': 0,
+        'no-duplicate-property': 0
       }
     }, function (data) {
       assert.equal(1, data.warningCount);
@@ -359,7 +369,11 @@ describe('rule', function () {
   // Space After Colon
   //////////////////////////////
   it('space after colon', function (done) {
-    lintFile('space-after-colon.scss', function (data) {
+    lintFile('space-after-colon.scss', {
+      'rules': {
+        'no-duplicate-property': 0
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
@@ -369,7 +383,11 @@ describe('rule', function () {
   // Space Before Colon
   //////////////////////////////
   it('space before colon', function (done) {
-    lintFile('space-before-colon.scss', function (data) {
+    lintFile('space-before-colon.scss', {
+      'rules': {
+        'no-duplicate-property': 0
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
@@ -476,7 +494,11 @@ describe('rule', function () {
   // String Quotes
   //////////////////////////////
   it('quotes', function (done) {
-    lintFile('quotes.scss', function (data) {
+    lintFile('quotes.scss', {
+      'rules': {
+        'no-duplicate-property': 0
+      }
+    }, function (data) {
       assert.equal(1, data.warningCount);
       done();
     });
