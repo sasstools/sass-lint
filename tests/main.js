@@ -108,20 +108,6 @@ describe('rule', function () {
   });
 
   //////////////////////////////
-  // Hex Validation
-  //////////////////////////////
-  it('hex validation', function (done) {
-    lintFile('hex-validation.scss', {
-      'rules': {
-        'hex-length': 0
-      }
-    }, function (data) {
-      assert.equal(16, data.warningCount);
-      done();
-    });
-  });
-
-  //////////////////////////////
   // Hex Length Short - Default
   //////////////////////////////
   it('hex length - short', function (done) {
@@ -150,6 +136,59 @@ describe('rule', function () {
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex notation Lowercase - Default
+  //////////////////////////////
+  it('hex notation - lowercase', function (done) {
+    lintFile('hex-notation.scss', {
+      'rules': {
+        'hex-notation': 1,
+        'hex-length': 0,
+        'hex-validation': 0
+      }
+    }, function (data) {
+      assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Notation Uppercase
+  //////////////////////////////
+  it('hex notation - uppercase', function (done) {
+    lintFile('hex-notation.scss', {
+      'rules': {
+        'hex-notation': [
+          1,
+          {
+            'style': 'uppercase'
+          }
+        ],
+        'hex-length': 0,
+        'hex-validation': 0
+      }
+    }, function (data) {
+      assert.equal(7, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Hex Validation
+  //////////////////////////////
+  it('hex validation', function (done) {
+    lintFile('hex-validation.scss', {
+      'rules': {
+        'hex-length': 0,
+        'hex-notation': 0,
+        'hex-validation': 1
+      }
+    }, function (data) {
+      assert.equal(16, data.warningCount);
       done();
     });
   });
