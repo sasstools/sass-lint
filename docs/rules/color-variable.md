@@ -1,6 +1,6 @@
 # Color Variable
 
-Rule `color-variable` will disallow the use of color literals and color functions in any declarations other than variables or maps/lists.
+Rule `color-variable` will disallow the use of color literals and basic color functions in any declarations other than variables or maps/lists.
 
 Variables should always be used to define colors as defining them directly onto properties can make your code hard to manage / update and maintain.
 
@@ -11,6 +11,8 @@ The list of affected color functions are as follows:
 * rgba
 * hsl
 * hsla
+
+You can still use functions such as `adjust-color` but you must pass the original color in as a variable.
 
 ## Options
 
@@ -106,6 +108,18 @@ $hsla: hsla(40, 50%, 50%, .3);
 
 .hex {
   color: $hexVar;
+}
+
+.adj {
+  color: adjust-color($off-red, $blue: 5);
+}
+
+.scale {
+  color: scale-color($off-blue, $lightness: 50%);
+}
+
+.change {
+  color: change-color($orange-extra, $lightness: 40%, $alpha: .8);
 }
 
 .function {
