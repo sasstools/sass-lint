@@ -840,9 +840,11 @@ describe('rule', function () {
   //////////////////////////////
   it('color keyword', function (done) {
     lintFile('color-keyword.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'color-keyword': 1,
-        'color-variable': 0
+        'color-keyword': 1
       }
     }, function (data) {
       assert.equal(8, data.warningCount);
