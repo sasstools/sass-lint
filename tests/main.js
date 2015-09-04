@@ -446,4 +446,15 @@ describe('rule', function () {
       done();
     });
   });
+
+  //////////////////////////////
+  // Color Variable
+  //////////////////////////////
+  it('color variable', function (done) {
+    lintFile('color-variable.scss', function (data) {
+      assert.equal(13, data.warningCount);
+      done();
+    });
+  });
+
 });

@@ -1,0 +1,88 @@
+//disallowed
+.literal {
+  color: mediumslateblue;
+}
+
+.linear-gradient-func {
+  background: linear-gradient(top, #fff, white);
+}
+
+.background {
+  background: 1px solid white;
+}
+
+.hex {
+  color: #fff;
+}
+
+.function {
+  color: test(#fff);
+}
+
+.rgb {
+  color: rgb(255, 255, 255);
+}
+
+.rgba {
+  color: rgba(255, 255, 255, .3);
+}
+
+.hsl {
+  color: hsl(40, 50%, 50%);
+}
+
+.hsla {
+  color: hsla(40, 50%, 50%, .3);
+}
+
+// disallowed - using color literals as property names
+$colors: (
+  red: #fff,
+  blue : (
+    orange: #fff
+  )
+);
+
+// allowed
+$literal: mediumslateblue;
+$hexVar: #fff;
+$rgb: rgb(255, 255, 255);
+$rgba: rgba(255, 255, 255, .3);
+$hsl: hsl(40, 50%, 50%);
+$hsla: hsla(40, 50%, 50%, .3);
+
+.literal {
+  color: $literal;
+}
+
+.linear-gradient-func {
+  background: linear-gradient(top, $hexVar, $literal);
+}
+
+.background {
+  background: 1px solid $literal;
+}
+
+.hex {
+  color: $hexVar;
+}
+
+.function {
+  color: test($hexVar);
+}
+
+.rgb {
+  color: $rgb;
+}
+
+.rgba {
+  color: $rgba;
+}
+
+.hsl {
+  color: $hsl;
+}
+
+.hsla {
+  color: $hsla;
+}
