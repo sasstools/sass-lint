@@ -194,11 +194,35 @@ describe('rule', function () {
   });
 
   //////////////////////////////
-  // Mixins Before DEclarations
+  // Mixins Before Declarations
   //////////////////////////////
   it('mixins before declarations', function (done) {
     lintFile('mixins-before-declarations.scss', function (data) {
-      assert.equal(4, data.warningCount);
+      assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Mixins Before Declarations - overwrite
+  //////////////////////////////
+  it('mixins before declarations - excludes', function (done) {
+    lintFile('mixins-before-declarations.scss', {
+      'rules': {
+        'mixins-before-declarations': [
+          1,
+          {
+            'exclude': [
+              'test-again',
+              'waldo',
+              'mq',
+              'breakpoint'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(0, data.warningCount);
       done();
     });
   });
