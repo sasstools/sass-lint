@@ -25,6 +25,7 @@ rules:
   no-warn: 1
 
   # Style Guide
+  border-zero: 1
   clean-import-paths: 1
   comment: 1
   hex-length: 1
