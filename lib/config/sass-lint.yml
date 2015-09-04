@@ -26,6 +26,7 @@ rules:
 
   # Style Guide
   clean-import-paths: 1
+  color-variable: 1
   hex-length: 1
   hex-validation: 1
   indentation: 1
