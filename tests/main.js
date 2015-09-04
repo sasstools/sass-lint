@@ -490,16 +490,6 @@ describe('rule', function () {
   });
 
   //////////////////////////////
-  // Clean Import Paths
-  //////////////////////////////
-  it('clean import paths', function (done) {
-    lintFile('clean-import-paths.scss', function (data) {
-      assert.equal(8, data.warningCount);
-      done();
-    });
-  });
-
-  //////////////////////////////
   // Comment - no allowed
   //////////////////////////////
   it('comment', function (done) {
@@ -546,6 +536,51 @@ describe('rule', function () {
       }
     }, function (data) {
       assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Clean Import Paths
+  //////////////////////////////
+
+  // Default
+  it('clean import paths', function (done) {
+    lintFile('clean-import-paths.scss', function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  it('clean import paths - [leading-underscore: true, filename-extension: false]', function (done) {
+    lintFile('clean-import-paths.scss', {
+      'rules': {
+        'clean-import-paths': [1, { 'leading-underscore': true }]
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  it('clean import paths - [leading-underscore: false, filename-extension: true]', function (done) {
+    lintFile('clean-import-paths.scss', {
+      'rules': {
+        'clean-import-paths': [1, { 'filename-extension': true }]
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  it('clean import paths - [leading-underscore: true, filename-extension: true]', function (done) {
+    lintFile('clean-import-paths.scss', {
+      'rules': {
+        'clean-import-paths': [1, { 'leading-underscore': true, 'filename-extension': true }]
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
       done();
     });
   });
