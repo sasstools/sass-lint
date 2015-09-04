@@ -37,7 +37,7 @@ describe('code style guide', function () {
   });
 
   it('tests/cli.js should follow our JavaScript style guide', function (done) {
-    report = cli.executeOnFiles(['cli.js']);
+    report = cli.executeOnFiles(['tests/cli.js']);
     if (report.errorCount > 0 || report.warningCount > 0) {
       console.log(formatter(report.results));
     }
