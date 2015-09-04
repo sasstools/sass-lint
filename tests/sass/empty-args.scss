@@ -1,0 +1,43 @@
+// No arguments with parenthesis
+@mixin foo() {
+  color: red;
+}
+
+.foo {
+  @include foo();
+}
+
+
+
+// No arguments with no parenthesis
+@mixin bar {
+  color: orange;
+}
+
+.bar {
+  @include bar;
+}
+
+
+
+// Arguments with parenthesis
+@mixin baz($color) {
+  color: $color;
+}
+
+$foo: blue;
+
+.baz {
+  @include baz($foo);
+}
+
+
+
+// Parenthesis only where required
+@mixin qux($color: lime) {
+  color: $color;
+}
+
+.qux {
+  @include qux;
+}
