@@ -25,6 +25,17 @@ describe('code style guide', function () {
     done();
   });
 
+  it('tests/config.js should follow our JavaScript style guide', function (done) {
+    report = cli.executeOnFiles(['tests/config.js']);
+    if (report.errorCount > 0 || report.warningCount > 0) {
+      console.log(formatter(report.results));
+    }
+
+    should(report.errorCount).equal(0);
+    should(report.warningCount).equal(0);
+    done();
+  });
+
   it('tests/main.js should follow our JavaScript style guide', function (done) {
     report = cli.executeOnFiles(['tests/main.js']);
     if (report.errorCount > 0 || report.warningCount > 0) {
