@@ -12,7 +12,7 @@ When `include: false`, the following are allowed. When `include: true`, the foll
 
 ```scss
 @mixin bar {
-  color: orange;
+  padding: 10px;
 }
 
 .bar {
@@ -24,7 +24,7 @@ When `include: true`, the following are allowed. When `include: false`, the foll
 
 ```scss
 @mixin foo() {
-  color: red;
+  padding: 10px;
 }
 
 .foo {
