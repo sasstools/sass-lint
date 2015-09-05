@@ -74,7 +74,7 @@ sassLint.lintFiles = function (files, options, configPath) {
       'text': fs.readFileSync(file),
       'format': path.extname(file).replace('.', ''),
       'filename': file
-    }, options);
+    }, options, configPath);
     results.push(lint);
   });
 
