@@ -841,7 +841,14 @@ describe('rule', function () {
 
   // Default
   it('clean import paths - [leading-underscore: false, filename-extension: false]', function (done) {
-    lintFile('clean-import-paths.scss', function (data) {
+    lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'clean-import-paths': 1
+      }
+    }, function (data) {
       assert.equal(8, data.warningCount);
       done();
     });
@@ -849,8 +856,16 @@ describe('rule', function () {
 
   it('clean import paths - [leading-underscore: true, filename-extension: false]', function (done) {
     lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'clean-import-paths': [1, { 'leading-underscore': true }]
+        'clean-import-paths': [
+          1,
+          {
+            'leading-underscore': true
+          }
+        ]
       }
     }, function (data) {
       assert.equal(8, data.warningCount);
@@ -860,8 +875,16 @@ describe('rule', function () {
 
   it('clean import paths - [leading-underscore: false, filename-extension: true]', function (done) {
     lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'clean-import-paths': [1, { 'filename-extension': true }]
+        'clean-import-paths': [
+          1,
+          {
+            'filename-extension': true
+          }
+        ]
       }
     }, function (data) {
       assert.equal(8, data.warningCount);
@@ -871,8 +894,17 @@ describe('rule', function () {
 
   it('clean import paths - [leading-underscore: true, filename-extension: true]', function (done) {
     lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'clean-import-paths': [1, { 'leading-underscore': true, 'filename-extension': true }]
+        'clean-import-paths': [
+          1,
+          {
+            'leading-underscore': true,
+            'filename-extension': true
+          }
+        ]
       }
     }, function (data) {
       assert.equal(8, data.warningCount);
