@@ -310,7 +310,9 @@ describe('rule', function () {
   //////////////////////////////
   // Property Sort Order
   //////////////////////////////
-  it('property sort order', function (done) {
+
+  // Default
+  it('property sort order - [order: alphabetical]', function (done) {
     lintFile('property-sort-order.scss', {
       'options': {
         'merge-default-rules': false
@@ -320,6 +322,87 @@ describe('rule', function () {
       }
     }, function (data) {
       assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  it('property sort order - [order: custom]', function (done) {
+    lintFile('property-sort-order.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'property-sort-order': [
+          1,
+          {
+            'order': [
+              'height',
+              'width',
+              'display',
+              'color'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('property sort order - [order: recess]', function (done) {
+    lintFile('property-sort-order.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'property-sort-order': [
+          1,
+          {
+            'order': 'recess'
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  it('property sort order - [order: smacss]', function (done) {
+    lintFile('property-sort-order.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'property-sort-order': [
+          1,
+          {
+            'order': 'smacss'
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  it('property sort order - [order: concentric]', function (done) {
+    lintFile('property-sort-order.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'property-sort-order': [
+          1,
+          {
+            'order': 'concentric'
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(7, data.warningCount);
       done();
     });
   });
