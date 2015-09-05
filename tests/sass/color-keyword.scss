@@ -1,0 +1,30 @@
+.literal {
+  color: mediumslateblue;
+}
+
+.linear-gradient-func {
+  background: linear-gradient(top, #fff, white);
+}
+
+.box-shadow {
+  box-shadow: 1px 1px black, 1px 1px black;
+}
+
+.background {
+  background: 1px solid white;
+  content: 100;
+}
+
+.hex {
+  color: #fff;
+}
+
+$colors: (
+  $off-red: red,
+  $off-blue : (
+    $off-orange: orange
+  )
+);
+
+$literal: mediumslateblue;
+$hexVar: #fff;
