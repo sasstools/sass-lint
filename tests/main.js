@@ -516,7 +516,9 @@ describe('rule', function () {
   //////////////////////////////
   // Space Before Colon
   //////////////////////////////
-  it('space before colon', function (done) {
+
+  // Default
+  it('space before colon - [include: false]', function (done) {
     lintFile('space-before-colon.scss', {
       'options': {
         'merge-default-rules': false
@@ -525,7 +527,26 @@ describe('rule', function () {
         'space-before-colon': 1
       }
     }, function (data) {
-      assert.equal(1, data.warningCount);
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('space before colon - [include: true]', function (done) {
+    lintFile('space-before-colon.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'space-before-colon': [
+          1,
+          {
+            'include': true
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
       done();
     });
   });
