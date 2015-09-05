@@ -857,6 +857,48 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Variable for Property
+  //////////////////////////////
+  it('variable for property - no properties', function (done) {
+    lintFile('variable-for-property.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'variable-for-property': 1
+      }
+    }, function (data) {
+      assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Variable for Property - with properties
+  //////////////////////////////
+  it('variable for property - properties', function (done) {
+    lintFile('variable-for-property.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'variable-for-property': [
+          1,
+          {
+            'properties': [
+              'margin',
+              'content'
+            ]
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Color Keyword
   //////////////////////////////
   it('color keyword', function (done) {
@@ -868,7 +910,6 @@ describe('rule', function () {
         'color-keyword': 1
       }
     }, function (data) {
-      console.log(data);
       assert.equal(8, data.warningCount);
       done();
     });

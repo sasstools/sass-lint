@@ -1,0 +1,25 @@
+.foo {
+  content: $content;
+  margin: $margin;
+
+  &__element {
+    margin: $margin;
+  }
+}
+
+@mixin blue() {
+  margin: $margin;
+}
+
+.bar {
+  content: ' ';
+  margin: 0;
+
+  &__element {
+    margin: 0;
+  }
+}
+
+@mixin red() {
+  margin: 0;
+}
