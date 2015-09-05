@@ -1,0 +1,46 @@
+#########################
+## Sample Sass Lint File
+#########################
+# Linter Options
+options:
+  # Don't merge default rules
+  merge-default-rules: false
+  # Set the formatter to 'html'
+  formatter: html
+  # Output file instead of logging results
+  output-file: 'linters/sass-lint.html'
+# File Options
+files:
+  include: 'sass/**/*.s+(a|c)ss'
+  ignore:
+    - 'sass/vendor/**/*.*'
+# Rule Configuration
+rules:
+  extends-before-mixins: 2
+  extends-before-declarations: 2
+  placeholders-in-extend: 2
+  mixins-before-declarations:
+    - 2
+    -
+      exclude:
+        - breakpoint
+        - mq
+
+  no-warn: 1
+  no-debug: 1
+  no-ids: 2
+  no-important: 2
+  hex-notation:
+    - 2
+    -
+      style: uppercase
+  indentation:
+    - 2
+    -
+      size: 2
+  variable-for-property:
+    - 2
+    -
+      properties:
+        - margin
+        - content
