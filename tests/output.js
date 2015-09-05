@@ -8,7 +8,7 @@ var lint = require('../index'),
     fs = require('fs-extra');
 
 var results = [{
-  filePath: '/Users/samrichard/Development/sass-lint/tests/sass/empty-line-between-blocks.scss',
+  filePath: 'sass/empty-line-between-blocks.scss',
   warningCount: 2,
   errorCount: 0,
   messages: [
