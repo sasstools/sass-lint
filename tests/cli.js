@@ -3,40 +3,34 @@ var assert = require('assert'),
     childProcess = require('child_process');
 
 
-describe('CLI', function () {
-  describe('#help', function () {
-    it('should return help instructions', function (done) {
+describe('cli', function () {
+  it('should return help instructions', function (done) {
+    var command = 'sass-lint -h';
 
-      var command = 'sass-lint -h';
+    childProcess.exec(command, function (err, stdout) {
+      if (err) {
+        return done(err);
+      }
 
-      childProcess.exec(command, function (err, stdout) {
-        if (err) {
-          return done(err);
-        }
+      assert(stdout.indexOf('Usage') > 0);
 
-        assert(stdout.indexOf('Usage') > 0);
-
-        done(null);
-      });
-
+      done(null);
     });
+
   });
 
-  describe('#version', function () {
-    it('should return a version', function (done) {
+  it('should return a version', function (done) {
+    var command = 'sass-lint -V';
 
-      var command = 'sass-lint -V';
+    childProcess.exec(command, function (err, stdout) {
+      if (err) {
+        return done(err);
+      }
 
-      childProcess.exec(command, function (err, stdout) {
-        if (err) {
-          return done(err);
-        }
+      should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
 
-        should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
-
-        done(null);
-      });
-
+      done(null);
     });
+
   });
 });
