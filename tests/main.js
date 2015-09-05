@@ -496,10 +496,10 @@ describe('rule', function () {
 
   it('space after colon - [include: false]', function (done) {
     lintFile('space-after-colon.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'options': {
-          'merge-default-rules': false
-        },
         'space-after-colon': [
           1,
           {
