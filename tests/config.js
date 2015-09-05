@@ -1,7 +1,6 @@
 'use strict';
 
 var equal = require('deep-equal'),
-    // assert = require('assert'),
     yaml = require('js-yaml'),
     fs = require('fs'),
     path = require('path'),
