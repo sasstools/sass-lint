@@ -478,7 +478,9 @@ describe('rule', function () {
   //////////////////////////////
   // Space After Colon
   //////////////////////////////
-  it('space after colon', function (done) {
+
+  // Default
+  it('space after colon - [include: true]', function (done) {
     lintFile('space-after-colon.scss', {
       'options': {
         'merge-default-rules': false
@@ -487,7 +489,26 @@ describe('rule', function () {
         'space-after-colon': 1
       }
     }, function (data) {
-      assert.equal(1, data.warningCount);
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('space after colon - [include: false]', function (done) {
+    lintFile('space-after-colon.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'space-after-colon': [
+          1,
+          {
+            'include': false
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
       done();
     });
   });
