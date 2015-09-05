@@ -842,8 +842,10 @@ describe('rule', function () {
   //////////////////////////////
   it('color variable', function (done) {
     lintFile('color-variable.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'hex-length': 0,
         'color-variable': 1
       }
     }, function (data) {
@@ -857,8 +859,10 @@ describe('rule', function () {
   //////////////////////////////
   it('color variable - allow rgba', function (done) {
     lintFile('color-variable.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
       'rules': {
-        'hex-length': 0,
         'color-variable': [
           1,
           {
