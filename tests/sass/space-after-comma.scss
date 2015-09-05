@@ -1,9 +1,23 @@
 .foo {
   @include mixin('foo', 'bar');
-  @include mixin('foo','bar');
-
   box-shadow: 1px 1px black, 1px 1px black;
+}
+
+.bar {
+  @include mixin('foo','bar');
   box-shadow: 1px 1px black,1px 1px black;
+}
 
+@mixin baz(
+  $foo: true,
+  $bar: false
+) {
+  content: 'foo';
+}
 
+@mixin norf(
+  $foo: true, // This is a comment
+  $bar: false /* This is a comment */
+) {
+  content: 'foo';
 }

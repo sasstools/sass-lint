@@ -461,7 +461,9 @@ describe('rule', function () {
   //////////////////////////////
   // Space After Comma
   //////////////////////////////
-  it('space after comma', function (done) {
+
+  // Default
+  it('space after comma - [include: true]', function (done) {
     lintFile('space-after-comma.scss', {
       'options': {
         'merge-default-rules': false
@@ -470,7 +472,26 @@ describe('rule', function () {
         'space-after-comma': 1
       }
     }, function (data) {
-      assert.equal(1, data.warningCount);
+      assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('space after comma - [include: false]', function (done) {
+    lintFile('space-after-comma.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'space-after-comma': [
+          1,
+          {
+            'include': false
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(2, data.warningCount);
       done();
     });
   });
