@@ -749,23 +749,6 @@ describe('rule', function () {
   });
 
   //////////////////////////////
-  // Clean Import Paths
-  //////////////////////////////
-  it('clean import paths', function (done) {
-    lintFile('clean-import-paths.scss', {
-      'options': {
-        'merge-default-rules': false
-      },
-      'rules': {
-        'clean-import-paths': 1
-      }
-    }, function (data) {
-      assert.equal(8, data.warningCount);
-      done();
-    });
-  });
-
-  //////////////////////////////
   // Empty Args
   //////////////////////////////
 
