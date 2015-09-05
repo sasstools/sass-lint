@@ -899,6 +899,23 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Color Keyword
+  //////////////////////////////
+  it('color keyword', function (done) {
+    lintFile('color-keyword.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'color-keyword': 1
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Clean Import Paths
   //////////////////////////////
 
