@@ -175,7 +175,8 @@ describe('rule', function () {
         'merge-default-rules': false
       },
       'rules': {
-        'hex-length': 1
+        'hex-length': 1,
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -197,7 +198,8 @@ describe('rule', function () {
           {
             'style': 'long'
           }
-        ]
+        ],
+        'color-variable': 0
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -953,6 +955,45 @@ describe('rule', function () {
       }
     }, function (data) {
       assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Color Variable
+  //////////////////////////////
+  it('color variable', function (done) {
+    lintFile('color-variable.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'color-variable': 1
+      }
+    }, function (data) {
+      assert.equal(19, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Color Variable - allow rgba
+  //////////////////////////////
+  it('color variable - allow rgba', function (done) {
+    lintFile('color-variable.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'color-variable': [
+          1,
+          {
+            'allow-rgba': true
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(18, data.warningCount);
       done();
     });
   });

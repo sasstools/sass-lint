@@ -11,7 +11,7 @@
 .qux {
   content: 'baz';
   @include waldo;
-  content: 'where';
+  margin: 0;
 }
 
 .breakpoint {
