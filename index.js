@@ -6,7 +6,7 @@ var slConfig = require('./lib/config'),
     slRules = require('./lib/rules'),
     glob = require('glob'),
     path = require('path'),
-    fs = require('fs');
+    fs = require('fs-extra');
 
 
 var sassLint = function (config) {
@@ -82,13 +82,23 @@ sassLint.lintFiles = function (files, options, configPath) {
 };
 
 
-sassLint.format = function (results) {
-  var stylish = require('eslint/lib/formatters/stylish');
-  return stylish(results);
+sassLint.format = function (results, options, configPath) {
+  var config = this.getConfig(options, configPath);
+
+  var formatted = require('eslint/lib/formatters/' + config.options.formatter);
+
+  return formatted(results);
 };
 
-sassLint.outputResults = function (results) {
-  console.log(results);
+sassLint.outputResults = function (results, options, configPath) {
+  var config = this.getConfig(options, configPath);
+
+  if (config.options['output-file']) {
+    fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), results);
+  }
+  else {
+    console.log(results);
+  }
   return results;
 };
 
