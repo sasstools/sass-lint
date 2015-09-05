@@ -27,6 +27,7 @@ rules:
   # Style Guide
   border-zero: 1
   clean-import-paths: 1
+  color-keyword: 1
   comment: 1
   empty-args: 1
   hex-length: 1
