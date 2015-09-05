@@ -478,7 +478,9 @@ describe('rule', function () {
   //////////////////////////////
   // Space After Colon
   //////////////////////////////
-  it('space after colon', function (done) {
+
+  // Default
+  it('space after colon - [include: true]', function (done) {
     lintFile('space-after-colon.scss', {
       'options': {
         'merge-default-rules': false
@@ -487,7 +489,26 @@ describe('rule', function () {
         'space-after-colon': 1
       }
     }, function (data) {
-      assert.equal(1, data.warningCount);
+      assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('space after colon - [include: false]', function (done) {
+    lintFile('space-after-colon.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'space-after-colon': [
+          1,
+          {
+            'include': false
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(4, data.warningCount);
       done();
     });
   });
@@ -845,6 +866,84 @@ describe('rule', function () {
       },
       'rules': {
         'color-keyword': 1
+      }
+    }, function (data) {
+      console.log(data);
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Clean Import Paths
+  //////////////////////////////
+
+  // Default
+  it('clean import paths - [leading-underscore: false, filename-extension: false]', function (done) {
+    lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'clean-import-paths': 1
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  it('clean import paths - [leading-underscore: true, filename-extension: false]', function (done) {
+    lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'clean-import-paths': [
+          1,
+          {
+            'leading-underscore': true
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  it('clean import paths - [leading-underscore: false, filename-extension: true]', function (done) {
+    lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'clean-import-paths': [
+          1,
+          {
+            'filename-extension': true
+          }
+        ]
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  it('clean import paths - [leading-underscore: true, filename-extension: true]', function (done) {
+    lintFile('clean-import-paths.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'clean-import-paths': [
+          1,
+          {
+            'leading-underscore': true,
+            'filename-extension': true
+          }
+        ]
       }
     }, function (data) {
       assert.equal(8, data.warningCount);
