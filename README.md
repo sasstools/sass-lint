@@ -10,7 +10,7 @@ npm install sass-lint --save-dev
 
 ## Configuring
 
-Use the [Sample Config](docs/sass-lint.yml) as a guide to create your `.sass-lint.yml` in the root of where you are running Sass Lint from.
+Use the [Sample Config](docs/sass-lint.yml) as a guide to create your `.sass-lint.yml` in the root of where you are running Sass Lint from. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
 
 ### Options
 
