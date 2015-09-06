@@ -1057,4 +1057,13 @@ describe('rule', function () {
       done();
     });
   });
+
+  it('should not error if a file is empty', function (done) {
+    lintFile('empty-file.scss', function (data) {
+      assert.equal(0, data.warningCount);
+      assert.equal(0, data.errorCount);
+      assert.equal(0, data.messages.length);
+      done();
+    });
+  });
 });
