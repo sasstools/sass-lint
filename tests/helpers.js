@@ -134,7 +134,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('isEqual should return false - incorrect type', function (done) {
+  it('isEqual should return false - [objA.type !== objB.type]', function (done) {
 
     var testBlock = {
           type: 'block',
@@ -148,7 +148,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('isEqual should return false - incorrect start line', function (done) {
+  it('isEqual should return false - [objA.start.line !== objB.start.line]', function (done) {
 
     var testBlock = {
           type: 'class',
@@ -162,7 +162,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('isEqual should return false - incorrect end line', function (done) {
+  it('isEqual should return false - [objA.end.line !== objB.end.line]', function (done) {
 
     var testBlock = {
           type: 'class',
@@ -176,7 +176,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('isEqual should return false - incorrect content length', function (done) {
+  it('isEqual should return false - [objA.content.length !== objB.content.length]', function (done) {
 
     var testBlock = {
           type: 'class',
@@ -194,7 +194,7 @@ describe('helpers', function () {
   // isUnique
   //////////////////////////////
 
-  it('isUnique should return false - same object passed', function (done) {
+  it('isUnique should return false - [objA === objB]', function (done) {
 
 
     var ledger = [];
@@ -206,7 +206,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('isUnique should return true - unique object passed', function (done) {
+  it('isUnique should return true - [objA !== objB]', function (done) {
 
 
     var ledger = [];
