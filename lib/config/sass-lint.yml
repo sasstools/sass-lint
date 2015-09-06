@@ -25,6 +25,7 @@ rules:
   no-important: 1
   no-warn: 1
   no-color-keywords: 1
+  no-invalid-hex: 1
 
   # Style Guide
   border-zero: 1
@@ -34,7 +35,6 @@ rules:
   empty-args: 1
   hex-length: 1
   hex-notation: 1
-  hex-validation: 1
   indentation: 1
   leading-zero: 1
   nesting-depth: 1

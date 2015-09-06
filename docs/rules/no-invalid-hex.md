@@ -1,6 +1,6 @@
-# Hex Validation
+# No Invalid Hex
 
-Rule `hex-validation` will enforce the validity of hexadecimal values.
+Rule `no-invalid-hex` will enforce that only valid of hexadecimal values are written.
 
 ## Examples
 

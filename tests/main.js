@@ -249,13 +249,13 @@ describe('rule', function () {
   //////////////////////////////
   // Hex Validation
   //////////////////////////////
-  it('hex validation', function (done) {
-    lintFile('hex-validation.scss', {
+  it('no invalid hex', function (done) {
+    lintFile('no-invalid-hex.scss', {
       'options': {
         'merge-default-rules': false
       },
       'rules': {
-        'hex-validation': 1
+        'no-invalid-hex': 1
       }
     }, function (data) {
       assert.equal(16, data.warningCount);
