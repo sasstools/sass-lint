@@ -1,10 +1,6 @@
 # No CSS Comments
 
-Rule `no-css-comments` will enforce the use of Sass single-line comments and disallow CSS comments.
-
-## Options
-
-* `allowed`: `regular expression`
+Rule `no-css-comments` will enforce the use of Sass single-line comments and disallow CSS comments. Bang comments (`/*! */`, will be printed even in minified mode) are still allowed.
 
 ## Examples
 
@@ -21,6 +17,12 @@ When enabled the following are allowed:
 //////////////////
 // This is a good comment
 //////////////////
+
+/*! This is a good bang comment */
+
+/*!
+  * This is a good bang comment
+**/
 ```
 
 When enabled the following are disallowed:
@@ -31,21 +33,5 @@ When enabled the following are disallowed:
 
 /*
  * Mulitline comments are bad
- */
-```
-
-When enabled and a regular expression is passed to the allowed option you can bypass the linter
-
-```yaml
-comment:
-  - 1
-  -
-    allowed
-     - '/\* Allowed Comment'
-```
-
-```scss
-/*
- * Allowed Comment
  */
 ```

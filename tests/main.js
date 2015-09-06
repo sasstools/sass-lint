@@ -925,31 +925,6 @@ describe('rule', function () {
   });
 
   //////////////////////////////
-  // Comment - 2 allowed
-  //////////////////////////////
-  it('no css comments - allowed regEx', function (done) {
-    lintFile('no-css-comments.scss', {
-      'options': {
-        'merge-default-rules': false
-      },
-      'rules': {
-        'no-css-comments': [
-          1,
-          {
-            'allowed': [
-              '^[\/* ]*Bad',
-              '/\* Test Comment'
-            ]
-          }
-        ]
-      }
-    }, function (data) {
-      assert.equal(2, data.warningCount);
-      done();
-    });
-  });
-
-  //////////////////////////////
   // Duplicate Property
   //////////////////////////////
   it('no duplicate property', function (done) {
