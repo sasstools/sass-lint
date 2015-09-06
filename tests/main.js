@@ -1011,13 +1011,13 @@ describe('rule', function () {
   //////////////////////////////
   // Color Keyword
   //////////////////////////////
-  it('color keyword', function (done) {
-    lintFile('color-keyword.scss', {
+  it('no color keywords', function (done) {
+    lintFile('no-color-keywords.scss', {
       'options': {
         'merge-default-rules': false
       },
       'rules': {
-        'color-keyword': 1
+        'no-color-keywords': 1
       }
     }, function (data) {
       assert.equal(8, data.warningCount);

@@ -24,11 +24,11 @@ rules:
   no-ids: 1
   no-important: 1
   no-warn: 1
+  no-color-keywords: 1
 
   # Style Guide
   border-zero: 1
   clean-import-paths: 1
-  color-keyword: 1
   color-variable: 1
   comment: 1
   empty-args: 1
