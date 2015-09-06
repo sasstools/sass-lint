@@ -4,7 +4,7 @@ Rule `indentations` will enforce an indentation size (in spaces) and ensure that
 
 ## Options
 
-* `size`: number (defaults to `2`)
+* `size`: `number` (defaults to `2`)
 
 ## Examples
 

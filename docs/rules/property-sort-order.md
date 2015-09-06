@@ -4,7 +4,7 @@ Rule `property-sort-order` will enforce the order in which declarations are writ
 
 ## Options
 
-* `order`: `'alphabetical'` or array of properties (defaults to `alphabetical`. Unknown properties from array are sorted alphabetically)
+* `order`: `'alphabetical'`, [`'concentric'`](http://rhodesmill.org/brandon/2011/concentric-css/), [`'recess'`](http://twitter.github.io/recess/), [`'smacss'`](http://smacss.com/book/formatting), or `[array of properties]` (defaults to `alphabetical`. Unknown properties are sorted alphabetically)
 
 ## Examples
 

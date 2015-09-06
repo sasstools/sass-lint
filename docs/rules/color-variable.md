@@ -2,27 +2,21 @@
 
 Rule `color-variable` will disallow the use of color literals and basic color functions in any declarations other than variables or maps/lists.
 
-Variables should always be used to define colors as defining them directly onto properties can make your code hard to manage / update and maintain.
-
-Using the names of css color literals such as `red` for map property names is also not good and should be avoided.
-
 The list of affected color functions are as follows:
-* rgb
-* rgba [ \* ]
-* hsl
-* hsla
+* `rgb`
+* `rgba`
+* `hsl`
+* `hsla`
 
-You can still use functions such as `adjust-color` but you must pass the original color in as a variable.
-
-\* See options below
+Other color functions, such as `adjust-color` and `mix`, may be used, but the original color must be passed in as a variable.
 
 ## Options
 
-* `allow-rgba`: `true`:`false` defaults to `false`
+* `allow-rgba`: `true`/`false` (defaults to `false`)
 
 ## Examples
 
-When `enabled` and `allow-rgba` is set to `false` the following are disallowed.
+When enabled and `allow-rgba` is set to `false` the following are disallowed.
 
 ```scss
 .literal {
@@ -86,7 +80,7 @@ $colors: (
 );
 ```
 
-When `enabled` and `allow-rgba` is set to `false` the following are allowed .
+When enabled and `allow-rgba` is set to `false` the following are allowed.
 
 ```scss
 $literal: mediumslateblue;
@@ -145,20 +139,20 @@ $hsla: hsla(40, 50%, 50%, .3);
 }
 ```
 
-if option `allow-rgba` is set to `true` the following will be allowed
+In addition, when enabled and `allow-rgba` is set to `true`, the following will be allowed:
 
 ```scss
 // rgba in variables is still fine
 $rgba: rgba(255, 0, 0, .5);
 $red: rgb(255, 255, 255,);
 
-// you can now use rgba directly to alter a variables opacity
+// rgba can be used directly to alter a variables opacity
 .color {
   color: rgba($red, .3);
 }
 ```
 
-and the following will still be disallowed
+In addition, when enabled and `allow-rgba` is set to `true`, the following will be disallowed:
 
 ```scss
 .color {

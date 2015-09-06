@@ -4,7 +4,7 @@ Rule `variable-for-property` will enforce the use of variables for the values of
 
 ## Options
 
-* `properties`: `[]` (defaults to `[]` (empty))
+* `properties`: `[array of property names]` (defaults to empty array `[]`)
 
 You may pass an array of properties you wish to enforce the use of variables for
 
