@@ -520,4 +520,17 @@ describe('helpers', function () {
     assert.equal(false, result);
     done();
   });
+
+  //////////////////////////////
+  // loadConfigFile
+  //////////////////////////////
+
+  it('loadConfigFile', function (done) {
+
+    var result = helpers.loadConfigFile('../../tests/testFile.txt'),
+        expect = 'This is a test file that test\'s the loadConfigFile helper function.';
+
+    assert.equal(expect, result);
+    done();
+  });
 });

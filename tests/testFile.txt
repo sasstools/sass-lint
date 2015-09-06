@@ -1,0 +1,1 @@
+This is a test file that test's the loadConfigFile helper function.
