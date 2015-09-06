@@ -54,6 +54,21 @@ var classBlock =
       indexHasChanged: [ 0 ]
     };
 
+var detectTestA = {
+      line: 1,
+      column: 1
+    },
+
+    detectTestB = {
+      line: 2,
+      column: 2
+    },
+
+    detectTestC = {
+      line: 1,
+      column: 2
+    };
+
 
 describe('helpers', function () {
 
@@ -222,7 +237,7 @@ describe('helpers', function () {
   // addUnique
   //////////////////////////////
 
-  it('addUnique should return a modified results array - unique object passed', function (done) {
+  it('addUnique should return a modified results array - [objA !== objB]', function (done) {
 
     var ledger = [];
     ledger.push(classBlock);
@@ -235,7 +250,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('addUnique should return an unmodified results array - same object passed', function (done) {
+  it('addUnique should return an unmodified results array - [objA === objB]', function (done) {
 
     var ledger = [];
     ledger.push(classBlock);
@@ -243,6 +258,50 @@ describe('helpers', function () {
     var result = helpers.addUnique(ledger, classBlock);
 
     assert.equal(ledger, result);
+    done();
+  });
+
+  //////////////////////////////
+  // sortDetects
+  //////////////////////////////
+
+  it('sortDetects should return -1 - [a.line < b.line]', function (done) {
+
+    var result = helpers.sortDetects(detectTestA, detectTestB);
+
+    assert.equal(-1, result);
+    done();
+  });
+
+  it('sortDetects should return 1 - [a.line > b.line]', function (done) {
+
+    var result = helpers.sortDetects(detectTestB, detectTestA);
+
+    assert.equal(1, result);
+    done();
+  });
+
+  it('sortDetects should return 0 - [a === b]', function (done) {
+
+    var result = helpers.sortDetects(detectTestA, detectTestA);
+
+    assert.equal(0, result);
+    done();
+  });
+
+  it('sortDetects should return -1 - [a.column < b.column]', function (done) {
+
+    var result = helpers.sortDetects(detectTestA, detectTestC);
+
+    assert.equal(-1, result);
+    done();
+  });
+
+  it('sortDetects should return 1 - [a.column > b.column]', function (done) {
+
+    var result = helpers.sortDetects(detectTestC, detectTestA);
+
+    assert.equal(1, result);
     done();
   });
 
