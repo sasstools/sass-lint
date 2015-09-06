@@ -3,11 +3,23 @@
 var assert = require('assert'),
     helpers = require('../lib/helpers');
 
+var haystack = [
+    {
+      prop: 'a',
+      propb: 'b'
+    },
+    {
+      prop: 'c',
+      propb: 'd'
+    }
+];
+
 describe('helpers', function () {
 
   //////////////////////////////
   // Helpers is loaded
   //////////////////////////////
+
   it('helpers should not be undefined', function (done) {
 
     var loaded = typeof (helpers) === 'object' ? true : false;
@@ -17,7 +29,41 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // Is Number
+  // propertySearch
+  //////////////////////////////
+
+  it('propertySearch should not find a property', function (done) {
+
+    var needle = 'e',
+        property = 'prop',
+        result = helpers.propertySearch(haystack, needle, property);
+
+    assert.equal(-1, result);
+    done();
+  });
+
+  it('propertySearch should find a property', function (done) {
+
+    var needle = 'a',
+        property = 'prop',
+        result = helpers.propertySearch(haystack, needle, property);
+
+    assert.equal(0, result);
+    done();
+  });
+
+  it('propertySearch should find a deeper property', function (done) {
+
+    var needle = 'd',
+        property = 'propb',
+        result = helpers.propertySearch(haystack, needle, property);
+
+    assert.equal(1, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isNumber
   //////////////////////////////
 
   it('isNumber - [10 - true]', function (done) {
@@ -53,7 +99,7 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // Is Upper Case
+  // isUpperCase
   //////////////////////////////
 
   it('isUpperCase - [\'TEST\' - true]', function (done) {
@@ -89,7 +135,7 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // Is Lower Case
+  // isLowerCase
   //////////////////////////////
 
   it('isLowerCase - [\'TEST\' - false]', function (done) {
@@ -125,7 +171,7 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // Is Valid Hex
+  // isValidHex
   //////////////////////////////
 
   it('isValidHex - [\'abcdef\' - true]', function (done) {
