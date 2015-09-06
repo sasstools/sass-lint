@@ -26,18 +26,21 @@ sassLint.lintText = function (file, options, configPath) {
       errors = 0,
       warnings = 0;
 
-  rules.forEach(function (rule) {
-    detects = rule.rule.detect(ast, rule);
-    results = results.concat(detects);
-    if (detects.length) {
-      if (rule.severity === 1) {
-        warnings += detects.length;
+  if (ast.content.length > 0) {
+    rules.forEach(function (rule) {
+      detects = rule.rule.detect(ast, rule);
+      results = results.concat(detects);
+      if (detects.length) {
+        if (rule.severity === 1) {
+          warnings += detects.length;
+        }
+        else if (rule.severity === 2) {
+          errors += detects.length;
+        }
       }
-      else if (rule.severity === 2) {
-        errors += detects.length;
-      }
-    }
-  });
+    });
+  }
+
 
   results.sort(helpers.sortDetects);
 
