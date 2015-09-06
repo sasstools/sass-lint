@@ -219,6 +219,34 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
+  // addUnique
+  //////////////////////////////
+
+  it('addUnique should return a modified results array - unique object passed', function (done) {
+
+    var ledger = [];
+    ledger.push(classBlock);
+
+    var result = helpers.addUnique(ledger, otherClassBlock);
+
+    ledger.push(otherClassBlock);
+
+    assert.equal(ledger, result);
+    done();
+  });
+
+  it('addUnique should return an unmodified results array - same object passed', function (done) {
+
+    var ledger = [];
+    ledger.push(classBlock);
+
+    var result = helpers.addUnique(ledger, classBlock);
+
+    assert.equal(ledger, result);
+    done();
+  });
+
+  //////////////////////////////
   // isNumber
   //////////////////////////////
 
