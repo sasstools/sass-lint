@@ -910,13 +910,13 @@ describe('rule', function () {
   //////////////////////////////
   // Comment - no allowed
   //////////////////////////////
-  it('comment', function (done) {
-    lintFile('comment.scss', {
+  it('no css comments', function (done) {
+    lintFile('no-css-comments.scss', {
       'options': {
         'merge-default-rules': false
       },
       'rules': {
-        'comment': 1
+        'no-css-comments': 1
       }
     }, function (data) {
       assert.equal(4, data.warningCount);
@@ -927,13 +927,13 @@ describe('rule', function () {
   //////////////////////////////
   // Comment - 2 allowed
   //////////////////////////////
-  it('comment - allowed regEx', function (done) {
-    lintFile('comment.scss', {
+  it('no css comments - allowed regEx', function (done) {
+    lintFile('no-css-comments.scss', {
       'options': {
         'merge-default-rules': false
       },
       'rules': {
-        'comment': [
+        'no-css-comments': [
           1,
           {
             'allowed': [

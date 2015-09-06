@@ -1,14 +1,10 @@
-# Comment
+# No CSS Comments
 
-Rule `comment` will enforce the comment style used, preventing the use of multiline comments which would appear in your compiled CSS.
+Rule `no-css-comments` will enforce the use of Sass single-line comments and disallow CSS comments.
 
 ## Options
 
-* `allowed`: regEx - regular expression
-
-e.g.
-
-`allowed: '^[\/* ]*Bad'`
+* `allowed`: `regular expression`
 
 ## Examples
 
