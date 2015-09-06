@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "eslint .",
-    "test": "./node_modules/.bin/mocha tests"
+    "test": "mocha tests"
   },
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
