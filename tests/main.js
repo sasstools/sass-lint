@@ -620,6 +620,25 @@ describe('rule', function () {
   });
 
   //////////////////////////////
+  // Space Around Operator
+  //////////////////////////////
+
+  // Default
+  it('space around operator - [include: true]', function (done) {
+    lintFile('space-around-operator.scss', {
+      'options': {
+        'merge-default-rules': false
+      },
+      'rules': {
+        'space-around-operator': 1
+      }
+    }, function (data) {
+      assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Space Before Colon
   //////////////////////////////
 

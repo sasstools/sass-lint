@@ -1,0 +1,53 @@
+@mixin font-fl($font) {
+  &:after {
+    @if (type-of($font)         == string) {
+      content: 'My font is: #{$font}.';
+    } @else {
+      content: 'Sorry, the argument #{$font} is a #{type-of($font)}.';
+    }
+  }
+}
+
+.v-fail {
+  font: 16px / 24px Arial sans-serif;
+  size: 20px+  30px;
+}
+
+$v-ok: 90px + 10px;
+$v-ok2: (90px / 10px) + 10px;
+
+$v-fail1: 90px-10px;
+$v-fail2: 90px   +  10px;
+$v-fail3: 90px                 + 10px;
+$v-fail4: 90px  +   10px;
+
+$font-stack:    Helvetica , sans-serif;
+$primary-color: #333;
+
+body {
+  color: $primary-color;
+  font: 100%  $font-stack;
+}
+
+article[role="main"] {
+  float: left;
+  font: 16px  /  24px Arial sans-serif;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complimentary"] {
+  float: right;
+  width: 300px  / 960px *  100%;
+}
+
+nth-child(2n+1) {
+  float: right;
+}
+
+// FIXME: should also be an error: https://github.com/tonyganch/gonzales-pe/issues/85
+body {
+  background: url('a'  +  'b.png');
+}
+
+// FIXME: current mod operator is not working in gonzales:
+// $foo: 90px   %10px;
