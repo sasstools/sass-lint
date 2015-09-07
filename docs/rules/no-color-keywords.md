@@ -1,10 +1,6 @@
 # Color Keyword
 
-Rule `color-keywords` will enforce the use of hexadecimal color values rather than literals.
-
-## Options
-
-* There are no configurable options
+Rule `no-color-keywords` will enforce the use of hexadecimal color values rather than literals.
 
 ## Examples
 

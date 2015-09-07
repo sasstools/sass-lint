@@ -20,6 +20,18 @@
   content: ' ';
 }
 
+/*! Single Line Bang Comment */
+.bang-1 {
+  content: '';
+}
+
+/*!
+  * Multiline Bang Comment
+**/
+.bang-2 {
+  content: 'bang';
+}
+
 /*
  * Multiline Comments are bad
  */
