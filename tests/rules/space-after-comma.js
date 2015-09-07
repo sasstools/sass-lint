@@ -9,7 +9,7 @@ describe('space after comma', function () {
     lint.test(file, {
       'space-after-comma': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
@@ -23,7 +23,7 @@ describe('space after comma', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
