@@ -1,6 +1,6 @@
-# Color Variable
+# No Color Literals
 
-Rule `color-variable` will disallow the use of color literals and basic color functions in any declarations other than variables or maps/lists.
+Rule `no-color-literals` will disallow the use of color literals and basic color functions in any declarations other than variables or maps/lists.
 
 The list of affected color functions are as follows:
 * `rgb`

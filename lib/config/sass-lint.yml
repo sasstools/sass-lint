@@ -27,11 +27,11 @@ rules:
   no-color-keywords: 1
   no-invalid-hex: 1
   no-css-comments: 1
+  no-color-literals: 1
 
   # Style Guide
   border-zero: 1
   clean-import-paths: 1
-  color-variable: 1
   empty-args: 1
   hex-length: 1
   hex-notation: 1
