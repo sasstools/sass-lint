@@ -2,15 +2,15 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('color-variable.scss');
+var file = lint.file('no-color-literals.scss');
 
-describe('color variable', function () {
+describe('no color literals', function () {
   //////////////////////////////
   // Color Variable
   //////////////////////////////
   it('[allow-rgba: false]', function (done) {
     lint.test(file, {
-      'color-variable': 1
+      'no-color-literals': 1
     }, function (data) {
       lint.assert.equal(19, data.warningCount);
       done();
@@ -22,7 +22,7 @@ describe('color variable', function () {
   //////////////////////////////
   it('[allow-rgba: true]', function (done) {
     lint.test(file, {
-      'color-variable': [
+      'no-color-literals': [
         1,
         {
           'allow-rgba': true
