@@ -24,7 +24,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(30, data.warningCount);
+      lint.assert.equal(38, data.warningCount);
       done();
     });
   });
@@ -54,7 +54,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(28, data.warningCount);
+      lint.assert.equal(36, data.warningCount);
       done();
     });
   });
@@ -84,7 +84,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(32, data.warningCount);
+      lint.assert.equal(40, data.warningCount);
       done();
     });
   });

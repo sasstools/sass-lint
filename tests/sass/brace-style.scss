@@ -174,3 +174,18 @@ $total: 4;
 @if ($foo) { $bar: 'foo'; }
 @else if { $bar: 'bar'; }
 @else { $bar: false; }
+
+
+@function foo() { @return 'foo'; }
+
+
+@mixin bar() { content: 'bar'; }
+
+
+@for $i from 1 through 5 { .for-#{$i} { content: 'foo'; } }
+
+
+@each $item in $list { .each-#{$item} { content: #{$item}; } }
+
+
+@while $total > 0 { .while-#{$total} { content: #{$total}; } $total: $total - 1; }
