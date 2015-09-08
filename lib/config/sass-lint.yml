@@ -27,6 +27,7 @@ rules:
   no-color-keywords: 1
   no-invalid-hex: 1
   no-css-comments: 1
+  no-vendor-prefix: 1
 
   # Style Guide
   border-zero: 1
