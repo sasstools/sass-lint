@@ -9,7 +9,7 @@ describe('brace style', function () {
     lint.test(file, {
       'brace-style': 1
     }, function (data) {
-      lint.assert.equal(14, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -23,7 +23,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
@@ -37,7 +37,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(19, data.warningCount);
       done();
     });
   });

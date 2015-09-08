@@ -56,6 +56,8 @@
 
 
 @if ($foo) {
+  $bar: 'foo';
+} @else if ($bar) {
   $bar: 'bar';
 } @else {
   $bar: false;
@@ -63,6 +65,9 @@
 
 
 @if ($foo) {
+  $bar: 'foo';
+}
+@else if ($bar) {
   $bar: 'bar';
 }
 @else {
@@ -71,6 +76,10 @@
 
 
 @if ($foo)
+{
+  $bar: 'foo';
+}
+@else if ($bar)
 {
   $bar: 'bar';
 }
