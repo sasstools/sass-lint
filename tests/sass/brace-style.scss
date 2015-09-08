@@ -189,3 +189,14 @@ $total: 4;
 
 
 @while $total > 0 { .while-#{$total} { content: #{$total}; } $total: $total - 1; }
+
+
+
+
+// No parens
+
+@if $foo { $bar: 'foo'; }
+
+@if $foo {
+  $bar: 'foo';
+}
