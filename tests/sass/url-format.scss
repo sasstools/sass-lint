@@ -1,0 +1,23 @@
+.foo {
+  background-image: url('https://foo.com/img/bar.png');
+}
+
+.foo {
+  background-image: url('http://foo.com/img/bar.png');
+}
+
+.foo {
+  background-image: url('//foo.com/img/bar.png');
+}
+
+.foo {
+  background-image: url('/img/bar.png');
+}
+
+.fop {
+  background-image: url('img/bar.png');
+}
+
+.foo {
+  background-image: url('bar.png');
+}
