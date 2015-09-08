@@ -111,6 +111,8 @@
 
 $list: (foo bar baz qux);
 
+
+
 @each $item in $list {
   .each-#{$item} {
     content: #{$item};
@@ -149,3 +151,26 @@ $total: 4;
 
   $total: $total - 1;
 }
+
+
+
+
+// Single-line statements
+
+.foo { content: 'foo'; }
+.foo, .bar { content: 'bar'; }
+
+
+@if ($foo) { $bar: 'foo'; }
+
+@if ($foo) { $bar: 'foo'; } @else { $bar: false; }
+@if ($foo) { $bar: 'foo'; } @else if { $bar: 'bar'; } @else { $bar: false; }
+
+
+@if ($foo) { $bar: 'foo'; }
+@else { $bar: false; }
+
+
+@if ($foo) { $bar: 'foo'; }
+@else if { $bar: 'bar'; }
+@else { $bar: false; }
