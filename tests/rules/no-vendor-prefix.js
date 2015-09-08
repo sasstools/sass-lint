@@ -56,7 +56,7 @@ describe('no vendor prefix', function () {
         {
           'additional-identifiers':
           [
-            'prefix'
+            'khtml'
           ]
         }
       ]
@@ -73,7 +73,7 @@ describe('no vendor prefix', function () {
         {
           'additional-identifiers':
           [
-            'prefix',
+            'khtml',
             'webkit',
             'moz'
           ]

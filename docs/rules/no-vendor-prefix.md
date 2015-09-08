@@ -45,14 +45,14 @@ no-vendor-prefix:
   - 1
   -
     'additional-identifiers':
-      - 'test'
+      - 'khtml'
 ```
 
 The following would now also be disallowed
 
 ```scss
 .baz {
-  position: -test-sticky;
+  position: -khtml-sticky;
 }
 ```
 
