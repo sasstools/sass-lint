@@ -1,6 +1,6 @@
 # URL Quotes
 
-Rule `url-quotes` will enforce that URL strings are wrapped in quotes.
+Rule `url-quotes` will enforce that URLs are wrapped in quotes.
 
 ## Examples
 
