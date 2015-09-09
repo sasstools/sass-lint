@@ -9,7 +9,7 @@ describe('brace style', function () {
     lint.test(file, {
       'brace-style': 1
     }, function (data) {
-      lint.assert.equal(20, data.warningCount);
+      lint.assert.equal(30, data.warningCount);
       done();
     });
   });
@@ -24,7 +24,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(39, data.warningCount);
+      lint.assert.equal(49, data.warningCount);
       done();
     });
   });
@@ -39,7 +39,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(28, data.warningCount);
       done();
     });
   });
@@ -54,7 +54,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(37, data.warningCount);
+      lint.assert.equal(47, data.warningCount);
       done();
     });
   });
@@ -69,7 +69,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(23, data.warningCount);
+      lint.assert.equal(32, data.warningCount);
       done();
     });
   });
@@ -84,7 +84,7 @@ describe('brace style', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(42, data.warningCount);
+      lint.assert.equal(51, data.warningCount);
       done();
     });
   });

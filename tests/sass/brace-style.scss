@@ -14,6 +14,12 @@
 }
 
 
+.foo, .bar
+{
+  content: 'bar';
+}
+
+
 .foo,
 .bar {
   content: 'bar';
@@ -25,6 +31,118 @@
 {
   content: 'bar';
 }
+
+
+
+
+h1 {
+  content: 'foo';
+}
+
+
+h1
+{
+  content: 'foo';
+}
+
+
+h1, h2 {
+  content: 'foo';
+}
+
+
+h1, h2
+{
+  content: 'foo';
+}
+
+
+h1,
+h2 {
+  content: 'foo';
+}
+
+
+h1,
+h2
+{
+  content: 'foo';
+}
+
+
+
+
+#foo {
+  content: 'foo';
+}
+
+
+#foo
+{
+  content: 'foo';
+}
+
+
+#foo, #bar {
+  content: 'foo';
+}
+
+
+#foo, #bar
+{
+  content: 'foo';
+}
+
+
+#foo,
+#bar {
+  content: 'foo';
+}
+
+
+#foo,
+#bar
+{
+  content: 'foo';
+}
+
+
+
+
+.foo[type="text"] {
+  content: 'foo';
+}
+
+
+.foo[type="text"]
+{
+  content: 'foo';
+}
+
+
+.foo[type="text"], .bar[type="email"] {
+  content: 'foo';
+}
+
+
+.foo[type="text"], .bar[type="email"]
+{
+  content: 'foo';
+}
+
+
+.foo[type="text"],
+.bar[type="email"] {
+  content: 'foo';
+}
+
+
+.foo[type="text"],
+.bar[type="email"]
+{
+  content: 'foo';
+}
+
 
 
 
