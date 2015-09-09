@@ -2,12 +2,12 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('no-vendor-prefix.scss');
+var file = lint.file('no-vendor-prefixes.scss');
 
 describe('no vendor prefix', function () {
   it('enforce', function (done) {
     lint.test(file, {
-      'no-vendor-prefix': 1
+      'no-vendor-prefixes': 1
     }, function (data) {
       lint.assert.equal(5, data.warningCount);
       done();
@@ -16,7 +16,7 @@ describe('no vendor prefix', function () {
 
   it('[excluded-identifiers: webkit]', function (done) {
     lint.test(file, {
-      'no-vendor-prefix': [
+      'no-vendor-prefixes': [
         1,
         {
           'excluded-identifiers':
@@ -33,7 +33,7 @@ describe('no vendor prefix', function () {
 
   it('[excluded-identifiers: webkit, moz]', function (done) {
     lint.test(file, {
-      'no-vendor-prefix': [
+      'no-vendor-prefixes': [
         1,
         {
           'excluded-identifiers':
@@ -51,7 +51,7 @@ describe('no vendor prefix', function () {
 
   it('[included-identifiers: khtml]', function (done) {
     lint.test(file, {
-      'no-vendor-prefix': [
+      'no-vendor-prefixes': [
         1,
         {
           'additional-identifiers':
@@ -68,7 +68,7 @@ describe('no vendor prefix', function () {
 
   it('[included-identifiers: khtml, webkit, moz]', function (done) {
     lint.test(file, {
-      'no-vendor-prefix': [
+      'no-vendor-prefixes': [
         1,
         {
           'excluded-identifiers': [],

@@ -1,6 +1,6 @@
-# No Vendor Prefix
+# No Vendor Prefixes
 
-Rule `no-vendor-prefix` will enforce that vendor prefixes are not allowed to be used.
+Rule `no-vendor-prefixes` will enforce that vendor prefixes are not allowed to be used.
 
 List of prefixes affected by default:
 * webkit
