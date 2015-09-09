@@ -29,6 +29,7 @@ rules:
   no-css-comments: 1
   no-color-literals: 1
   no-url-protocols: 1
+  no-vendor-prefixes: 1
 
   # Style Guide
   border-zero: 1
