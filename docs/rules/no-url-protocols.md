@@ -1,6 +1,6 @@
-# URL Format
+# No URL Protocols
 
-Rule `url-format` will enforce that protocols and domains are not used within urls.
+Rule `no-url-protocols` will enforce that protocols and domains are not used within urls.
 
 ## Examples
 
