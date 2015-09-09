@@ -31,7 +31,7 @@ program
   .version(meta.version)
   .usage('[options] <pattern>')
   .option('-c, --config [path]', 'path to custom config file')
-  .option('-i, --ignore [pattern]', 'pattern to ignore. For multiple ignores, separate each pattern by `, `')
+  .option('-i, --ignore [pattern]', 'pattern to ignore. For multiple ignores, separate each pattern by `,`')
   .option('-q, --no-exit', 'do not exit on errors')
   .option('-v, --verbose', 'verbose output')
   .parse(process.argv);
@@ -42,7 +42,7 @@ if (program.config && program.config !== true) {
 }
 
 if (program.ignore && program.ignore !== true) {
-  ignores = program.ignore.split(', ');
+  ignores = program.ignore.split(',');
   configOptions = {
     'files': {
       'ignore': ignores
