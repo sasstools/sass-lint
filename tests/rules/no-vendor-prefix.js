@@ -49,7 +49,7 @@ describe('no vendor prefix', function () {
     });
   });
 
-  it('[included-identifiers: prefix]', function (done) {
+  it('[included-identifiers: khtml]', function (done) {
     lint.test(file, {
       'no-vendor-prefix': [
         1,
@@ -66,7 +66,7 @@ describe('no vendor prefix', function () {
     });
   });
 
-  it('[included-identifiers: prefix, webkit, moz]', function (done) {
+  it('[included-identifiers: khtml, webkit, moz]', function (done) {
     lint.test(file, {
       'no-vendor-prefix': [
         1,
