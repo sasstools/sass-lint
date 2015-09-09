@@ -1,6 +1,8 @@
 var assert = require('assert'),
     should = require('should'),
-    childProcess = require('child_process');
+    childProcess = require('child_process'),
+    fs = require('fs'),
+    path = require('path');
 
 
 describe('cli', function () {
@@ -28,6 +30,30 @@ describe('cli', function () {
       }
 
       should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
+
+      done(null);
+    });
+
+  });
+
+  it('should not include ignored paths', function (done) {
+
+    var sassTestsPath = path.join(__dirname, '/sass/'),
+        files = [];
+
+    files.push(sassTestsPath + fs.readdirSync(sassTestsPath)[0]);
+    files.push(sassTestsPath + fs.readdirSync(sassTestsPath)[1]);
+
+    var command = 'sass-lint -v -i ' + files;
+
+    childProcess.exec(command, function (err, stdout) {
+      if (err) {
+        return done(err);
+      }
+
+      files.forEach(function (file) {
+        assert(stdout.indexOf(file) === -1);
+      });
 
       done(null);
     });
