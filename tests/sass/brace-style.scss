@@ -1,0 +1,202 @@
+.foo {
+  content: 'foo';
+}
+
+
+.foo
+{
+  content: 'foo';
+}
+
+
+.foo, .bar {
+  content: 'bar';
+}
+
+
+.foo,
+.bar {
+  content: 'bar';
+}
+
+
+.foo,
+.bar
+{
+  content: 'bar';
+}
+
+
+
+
+@function foo() {
+  @return 'foo';
+}
+
+
+@function foo()
+{
+  @return 'foo';
+}
+
+
+
+
+@mixin bar() {
+  content: 'bar';
+}
+
+
+@mixin bar()
+{
+  content: 'bar';
+}
+
+
+
+
+@if ($foo) {
+  $bar: 'foo';
+} @else if ($bar) {
+  $bar: 'bar';
+} @else {
+  $bar: false;
+}
+
+
+@if ($foo) {
+  $bar: 'foo';
+}
+@else if ($bar) {
+  $bar: 'bar';
+}
+@else {
+  $bar: false;
+}
+
+
+@if ($foo)
+{
+  $bar: 'foo';
+}
+@else if ($bar)
+{
+  $bar: 'bar';
+}
+@else
+{
+  $bar: false;
+}
+
+
+
+
+@for $i from 1 through 5 {
+  .for-#{$i} {
+    content: 'foo';
+  }
+}
+
+
+@for $i from 1 through 5
+{
+  .for-#{$i}
+  {
+    content: 'foo';
+  }
+}
+
+
+
+
+$list: (foo bar baz qux);
+
+
+
+@each $item in $list {
+  .each-#{$item} {
+    content: #{$item};
+  }
+}
+
+
+@each $item in $list
+{
+  .each-#{$item}
+  {
+    content: #{$item};
+  }
+}
+
+
+
+
+$total: 4;
+
+@while $total > 0 {
+  .while-#{$total} {
+    content: #{$total};
+  }
+
+  $total: $total - 1;
+}
+
+
+@while $total > 0
+{
+  .while-#{$total}
+  {
+    content: #{$total};
+  }
+
+  $total: $total - 1;
+}
+
+
+
+
+// Single-line statements
+
+.foo { content: 'foo'; }
+.foo, .bar { content: 'bar'; }
+
+
+@if ($foo) { $bar: 'foo'; }
+
+@if ($foo) { $bar: 'foo'; } @else { $bar: false; }
+@if ($foo) { $bar: 'foo'; } @else if { $bar: 'bar'; } @else { $bar: false; }
+
+
+@if ($foo) { $bar: 'foo'; }
+@else { $bar: false; }
+
+
+@if ($foo) { $bar: 'foo'; }
+@else if { $bar: 'bar'; }
+@else { $bar: false; }
+
+
+@function foo() { @return 'foo'; }
+
+
+@mixin bar() { content: 'bar'; }
+
+
+@for $i from 1 through 5 { .for-#{$i} { content: 'foo'; } }
+
+
+@each $item in $list { .each-#{$item} { content: #{$item}; } }
+
+
+@while $total > 0 { .while-#{$total} { content: #{$total}; } $total: $total - 1; }
+
+
+
+
+// No parens
+
+@if $foo { $bar: 'foo'; }
+
+@if $foo {
+  $bar: 'foo';
+}

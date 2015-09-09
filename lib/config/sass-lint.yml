@@ -31,6 +31,7 @@ rules:
 
   # Style Guide
   border-zero: 1
+  brace-style: 1
   clean-import-paths: 1
   empty-args: 1
   hex-length: 1
