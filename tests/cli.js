@@ -1,7 +1,8 @@
 var assert = require('assert'),
     should = require('should'),
     childProcess = require('child_process'),
-    fs = require('fs');
+    fs = require('fs'),
+    path = require('path');
 
 
 describe('cli', function () {
@@ -36,11 +37,12 @@ describe('cli', function () {
   });
 
   it('should not include ignored paths', function (done) {
-    var sassTestsPath = 'tests/sass/',
+
+    var sassTestsPath = path.join(__dirname, '/sass/'),
         files = [];
 
-    files.push(sassTestsPath + fs.readdirSync('tests/sass')[0]);
-    files.push(sassTestsPath + fs.readdirSync('tests/sass')[1]);
+    files.push(sassTestsPath + fs.readdirSync(sassTestsPath)[0]);
+    files.push(sassTestsPath + fs.readdirSync(sassTestsPath)[1]);
 
     var command = 'sass-lint -v -i ' + files;
 
