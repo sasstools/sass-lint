@@ -71,6 +71,7 @@ describe('no vendor prefix', function () {
       'no-vendor-prefix': [
         1,
         {
+          'excluded-identifiers': [],
           'additional-identifiers':
           [
             'khtml',
