@@ -113,7 +113,7 @@ describe('cli', function () {
           return done();
         }
         else {
-          return done(new Error('warnings/errors were returned'));
+          return done(new Error('warnings/errors were expected to be returned but weren\'t'));
         }
       }
     });
