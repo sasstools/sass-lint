@@ -18,7 +18,6 @@ describe('cli', function () {
 
       done(null);
     });
-
   });
 
   it('should return a version', function (done) {
@@ -33,7 +32,6 @@ describe('cli', function () {
 
       done(null);
     });
-
   });
 
   it('CLI format option should output JSON', function (done) {
