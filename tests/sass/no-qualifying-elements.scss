@@ -21,3 +21,23 @@ input[type='email'] {
 .foo .bar {
   content: 'foo';
 }
+
+.foo {
+  .bar {
+    content: 'foo';
+  }
+}
+
+ul {
+  .foo {
+    content: 'foo';
+  }
+}
+
+.foo[type='text'] {
+  content: 'foo';
+}
+
+#foo[type='email'] {
+  content: 'foo';
+}
