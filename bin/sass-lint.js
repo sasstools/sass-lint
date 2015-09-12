@@ -14,11 +14,11 @@ var detectPattern = function (pattern) {
       formatted;
 
   detects = lint.lintFiles(pattern, configOptions, configPath);
-  formatted = lint.format(detects);
+  formatted = lint.format(detects, configOptions, configPath);
 
 
   if (program.verbose) {
-    lint.outputResults(formatted);
+    lint.outputResults(formatted, configOptions, configPath);
   }
 
 
