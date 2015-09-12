@@ -28,9 +28,12 @@ rules:
   no-invalid-hex: 1
   no-css-comments: 1
   no-color-literals: 1
+  no-url-protocols: 1
+  no-vendor-prefixes: 1
 
   # Style Guide
   border-zero: 1
+  brace-style: 1
   clean-import-paths: 1
   empty-args: 1
   hex-length: 1
@@ -40,6 +43,7 @@ rules:
   nesting-depth: 1
   property-sort-order: 1
   quotes: 1
+  url-quotes: 1
   variable-for-property: 1
   zero-unit: 1
 
