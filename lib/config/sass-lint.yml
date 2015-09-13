@@ -31,7 +31,7 @@ rules:
   no-url-protocols: 1
   no-vendor-prefixes: 1
   no-warn: 1
-  
+
   # Style Guide
   border-zero: 1
   brace-style: 1
@@ -44,6 +44,7 @@ rules:
   nesting-depth: 1
   property-sort-order: 1
   quotes: 1
+  shorthand-values: 1
   url-quotes: 1
   variable-for-property: 1
   zero-unit: 1
