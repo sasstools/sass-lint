@@ -18,6 +18,17 @@ sassLint.getConfig = function (config, configPath) {
   return slConfig(config, configPath);
 };
 
+sassLint.resultCount = function (results) {
+  var flagCount = 0,
+      jsonResults = JSON.parse(results);
+
+  for (var i = 0; i < jsonResults.length; i++) {
+    flagCount += (jsonResults[i].warningCount + jsonResults[i].errorCount);
+  }
+
+  return flagCount;
+};
+
 sassLint.lintText = function (file, options, configPath) {
   var rules = slRules(this.getConfig(options, configPath)),
       ast = groot(file.text, file.format, file.filename),
@@ -96,11 +107,20 @@ sassLint.format = function (results, options, configPath) {
 sassLint.outputResults = function (results, options, configPath) {
   var config = this.getConfig(options, configPath);
 
-  if (config.options['output-file']) {
-    fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), results);
-  }
-  else {
-    console.log(results);
+  if (this.resultCount(results)) {
+    if (config.options['output-file']) {
+      try {
+        fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), results);
+        console.log('Output successfully written to ' + path.resolve(process.cwd(), config.options['output-file']));
+      }
+      catch (e) {
+        console.log('Error: Output was unable to be written to ' + path.resolve(process.cwd(), config.options['output-file']));
+      }
+
+    }
+    else {
+      console.log(results);
+    }
   }
   return results;
 };
@@ -119,4 +139,3 @@ sassLint.failOnError = function (results) {
 };
 
 module.exports = sassLint;
-
