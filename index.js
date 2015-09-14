@@ -116,7 +116,6 @@ sassLint.outputResults = function (results, options, configPath) {
       catch (e) {
         console.log('Error: Output was unable to be written to ' + path.resolve(process.cwd(), config.options['output-file']));
       }
-
     }
     else {
       console.log(results);
