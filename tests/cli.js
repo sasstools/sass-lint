@@ -68,7 +68,6 @@ describe('cli', function () {
       if (err) {
         return done(err);
       }
-      console.log(stdout.length);
       result = stdout.length;
 
       if (result !== 0) {
