@@ -1,4 +1,4 @@
-# Border Zero
+# Shorthand Values
 
 Rule `shorthand-values` will enforce that values in their shorthand form are as concise as specified.
 
