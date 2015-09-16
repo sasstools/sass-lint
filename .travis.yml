@@ -4,7 +4,7 @@ node_js:
   - '0.12'
   - node
   - iojs
-before_install: npm install -g sass-lint
+before_script: npm link
 notifications:
   slack:
     secure: RrEbq2xE1hWdog4AckkaKDnIYYwo5VdjPcFNhRJbn/7KI0fKeZVCKZy1Ww7aaJGth7R7UX415sEV1U6RrjFyhnBb6Sh+rh8fKTvcvuTbENZW45SbtUD+xmgOvb2kfk4PzgD5Q457DpchAZD7W+E+9qr3xI3Uvh4II1uhDmSKiLI=
