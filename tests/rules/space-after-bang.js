@@ -13,4 +13,18 @@ describe('space after bang', function () {
       done();
     });
   });
+
+  it('[include: true]', function (done) {
+    lint.test(file, {
+      'space-after-bang': [
+        1,
+        {
+          'include': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
 });
