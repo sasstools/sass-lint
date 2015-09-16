@@ -47,3 +47,8 @@ Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Eac
 
 * [Gulp](https://www.npmjs.com/package/gulp-sass-lint)
 * [Grunt](https://github.com/sasstools/grunt-sass-lint)
+
+## IDE Integration
+
+* [Atom](https://atom.io/packages/linter-sass-lint)
+* [Sublime Text](https://github.com/skovhus/SublimeLinter-contrib-sass-lint)
