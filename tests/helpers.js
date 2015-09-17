@@ -533,4 +533,60 @@ describe('helpers', function () {
     assert.equal(expect, result);
     done();
   });
+
+  //////////////////////////////
+  // hasEOL
+  //////////////////////////////
+
+  it('hasEOL - [\'\\n\' - true]', function (done) {
+
+    var result = helpers.hasEOL('\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('hasEOL - [\'\\r\\n\' - true]', function (done) {
+
+    var result = helpers.hasEOL('\r\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isEmptyLine
+  //////////////////////////////
+
+  it('isEmptyLine - [\'\\n\\n\' - true]', function (done) {
+
+    var result = helpers.isEmptyLine('\n\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\r\\n\\r\\n\' - true]', function (done) {
+
+    var result = helpers.isEmptyLine('\r\n\r\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\n \\n\' - false]', function (done) {
+
+    var result = helpers.isEmptyLine('\n \n');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\r\\nabc\\r\\n\' - false]', function (done) {
+
+    var result = helpers.isEmptyLine('\r\nabc\r\n');
+
+    assert.equal(false, result);
+    done();
+  });
 });
