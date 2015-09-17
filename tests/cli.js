@@ -110,6 +110,39 @@ describe('cli', function () {
     });
   });
 
+  it('CLI output option should write JSON to test file when upper case format is used', function (done) {
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format JSON --output tests/cli-output.json',
+        outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
+
+    childProcess.exec(command, function (err) {
+
+      if (err) {
+        return done(err);
+      }
+      else {
+        var contents = fs.readFileSync(outputFile, 'utf8');
+
+        if (contents.length > 0) {
+
+          try {
+            JSON.parse(contents);
+            fs.removeSync(outputFile);
+            return done();
+          }
+          catch (e) {
+            fs.removeSync(outputFile);
+            return done(new Error('Written file is not in JSON format'));
+          }
+
+        }
+        else {
+          fs.removeSync(outputFile);
+          return done(new Error(outputFile + 'is empty'));
+        }
+      }
+    });
+  });
+
   // Test custom config path
 
   it('should return JSON from a custom config', function (done) {
