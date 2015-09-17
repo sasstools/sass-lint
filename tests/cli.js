@@ -35,7 +35,7 @@ describe('cli', function () {
   });
 
   it('CLI format option should output JSON', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format JSON';
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json';
 
     childProcess.exec(command, function (err, stdout) {
 
@@ -55,7 +55,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write to test file', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format JSON --output tests/cli-output.json',
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     childProcess.exec(command, function (err) {
@@ -78,7 +78,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write JSON to test file', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format JSON --output tests/cli-output.json',
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     childProcess.exec(command, function (err) {
