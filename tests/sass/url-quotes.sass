@@ -1,0 +1,20 @@
+$foo: 'foo.png'
+
+.foo
+  background-image: url('foo.png')
+
+
+.bar
+  background-image: url(foo.png)
+
+
+.baz
+  background-image: url($foo)
+
+
+// FIXME: Issue with Gonzales parser
+// .qux
+//   background-image: url('bar/' + $foo)
+//
+// .norf
+//   background-image: url(bar/ + $foo)
