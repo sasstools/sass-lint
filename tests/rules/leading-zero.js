@@ -2,10 +2,10 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('leading-zero.scss');
-
 describe('leading zero', function () {
-  it('[include: false]', function (done) {
+  it('scss - [include: false]', function (done) {
+    var file = lint.file('leading-zero.scss');
+
     lint.test(file, {
       'leading-zero': 1
     }, function (data) {
@@ -14,7 +14,36 @@ describe('leading zero', function () {
     });
   });
 
-  it('[include: true]', function (done) {
+  it('scss - [include: true]', function (done) {
+    var file = lint.file('leading-zero.scss');
+
+    lint.test(file, {
+      'leading-zero': [
+        1,
+        {
+          'include': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('sass - [include: false]', function (done) {
+    var file = lint.file('leading-zero.sass');
+
+    lint.test(file, {
+      'leading-zero': 1
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  it('sass - [include: true]', function (done) {
+    var file = lint.file('leading-zero.sass');
+
     lint.test(file, {
       'leading-zero': [
         1,
