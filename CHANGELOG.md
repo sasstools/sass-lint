@@ -1,5 +1,16 @@
 # Sass Lint Changelog
 
+## v1.2.1
+**September 19, 2015**
+
+**Fixes**
+
+* Extends rules now work with `.sass` syntax ([#189](https://github.com/sasstools/sass-lint/pull/189))
+* Silence output if there are no errors ([#170](https://github.com/sasstools/sass-lint/pull/170))
+* Single line per selector now works with `.sass` syntax ([#168](https://github.com/sasstools/sass-lint/pull/168))
+* Custom options no longer overwrite defaults ([#159](https://github.com/sasstools/sass-lint/pull/159))
+* Fix CLI config error ([#150](https://github.com/sasstools/sass-lint/pull/153))
+
 ## v1.2.0
 **September 7, 2015**
 
