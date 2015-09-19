@@ -2,12 +2,25 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('no-extends.scss');
+describe('no extends - scss', function () {
+  var file = lint.file('no-extends.scss');
 
-describe('no extends', function () {
   it('enforce', function (done) {
     lint.test(file, {
-      'no-extend': 1
+      'no-extends': 1
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+});
+
+describe('no extends - sass', function () {
+  var file = lint.file('no-extends.sass');
+
+  it('enforce', function (done) {
+    lint.test(file, {
+      'no-extends': 1
     }, function (data) {
       lint.assert.equal(1, data.warningCount);
       done();
