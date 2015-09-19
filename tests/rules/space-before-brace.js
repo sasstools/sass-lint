@@ -13,4 +13,18 @@ describe('space before brace', function () {
       done();
     });
   });
+
+  it('[include: false]', function (done) {
+    lint.test(file, {
+      'space-before-brace': [
+        1,
+        {
+          'include': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
 });
