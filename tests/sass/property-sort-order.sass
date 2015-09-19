@@ -1,0 +1,38 @@
+.foo
+  height: 100vh
+  display: block
+  width: 100vw
+  border: 1px
+
+  .bar
+    width: 50vw
+    content: 'baz'
+    border: 1px
+    height: 100vw
+
+
+
+@function test($foo)
+  // The line below causes the problem
+  $bar: $foo
+
+
+=placeholder
+  $placeholders: ':-webkit-input' ':-moz' '-moz' '-ms-input'
+  @each $placeholder in $placeholders
+
+    &:#{$placeholder}-placeholder
+      @content
+
+
+
+
+@function em($target, $context: $base-font-size)
+  @if not unitless($target)
+    $target: strip-units($target)
+
+  @if not unitless($context)
+    $context: strip-units($context)
+
+  @if $target == 0 @return 0 
+  @return $target / $context + 0em
