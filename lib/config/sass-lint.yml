@@ -33,6 +33,9 @@ rules:
   no-vendor-prefixes: 1
   no-warn: 1
 
+  # Helpers
+  property-spelling: 1
+  
   # Style Guide
   border-zero: 1
   brace-style: 1

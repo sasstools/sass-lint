@@ -1,0 +1,24 @@
+$red: #ff0000;
+
+.test-failure {
+  @include test;
+  -webkit-transit1on: width 2s;
+  background-sizer: contain;
+  colors: $red;
+  transit1on: width 2s;
+
+}
+
+.test-correct {
+  @include test;
+  -webkit-transition: width 2s;
+  background-size: contain;
+  color: $red;
+  transition: width 2s;
+
+}
+
+// FIXME Currently a parse error within gonzales-pe
+// .test-interp {
+//-webkit-#{$property}: $value;
+// }
