@@ -1,6 +1,6 @@
 # No Transition All
 
-Rule `no-transition-all` will enforce whether the keyword `all` can be used with the `transition` property.
+Rule `no-transition-all` will enforce whether the keyword `all` can be used with the `transition` or `transition-property` property.
 
 ## Examples
 
