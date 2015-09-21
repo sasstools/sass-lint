@@ -1,0 +1,46 @@
+.foo
+  +waldo
+  content: 'baz'
+
+
+.bar
+  content: 'baz'
+  +waldo
+
+
+.qux
+  content: 'baz'
+  +waldo
+  margin: 0
+
+
+.breakpoint
+  content: 'baz'
+
+  +breakpoint(500px)
+    content: 'waldo'
+
+
+  .foo
+    content: 'where'
+
+    +waldo
+
+
+
+  &__element
+    +element
+    width: 100%
+
+    +mq(500px)
+      content: 'mq'
+
+
+    +waldo
+
+    &--modifier
+      +foo('yo')
+      +hello
+      +test
+      height: 100px
+      +test-again
