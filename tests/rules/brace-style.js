@@ -2,9 +2,9 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('brace-style.scss');
+describe('brace style - scss', function () {
+  var file = lint.file('brace-style.scss');
 
-describe('brace style', function () {
   it('[style: 1tbs, allow-single-line: true]', function (done) {
     lint.test(file, {
       'brace-style': 1
