@@ -1,0 +1,33 @@
+.foo
+  padding: 5
+
+  .bar
+    content: 'baz'
+
+    .qux,
+    .fail
+      content: 'bob'
+
+      &:hover
+        content: 'fail'
+
+      .bar
+        content: 'fail'
+
+
+
+
+
+.block
+  content: 'bar'
+
+  &__element
+    content: 'bar'
+
+
+    &--modifier
+      content: 'bar'
+
+
+
+
