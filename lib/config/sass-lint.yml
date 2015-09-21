@@ -27,14 +27,12 @@ rules:
   no-ids: 1
   no-important: 1
   no-invalid-hex: 1
+  no-misspelled-properties: 1
   no-qualifying-elements: 1
   no-trailing-zero: 1
   no-url-protocols: 1
   no-vendor-prefixes: 1
   no-warn: 1
-
-  # Potential Errors
-  property-spelling: 1
 
   # Style Guide
   border-zero: 1

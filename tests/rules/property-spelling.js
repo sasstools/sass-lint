@@ -2,12 +2,12 @@
 
 var lint = require('./_lint');
 
-describe('property spelling - scss', function () {
-  var file = lint.file('property-spelling.scss');
+describe('no misspelled properties - scss', function () {
+  var file = lint.file('no-misspelled-properties.scss');
 
   it('[default]', function (done) {
     lint.test(file, {
-      'property-spelling': 1
+      'no-misspelled-properties': 1
     }, function (data) {
       lint.assert.equal(4, data.warningCount);
       done();
@@ -16,7 +16,7 @@ describe('property spelling - scss', function () {
 
   it('[extra-properties: transit1on]', function (done) {
     lint.test(file, {
-      'property-spelling': [
+      'no-misspelled-properties': [
         1,
         {
           'extra-properties': [
@@ -32,7 +32,7 @@ describe('property spelling - scss', function () {
 
   it('[extra-properties: transit1on, colors]', function (done) {
     lint.test(file, {
-      'property-spelling': [
+      'no-misspelled-properties': [
         1,
         {
           'extra-properties': [
@@ -48,12 +48,12 @@ describe('property spelling - scss', function () {
   });
 });
 
-describe('property spelling - sass', function () {
-  var file = lint.file('property-spelling.sass');
+describe('no misspelled properties - sass', function () {
+  var file = lint.file('no-misspelled-properties.sass');
 
   it('[default]', function (done) {
     lint.test(file, {
-      'property-spelling': 1
+      'no-misspelled-properties': 1
     }, function (data) {
       lint.assert.equal(4, data.warningCount);
       done();
@@ -62,7 +62,7 @@ describe('property spelling - sass', function () {
 
   it('[extra-properties: transit1on]', function (done) {
     lint.test(file, {
-      'property-spelling': [
+      'no-misspelled-properties': [
         1,
         {
           'extra-properties': [
@@ -78,7 +78,7 @@ describe('property spelling - sass', function () {
 
   it('[extra-properties: transit1on, colors]', function (done) {
     lint.test(file, {
-      'property-spelling': [
+      'no-misspelled-properties': [
         1,
         {
           'extra-properties': [

@@ -1,6 +1,6 @@
-# Property Spelling
+# No Misspelled Properties
 
-Rule `property-spelling` will enforce the correct spelling of CSS properties and prevent the use of unknown CSS properties.
+Rule `no-misspelled-properties` will enforce the correct spelling of CSS properties and prevent the use of unknown CSS properties.
 
 ## Options
 
@@ -32,7 +32,7 @@ When enabled, the following are disallowed:
 When `extra-properties` contains a property value of `transit1on` as show below:
 
 ```yaml
-property-spelling:
+no-misspelled-properties:
   - 1
   -
     'extra-properties':
