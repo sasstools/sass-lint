@@ -1,0 +1,42 @@
+// No arguments with parenthesis
+=foo()
+  color: red
+
+
+.foo
+  +foo()
+
+
+
+
+// No arguments with no parenthesis
+=bar
+  color: orange
+
+
+.bar
+  +bar
+
+
+
+
+// Arguments with parenthesis
+=baz($color)
+  color: $color
+
+
+$foo: blue
+
+.baz
+  +baz($foo)
+
+
+
+
+// Parenthesis only where required
+=qux($color: lime)
+  color: $color
+
+
+.qux
+  +qux
