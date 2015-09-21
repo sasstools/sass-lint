@@ -1,0 +1,15 @@
+.foo
+  @extend %waldo
+  +foo
+
+
+.bar
+  +foo
+  @extend %waldo
+
+
+.baz
+  @extend %waldo
+  +foo
+  @extend %qux
+
