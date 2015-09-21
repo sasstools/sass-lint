@@ -17,20 +17,25 @@ rules:
   single-line-per-selector: 1
 
   # Disallows
+  no-color-keywords: 1
+  no-color-literals: 1
+  no-css-comments: 1
   no-debug: 1
   no-duplicate-properties: 1
   no-empty-rulesets: 1
   no-extends: 0
   no-ids: 1
   no-important: 1
-  no-warn: 1
-  no-color-keywords: 1
   no-invalid-hex: 1
-  no-css-comments: 1
-  no-color-literals: 1
+  no-qualifying-elements: 1
+  no-trailing-zero: 1
+  no-url-protocols: 1
+  no-vendor-prefixes: 1
+  no-warn: 1
 
   # Style Guide
   border-zero: 1
+  brace-style: 1
   clean-import-paths: 1
   empty-args: 1
   hex-length: 1
@@ -40,6 +45,8 @@ rules:
   nesting-depth: 1
   property-sort-order: 1
   quotes: 1
+  shorthand-values: 1
+  url-quotes: 1
   variable-for-property: 1
   zero-unit: 1
 
