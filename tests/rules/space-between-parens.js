@@ -13,4 +13,18 @@ describe('space between parens', function () {
       done();
     });
   });
+
+  it('[include: true]', function (done) {
+    lint.test(file, {
+      'space-between-parens': [
+        1,
+        {
+          'include': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(5, data.warningCount);
+      done();
+    });
+  });
 });

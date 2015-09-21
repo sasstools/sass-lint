@@ -14,4 +14,5 @@ The following options are available for the CLI:
 * `-i, --ignore [pattern]`: A pattern that should be ignored from linting. Multiple patterns can be used by separating each pattern by `, `. Patterns should be wrapped in quotes (will be merged with other ignore options)
 * `-q, --no-exit`: Prevents the CLI from throwing an error if there is one (useful for development work)
 * `-v, --verbose`: Verbose output (fully formatted output)
- 
+* `-f, --format [format]`: Pass one of the available [Eslint formats](https://github.com/eslint/eslint/tree/master/lib/formatters) to format the output of sass-lint results.
+* `-o, --output [output]`: The path plus file name relative to where Sass Lint is being run from where the output should be written to.

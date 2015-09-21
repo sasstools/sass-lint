@@ -97,9 +97,10 @@ sassLint.lintFiles = function (files, options, configPath) {
 
 
 sassLint.format = function (results, options, configPath) {
-  var config = this.getConfig(options, configPath);
+  var config = this.getConfig(options, configPath),
+      format = config.options.formatter.toLowerCase();
 
-  var formatted = require('eslint/lib/formatters/' + config.options.formatter);
+  var formatted = require('eslint/lib/formatters/' + format);
 
   return formatted(results);
 };
