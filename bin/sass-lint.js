@@ -34,6 +34,8 @@ program
   .option('-i, --ignore [pattern]', 'pattern to ignore. For multiple ignores, separate each pattern by `, `')
   .option('-q, --no-exit', 'do not exit on errors')
   .option('-v, --verbose', 'verbose output')
+  .option('-f, --format [format]', 'pass one of the available eslint formats')
+  .option('-o, --output [output]', 'the path and filename where you would like output to be written')
   .parse(process.argv);
 
 
@@ -43,11 +45,36 @@ if (program.config && program.config !== true) {
 
 if (program.ignore && program.ignore !== true) {
   ignores = program.ignore.split(', ');
-  configOptions = {
-    'files': {
+  if (configOptions.hasOwnProperty('files')) {
+    configOptions.files.ignore = ignores;
+  }
+  else {
+    configOptions.files = {
       'ignore': ignores
-    }
-  };
+    };
+  }
+}
+
+if (program.format && program.format !== true) {
+  if (configOptions.hasOwnProperty('options')) {
+    configOptions.options.formatter = program.format;
+  }
+  else {
+    configOptions.options = {
+      'formatter': program.format
+    };
+  }
+}
+
+if (program.output && program.output !== true) {
+  if (configOptions.hasOwnProperty('options')) {
+    configOptions.options['output-file'] = program.output;
+  }
+  else {
+    configOptions.options = {
+      'output-file': program.output
+    };
+  }
 }
 
 if (program.args.length === 0) {
