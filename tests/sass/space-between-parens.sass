@@ -1,0 +1,16 @@
+@function foo( $bar)
+  @return $bar
+
+
+@function baz()
+
+
+
+=bar ($baz )
+  content: $baz
+
+
+.foo
+  +bar( 'Hello' )
+  content: foo('bar')
+  width: calc( 100% - 10px)
