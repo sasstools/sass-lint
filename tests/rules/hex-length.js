@@ -2,13 +2,10 @@
 
 var lint = require('./_lint');
 
-describe('hex length', function () {
-  //////////////////////////////
-  // Hex Length Short - Default
-  //////////////////////////////
-  it('scss - [style: short]', function (done) {
-    var file = lint.file('hex-length.scss');
+describe('hex length - scss', function () {
+  var file = lint.file('hex-length.scss');
 
+  it('[style: short]', function (done) {
     lint.test(file, {
       'hex-length': 1
     }, function (data) {
@@ -17,12 +14,7 @@ describe('hex length', function () {
     });
   });
 
-  //////////////////////////////
-  // Hex Length Long
-  //////////////////////////////
-  it('scss - [style: long]', function (done) {
-    var file = lint.file('hex-length.scss');
-
+  it('[style: long]', function (done) {
     lint.test(file, {
       'hex-length': [
         1,
@@ -35,13 +27,12 @@ describe('hex length', function () {
       done();
     });
   });
+});
 
-  //////////////////////////////
-  // Hex Length Short - Default
-  //////////////////////////////
-  it('sass - [style: short]', function (done) {
-    var file = lint.file('hex-length.sass');
+describe('hex length - sass', function () {
+  var file = lint.file('hex-length.sass');
 
+  it('[style: short]', function (done) {
     lint.test(file, {
       'hex-length': 1
     }, function (data) {
@@ -50,12 +41,7 @@ describe('hex length', function () {
     });
   });
 
-  //////////////////////////////
-  // Hex Length Long
-  //////////////////////////////
-  it('sass - [style: long]', function (done) {
-    var file = lint.file('hex-length.sass');
-
+  it('[style: long]', function (done) {
     lint.test(file, {
       'hex-length': [
         1,

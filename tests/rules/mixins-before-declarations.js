@@ -5,7 +5,7 @@ var lint = require('./_lint');
 describe('mixins before declarations - scss', function () {
   var file = lint.file('mixins-before-declarations.scss');
 
-  it('scss - enforce', function (done) {
+  it('enforce', function (done) {
     lint.test(file, {
       'mixins-before-declarations': 1
     }, function (data) {
@@ -14,7 +14,7 @@ describe('mixins before declarations - scss', function () {
     });
   });
 
-  it('scss - [excludes]', function (done) {
+  it('[excludes]', function (done) {
     lint.test(file, {
       'mixins-before-declarations': [
         1,

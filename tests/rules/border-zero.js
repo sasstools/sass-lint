@@ -2,10 +2,10 @@
 
 var lint = require('./_lint');
 
-describe('border zero', function () {
-  it('scss - [convention: 0]', function (done) {
-    var file = lint.file('border-zero.scss');
+describe('border zero - scss', function () {
+  var file = lint.file('border-zero.scss');
 
+  it('[convention: 0]', function (done) {
     lint.test(file, {
       'border-zero': 1
     }, function (data) {
@@ -14,9 +14,7 @@ describe('border zero', function () {
     });
   });
 
-  it('scss - [convention: \'none\']', function (done) {
-    var file = lint.file('border-zero.scss');
-
+  it('[convention: \'none\']', function (done) {
     lint.test(file, {
       'border-zero': [
         1,
@@ -29,10 +27,12 @@ describe('border zero', function () {
       done();
     });
   });
+});
 
-  it('sass - [convention: 0]', function (done) {
-    var file = lint.file('border-zero.sass');
+describe('border zero - sass', function () {
+  var file = lint.file('border-zero.sass');
 
+  it('[convention: 0]', function (done) {
     lint.test(file, {
       'border-zero': 1
     }, function (data) {
@@ -41,9 +41,7 @@ describe('border zero', function () {
     });
   });
 
-  it('sass - [convention: \'none\']', function (done) {
-    var file = lint.file('border-zero.sass');
-
+  it('[convention: \'none\']', function (done) {
     lint.test(file, {
       'border-zero': [
         1,

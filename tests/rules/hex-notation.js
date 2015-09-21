@@ -2,13 +2,10 @@
 
 var lint = require('./_lint');
 
-describe('hex notation', function () {
-  //////////////////////////////
-  // Hex notation Lowercase - Default
-  //////////////////////////////
-  it('scss - [style: lowercase]', function (done) {
-    var file = lint.file('hex-notation.scss');
+describe('hex notation - scss', function () {
+  var file = lint.file('hex-notation.scss');
 
+  it('[style: lowercase]', function (done) {
     lint.test(file, {
       'hex-notation': 1
     }, function (data) {
@@ -17,12 +14,7 @@ describe('hex notation', function () {
     });
   });
 
-  //////////////////////////////
-  // Hex Notation Uppercase
-  //////////////////////////////
-  it('scss - [style: uppercase]', function (done) {
-    var file = lint.file('hex-notation.scss');
-
+  it('[style: uppercase]', function (done) {
     lint.test(file, {
       'hex-notation': [
         1,
@@ -35,13 +27,12 @@ describe('hex notation', function () {
       done();
     });
   });
+});
 
-  //////////////////////////////
-  // Hex notation Lowercase - Default
-  //////////////////////////////
-  it('sass - [style: lowercase]', function (done) {
-    var file = lint.file('hex-notation.sass');
+describe('hex notation - sass', function () {
+  var file = lint.file('hex-notation.sass');
 
+  it('[style: lowercase]', function (done) {
     lint.test(file, {
       'hex-notation': 1
     }, function (data) {
@@ -50,12 +41,7 @@ describe('hex notation', function () {
     });
   });
 
-  //////////////////////////////
-  // Hex Notation Uppercase
-  //////////////////////////////
-  it('sass - [style: uppercase]', function (done) {
-    var file = lint.file('hex-notation.sass');
-
+  it('[style: uppercase]', function (done) {
     lint.test(file, {
       'hex-notation': [
         1,

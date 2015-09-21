@@ -2,9 +2,9 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('no-empty-rulesets.scss');
+describe('no empty rulesets - scss', function () {
+  var file = lint.file('no-empty-rulesets.scss');
 
-describe('no empty rulesets', function () {
   it('enforce', function (done) {
     lint.test(file, {
       'empty-ruleset': 1

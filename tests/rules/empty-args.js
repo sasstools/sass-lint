@@ -2,10 +2,10 @@
 
 var lint = require('./_lint');
 
-describe('empty args', function () {
-  it('scss - [include: false]', function (done) {
-    var file = lint.file('empty-args.scss');
+describe('empty args - scss', function () {
+  var file = lint.file('empty-args.scss');
 
+  it('[include: false]', function (done) {
     lint.test(file, {
       'empty-args': 1
     }, function (data) {
@@ -14,9 +14,7 @@ describe('empty args', function () {
     });
   });
 
-  it('scss - [include: true]', function (done) {
-    var file = lint.file('empty-args.scss');
-
+  it('[include: true]', function (done) {
     lint.test(file, {
       'empty-args': [
         1,
@@ -29,10 +27,12 @@ describe('empty args', function () {
       done();
     });
   });
+});
 
-  it('sass - [include: false]', function (done) {
-    var file = lint.file('empty-args.sass');
+describe('empty args - sass', function () {
+  var file = lint.file('empty-args.sass');
 
+  it('[include: false]', function (done) {
     lint.test(file, {
       'empty-args': 1
     }, function (data) {
@@ -41,9 +41,7 @@ describe('empty args', function () {
     });
   });
 
-  it('sass - [include: true]', function (done) {
-    var file = lint.file('empty-args.sass');
-
+  it('[include: true]', function (done) {
     lint.test(file, {
       'empty-args': [
         1,
