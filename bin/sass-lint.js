@@ -10,17 +10,13 @@ var configPath,
     configOptions = {};
 
 var detectPattern = function (pattern) {
-  var detects,
-      formatted;
+  var detects;
 
   detects = lint.lintFiles(pattern, configOptions, configPath);
-  formatted = lint.format(detects, configOptions, configPath);
-
 
   if (program.verbose) {
-    lint.outputResults(formatted, configOptions, configPath);
+    lint.outputResults(detects, configOptions, configPath);
   }
-
 
   if (program.exit) {
     lint.failOnError(detects);
