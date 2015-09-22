@@ -6,6 +6,7 @@ var slConfig = require('./lib/config'),
     slRules = require('./lib/rules'),
     glob = require('glob'),
     path = require('path'),
+    jsonFormatter = require('eslint/lib/formatters/json'),
     fs = require('fs-extra');
 
 
@@ -20,7 +21,8 @@ sassLint.getConfig = function (config, configPath) {
 
 sassLint.resultCount = function (results) {
   var flagCount = 0,
-      jsonResults = JSON.parse(results);
+      jsonResults = JSON.parse(jsonFormatter(results));
+
 
   for (var i = 0; i < jsonResults.length; i++) {
     flagCount += (jsonResults[i].warningCount + jsonResults[i].errorCount);
@@ -109,9 +111,12 @@ sassLint.outputResults = function (results, options, configPath) {
   var config = this.getConfig(options, configPath);
 
   if (this.resultCount(results)) {
+
+    var formatted = this.format(results, options, configPath);
+
     if (config.options['output-file']) {
       try {
-        fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), results);
+        fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), formatted);
         console.log('Output successfully written to ' + path.resolve(process.cwd(), config.options['output-file']));
       }
       catch (e) {
@@ -119,7 +124,7 @@ sassLint.outputResults = function (results, options, configPath) {
       }
     }
     else {
-      console.log(results);
+      console.log(formatted);
     }
   }
   return results;
