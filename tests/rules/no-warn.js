@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no warn - scss', function () {
   var file = lint.file('no-warn.scss');
 
@@ -15,6 +18,9 @@ describe('no warn - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no warn - sass', function () {
   var file = lint.file('no-warn.sass');
 

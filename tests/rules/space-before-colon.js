@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('space before colon - scss', function () {
   var file = lint.file('space-before-colon.scss');
 
@@ -29,6 +32,9 @@ describe('space before colon - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('space before colon - sass', function () {
   var file = lint.file('space-before-colon.sass');
 

@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('zero unit - scss', function () {
   var file = lint.file('zero-unit.scss');
 
@@ -29,6 +32,9 @@ describe('zero unit - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('zero unit - sass', function () {
   var file = lint.file('zero-unit.sass');
 

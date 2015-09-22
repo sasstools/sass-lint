@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no trailing zero - scss', function () {
   var file = lint.file('no-trailing-zero.scss');
 
@@ -15,6 +18,9 @@ describe('no trailing zero - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no trailing zero - sass', function () {
   var file = lint.file('no-trailing-zero.sass');
 

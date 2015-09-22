@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('trailing semicolon - scss', function () {
   var file = lint.file('trailing-semicolon.scss');
 

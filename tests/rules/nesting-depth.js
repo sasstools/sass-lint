@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('nesting depth - scss', function () {
   var file = lint.file('nesting-depth.scss');
 
@@ -15,6 +18,9 @@ describe('nesting depth - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('nesting depth - sass', function () {
   var file = lint.file('nesting-depth.sass');
 

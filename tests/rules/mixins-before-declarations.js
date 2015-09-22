@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('mixins before declarations - scss', function () {
   var file = lint.file('mixins-before-declarations.scss');
 
@@ -34,6 +37,9 @@ describe('mixins before declarations - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('mixins before declarations - sass', function () {
   var file = lint.file('mixins-before-declarations.sass');
 

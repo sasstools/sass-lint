@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no invalid hex - scss', function () {
   var file = lint.file('no-invalid-hex.scss');
 
@@ -15,6 +18,9 @@ describe('no invalid hex - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no invalid hex - sass', function () {
   var file = lint.file('no-invalid-hex.sass');
 

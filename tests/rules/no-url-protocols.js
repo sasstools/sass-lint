@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no url protocols - scss', function () {
   var file = lint.file('no-url-protocols.scss');
 
@@ -15,6 +18,9 @@ describe('no url protocols - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no url protocols - sass', function () {
   var file = lint.file('no-url-protocols.sass');
 

@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('space before brace - scss', function () {
   var file = lint.file('space-before-brace.scss');
 

@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no vendor prefix - scss', function () {
   var file = lint.file('no-vendor-prefixes.scss');
 
@@ -87,6 +90,9 @@ describe('no vendor prefix - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no vendor prefix - sass', function () {
   var file = lint.file('no-vendor-prefixes.sass');
 

@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('variable for property - scss', function () {
   var file = lint.file('variable-for-property.scss');
 
@@ -32,6 +35,9 @@ describe('variable for property - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('variable for property - sass', function () {
   var file = lint.file('variable-for-property.sass');
 

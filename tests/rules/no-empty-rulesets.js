@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no empty rulesets - scss', function () {
   var file = lint.file('no-empty-rulesets.scss');
 

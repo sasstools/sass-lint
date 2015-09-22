@@ -2,10 +2,13 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no color keywords - scss', function () {
-  it('enforce', function (done) {
-    var file = lint.file('no-color-keywords.scss');
+  var file = lint.file('no-color-keywords.scss');
 
+  it('enforce', function (done) {
     lint.test(file, {
       'no-color-keywords': 1
     }, function (data) {
@@ -15,10 +18,13 @@ describe('no color keywords - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no color keywords - sass', function () {
-  it('enforce', function (done) {
-    var file = lint.file('no-color-keywords.sass');
+  var file = lint.file('no-color-keywords.sass');
 
+  it('enforce', function (done) {
     lint.test(file, {
       'no-color-keywords': 1
     }, function (data) {

@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('single line per selector - scss', function () {
   var file = lint.file('single-line-per-selector.scss');
 
@@ -15,6 +18,9 @@ describe('single line per selector - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('single line per selector - sass', function () {
   var file = lint.file('single-line-per-selector.sass');
 

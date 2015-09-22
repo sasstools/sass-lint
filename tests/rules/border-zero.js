@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('border zero - scss', function () {
   var file = lint.file('border-zero.scss');
 
@@ -29,6 +32,9 @@ describe('border zero - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('border zero - sass', function () {
   var file = lint.file('border-zero.sass');
 

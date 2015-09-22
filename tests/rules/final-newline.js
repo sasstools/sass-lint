@@ -2,10 +2,12 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('final newline - scss', function () {
-  //////////////////////////////
+
   // Final Newline w/Return
-  //////////////////////////////
   it('with return', function (done) {
     var file = lint.file('final-newline--return.scss');
 
@@ -17,9 +19,7 @@ describe('final newline - scss', function () {
     });
   });
 
-  //////////////////////////////
   // Final Newline w/space
-  //////////////////////////////
   it('with space', function (done) {
     var file = lint.file('final-newline--space.scss');
 
@@ -31,9 +31,7 @@ describe('final newline - scss', function () {
     });
   });
 
-  //////////////////////////////
   // Final Newline
-  //////////////////////////////
   it('no space', function (done) {
     var file = lint.file('final-newline.scss');
 
@@ -46,10 +44,12 @@ describe('final newline - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('final newline - sass', function () {
-  //////////////////////////////
+
   // Final Newline w/Return
-  //////////////////////////////
   it('with return', function (done) {
     var file = lint.file('final-newline--return.sass');
 
@@ -61,9 +61,7 @@ describe('final newline - sass', function () {
     });
   });
 
-  //////////////////////////////
   // Final Newline w/space
-  //////////////////////////////
   it('with space', function (done) {
     var file = lint.file('final-newline--space.sass');
 
@@ -75,9 +73,7 @@ describe('final newline - sass', function () {
     });
   });
 
-  //////////////////////////////
   // Final Newline
-  //////////////////////////////
   it('no space', function (done) {
     var file = lint.file('final-newline.sass');
 

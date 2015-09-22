@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('space after colon - scss', function () {
   var file = lint.file('space-after-colon.scss');
 
@@ -29,6 +32,9 @@ describe('space after colon - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('space after colon - sass', function () {
   var file = lint.file('space-after-colon.sass');
 

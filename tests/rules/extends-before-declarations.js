@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('extends before declarations - scss', function () {
   var file = lint.file('extends-before-declarations.scss');
 
@@ -15,6 +18,9 @@ describe('extends before declarations - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('extends before declarations - sass', function () {
   var file = lint.file('extends-before-declarations.sass');
 

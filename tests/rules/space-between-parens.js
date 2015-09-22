@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('space between parens - scss', function () {
   var file = lint.file('space-between-parens.scss');
 
@@ -29,6 +32,9 @@ describe('space between parens - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('space between parens - sass', function () {
   var file = lint.file('space-between-parens.sass');
 

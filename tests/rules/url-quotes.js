@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('url quotes - scss', function () {
   var file = lint.file('url-quotes.scss');
 
@@ -15,6 +18,9 @@ describe('url quotes - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('url quotes - sass', function () {
   var file = lint.file('url-quotes.sass');
 

@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('space after bang - scss', function () {
   var file = lint.file('space-after-bang.scss');
 
@@ -29,6 +32,9 @@ describe('space after bang - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('space after bang - sass', function () {
   var file = lint.file('space-after-bang.sass');
 

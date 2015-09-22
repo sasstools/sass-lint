@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('extends before mixins - scss', function () {
   var file = lint.file('extends-before-mixins.scss');
 
@@ -15,6 +18,9 @@ describe('extends before mixins - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('extends before mixins - sass', function () {
   var file = lint.file('extends-before-mixins.sass');
 

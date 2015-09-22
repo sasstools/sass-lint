@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no duplicate properties - scss', function () {
   var file = lint.file('no-duplicate-properties.scss');
 
@@ -31,6 +34,9 @@ describe('no duplicate properties - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no duplicate properties - sass', function () {
   var file = lint.file('no-duplicate-properties.sass');
 

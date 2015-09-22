@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no transition all - scss', function () {
   var file = lint.file('no-transition-all.scss');
 
@@ -15,6 +18,9 @@ describe('no transition all - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no transition all - sass', function () {
   var file = lint.file('no-transition-all.sass');
 

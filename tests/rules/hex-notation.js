@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('hex notation - scss', function () {
   var file = lint.file('hex-notation.scss');
 
@@ -29,6 +32,9 @@ describe('hex notation - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('hex notation - sass', function () {
   var file = lint.file('hex-notation.sass');
 

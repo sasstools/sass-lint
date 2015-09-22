@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('empty args - scss', function () {
   var file = lint.file('empty-args.scss');
 
@@ -29,6 +32,9 @@ describe('empty args - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('empty args - sass', function () {
   var file = lint.file('empty-args.sass');
 

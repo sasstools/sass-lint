@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('space after comma - scss', function () {
   var file = lint.file('space-after-comma.scss');
 
@@ -29,6 +32,9 @@ describe('space after comma - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('space after comma - sass', function () {
   var file = lint.file('space-after-comma.sass');
 

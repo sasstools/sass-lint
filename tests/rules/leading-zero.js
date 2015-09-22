@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('leading zero - scss', function () {
   var file = lint.file('leading-zero.scss');
 
@@ -29,6 +32,9 @@ describe('leading zero - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('leading zero - scss', function () {
   var file = lint.file('leading-zero.sass');
 

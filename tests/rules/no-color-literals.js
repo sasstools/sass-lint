@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no color literals - scss', function () {
   var file = lint.file('no-color-literals.scss');
 
@@ -29,7 +32,9 @@ describe('no color literals - scss', function () {
   });
 });
 
-
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no color literals - sass', function () {
   var file = lint.file('no-color-literals.sass');
 

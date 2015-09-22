@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no css comments - scss', function () {
   var file = lint.file('no-css-comments.scss');
 
@@ -15,7 +18,9 @@ describe('no css comments - scss', function () {
   });
 });
 
-
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no css comments - sass', function () {
   var file = lint.file('no-css-comments.sass');
 

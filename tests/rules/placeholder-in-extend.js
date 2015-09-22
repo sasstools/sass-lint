@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('placeholder in extend - scss', function () {
   var file = lint.file('placeholder-in-extend.scss');
 
@@ -15,6 +18,9 @@ describe('placeholder in extend - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('placeholder in extend - sass', function () {
   var file = lint.file('placeholder-in-extend.sass');
 

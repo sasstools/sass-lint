@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('property sort order - scss', function () {
   var file = lint.file('property-sort-order.scss');
 
@@ -76,7 +79,9 @@ describe('property sort order - scss', function () {
   });
 });
 
-
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('property sort order - sass', function () {
   var file = lint.file('property-sort-order.sass');
 

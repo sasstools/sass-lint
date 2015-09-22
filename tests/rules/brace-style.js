@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('brace style - scss', function () {
   var file = lint.file('brace-style.scss');
 

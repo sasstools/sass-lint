@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no extends - scss', function () {
   var file = lint.file('no-extends.scss');
 
@@ -15,6 +18,9 @@ describe('no extends - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no extends - sass', function () {
   var file = lint.file('no-extends.sass');
 

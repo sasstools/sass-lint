@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('clean import paths - scss', function () {
   var file = lint.file('clean-import-paths.scss');
 
@@ -58,8 +61,9 @@ describe('clean import paths - scss', function () {
   });
 });
 
-
-
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('clean import paths - sass', function () {
   var file = lint.file('clean-import-paths.sass');
 

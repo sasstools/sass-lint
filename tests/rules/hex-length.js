@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('hex length - scss', function () {
   var file = lint.file('hex-length.scss');
 
@@ -29,6 +32,9 @@ describe('hex length - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('hex length - sass', function () {
   var file = lint.file('hex-length.sass');
 

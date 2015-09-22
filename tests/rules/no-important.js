@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no important - scss', function () {
   var file = lint.file('no-important.scss');
 
@@ -15,6 +18,9 @@ describe('no important - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no important - sass', function () {
   var file = lint.file('no-important.sass');
 

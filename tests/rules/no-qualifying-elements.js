@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no qualifying elements - scss', function () {
   var file = lint.file('no-qualifying-elements.scss');
 
@@ -88,6 +91,9 @@ describe('no qualifying elements - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no qualifying elements - sass', function () {
   var file = lint.file('no-qualifying-elements.sass');
 
