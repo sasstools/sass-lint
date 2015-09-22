@@ -61,7 +61,7 @@ describe('no vendor prefix', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
