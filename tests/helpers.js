@@ -589,4 +589,33 @@ describe('helpers', function () {
     assert.equal(false, result);
     done();
   });
+
+  //////////////////////////////
+  // stripPrefix
+  //////////////////////////////
+
+  it('stripPrefix - [-webkit-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-moz-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-moz-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-webkit-border-color - border-color]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-border-color');
+
+    assert.equal('border-color', result);
+    done();
+  });
+
 });

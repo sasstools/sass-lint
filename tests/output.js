@@ -64,8 +64,7 @@ describe('output', function () {
     };
 
     var outPath = path.resolve(process.cwd(), options.options['output-file']),
-        formatted = lint.format(results, options),
-        output = lint.outputResults(formatted, options);
+        output = lint.outputResults(results, options);
 
     output = fs.readFileSync(outPath, 'utf-8');
     fs.removeSync(outPath);
