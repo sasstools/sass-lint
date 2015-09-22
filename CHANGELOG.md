@@ -1,5 +1,12 @@
 # Sass Lint Changelog
 
+## v1.2.2
+**September 22, 2015**
+
+**Fixes**
+
+* CLI output formatting now works ([#213](https://github.com/sasstools/sass-lint/pull/213))
+
 ## v1.2.1
 **September 19, 2015**
 

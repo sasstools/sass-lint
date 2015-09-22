@@ -108,4 +108,21 @@ describe('cli', function () {
       }
     });
   });
+
+  it('should return a warning - stylish', function (done) {
+    var command = 'sass-lint -c tests/yml/.stylish-errors.yml tests/sass/cli.scss --verbose',
+        expectedOutputLength = 155;
+
+    childProcess.exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+
+      else {
+        assert.equal(expectedOutputLength, stdout.length);
+        done();
+      }
+    });
+  });
 });
