@@ -1,0 +1,50 @@
+.foo
+  content: 'foo'
+
+
+.foo.boo
+  content: 'foo'
+
+
+.foo, .boo
+  content: 'foo'
+
+
+.foo,.boo
+  content: 'foo'
+
+
+.foo,
+.boo
+  content: 'foo'
+
+
+.foo > a,.bar
+  content: 'baz'
+
+
+.foo,
+.bar
+  content: 'baz'
+
+  .baz,
+  .qux
+    content: 'qux'
+
+
+  .fail, .blog
+    content: 'cats'
+
+
+  .where,
+  .waldo, .qux
+    content: 'found'
+
+.foo
+  .bar &,
+  .baz &
+    content: 'foo'
+
+.foo
+  .bar &, .baz &
+    content: 'foo'
