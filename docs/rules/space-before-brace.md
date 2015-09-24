@@ -1,6 +1,6 @@
-# Space After Comma
+# Space Before Brace
 
-Rule `space-after-comma` will enforce whether or not a space should be included after a brace (`{`).
+Rule `space-before-brace` will enforce whether or not a space should be included before a brace (`{`).
 
 ## Options
 
