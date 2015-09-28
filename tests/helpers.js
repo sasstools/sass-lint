@@ -589,4 +589,52 @@ describe('helpers', function () {
     assert.equal(false, result);
     done();
   });
+
+  //////////////////////////////
+  // Strip quotes
+  //////////////////////////////
+
+  it('stripQuotes - [double quotes]', function (done) {
+    var result = helpers.stripQuotes('"This is a string"'),
+        expect = 'This is a string';
+
+    assert.equal(expect, result);
+    done();
+  });
+
+  it('stripQuotes - [single quotes]', function (done) {
+    var result = helpers.stripQuotes('\'This is a string\''),
+        expect = 'This is a string';
+
+    assert.equal(expect, result);
+    done();
+  });
+
+  //////////////////////////////
+  // stripPrefix
+  //////////////////////////////
+
+  it('stripPrefix - [-webkit-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-moz-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-moz-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-webkit-border-color - border-color]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-border-color');
+
+    assert.equal('border-color', result);
+    done();
+  });
 });
