@@ -9,49 +9,169 @@ describe('no mergeable selectors - scss', function () {
     lint.test(file, {
       'no-mergeable-selectors': 1
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(34, data.warningCount);
       done();
     });
   });
 
-//   it('[force-nesting: false]', function (done) {
-//     lint.test(file, {
-//       'no-mergeable-selectors': [
-//         1,
-//         {
-//           'force-nesting': false
-//         }
-//       ]
-//     }, function (data) {
-//       lint.assert.equal(2, data.warningCount);
-//       done();
-//     });
-//   });
-// });
-//
-// describe('no mergeable selectors', function () {
-//   var file = lint.file('no-mergeable-selectors.sass');
-//
-//   it('[force-nesting: true]', function (done) {
-//     lint.test(file, {
-//       'no-mergeable-selectors': 1
-//     }, function (data) {
-//       lint.assert.equal(3, data.warningCount);
-//       done();
-//     });
-//   });
-//
-//   it('[force-nesting: true]', function (done) {
-//     lint.test(file, {
-//       'no-mergeable-selectors': [
-//         1,
-//         {
-//           'force-nesting': false
-//         }
-//       ]
-//     }, function (data) {
-//       lint.assert.equal(2, data.warningCount);
-//       done();
-//     });
-//   });
+  it('[force-element-nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-element-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(28, data.warningCount);
+      done();
+    });
+  });
+
+  it('[force-attribute-nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-attribute-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(31, data.warningCount);
+      done();
+    });
+  });
+
+  it('[force-pseudo-nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-pseudo-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(26, data.warningCount);
+      done();
+    });
+  });
+
+  it('[disable all nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-element-nesting': false,
+          'force-attribute-nesting': false,
+          'force-pseudo-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(17, data.warningCount);
+      done();
+    });
+  });
+
+  it('[whitelist: div p]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'whitelist': [
+            'div p'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(33, data.warningCount);
+      done();
+    });
+  });
+});
+
+describe('no mergeable selectors - sass', function () {
+  var file = lint.file('no-mergeable-selectors.sass');
+
+  it('[force-nesting: true]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': 1
+    }, function (data) {
+      lint.assert.equal(34, data.warningCount);
+      done();
+    });
+  });
+
+  it('[force-element-nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-element-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(28, data.warningCount);
+      done();
+    });
+  });
+
+  it('[force-attribute-nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-attribute-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(31, data.warningCount);
+      done();
+    });
+  });
+
+  it('[force-pseudo-nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-pseudo-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(26, data.warningCount);
+      done();
+    });
+  });
+
+  it('[disable all nesting: false]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'force-element-nesting': false,
+          'force-attribute-nesting': false,
+          'force-pseudo-nesting': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(17, data.warningCount);
+      done();
+    });
+  });
+
+  it('[whitelist: div p]', function (done) {
+    lint.test(file, {
+      'no-mergeable-selectors': [
+        1,
+        {
+          'whitelist': [
+            'div p'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(33, data.warningCount);
+      done();
+    });
+  });
 });
