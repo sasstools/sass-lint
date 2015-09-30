@@ -13,7 +13,7 @@ though this whitelist will not affect the warnings surrounding nesting.
 
 ## Examples
 
-When `enabled` with the defualt options, the following will generate a warning/error :
+When `enabled` with the default options, the following will generate a warning/error :
 
 ```scss
 .foo {
