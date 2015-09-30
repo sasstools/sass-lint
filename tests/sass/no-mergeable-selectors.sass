@@ -179,3 +179,16 @@ p::first-line
 
 ul ~ p
    color: #ff0000
+
+.test
+  .bar
+    color: blue
+
+// 2 rule mergeable with the rules above
+.test
+  .bar
+    color: red
+
+//make sure a low level selector doesn't flag with a nested selector above
+.bar
+  content: ''

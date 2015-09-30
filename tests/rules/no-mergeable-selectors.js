@@ -9,7 +9,7 @@ describe('no mergeable selectors - scss', function () {
     lint.test(file, {
       'no-mergeable-selectors': 1
     }, function (data) {
-      lint.assert.equal(34, data.warningCount);
+      lint.assert.equal(36, data.warningCount);
       done();
     });
   });
@@ -23,7 +23,7 @@ describe('no mergeable selectors - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(28, data.warningCount);
+      lint.assert.equal(30, data.warningCount);
       done();
     });
   });
@@ -37,7 +37,7 @@ describe('no mergeable selectors - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(31, data.warningCount);
+      lint.assert.equal(33, data.warningCount);
       done();
     });
   });
@@ -51,7 +51,7 @@ describe('no mergeable selectors - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(26, data.warningCount);
+      lint.assert.equal(28, data.warningCount);
       done();
     });
   });
@@ -67,7 +67,7 @@ describe('no mergeable selectors - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(17, data.warningCount);
+      lint.assert.equal(19, data.warningCount);
       done();
     });
   });
@@ -83,7 +83,7 @@ describe('no mergeable selectors - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(33, data.warningCount);
+      lint.assert.equal(35, data.warningCount);
       done();
     });
   });
@@ -96,7 +96,7 @@ describe('no mergeable selectors - sass', function () {
     lint.test(file, {
       'no-mergeable-selectors': 1
     }, function (data) {
-      lint.assert.equal(34, data.warningCount);
+      lint.assert.equal(36, data.warningCount);
       done();
     });
   });
@@ -110,7 +110,7 @@ describe('no mergeable selectors - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(28, data.warningCount);
+      lint.assert.equal(30, data.warningCount);
       done();
     });
   });
@@ -124,7 +124,7 @@ describe('no mergeable selectors - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(31, data.warningCount);
+      lint.assert.equal(33, data.warningCount);
       done();
     });
   });
@@ -138,7 +138,7 @@ describe('no mergeable selectors - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(26, data.warningCount);
+      lint.assert.equal(28, data.warningCount);
       done();
     });
   });
@@ -154,7 +154,7 @@ describe('no mergeable selectors - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(17, data.warningCount);
+      lint.assert.equal(19, data.warningCount);
       done();
     });
   });
@@ -170,7 +170,7 @@ describe('no mergeable selectors - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(33, data.warningCount);
+      lint.assert.equal(35, data.warningCount);
       done();
     });
   });
