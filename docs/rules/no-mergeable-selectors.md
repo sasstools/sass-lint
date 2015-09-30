@@ -10,6 +10,7 @@ though this whitelist will not affect the warnings surrounding nesting.
 * `force-attribute-nesting`: `true`/`false` (defaults to `true`)
 * `force-pseudo-nesting`: `true`/`false` (defaults to `true`)
 * `whitelist`: `[array of selectors]` (defaults to empty array `[]`)
+
 ## Examples
 
 When `enabled` with the defualt options, the following will generate a warning/error :
