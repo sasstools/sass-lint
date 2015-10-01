@@ -20,7 +20,7 @@ describe('mixins before declarations', function () {
   //////////////////////////////
   // Mixins Before Declarations - overwrite
   //////////////////////////////
-  it('[excludes]', function (done) {
+  it('[excludes: all]', function (done) {
     lint.test(file, {
       'mixins-before-declarations': [
         1,
@@ -35,6 +35,28 @@ describe('mixins before declarations', function () {
       ]
     }, function (data) {
       lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Mixins Before Declarations - exclude certain
+  // mixin test-again is not excluded
+  //////////////////////////////
+  it('[excludes: limited]', function (done) {
+    lint.test(file, {
+      'mixins-before-declarations': [
+        1,
+        {
+          'exclude': [
+            'waldo',
+            'mq',
+            'breakpoint'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });
