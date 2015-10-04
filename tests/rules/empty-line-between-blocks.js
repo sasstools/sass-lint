@@ -28,7 +28,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });
@@ -55,7 +55,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });
