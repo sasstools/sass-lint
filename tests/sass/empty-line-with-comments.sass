@@ -1,0 +1,73 @@
+// Foobar
+.block
+  content: 'bar'
+  //////////////////////////////
+  // Foobar
+  //////////////////////////////
+  .nested-block
+    content: 'bar'
+
+  /////////////
+  // Foobar
+  .nested-goodies
+    content: 'bar'
+  /////////////
+  // Foobar
+  .nested-goodies
+    content: 'bar'
+
+  /////////////
+  // Foobar
+  .nested-goodies
+    content: 'bar'
+
+// Foobar
+h1
+  content: 'bar'
+// Foobar
+h1,
+h2
+  content: 'bar'
+  // Foobar
+  +breakpoint($tab1)
+    &:after
+      content: '|'
+      padding-left: 12px
+
+// Foobar
+h1, h2
+  content: 'bar'
+
+
+// Foobar
+[type=text]
+  content: 'bar'
+// Foobar
+h1.foo
+  content: 'bar'
+
+
+// Foobar
+h1.foo,
+h2.bar
+  content: 'bar'
+
+  //Foobar
+  .qux
+    content: 'bar'
+
+  // Foobar
+  &__element
+    content: 'foo'
+
+  // Foobar
+  &--modifier
+    content: 'bar'
+
+// Foo
+.foo + .bar
+  content: 'bar'
+// Bar
+.foo + .bar,
+h2
+  content: 'foo'
