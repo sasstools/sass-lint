@@ -71,3 +71,18 @@ h2.bar
 .foo + .bar,
 h2
   content: 'foo'
+
+// Foobar
+.foo
+  .bar
+    &::first-letter
+      content: 'foo'
+    // Foobar
+    &::first-line
+      content: 'foo'
+
+  // Foobar
+  .qux
+    content: 'foo'
+  +baz($baz)
+    content: 'baz'

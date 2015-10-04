@@ -49,3 +49,15 @@ h2.bar
 .foo + .bar,
 h2
   content: 'foo'
+
+.foo
+  .bar
+    &::first-letter
+      content: 'foo'
+    &::first-line
+      content: 'foo'
+
+  .qux
+    content: 'foo'
+  +baz($baz)
+    content: 'baz'
