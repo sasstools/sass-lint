@@ -535,6 +535,62 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
+  // hasEOL
+  //////////////////////////////
+
+  it('hasEOL - [\'\\n\' - true]', function (done) {
+
+    var result = helpers.hasEOL('\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('hasEOL - [\'\\r\\n\' - true]', function (done) {
+
+    var result = helpers.hasEOL('\r\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isEmptyLine
+  //////////////////////////////
+
+  it('isEmptyLine - [\'\\n\\n\' - true]', function (done) {
+
+    var result = helpers.isEmptyLine('\n\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\r\\n\\r\\n\' - true]', function (done) {
+
+    var result = helpers.isEmptyLine('\r\n\r\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\n \\n\' - false]', function (done) {
+
+    var result = helpers.isEmptyLine('\n \n');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\r\\nabc\\r\\n\' - false]', function (done) {
+
+    var result = helpers.isEmptyLine('\r\nabc\r\n');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
   // Strip quotes
   //////////////////////////////
 
@@ -551,6 +607,34 @@ describe('helpers', function () {
         expect = 'This is a string';
 
     assert.equal(expect, result);
+    done();
+  });
+
+  //////////////////////////////
+  // stripPrefix
+  //////////////////////////////
+
+  it('stripPrefix - [-webkit-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-moz-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-moz-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-webkit-border-color - border-color]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-border-color');
+
+    assert.equal('border-color', result);
     done();
   });
 });
