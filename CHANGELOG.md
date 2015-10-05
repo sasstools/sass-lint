@@ -7,12 +7,23 @@
 
 * Lock AST to known good version ([#245](https://github.com/sasstools/sass-lint/issues/245))
 
+**Fixes**
+
+* Top level mixins now don't raise an incorrect `mixins before declarations` warning
+([#227](https://github.com/sasstools/sass-lint/issues/227))
+* Fix an issue with `final-newline` for the `.sass` syntax ([#207](https://github.com/sasstools/sass-lint/issues/207))
+* The `placeholder-in-extend` rule now works for the `.sass` syntax ([#199](https://github.com/sasstools/sass-lint/issues/199))
+* The `clean-import-paths` rule now works for the `.sass` syntax ([#179](https://github.com/sasstools/sass-lint/issues/179))
+* The `extends-before-mixins` rule now works for the `.sass` syntax ([#193](https://github.com/sasstools/sass-lint/issues/193))
+
+
 ## v1.2.2
 **September 22, 2015**
 
 **Fixes**
 
 * CLI output formatting now works ([#213](https://github.com/sasstools/sass-lint/pull/213))
+
 
 ## v1.2.1
 **September 19, 2015**
@@ -24,6 +35,7 @@
 * Single line per selector now works with `.sass` syntax ([#168](https://github.com/sasstools/sass-lint/pull/168))
 * Custom options no longer overwrite defaults ([#159](https://github.com/sasstools/sass-lint/pull/159))
 * Fix CLI config error ([#150](https://github.com/sasstools/sass-lint/pull/153))
+
 
 ## v1.2.0
 **September 7, 2015**
@@ -40,9 +52,9 @@ Huge thanks to [Ben Griffith](https://github.com/bgriffith) and [Dan Purdy](http
 * Update naming of `clean-import-paths` and `no-duplicate-properties` ([#118](https://github.com/sasstools/sass-lint/issues/118))
 * Fix colons in parens being not parsed for `space-before-colon` ([#98](https://github.com/sasstools/sass-lint/issues/98))
 * Fix issue with `space-after-comma` and new lines ([#105](https://github.com/sasstools/sass-lint/issues/105))
-* Fix for `space-after-colon` only finding some colons ([#98](https://github.com/sasstools/sass-lint/issues/))
-* Fix `clean-import-path` bug when importing CSS ([#95](https://github.com/sasstools/sass-lint/issues/))
-* Fix EOL issues on Windows ([#65](https://github.com/sasstools/sass-lint/issues/))
+* Fix for `space-after-colon` only finding some colons ([#98](https://github.com/sasstools/sass-lint/issues/98))
+* Fix `clean-import-path` bug when importing CSS ([#95](https://github.com/sasstools/sass-lint/issues/95))
+* Fix EOL issues on Windows ([#65](https://github.com/sasstools/sass-lint/issues/65))
 * Fix issue with `mixins-before-declarations` for strange Gonzales parsing ([#80](https://github.com/sasstools/sass-lint/issues/80))
 * Fix typo in `quotes` doc
 
@@ -75,6 +87,7 @@ Huge thanks to [Ben Griffith](https://github.com/bgriffith) and [Dan Purdy](http
 * [zero-unit](https://github.com/sasstools/sass-lint/issues/68)
 * [clean-import-paths](https://github.com/sasstools/sass-lint/issues/29)
 
+
 ## v1.1.0
 **August 31, 2015**
 
@@ -93,6 +106,7 @@ CLI Goodness
 * One declaration per line inside arguments ([#51](https://github.com/sasstools/sass-lint/issues/51))
 * Leading zero non-decimal issues ([#49](https://github.com/sasstools/sass-lint/issues/49))
 * Indentation rule with parenthesis ([#46](https://github.com/sasstools/sass-lint/issues/46))
+
 
 ## v1.0.0
 **August 29, 2015**
