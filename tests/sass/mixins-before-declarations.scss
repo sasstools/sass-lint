@@ -1,3 +1,6 @@
+
+@include waldo;
+
 .foo {
   @include waldo;
   content: 'baz';
@@ -46,4 +49,29 @@
       @include test-again;
     }
   }
+}
+
+// added from issue #230 https://github.com/sasstools/sass-lint/issues/230
+
+.area-current {
+  $active: #00acac;
+  $background: #2d353c;
+
+  @include area-menu($active, $background);
+}
+
+// added from issue #227 https://github.com/sasstools/sass-lint/issues/227
+
+@include hello;
+
+@media (min-width: 50em) {
+  @include hello;
+}
+
+@supports (display: flex) {
+  @include hello;
+}
+
+@at-root {
+  @include hello;
 }
