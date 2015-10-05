@@ -17,7 +17,7 @@ describe('mixins before declarations - scss', function () {
     });
   });
 
-  it('[excludes]', function (done) {
+  it('[excludes: all]', function (done) {
     lint.test(file, {
       'mixins-before-declarations': [
         1,
@@ -32,6 +32,28 @@ describe('mixins before declarations - scss', function () {
       ]
     }, function (data) {
       lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Mixins Before Declarations - exclude certain
+  // mixin test-again is not excluded
+  //////////////////////////////
+  it('[excludes: limited]', function (done) {
+    lint.test(file, {
+      'mixins-before-declarations': [
+        1,
+        {
+          'exclude': [
+            'waldo',
+            'mq',
+            'breakpoint'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });
@@ -52,7 +74,10 @@ describe('mixins before declarations - sass', function () {
     });
   });
 
-  it('[excludes]', function (done) {
+  //////////////////////////////
+  // Mixins Before Declarations - overwrite
+  //////////////////////////////
+  it('[excludes: all]', function (done) {
     lint.test(file, {
       'mixins-before-declarations': [
         1,
@@ -67,6 +92,28 @@ describe('mixins before declarations - sass', function () {
       ]
     }, function (data) {
       lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
+  // Mixins Before Declarations - exclude certain
+  // mixin test-again is not excluded
+  //////////////////////////////
+  it('[excludes: limited]', function (done) {
+    lint.test(file, {
+      'mixins-before-declarations': [
+        1,
+        {
+          'exclude': [
+            'waldo',
+            'mq',
+            'breakpoint'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });

@@ -1,5 +1,12 @@
 # Sass Lint Changelog
 
+## v1.2.3
+**October 5, 2015**
+
+**Changes**
+
+* Lock AST to known good version ([#245](https://github.com/sasstools/sass-lint/issues/245))
+
 ## v1.2.2
 **September 22, 2015**
 
