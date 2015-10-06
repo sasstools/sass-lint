@@ -1,0 +1,25 @@
+.test-single-pass
+  -webkit-transition: width 2s
+  transition: width 2s
+
+.test-single-fail
+  -webkit-transition: all 2s
+  transition: all 2s
+
+.test-mutliple-pass
+  -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s
+  transition: width 2s, height 2s, background-color 2s, transform 2s
+
+.test-mutliple-fail
+  -webkit-transition: all 2s, height 2s, background-color 2s, -webkit-transform 2s
+  transition: width 2s, height 2s, all 2s, transform 2s
+
+.test-trans-property-pass
+  transition-property: none
+  transition-property: width
+  transition-property: test_05
+  transition-property: -specific
+  transition-property: sliding-vertically
+
+.test-trans-property-fail
+  transition-property: all
