@@ -52,6 +52,24 @@ describe('variable name format', function () {
   });
 
   //////////////////////////////
+  // Variable Name Format - Regular Expression
+  //////////////////////////////
+  it('[convention: RegExp /^[_A-Z]+$/]', function (done) {
+    lint.test(file, {
+      'variable-name-format': [
+        1,
+        {
+          'convention': /^[_A-Z]+$/,
+          'convention-explanation': 'Its bad and you should feel bad.'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  //////////////////////////////
   // Variable Name Format - Allow Leading Underscore (False)
   //////////////////////////////
   it('[convention: allow-leading-underscore false]', function (done) {

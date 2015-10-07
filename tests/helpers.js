@@ -461,6 +461,14 @@ describe('helpers', function () {
   // isHyphenatedLowercase
   //////////////////////////////
 
+  it('isHyphenatedLowercase - [\'abc-def\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abc-def');
+
+    assert.equal(true, result);
+    done();
+  });
+
   it('isHyphenatedLowercase - [\'TEST\' - false]', function (done) {
 
     var result = helpers.isHyphenatedLowercase('TEST');
