@@ -44,3 +44,26 @@
       +test
       height: 100px
       +test-again
+
+
+// added from issue #230 https://github.com/sasstools/sass-lint/issues/230
+
+.area-current
+  $active: #00acac
+  $background: #2d353c
+
+  +area-menu($active, $background)
+
+// added from issue #227 https://github.com/sasstools/sass-lint/issues/227
+
+// FIXME: Currently causes a parse error with gonzales. Ok if mixin is within
+// class
+
+// @media (min-width: 50em)
+//   +hello
+//
+// @supports (display: flex)
+//   +hello
+//
+// @at-root
+//   +hello
