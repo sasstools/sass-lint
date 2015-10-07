@@ -12,7 +12,7 @@ describe('empty line between blocks - scss', function () {
     lint.test(file, {
       'empty-line-between-blocks': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(18, data.warningCount);
       done();
     });
   });
@@ -39,7 +39,7 @@ describe('empty line between blocks - scss', function () {
     lint.test(file, {
       'empty-line-between-blocks': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -55,7 +55,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(24, data.warningCount);
       done();
     });
   });
@@ -98,7 +98,7 @@ describe('empty line between blocks - sass', function () {
     lint.test(file, {
       'empty-line-between-blocks': 1
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -114,7 +114,7 @@ describe('empty line between blocks - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(23, data.warningCount);
       done();
     });
   });

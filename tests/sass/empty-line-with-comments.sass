@@ -1,88 +1,188 @@
+// First line test
+.foo
+  content: 'foo'
+
+
+// Standard
+//==============================================================================
+
 // Foobar
-.block
+.foo
+  content: 'foo'
+.bar
   content: 'bar'
-  //////////////////////////////
-  // Foobar
-  //////////////////////////////
-  .nested-block
-    content: 'bar'
 
-  /////////////
-  // Foobar
-  .nested-goodies
-    content: 'bar'
-  /////////////
-  // Foobar
-  .nested-goodies
-    content: 'bar'
 
-  /////////////
+
+// Foobar
+.foo
+  content: 'foo'
+.bar
   // Foobar
-  .nested-goodies
-    content: 'bar'
+  content: 'bar'
+
+
+
+
+// Foobar
+.foo
+  content: 'foo'
+// Foobar
+.foo
+  content: 'foo'
+
+.foo
+  //Foobar
+  content: 'foo'
+
+
+
+/**
+ * Foobar
+ */
+.foo
+  content: 'foo'
+/**
+ * Foobar
+ */
+.foo
+  content: 'foo'
+
+.foo
+  /**
+   * Foobar
+   */
+  content: 'foo'
+
+
+
+
+/////////////////////////////
+// Foobar
+/////////////////////////////
+.foo
+  content: 'foo'
+/////////////////////////////
+// Foobar
+/////////////////////////////
+.foo
+  content: 'foo'
+
+.foo
+  /////////////////////////////
+  // Foobar
+  /////////////////////////////
+  content: 'foo'
+
+
+
+
+// Mixins
+//==============================================================================
+
+.foo
+  // Foobar
+  +bar($qux)
+.foo
+  // Foobar
+  +bar($qux)
+    content: 'foo'
+
+.foo
+  // Foobar
+  +bar($qux)
+    // Foobar
+    content: 'foo'
+
+.foo
+
+  // Foobar
+  +bar($qux)
+    // Foobar
+    content: 'foo'
+
+.foo
+  // Foobar
+  +bar($qux)
+    &:after
+      content: 'foo'
+
+
+.foo
+  // Foobar
+  +bar($qux)
+    // Foobar
+    &:after
+      content: 'foo'
+
+
+
+// Nested elements
+//==============================================================================
+
+.foo
+  // Foobar
+  &__bar
+    content: 'foo'
+  content: 'foo'
+
+
+.foo
+  content: 'foo'
+
+  // Foobar
+  &__bar
+    content: 'foo'
+
+
+.foo
+  content: 'foo'
+  // Foobar
+  &__bar
+    content: 'foo'
+
+
+
+// Psuedo elements
+//==============================================================================
+
+.foo
+  // Foobar
+  &:before
+    content: 'foo'
+
+.foo
+  content: 'foo'
+
+  // Foobar
+  &::first-line
+    content: 'foo'
+
+
+
+// Different selectors
+//==============================================================================
 
 // Foobar
 h1
-  content: 'bar'
+  content: 'foo'
 // Foobar
-h1,
 h2
-  content: 'bar'
-  // Foobar
-  +breakpoint($tab1)
-    &:after
-      content: '|'
-      padding-left: 12px
-
-// Foobar
-h1, h2
-  content: 'bar'
+  content: 'foo'
 
 
 // Foobar
-[type=text]
-  content: 'bar'
-// Foobar
-h1.foo
-  content: 'bar'
-
-
-// Foobar
-h1.foo,
-h2.bar
-  content: 'bar'
-
-  //Foobar
-  .qux
-    content: 'bar'
-
-  // Foobar
-  &__element
-    content: 'foo'
-
-  // Foobar
-  &--modifier
-    content: 'bar'
-
-// Foo
 .foo + .bar
-  content: 'bar'
-// Bar
+  content: 'foo'
+// Foobar
 .foo + .bar,
 h2
   content: 'foo'
 
-// Foobar
-.foo
-  .bar
-    &::first-letter
-      content: 'foo'
-    // Foobar
-    &::first-line
-      content: 'foo'
 
-  // Foobar
-  .qux
-    content: 'foo'
-  +baz($baz)
-    content: 'baz'
+// Foobar
+[type=text]
+  content: 'foo'
+// Foobar
+h1.foo
+  content: 'foo'
