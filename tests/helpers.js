@@ -54,6 +54,44 @@ var classBlock =
       indexHasChanged: [ 0 ]
     };
 
+var nodeSimpleSelector = {
+      type: 'simpleSelector',
+      content:
+          [
+              {
+                type: 'ident',
+                content: 'h1',
+                syntax: 'scss',
+                start: { line: 16, column: 1 },
+                end: { line: 16, column: 2 },
+                indexHasChanged: [ 0 ]
+              }
+          ],
+      syntax: 'scss',
+      start: { line: 16, column: 1 },
+      end: { line: 16, column: 2 },
+      indexHasChanged: [ 0 ]
+    },
+
+    nodeDelim = {
+      type: 'delimiter',
+      content: ',',
+      syntax: 'scss',
+      start: { line: 16, column: 3 },
+      end: { line: 16, column: 3 },
+      indexHasChanged: [ 0 ]
+    },
+
+    nodeSpace = {
+      type: 'space',
+      content: ' ',
+      syntax: 'scss',
+      start: { line: 225, column: 5 },
+      end: { line: 225, column: 5 },
+      indexHasChanged: [ 0 ]
+    };
+
+
 var detectTestA = {
       line: 1,
       column: 1
@@ -785,4 +823,69 @@ describe('helpers', function () {
     assert.equal('border-color', result);
     done();
   });
+
+  //////////////////////////////
+  // stripLastSpace
+  //////////////////////////////
+
+  it('stripLastSpace - [\'selector \']', function (done) {
+
+    var result = helpers.stripLastSpace('selector ');
+
+    assert.equal('selector', result);
+    done();
+  });
+
+  it('stripLastSpace - [\'selector test \']', function (done) {
+
+    var result = helpers.stripLastSpace('selector test');
+
+    assert.equal('selector test', result);
+    done();
+  });
+
+  it('stripLastSpace - [\'selector\']', function (done) {
+
+    var result = helpers.stripLastSpace('selector');
+
+    assert.equal('selector', result);
+    done();
+  });
+
+  it('stripLastSpace - [\'selector test\']', function (done) {
+
+    var result = helpers.stripLastSpace('selector test');
+
+    assert.equal('selector test', result);
+    done();
+  });
+
+  //////////////////////////////
+  // mapDelims
+  //////////////////////////////
+
+  it('mapDelims - selector', function (done) {
+
+    var result = helpers.mapDelims(nodeSimpleSelector);
+
+    assert.equal('s', result);
+    done();
+  });
+
+  it('mapDelims - delim', function (done) {
+
+    var result = helpers.mapDelims(nodeDelim);
+
+    assert.equal('d', result);
+    done();
+  });
+
+  it('mapDelims - space', function (done) {
+
+    var result = helpers.mapDelims(nodeSpace);
+
+    assert.equal(false, result);
+    done();
+  });
+
 });
