@@ -1,0 +1,177 @@
+// comments denote default rule behaviour
+
+h1
+  color: #fff
+
+// mergeable with the rule above
+h1
+  margin: 0
+
+h1.new > p
+  color: #000
+
+h1,
+h2,
+h3
+  color: #fff
+
+// mergeable with the rule above
+h1, h2, h3
+  color: #fff
+
+.mergeable .test
+  color: #000
+
+// mergeable with the rule above
+.mergeable .test
+  border: 1px solid #fff
+
+.mergeable, .test
+  color: #000
+
+// mergeable with the rule above
+.mergeable, .test
+  border: 1px solid #fff
+
+.mergeable #h1.new
+  color: #000
+
+input[type='text']
+  border: 0
+
+// mergeable with the rule above
+input[type='text']
+  background: none
+
+input[type='radio']
+  color: red
+
+ul > li
+  padding: 0
+
+// mergeable with the rule above
+ul > li
+  margin: 0
+
+div p
+  padding: 0
+
+// meregeable with the rule above
+div p
+  padding: 0
+
+div > p
+  margin: 0
+
+// mergeable with the rule above
+div > p
+  padding: 0
+
+*
+  margin: 0
+
+//mergeable with the rule above
+*
+  margin: 0
+
+[target]
+  padding: 0
+
+// mergeable with the rule above
+[target]
+  padding: 0
+
+p:last-child
+  margin: 0
+
+// rule is mergeable with the rule above
+p:last-child
+  margin: 0
+
+p:nth-of-type(2)
+  margin: 0
+
+// rule is mergeable with the rule above
+p:nth-of-type(2)
+  margin: 0
+
+input:read-only
+  content: ''
+
+// mergeable with the rule above
+input:read-only
+  content: ''
+
+.b-some
+
+  .image + .buttons
+    margin-top: 14px
+
+    &__test
+      content: ''
+
+      #h1
+        content: ''
+
+      #h2
+        content: ''
+
+  .image
+    content: ''
+
+  //mergeable with the .image rule directly above
+  .image
+    margin: 2px
+
+    .image + .buttons
+      margin-top: 14px
+
+      &__test
+        content: ''
+
+        #h1
+          content: ''
+
+        #h2
+          content: ''
+
+  &__end
+    content: ''
+
+// mergeable with the previous block
+.b-some
+
+  &__image
+    width: 100%
+
+  &__image + &__buttons
+    margin-top: 14px
+
+  //mergeable with the end rule in the previous block
+  &__end
+    content: ''
+
+p::first-line
+    color: #ff0000
+    font-variant: small-caps
+
+// mergeable with the rule above
+p::first-line
+  color: #ff0000
+  font-variant: small-caps
+
+ul ~ p
+   color: #ff0000
+
+.test
+  .bar
+    color: blue
+
+// 2 rules mergeable with the rules above
+.test
+  .bar
+    color: red
+
+//make sure a low level selector doesn't flag with a nested selector above
+.bar
+  content: ''
