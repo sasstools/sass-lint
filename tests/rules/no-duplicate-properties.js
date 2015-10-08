@@ -2,9 +2,44 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('no-duplicate-properties.scss');
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
+describe('no duplicate properties - scss', function () {
+  var file = lint.file('no-duplicate-properties.scss');
 
-describe('no duplicate properties', function () {
+  it('enforce', function (done) {
+    lint.test(file, {
+      'no-duplicate-properties': 1
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('enforce - [exclude: background]', function (done) {
+    lint.test(file, {
+      'no-duplicate-properties': [
+        1,
+        {
+          'exclude': [
+            'background'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+});
+
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
+describe('no duplicate properties - sass', function () {
+  var file = lint.file('no-duplicate-properties.sass');
+
   it('enforce', function (done) {
     lint.test(file, {
       'no-duplicate-properties': 1

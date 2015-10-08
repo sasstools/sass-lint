@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('shorthand values - scss', function () {
   var file = lint.file('shorthand-values.scss');
 
@@ -147,10 +150,10 @@ describe('shorthand values - scss', function () {
   });
 });
 
-/////////////////////////////
-// Sass
-/////////////////////////////
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('shorthand values - sass', function () {
   var file = lint.file('shorthand-values.sass');
 

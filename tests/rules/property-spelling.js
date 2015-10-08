@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('no misspelled properties - scss', function () {
   var file = lint.file('no-misspelled-properties.scss');
 
@@ -48,6 +51,9 @@ describe('no misspelled properties - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('no misspelled properties - sass', function () {
   var file = lint.file('no-misspelled-properties.sass');
 

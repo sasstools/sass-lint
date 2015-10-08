@@ -2,9 +2,12 @@
 
 var lint = require('./_lint');
 
-var file = lint.file('space-after-bang.scss');
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
+describe('space after bang - scss', function () {
+  var file = lint.file('space-after-bang.scss');
 
-describe('space after bang', function () {
   it('[include: false]', function (done) {
     lint.test(file, {
       'space-after-bang': 1
@@ -15,6 +18,36 @@ describe('space after bang', function () {
   });
 
   it('[include: true]', function (done) {
+    lint.test(file, {
+      'space-after-bang': [
+        1,
+        {
+          'include': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+});
+
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
+describe('space after bang - sass', function () {
+  var file = lint.file('space-after-bang.sass');
+
+  it('sass - [include: false]', function (done) {
+    lint.test(file, {
+      'space-after-bang': 1
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('sass - [include: true]', function (done) {
     lint.test(file, {
       'space-after-bang': [
         1,

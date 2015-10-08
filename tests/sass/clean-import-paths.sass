@@ -1,0 +1,26 @@
+// Clean paths
+@import foo
+@import bar/foo
+
+// Only filename extensions
+@import foo.scss
+@import bar/foo.scss
+
+// Only leading underscores
+@import _foo
+@import bar/_foo
+
+// Both leading underscores and filename extensions
+@import _foo.scss
+@import bar/_foo.scss
+
+// CSS imports - ignore
+@import url(fineprint.css)
+@import url(bluish.css) projection, tv
+@import custom.css
+@import url(chrome://communicator/skin/)
+@import common.css screen, projection
+@import url(landscape.css) screen and (orientation: landscape)
+
+@if variable-exists(google-fonts-url)
+  @import url($google-fonts-url)

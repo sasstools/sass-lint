@@ -1,0 +1,63 @@
+.block
+  content: 'bar'
+  .nested-block
+    content: 'bar'
+
+  .nested-goodies
+    content: 'bar'
+  .nested-goodies
+    content: 'bar'
+
+  .nested-goodies
+    content: 'bar'
+
+h1
+  content: 'bar'
+h1,
+h2
+  content: 'bar'
+  +breakpoint($tab1)
+    &:after
+      content: '|'
+      padding-left: 12px
+
+h1, h2
+  content: 'bar'
+
+
+[type=text]
+  content: 'bar'
+h1.foo
+  content: 'bar'
+
+
+h1.foo,
+h2.bar
+  content: 'bar'
+
+  .qux
+    content: 'bar'
+
+  &__element
+    content: 'foo'
+
+  &--modifier
+    content: 'bar'
+
+.foo + .bar
+  content: 'bar'
+.foo + .bar,
+h2
+  content: 'foo'
+
+.foo
+  .bar
+    &::first-letter
+      content: 'foo'
+    &::first-line
+      content: 'foo'
+
+  .qux
+    content: 'foo'
+  +baz($baz)
+    content: 'baz'
