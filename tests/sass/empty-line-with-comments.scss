@@ -218,3 +218,11 @@ h2 {
 h1.foo {
   content: 'foo';
 }
+
+.foo {
+  content: 'foo'; // Foobar
+
+  .bar {
+    content: 'bar';
+  }
+}
