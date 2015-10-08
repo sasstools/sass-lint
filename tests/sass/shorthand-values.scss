@@ -141,3 +141,17 @@
   margin: $one $two $one $three;
   padding: $one $one $one $two;
 }
+
+.value-of-zero {
+  border-radius: 0;
+  border-width: none;
+  margin: 0 0px;
+  padding: 1px 0;
+}
+
+.value-mixed {
+    border-color: $red 1px red 1rem;
+    border-radius: 1px 1pc 1rem;
+    border-style: $red red;
+    border-width: 1px 1pc;
+}
