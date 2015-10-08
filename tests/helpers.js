@@ -452,6 +452,154 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
+  // isCamelCase
+  //////////////////////////////
+
+  it('isCamelCase - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isCamelCase('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isCamelCase - [\'test\' - true]', function (done) {
+
+    var result = helpers.isCamelCase('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isCamelCase - [abcDEF - true]', function (done) {
+
+    var result = helpers.isCamelCase('abcDEF');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isCamelCase - [\'123\' - false]', function (done) {
+
+    var result = helpers.isCamelCase('123');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isCamelCase - [\'aBcDeF\' - true]', function (done) {
+
+    var result = helpers.isCamelCase('aBcDeF');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isHyphenatedLowercase
+  //////////////////////////////
+
+  it('isHyphenatedLowercase - [\'abc-def\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abc-def');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'test\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [abcDEF - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abcDEF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'123\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('123');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'aBcDeF\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('aBcDeF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isSnakeCase
+  //////////////////////////////
+
+  it('isSnakeCase - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isSnakeCase('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'test\' - true]', function (done) {
+
+    var result = helpers.isSnakeCase('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isSnakeCase - [abcDEF - false]', function (done) {
+
+    var result = helpers.isSnakeCase('abcDEF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'123\' - true]', function (done) {
+
+    var result = helpers.isSnakeCase('123');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'ab_cd_ef\' - true]', function (done) {
+
+    var result = helpers.isSnakeCase('ab_cd_ef');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'ab_cd-ef\' - false]', function (done) {
+
+    var result = helpers.isSnakeCase('ab_cd-ef');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
   // isValidHex
   //////////////////////////////
 
