@@ -1,6 +1,6 @@
 # Force Pseudo Nesting
 
-Rule `force-pseudo-nesting` will enforce the nesting of pseudo
+Rule `force-pseudo-nesting` will enforce the nesting of pseudo elements/classes.
 
 
 ## Examples
