@@ -34,6 +34,7 @@ p::first-line {
 
 .parent {
   .child {
+    // pseudo element should be nested with the parent ident
     p::first-line {
       color: #ff0000;
     }
@@ -42,6 +43,7 @@ p::first-line {
 
 .parent {
   .child {
+    // pseudo element should be nested with the parent ident
     .sub p::first-line {
       color: #ff0000;
     }
