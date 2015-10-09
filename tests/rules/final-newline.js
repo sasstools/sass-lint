@@ -6,7 +6,7 @@ var lint = require('./_lint');
 // SCSS syntax tests
 //////////////////////////////
 describe('final newline - scss', function () {
-  
+
   // With newline (testing file without)
   it('with newline [include: true]', function (done) {
     var file = lint.file('final-newline--none.scss');
@@ -34,7 +34,7 @@ describe('final newline - scss', function () {
       done();
     });
   });
-  
+
   // Final Newline w/space
   it('with space [include: true]', function (done) {
     var file = lint.file('final-newline--space.scss');
@@ -46,7 +46,7 @@ describe('final newline - scss', function () {
       done();
     });
   });
-  
+
   it('with space [include: false]', function (done) {
     var file = lint.file('final-newline--space.scss');
 
@@ -96,7 +96,7 @@ describe('final newline - scss', function () {
 // Sass syntax tests
 //////////////////////////////
 describe('final newline - sass', function () {
-  
+
   // With newline (testing file without)
   it('with newline [include: true]', function (done) {
     var file = lint.file('final-newline--none.sass');
@@ -124,7 +124,7 @@ describe('final newline - sass', function () {
       done();
     });
   });
-  
+
   // Final Newline w/space
   it('with space [include: true]', function (done) {
     var file = lint.file('final-newline--space.sass');
@@ -136,7 +136,7 @@ describe('final newline - sass', function () {
       done();
     });
   });
-  
+
   it('with space [include: false]', function (done) {
     var file = lint.file('final-newline--space.sass');
 
