@@ -22,20 +22,26 @@ a[target='_blank'] {
 }
 ```
 
-When disabled, the following are allowed:
+When enabled, the following are allowed:
 
 ```scss
-input[type='radio'] {
-  color: red;
+input {
+  &[type='radio'] {
+    color: red;
+  }
 }
 
-a[target='_blank'] {
-  content: '';
+a {
+  &[target='_blank'] {
+    content: '';
+  }
 }
 
 .form {
-  .class input[type='text'] {
-    padding: 0;
+  .class input{
+    &[type='text'] {
+      padding: 0;
+    }
   }
 }
 ```
