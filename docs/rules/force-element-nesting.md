@@ -22,20 +22,26 @@ a[target="_blank"] span {
 }
 ```
 
-When disabled, the following are allowed:
+When enabled, the following are allowed:
 
 ```scss
-div p {
-  content: '';
-}
-
-.parent {
-  &__child h1 {
+div {
+  p {
     content: '';
   }
 }
 
-a[target="_blank"] span {
-  content: '';
+.parent {
+  &__child {
+    h1 {
+      content: '';
+    }
+  }
+}
+
+a[target="_blank"] {
+  span {
+    content: '';
+  }
 }
 ```
