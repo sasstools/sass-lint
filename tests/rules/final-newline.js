@@ -36,9 +36,14 @@ describe('final newline - scss', function () {
     var file = lint.file('final-newline.scss');
 
     lint.test(file, {
-      'final-newline': 1
+      'final-newline': [
+        1,
+        {
+          'include': false
+        }
+      ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(0, data.warningCount);
       done();
     });
   });
@@ -78,9 +83,14 @@ describe('final newline - sass', function () {
     var file = lint.file('final-newline.sass');
 
     lint.test(file, {
-      'final-newline': 1
+      'final-newline': [
+        1,
+        {
+          'include': false
+        }
+      ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(0, data.warningCount);
       done();
     });
   });
