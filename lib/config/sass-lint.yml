@@ -36,8 +36,9 @@ rules:
   no-vendor-prefixes: 1
   no-warn: 1
 
-  #nesting
+  # nesting
   force-element-nesting: 1
+  force-pseudo-nesting: 1
 
   # Style Guide
   border-zero: 1
