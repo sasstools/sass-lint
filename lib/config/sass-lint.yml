@@ -37,6 +37,7 @@ rules:
   no-warn: 1
 
   # nesting
+  force-attribute-nesting: 1
   force-element-nesting: 1
   force-pseudo-nesting: 1
 
