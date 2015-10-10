@@ -5,7 +5,7 @@ Rule `empty-line-between-blocks` will enforce whether or not nested blocks shoul
 ## Options
 
 * `include`: `true`/`false` (defaults to `true`)
-* `ignore-single-line-rulesets`: `true`/`false` (defaults to `true`)
+* `allow-single-line-rulesets`: `true`/`false` (defaults to `true`)
 
 ## Examples
 
@@ -43,23 +43,12 @@ When `include: false`, the following are allowed. When `include: true`, the foll
 }
 ```
 
-### `ignore-single-line-rulesets`
+### `allow-single-line-rulesets`
 
-When `ignore-single-line-rulesets: true`, the following are allowed. When `ignore-single-line-rulesets: false`, the following are disallowed:
+When `allow-single-line-rulesets: true`, the following are allowed. When `allow-single-line-rulesets: false`, the following are disallowed:
 
 ```scss
 .foo { content: 'foo'; }
 .bar { content: 'bar'; }
 .baz { content: 'baz'; }
-```
-
-When `ignore-single-line-rulesets: false`, the following are allowed. When `ignore-single-line-rulesets: true`, the following are disallowed:
-
-```scss
-.foo { content: 'foo'; }
-
-.bar { content: 'bar'; }
-
-.baz { content: 'baz'; }
-
 ```
