@@ -1,63 +1,90 @@
-.block
-  content: 'bar'
-  .nested-block
-    content: 'bar'
+.foo
+  content: 'foo'
 
-  .nested-goodies
-    content: 'bar'
-  .nested-goodies
-    content: 'bar'
-
-  .nested-goodies
-    content: 'bar'
-
-h1
-  content: 'bar'
-h1,
-h2
-  content: 'bar'
-  +breakpoint($tab1)
-    &:after
-      content: '|'
-      padding-left: 12px
-
-h1, h2
+.foo
+  content: 'foo'
+.bar
   content: 'bar'
 
+.foo
+  @include bar
 
-[type=text]
-  content: 'bar'
-h1.foo
-  content: 'bar'
-
-
-h1.foo,
-h2.bar
-  content: 'bar'
-
-  .qux
-    content: 'bar'
-
-  &__element
+.foo
+  @include bar($qux)
     content: 'foo'
 
-  &--modifier
-    content: 'bar'
+
+.foo
+  @include bar($qux)
+    content: 'foo'
+
+
+.foo
+
+  @include bar($qux)
+    content: 'foo'
+
+
+.foo
+  @include bar($qux)
+    &:after
+      content: 'foo'
+
+
+
+.foo
+
+  &__bar
+    content: 'foo'
+
+
+  content: 'foo'
+
+.foo
+  content: 'foo'
+
+  &__bar
+    content: 'foo'
+
+
+.foo
+  content: 'foo'
+
+  &__bar
+    content: 'foo'
+
+
+
+.foo
+  &:before
+    content: 'foo'
+
+
+.foo
+  content: 'foo'
+
+  &::first-line
+    content: 'foo'
+
+
+h1
+  content: 'foo'
+h2
+  content: 'foo'
+h3
+  content: 'foo'
+h4
+  content: 'foo'
+
 
 .foo + .bar
-  content: 'bar'
+  content: 'foo'
 .foo + .bar,
 h2
   content: 'foo'
 
-.foo
-  .bar
-    &::first-letter
-      content: 'foo'
-    &::first-line
-      content: 'foo'
 
-  .qux
-    content: 'foo'
-  +baz($baz)
-    content: 'baz'
+[type=text]
+  content: 'foo'
+h1.foo
+  content: 'foo'

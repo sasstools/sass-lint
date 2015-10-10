@@ -6,7 +6,7 @@ var lint = require('./_lint');
 // SCSS syntax tests
 //////////////////////////////
 describe('empty line between blocks - scss', function () {
-  it('without comments - [include: true, ignore-single-line-rulesets: true]', function (done) {
+  it('without comments - [include: true, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-between-blocks.scss');
 
     lint.test(file, {
@@ -17,7 +17,7 @@ describe('empty line between blocks - scss', function () {
     });
   });
 
-  it('without comments - [include: true, ignore-single-line-rulesets: false]', function (done) {
+  it('without comments - [include: true, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-between-blocks.scss');
 
     lint.test(file, {
@@ -25,16 +25,16 @@ describe('empty line between blocks - scss', function () {
         1,
         {
           'include': true,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
 
-  it('without comments - [include: false, ignore-single-line-rulesets: true]', function (done) {
+  it('without comments - [include: false, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-between-blocks.scss');
 
     lint.test(file, {
@@ -42,7 +42,7 @@ describe('empty line between blocks - scss', function () {
         1,
         {
           'include': false,
-          'ignore-single-line-rulesets': true
+          'allow-single-line-rulesets': true
         }
       ]
     }, function (data) {
@@ -51,7 +51,7 @@ describe('empty line between blocks - scss', function () {
     });
   });
 
-  it('without comments - [include: false, ignore-single-line-rulesets: false]', function (done) {
+  it('without comments - [include: false, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-between-blocks.scss');
 
     lint.test(file, {
@@ -59,16 +59,16 @@ describe('empty line between blocks - scss', function () {
         1,
         {
           'include': false,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(22, data.warningCount);
       done();
     });
   });
 
-  it('with comments - [include: true, ignore-single-line-rulesets: true]', function (done) {
+  it('with comments - [include: true, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-with-comments.scss');
 
     lint.test(file, {
@@ -76,7 +76,7 @@ describe('empty line between blocks - scss', function () {
         1,
         {
           'include': true,
-          'ignore-single-line-rulesets': true
+          'allow-single-line-rulesets': true
         }
       ]
     }, function (data) {
@@ -85,7 +85,7 @@ describe('empty line between blocks - scss', function () {
     });
   });
 
-  it('with comments - [include: true, ignore-single-line-rulesets: false]', function (done) {
+  it('with comments - [include: true, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-with-comments.scss');
 
     lint.test(file, {
@@ -93,7 +93,7 @@ describe('empty line between blocks - scss', function () {
         1,
         {
           'include': true,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
@@ -102,7 +102,7 @@ describe('empty line between blocks - scss', function () {
     });
   });
 
-  it('with comments - [include: false, ignore-single-line-rulesets: true]', function (done) {
+  it('with comments - [include: false, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-with-comments.scss');
 
     lint.test(file, {
@@ -110,7 +110,7 @@ describe('empty line between blocks - scss', function () {
         1,
         {
           'include': false,
-          'ignore-single-line-rulesets': true
+          'allow-single-line-rulesets': true
         }
       ]
     }, function (data) {
@@ -119,7 +119,7 @@ describe('empty line between blocks - scss', function () {
     });
   });
 
-  it('with comments - [include: false, ignore-single-line-rulesets: false]', function (done) {
+  it('with comments - [include: false, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-with-comments.scss');
 
     lint.test(file, {
@@ -127,7 +127,7 @@ describe('empty line between blocks - scss', function () {
         1,
         {
           'include': false,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
@@ -141,7 +141,7 @@ describe('empty line between blocks - scss', function () {
 // Sass syntax tests
 //////////////////////////////
 describe('empty line between blocks - sass', function () {
-  it('without comments - [include: true, ignore-single-line-rulesets: true]', function (done) {
+  it('without comments - [include: true, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-between-blocks.sass');
 
     lint.test(file, {
@@ -152,7 +152,7 @@ describe('empty line between blocks - sass', function () {
     });
   });
 
-  it('without comments - [include: true, ignore-single-line-rulesets: false]', function (done) {
+  it('without comments - [include: true, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-between-blocks.sass');
 
     lint.test(file, {
@@ -160,7 +160,7 @@ describe('empty line between blocks - sass', function () {
         1,
         {
           'include': true,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
@@ -169,7 +169,7 @@ describe('empty line between blocks - sass', function () {
     });
   });
 
-  it('without comments - [include: false, ignore-single-line-rulesets: true]', function (done) {
+  it('without comments - [include: false, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-between-blocks.sass');
 
     lint.test(file, {
@@ -180,12 +180,12 @@ describe('empty line between blocks - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
 
-  it('without comments - [include: false, ignore-single-line-rulesets: false]', function (done) {
+  it('without comments - [include: false, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-between-blocks.sass');
 
     lint.test(file, {
@@ -193,16 +193,16 @@ describe('empty line between blocks - sass', function () {
         1,
         {
           'include': false,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
 
-  it('with comments - [include: true, ignore-single-line-rulesets: true]', function (done) {
+  it('with comments - [include: true, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-with-comments.sass');
 
     lint.test(file, {
@@ -213,7 +213,7 @@ describe('empty line between blocks - sass', function () {
     });
   });
 
-  it('with comments - [include: true, ignore-single-line-rulesets: false]', function (done) {
+  it('with comments - [include: true, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-with-comments.sass');
 
     lint.test(file, {
@@ -221,7 +221,7 @@ describe('empty line between blocks - sass', function () {
         1,
         {
           'include': true,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
@@ -230,7 +230,7 @@ describe('empty line between blocks - sass', function () {
     });
   });
 
-  it('with comments - [include: false, ignore-single-line-rulesets: true]', function (done) {
+  it('with comments - [include: false, allow-single-line-rulesets: true]', function (done) {
     var file = lint.file('empty-line-with-comments.sass');
 
     lint.test(file, {
@@ -238,7 +238,7 @@ describe('empty line between blocks - sass', function () {
         1,
         {
           'include': false,
-          'ignore-single-line-rulesets': true
+          'allow-single-line-rulesets': true
         }
       ]
     }, function (data) {
@@ -247,7 +247,7 @@ describe('empty line between blocks - sass', function () {
     });
   });
 
-  it('with comments - [include: false, ignore-single-line-rulesets: false]', function (done) {
+  it('with comments - [include: false, allow-single-line-rulesets: false]', function (done) {
     var file = lint.file('empty-line-with-comments.sass');
 
     lint.test(file, {
@@ -255,7 +255,7 @@ describe('empty line between blocks - sass', function () {
         1,
         {
           'include': false,
-          'ignore-single-line-rulesets': false
+          'allow-single-line-rulesets': false
         }
       ]
     }, function (data) {
