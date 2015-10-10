@@ -24,7 +24,7 @@ describe('force attribute nesting - scss', function () {
 describe('force attribute nesting - sass', function () {
   var file = lint.file('force-attribute-nesting.sass');
 
-  it('[convention: 0]', function (done) {
+  it('[default]', function (done) {
     lint.test(file, {
       'force-attribute-nesting': 1
     }, function (data) {

@@ -38,7 +38,7 @@ a {
 }
 
 .form {
-  .class input{
+  .class input {
     &[type='text'] {
       padding: 0;
     }
