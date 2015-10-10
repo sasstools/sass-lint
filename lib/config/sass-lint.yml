@@ -38,7 +38,9 @@ rules:
 
   # nesting
   force-attribute-nesting: 1
-  
+  force-element-nesting: 1
+  force-pseudo-nesting: 1
+
   # Style Guide
   border-zero: 1
   brace-style: 1
