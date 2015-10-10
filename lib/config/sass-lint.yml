@@ -37,6 +37,7 @@ rules:
   no-warn: 1
 
   # nesting
+  force-element-nesting: 1
   force-pseudo-nesting: 1
 
   # Style Guide
