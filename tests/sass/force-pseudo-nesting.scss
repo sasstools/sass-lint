@@ -1,0 +1,61 @@
+// shouldnt generate a nesting warning
+input[type='radio'] {
+  color: red;
+}
+
+// shouldnt generate a nesting warning
+div p {
+  padding: 0;
+}
+
+// pseudo class should be nested
+p:last-child {
+  margin: 0;
+}
+
+// pseudo class should be nested
+p:nth-of-type(2) {
+  margin: 0;
+}
+
+
+// pseudo class should be nested
+input:read-only {
+  content: '';
+}
+
+
+// pseudo element should be nested with the parent ident
+p::first-line {
+    color: #ff0000;
+    font-variant: small-caps;
+}
+
+
+.parent {
+  .child {
+    // pseudo element should be nested with the parent ident
+    p::first-line {
+      color: #ff0000;
+    }
+  }
+}
+
+.parent {
+  .child {
+    // pseudo element should be nested with the parent ident
+    .sub p::first-line {
+      color: #ff0000;
+    }
+  }
+}
+
+.parent {
+  .child {
+    .sub p {
+      &::first-line {
+        color: #ff0000;
+      }
+    }
+  }
+}
