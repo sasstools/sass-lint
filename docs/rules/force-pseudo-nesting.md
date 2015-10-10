@@ -34,6 +34,7 @@ When enabled, the following are allowed:
 p {
   &:nth-of-type(2) {
     margin: 0;
+  }
 }
 
 .parent {
