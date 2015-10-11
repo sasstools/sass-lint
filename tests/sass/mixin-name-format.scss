@@ -1,0 +1,35 @@
+@mixin hyphenated-lowercase() {
+  content: '';
+}
+
+@mixin snake_case() {
+  content: '';
+}
+
+@mixin camelCase() {
+  content: '';
+}
+
+@mixin PascalCase() {
+  content: '';
+}
+
+@mixin Camel_Snake_Case() {
+  content: '';
+}
+
+@mixin SCREAMING_SNAKE_CASE() {
+  content: '';
+}
+
+@mixin _with-leading-underscore() {
+  content: '';
+}
+
+@mixin _does_NOT-fitSTANDARD() {
+  content: '';
+}
+
+.class {
+  @include snake_case();
+}
