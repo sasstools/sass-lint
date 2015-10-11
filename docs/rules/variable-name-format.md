@@ -1,6 +1,6 @@
 # Variable Name Format
 
-Rule `variable-name-format` will enforce the use of hexadecimal color values rather than literals.
+Rule `variable-name-format` will enforce a convention for variable names.
 
 ## Options
 
