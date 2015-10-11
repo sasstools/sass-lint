@@ -17,3 +17,35 @@ When enabled, the following are disallowed:
   margin: 0;
 }
 ```
+
+### Exclude
+
+When a property is added to the exclude array as show below then you may place duplicate properties immediately after each other, this is to prevent accidental duplication of properties.
+
+```yml
+no-duplicate-properties:
+  - 1
+  -
+    exclude:
+      - display
+```
+
+When `display` is added to the exclude array the following would be allowed:
+
+```scss
+.display-block {
+  display: flex;
+  display: inline-block;
+  float: right;
+}
+```
+
+When `display` is added to the exclude array the following would be still be disallowed as the duplicate properties are separated by another property:
+
+```scss
+.display-block {
+  display: flex;
+  float: right;
+  display: inline-block;
+}
+```
