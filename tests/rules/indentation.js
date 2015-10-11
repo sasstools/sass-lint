@@ -12,7 +12,7 @@ describe('indentation - scss', function () {
     lint.test(file, {
       'indentation': 1
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
