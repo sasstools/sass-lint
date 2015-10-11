@@ -5,7 +5,7 @@ Rule `variable-name-format` will enforce the use of hexadecimal color values rat
 ## Options
 
 * `allow-leading-underscore`: `true`/`false` (defaults to `true`)
-* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, or a Regular Expression that the variable name must match (e.g. `/^[_A-Z]+$/`)
+* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
 * `convention-explanation`: Custom explanation to display to the user if a variable doesn't adhere to the convention
 
 ## Example 1
@@ -95,7 +95,7 @@ $_snake_case_with_leading_underscore: 1px;
 
 Settings:
 - `allow-leading-underscore: true`
-- `convention: /^[_A-Z]+$/`
+- `convention: ^[_A-Z]+$`
 - `convention-explanation: 'Variables must contain only uppercase letters and underscores'`
 
 When enabled, the following are allowed:
