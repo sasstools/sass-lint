@@ -1,6 +1,6 @@
 # Mixin Name Format
 
-Rule `mixin-name-format` will enforce the use of hexadecimal color values rather than literals.
+Rule `mixin-name-format` will enforce a convention for mixin names.
 
 ## Options
 
