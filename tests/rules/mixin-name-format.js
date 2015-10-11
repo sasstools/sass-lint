@@ -42,12 +42,12 @@ describe('mixin name format - scss', function () {
     });
   });
 
-  it('[convention: RegExp /^[_A-Z]+$/]', function (done) {
+  it('[convention: RegExp ^[_A-Z]+$]', function (done) {
     lint.test(file, {
       'mixin-name-format': [
         1,
         {
-          'convention': /^[_A-Z]+$/,
+          'convention': '^[_A-Z]+$',
           'convention-explanation': 'Its bad and you should feel bad.'
         }
       ]
