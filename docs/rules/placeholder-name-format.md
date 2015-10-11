@@ -1,6 +1,6 @@
 # Placeholder Name Format
 
-Rule `placeholder-name-format` will enforce the use of hexadecimal color values rather than literals.
+Rule `placeholder-name-format` will enforce a convention for placeholder names.
 
 ## Options
 
