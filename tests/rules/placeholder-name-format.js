@@ -2,12 +2,12 @@
 
 var lint = require('./_lint');
 
-describe('variable name format - scss', function () {
-  var file = lint.file('variable-name-format.scss');
+describe('placeholder name format - scss', function () {
+  var file = lint.file('placeholder-name-format.scss');
 
   it('[convention: hyphenatedlowercase]', function (done) {
     lint.test(file, {
-      'variable-name-format': 1
+      'placeholder-name-format': 1
     }, function (data) {
       lint.assert.equal(7, data.warningCount);
       done();
@@ -16,7 +16,7 @@ describe('variable name format - scss', function () {
 
   it('[convention: camelcase]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'convention': 'camelcase'
@@ -30,7 +30,7 @@ describe('variable name format - scss', function () {
 
   it('[convention: snakecase]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'convention': 'snakecase'
@@ -44,7 +44,7 @@ describe('variable name format - scss', function () {
 
   it('[convention: RegExp ^[_A-Z]+$]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'convention': '^[_A-Z]+$',
@@ -59,7 +59,7 @@ describe('variable name format - scss', function () {
 
   it('[convention: allow-leading-underscore false]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'allow-leading-underscore': false
@@ -72,12 +72,12 @@ describe('variable name format - scss', function () {
   });
 });
 
-describe('variable name format - sass', function () {
-  var file = lint.file('variable-name-format.sass');
+describe('placeholder name format - sass', function () {
+  var file = lint.file('placeholder-name-format.sass');
 
   it('[convention: hyphenatedlowercase]', function (done) {
     lint.test(file, {
-      'variable-name-format': 1
+      'placeholder-name-format': 1
     }, function (data) {
       lint.assert.equal(7, data.warningCount);
       done();
@@ -86,7 +86,7 @@ describe('variable name format - sass', function () {
 
   it('[convention: camelcase]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'convention': 'camelcase'
@@ -100,7 +100,7 @@ describe('variable name format - sass', function () {
 
   it('[convention: snakecase]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'convention': 'snakecase'
@@ -114,7 +114,7 @@ describe('variable name format - sass', function () {
 
   it('[convention: RegExp ^[_A-Z]+$]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'convention': '^[_A-Z]+$',
@@ -129,7 +129,7 @@ describe('variable name format - sass', function () {
 
   it('[convention: allow-leading-underscore false]', function (done) {
     lint.test(file, {
-      'variable-name-format': [
+      'placeholder-name-format': [
         1,
         {
           'allow-leading-underscore': false
