@@ -33,7 +33,7 @@ describe('no duplicate properties - scss', function () {
     });
   });
 
-  it('enforce - [exclude: background]', function (done) {
+  it('enforce - [exclude: background, display]', function (done) {
     lint.test(file, {
       'no-duplicate-properties': [
         1,
@@ -82,7 +82,7 @@ describe('no duplicate properties - sass', function () {
     });
   });
 
-  it('enforce - [exclude: background]', function (done) {
+  it('enforce - [exclude: background, display]', function (done) {
     lint.test(file, {
       'no-duplicate-properties': [
         1,
