@@ -5,6 +5,14 @@ $foo: (
   )
 );
 
+.parent {
+  &__child {
+    p::first-line {
+      content: '';
+    }
+  }
+}
+
 .foo,
 .bar {
   content: 'bar';
@@ -15,6 +23,16 @@ content: 'bar';
   @include breakpoint(500) {
     content: 'baz';
   content: 'qux';
+  }
+
+  @include mixin-extra {
+    content: 'baz';
+    content: 'qux';
+  }
+
+  @include mixin-empty-args() {
+    content: 'baz';
+    content: 'qux';
   }
 
     .qux {
@@ -29,4 +47,71 @@ content: 'bar';
 @mixin bar {
     content: 'bar';
 	content: 'baz';
+}
+
+.color {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+$colors: (
+  base: (
+    red: #fff,
+    blue: #fff
+  ),
+  text: (
+    default: #fff,
+    light: (
+      brap: #987
+    ),
+    not: (
+      test: #fff
+    )
+  )
+);
+
+.multilineprops {
+  background: transparent linear-gradient(
+    to bottom,
+      #ff0000 0%,
+    #00ff00 40%,
+    #0000ff 40%
+  );
+}
+
+.multilineprops-extra {
+  background: transparent linear-gradient(to bottom, #ff0000 0%, #00ff00 40%, #0000ff 40%);
+}
+
+// Top-level mixin
+@include hello(
+  $foo,
+  $bar,
+  $baz
+);
+
+.foo {
+  // Nested Mixin
+  @include hello(
+    $foo,
+    $bar,
+    $baz
+  );
+
+  // CSS built-in function
+  background: transparent linear-gradient(
+    to bottom,
+    #ff0000 0%,
+    #00ff00 40%,
+    #0000ff 40%
+  );
+
+  // User-defined function
+  content: goodbye(
+    $foo,
+    $bar
+  );
+}
+
+@function cp($target, $container) {
+  @return calc-percent($target, $container);
 }
