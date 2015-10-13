@@ -1,0 +1,30 @@
+@function kabab-case()
+  @return 'foo'
+
+@function snake_case()
+  @return 'foo'
+
+@function camelCase()
+  @return 'foo'
+
+@function PascalCase()
+  @return 'foo'
+
+@function Camel_Snake_Case()
+  @return 'foo'
+
+@function SCREAMING_SNAKE_CASE()
+  @return 'foo'
+
+@function _with-leading-underscore()
+  @return 'foo'
+
+@function _does_NOT-fitSTANDARD($x)
+  @return $x
+
+$foo: SCREAMING_SNAKE_CASE()
+
+.class
+  content: snake_case()
+  color: _does_NOT-fitSTANDARD('bar')
+  border-color: $foo
