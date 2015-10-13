@@ -1,0 +1,46 @@
+@function foo( $bar)
+  @return $bar
+
+
+@function baz()
+  @return false
+
+
+
+=bar ($baz )
+  content: $baz
+
+
+.foo
+  +bar( 'Hello' )
+  content: foo('bar')
+  width: calc( 100% - 10px)
+
+// Top level mixin
++hello(
+  $foo,
+  $bar,
+  $baz
+)
+
+.foo
+  // Nested Mixin
+  +hello(
+    $foo,
+    $bar,
+    $baz
+  )
+
+  // CSS built-in function
+  background: transparent linear-gradient(
+    to bottom,
+    #ff0000 0%,
+    #00ff00 40%,
+    #0000ff 40%
+  )
+
+  // User-defined function
+  content: goodbye(
+    $foo,
+    $bar
+  )

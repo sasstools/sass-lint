@@ -1,0 +1,21 @@
+$foo: 'foo.png';
+
+.foo {
+  background-image: url('foo.png');
+}
+
+.bar {
+  background-image: url(foo.png);
+}
+
+.baz {
+  background-image: url($foo);
+}
+
+.qux {
+  background-image: url('bar/' + $foo);
+}
+
+.norf {
+  background-image: url(bar/ + $foo);
+}

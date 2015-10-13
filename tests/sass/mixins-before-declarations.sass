@@ -1,0 +1,69 @@
+.foo
+  +waldo
+  content: 'baz'
+
+
+.bar
+  content: 'baz'
+  +waldo
+
+
+.qux
+  content: 'baz'
+  +waldo
+  margin: 0
+
+
+.breakpoint
+  content: 'baz'
+
+  +breakpoint(500px)
+    content: 'waldo'
+
+
+  .foo
+    content: 'where'
+
+    +waldo
+
+
+
+  &__element
+    +element
+    width: 100%
+
+    +mq(500px)
+      content: 'mq'
+
+
+    +waldo
+
+    &--modifier
+      +foo('yo')
+      +hello
+      +test
+      height: 100px
+      +test-again
+
+
+// added from issue #230 https://github.com/sasstools/sass-lint/issues/230
+
+.area-current
+  $active: #00acac
+  $background: #2d353c
+
+  +area-menu($active, $background)
+
+// added from issue #227 https://github.com/sasstools/sass-lint/issues/227
+
+// FIXME: Currently causes a parse error with gonzales. Ok if mixin is within
+// class
+
+// @media (min-width: 50em)
+//   +hello
+//
+// @supports (display: flex)
+//   +hello
+//
+// @at-root
+//   +hello

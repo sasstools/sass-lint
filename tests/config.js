@@ -60,6 +60,25 @@ describe('config', function () {
     done();
   });
 
+  it('should use a config file if one is provided', function (done) {
+    var conf = config({
+          'options': {
+            'config-file': 'tests/yml/.stylish-output.yml'
+          }
+        }),
+        merged = merge.recursive(defaults, fs.readFileSync(path.join(__dirname, 'yml', '.stylish-output.yml')));
+
+    equal(
+      conf,
+      merged,
+      {
+        'strict': true
+      }
+    );
+
+    done();
+  });
+
   it('should not merge rules when `merge-default-rules` is false', function (done) {
     var opts = options,
         conf,

@@ -6,6 +6,8 @@ Rule `property-sort-order` will enforce the order in which declarations are writ
 
 * `order`: `'alphabetical'`, [`'concentric'`](http://rhodesmill.org/brandon/2011/concentric-css/), [`'recess'`](http://twitter.github.io/recess/), [`'smacss'`](http://smacss.com/book/formatting), or `[array of properties]` (defaults to `alphabetical`. Unknown properties are sorted alphabetically)
 
+Property orders: https://github.com/sasstools/sass-lint/tree/develop/lib/config/property-sort-orders
+
 ## Examples
 
 When enabled (assuming `order: alphabetical`), the following are allowed:

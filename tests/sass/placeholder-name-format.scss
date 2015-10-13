@@ -1,0 +1,35 @@
+%hyphenated-lowercase {
+  content: '';
+}
+
+%snake_case {
+  content: '';
+}
+
+%camelCase {
+  content: '';
+}
+
+%PascalCase {
+  content: '';
+}
+
+%Camel_Snake_Case {
+  content: '';
+}
+
+%SCREAMING_SNAKE_CASE {
+  content: '';
+}
+
+%_with-leading-underscore {
+  content: '';
+}
+
+%_does_NOT-fitSTANDARD {
+  content: '';
+}
+
+.class {
+  @extend %snake_case;
+}

@@ -1,0 +1,185 @@
+// First line test
+.foo
+  content: 'foo'
+
+
+// Standard
+//==============================================================================
+
+// Foobar
+.foo
+  content: 'foo'
+.bar
+  content: 'bar'
+
+
+
+// Foobar
+.foo
+  content: 'foo'
+.bar
+  // Foobar
+  content: 'bar'
+
+
+
+
+// Foobar
+.foo
+  content: 'foo'
+// Foobar
+.foo
+  content: 'foo'
+
+.foo
+  //Foobar
+  content: 'foo'
+
+
+
+// Foobar
+//
+.foo
+  content: 'foo'
+// Foobar
+//
+.foo
+  content: 'foo'
+
+.foo
+  // Foobar
+  //
+  content: 'foo'
+
+
+
+
+/////////////////////////////
+// Foobar
+/////////////////////////////
+.foo
+  content: 'foo'
+/////////////////////////////
+// Foobar
+/////////////////////////////
+.foo
+  content: 'foo'
+
+.foo
+  /////////////////////////////
+  // Foobar
+  /////////////////////////////
+  content: 'foo'
+
+
+
+
+// Mixins
+//==============================================================================
+
+.foo
+  // Foobar
+  +bar($qux)
+.foo
+  // Foobar
+  +bar($qux)
+    content: 'foo'
+
+.foo
+  // Foobar
+  +bar($qux)
+    // Foobar
+    content: 'foo'
+
+.foo
+
+  // Foobar
+  +bar($qux)
+    // Foobar
+    content: 'foo'
+
+.foo
+  // Foobar
+  +bar($qux)
+    &:after
+      content: 'foo'
+
+
+.foo
+  // Foobar
+  +bar($qux)
+    // Foobar
+    &:after
+      content: 'foo'
+
+
+
+// Nested elements
+//==============================================================================
+
+.foo
+  // Foobar
+  &__bar
+    content: 'foo'
+  content: 'foo'
+
+
+.foo
+  content: 'foo'
+
+  // Foobar
+  &__bar
+    content: 'foo'
+
+
+.foo
+  content: 'foo'
+  // Foobar
+  &__bar
+    content: 'foo'
+
+
+
+// Psuedo elements
+//==============================================================================
+
+.foo
+  // Foobar
+  &:before
+    content: 'foo'
+
+.foo
+  content: 'foo'
+
+  // Foobar
+  &::first-line
+    content: 'foo'
+
+
+
+// Different selectors
+//==============================================================================
+
+// Foobar
+h1
+  content: 'foo'
+// Foobar
+h2
+  content: 'foo'
+
+
+// Foobar
+.foo + .bar
+  content: 'foo'
+// Foobar
+.foo + .bar,
+h2
+  content: 'foo'
+
+
+// Foobar
+[type=text]
+  content: 'foo'
+// Foobar
+h1.foo
+  content: 'foo'

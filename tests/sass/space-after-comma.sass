@@ -1,0 +1,49 @@
+h1,h2
+  content: 'foo'
+
+
+h3, h4
+  content: 'foo'
+
+
+h5,
+h6
+  content: 'foo'
+
+
+.foo
+  box-shadow: 1px 1px black,1px 1px black
+
+
+.foo
+  box-shadow: 1px 1px black, 1px 1px black
+
+
+.bar
+  @include mixin('foo','bar')
+
+
+.bar
+  @include mixin('foo', 'bar')
+
+
+@function foo($bar,$baz)
+  @return $bar * $baz
+
+
+@function foo($bar, $baz)
+  @return $bar * $baz
+
+
+=foo(
+  $foo: true,
+  $bar: false
+)
+  content: 'foo'
+
+
+=foo(
+  $foo: true, // Foo
+  $bar: false /* Bar */
+)
+  content: 'foo'

@@ -1,0 +1,56 @@
+// comments denote default rule behaviour
+// .new should become a nested selector
+h1.new > p
+  color: #000
+
+// .test should become a nested selector
+.mergeable .test
+  color: #000
+
+// shouldn't be nested
+.mergeable, .test
+  color: #000
+
+// #h1.new should be nested within the parent class
+.mergeable #h1.new
+  color: #000
+
+// #h1.new should be nested within the parent class
+.mergeable
+  #h1.new
+    color: #000
+
+// shouldn't be nested
+ul > li
+  padding: 0
+
+// p should be nested
+div p
+  padding: 0
+
+// shouldn't be nested
+div > p
+  margin: 0
+
+// shouldn't be nested
+ul ~ p
+  color: #ff0000
+
+// already nested
+.test
+  .bar
+    color: blue
+
+// 2 rules should be nested
+h1 .class .test
+  content: ''
+
+.tester
+  .class-test
+    content: ''
+  &__test h1
+    content: ''
+
+// h1 should be nested
+input[type="text"] h1
+  content: ''

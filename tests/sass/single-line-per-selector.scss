@@ -1,3 +1,24 @@
+.foo {
+  content: 'foo';
+}
+
+.foo.boo {
+  content: 'foo';
+}
+
+.foo, .boo {
+  content: 'foo';
+}
+
+.foo,.boo {
+  content: 'foo';
+}
+
+.foo,
+.boo {
+  content: 'foo';
+}
+
 .foo > a,.bar {
   content: 'baz';
 }
@@ -18,5 +39,18 @@
   .where,
   .waldo, .qux {
     content: 'found';
+  }
+}
+
+.foo {
+  .bar &,
+  .baz & {
+    content: 'foo';
+  }
+}
+
+.foo {
+  .bar &, .baz & {
+    content: 'foo';
   }
 }

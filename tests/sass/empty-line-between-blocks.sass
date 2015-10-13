@@ -1,0 +1,90 @@
+.foo
+  content: 'foo'
+
+.foo
+  content: 'foo'
+.bar
+  content: 'bar'
+
+.foo
+  @include bar
+
+.foo
+  @include bar($qux)
+    content: 'foo'
+
+
+.foo
+  @include bar($qux)
+    content: 'foo'
+
+
+.foo
+
+  @include bar($qux)
+    content: 'foo'
+
+
+.foo
+  @include bar($qux)
+    &:after
+      content: 'foo'
+
+
+
+.foo
+
+  &__bar
+    content: 'foo'
+
+
+  content: 'foo'
+
+.foo
+  content: 'foo'
+
+  &__bar
+    content: 'foo'
+
+
+.foo
+  content: 'foo'
+
+  &__bar
+    content: 'foo'
+
+
+
+.foo
+  &:before
+    content: 'foo'
+
+
+.foo
+  content: 'foo'
+
+  &::first-line
+    content: 'foo'
+
+
+h1
+  content: 'foo'
+h2
+  content: 'foo'
+h3
+  content: 'foo'
+h4
+  content: 'foo'
+
+
+.foo + .bar
+  content: 'foo'
+.foo + .bar,
+h2
+  content: 'foo'
+
+
+[type=text]
+  content: 'foo'
+h1.foo
+  content: 'foo'

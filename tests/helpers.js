@@ -54,6 +54,44 @@ var classBlock =
       indexHasChanged: [ 0 ]
     };
 
+var nodeSimpleSelector = {
+      type: 'simpleSelector',
+      content:
+          [
+              {
+                type: 'ident',
+                content: 'h1',
+                syntax: 'scss',
+                start: { line: 16, column: 1 },
+                end: { line: 16, column: 2 },
+                indexHasChanged: [ 0 ]
+              }
+          ],
+      syntax: 'scss',
+      start: { line: 16, column: 1 },
+      end: { line: 16, column: 2 },
+      indexHasChanged: [ 0 ]
+    },
+
+    nodeDelim = {
+      type: 'delimiter',
+      content: ',',
+      syntax: 'scss',
+      start: { line: 16, column: 3 },
+      end: { line: 16, column: 3 },
+      indexHasChanged: [ 0 ]
+    },
+
+    nodeSpace = {
+      type: 'space',
+      content: ' ',
+      syntax: 'scss',
+      start: { line: 225, column: 5 },
+      end: { line: 225, column: 5 },
+      indexHasChanged: [ 0 ]
+    };
+
+
 var detectTestA = {
       line: 1,
       column: 1
@@ -414,6 +452,154 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
+  // isCamelCase
+  //////////////////////////////
+
+  it('isCamelCase - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isCamelCase('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isCamelCase - [\'test\' - true]', function (done) {
+
+    var result = helpers.isCamelCase('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isCamelCase - [abcDEF - true]', function (done) {
+
+    var result = helpers.isCamelCase('abcDEF');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isCamelCase - [\'123\' - false]', function (done) {
+
+    var result = helpers.isCamelCase('123');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isCamelCase - [\'aBcDeF\' - true]', function (done) {
+
+    var result = helpers.isCamelCase('aBcDeF');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isHyphenatedLowercase
+  //////////////////////////////
+
+  it('isHyphenatedLowercase - [\'abc-def\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abc-def');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'test\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [abcDEF - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abcDEF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'123\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('123');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'aBcDeF\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('aBcDeF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isSnakeCase
+  //////////////////////////////
+
+  it('isSnakeCase - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isSnakeCase('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'test\' - true]', function (done) {
+
+    var result = helpers.isSnakeCase('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isSnakeCase - [abcDEF - false]', function (done) {
+
+    var result = helpers.isSnakeCase('abcDEF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'123\' - true]', function (done) {
+
+    var result = helpers.isSnakeCase('123');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'ab_cd_ef\' - true]', function (done) {
+
+    var result = helpers.isSnakeCase('ab_cd_ef');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isSnakeCase - [\'ab_cd-ef\' - false]', function (done) {
+
+    var result = helpers.isSnakeCase('ab_cd-ef');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
   // isValidHex
   //////////////////////////////
 
@@ -535,6 +721,62 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
+  // hasEOL
+  //////////////////////////////
+
+  it('hasEOL - [\'\\n\' - true]', function (done) {
+
+    var result = helpers.hasEOL('\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('hasEOL - [\'\\r\\n\' - true]', function (done) {
+
+    var result = helpers.hasEOL('\r\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isEmptyLine
+  //////////////////////////////
+
+  it('isEmptyLine - [\'\\n\\n\' - true]', function (done) {
+
+    var result = helpers.isEmptyLine('\n\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\r\\n\\r\\n\' - true]', function (done) {
+
+    var result = helpers.isEmptyLine('\r\n\r\n');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\n \\n\' - false]', function (done) {
+
+    var result = helpers.isEmptyLine('\n \n');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isEmptyLine - [\'\\r\\nabc\\r\\n\' - false]', function (done) {
+
+    var result = helpers.isEmptyLine('\r\nabc\r\n');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
   // Strip quotes
   //////////////////////////////
 
@@ -553,4 +795,97 @@ describe('helpers', function () {
     assert.equal(expect, result);
     done();
   });
+
+  //////////////////////////////
+  // stripPrefix
+  //////////////////////////////
+
+  it('stripPrefix - [-webkit-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-moz-transition - transition]', function (done) {
+
+    var result = helpers.stripPrefix('-moz-transition');
+
+    assert.equal('transition', result);
+    done();
+  });
+
+  it('stripPrefix - [-webkit-border-color - border-color]', function (done) {
+
+    var result = helpers.stripPrefix('-webkit-border-color');
+
+    assert.equal('border-color', result);
+    done();
+  });
+
+  //////////////////////////////
+  // stripLastSpace
+  //////////////////////////////
+
+  it('stripLastSpace - [\'selector \']', function (done) {
+
+    var result = helpers.stripLastSpace('selector ');
+
+    assert.equal('selector', result);
+    done();
+  });
+
+  it('stripLastSpace - [\'selector test \']', function (done) {
+
+    var result = helpers.stripLastSpace('selector test');
+
+    assert.equal('selector test', result);
+    done();
+  });
+
+  it('stripLastSpace - [\'selector\']', function (done) {
+
+    var result = helpers.stripLastSpace('selector');
+
+    assert.equal('selector', result);
+    done();
+  });
+
+  it('stripLastSpace - [\'selector test\']', function (done) {
+
+    var result = helpers.stripLastSpace('selector test');
+
+    assert.equal('selector test', result);
+    done();
+  });
+
+  //////////////////////////////
+  // mapDelims
+  //////////////////////////////
+
+  it('mapDelims - selector', function (done) {
+
+    var result = helpers.mapDelims(nodeSimpleSelector);
+
+    assert.equal('s', result);
+    done();
+  });
+
+  it('mapDelims - delim', function (done) {
+
+    var result = helpers.mapDelims(nodeDelim);
+
+    assert.equal('d', result);
+    done();
+  });
+
+  it('mapDelims - space', function (done) {
+
+    var result = helpers.mapDelims(nodeSpace);
+
+    assert.equal(false, result);
+    done();
+  });
+
 });

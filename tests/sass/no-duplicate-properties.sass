@@ -1,0 +1,32 @@
+.foo
+  margin: 0 0 15px
+  padding: 10px
+  margin: 0
+
+// excluded display will still fail here due to it not
+// following the previous display declaration
+.bar
+  display: block
+  width: 100%
+  display: none
+
+  // excluded display will still fail here due to it not
+  // following the previous display declaration
+  .baz
+    display: block
+    width: 50%
+    display: none
+
+.qux
+  background: rgb(200, 54, 54)
+  background: rgba(200, 54, 54, 0.5)
+
+.break
+  background: rgb(200, 54, 54)
+  content: 'dec between background'
+  background: rgba(200, 54, 54, 0.5)
+
+.display
+  content: 'display'
+  display: flex
+  display: inline-block

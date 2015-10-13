@@ -1,0 +1,157 @@
+.value-one {
+  border-color: red;
+  border-radius: 1px/1rem;
+  border-style: dashed;
+  border-width: inherit;
+  margin: 1rem;
+  padding: 1px;
+}
+
+.value-two-ident {
+  border-color: red red;
+  border-radius: 1px/1rem 1px/1rem;
+  border-style: dashed dashed;
+  border-width: inherit inherit;
+  margin: 1rem 1rem;
+  padding: 1px 1px;
+}
+
+.value-two-diff {
+  border-color: red blue;
+  border-radius: 1px/1rem 2px/2rem;
+  border-style: dashed dotted;
+  border-width: inherit 2em;
+  margin: 1rem 2rem;
+  padding: 1px 2px;
+}
+
+.value-three-ident {
+  border-color: red red red;
+  border-radius: 1px/1rem 1px/1rem 1px/1rem;
+  border-style: dashed dashed dashed;
+  border-width: inherit inherit inherit;
+  margin: 1rem 1rem 1rem;
+  padding: 1px 1px 1px;
+}
+
+.value-three-diff-one {
+  border-color: blue red red;
+  border-radius: 2px/2rem 1px/1rem 1px/1rem;
+  border-style: dotted dashed dashed;
+  border-width: 10px inherit inherit;
+  margin: 2rem 1rem 1rem;
+  padding: 2px 1px 1px;
+}
+
+.value-three-diff-two {
+  border-color: red blue red;
+  border-radius: 1px/1rem 2px/2rem 1px/1rem;
+  border-style: dashed dotted dashed;
+  border-width: inherit 10px inherit;
+  margin: 1rem 2rem 1rem;
+  padding: 1px 2px 1px;
+}
+
+.value-three-diff-three {
+  border-color: red red blue;
+  border-radius: 1px/1rem 1px/1rem 2px/2rem;
+  border-style: dashed dashed dotted;
+  border-width: inherit inherit 10px;
+  margin: 1rem 1rem 2rem;
+  padding: 1px 1px 2px;
+}
+
+.value-three-diff-four {
+  border-color: red blue orange;
+  border-radius: 1px/1rem 2px/2rem 3px/3rem;
+  border-style: dashed dotted double;
+  border-width: inherit 10px 20px;
+  margin: 1rem 2rem 3rem;
+  padding: 1px 2px 3px;
+}
+
+.value-four-ident {
+  border-color: red red red red;
+  border-radius: 1px/1rem 1px/1rem 1px/1rem 1px/1rem;
+  border-style: dashed dashed dashed dashed;
+  border-width: inherit inherit inherit inherit;
+  margin: 1rem 1rem 1rem 1rem;
+  padding: 1px 1px 1px 1px;
+}
+
+.value-four-diff-one {
+  border-color: blue red red red;
+  border-radius: 2px/2rem 1px/1rem 1px/1rem 1px/1rem;
+  border-style: dotted dashed dashed dashed;
+  border-width: 10px inherit inherit inherit;
+  margin: 2rem 1rem 1rem 1rem;
+  padding: 2px 1px 1px 1px;
+}
+
+.value-four-diff-two {
+  border-color: red blue red red;
+  border-radius: 1px/1rem 2px/2rem 1px/1rem 1px/1rem;
+  border-style: dashed dotted dashed dashed;
+  border-width: inherit 10px inherit inherit;
+  margin: 1rem 2rem 1rem 1rem;
+  padding: 1px 2px 1px 1px;
+}
+
+.value-four-diff-three {
+  border-color: red red blue red;
+  border-radius: 1px/1rem 1px/1rem 2px/2rem 1px/1rem;
+  border-style: dashed dashed dotted dashed;
+  border-width: inherit inherit 10px inherit;
+  margin: 1rem 1rem 2rem 1rem;
+  padding: 1px 1px 2px 1px;
+}
+
+.value-four-diff-four {
+  border-color: red red red blue;
+  border-radius: 1px/1rem 1px/1rem 1px/1rem 2px/2rem;
+  border-style: dashed dashed dashed dotted;
+  border-width: inherit inherit inherit 10px;
+  margin: 1rem 1rem 1rem 2rem;
+  padding: 1px 1px 1px 2px;
+}
+
+.value-four-diff-five {
+  border-color: red blue red blue;
+  border-radius: 1px/1rem 2px/2rem 1px/1rem 2px/2rem;
+  border-style: dashed dotted dashed dotted;
+  border-width: inherit 10px inherit 10px;
+  margin: 1rem 2rem 1rem 2rem;
+  padding: 1px 2px 1px 2px;
+}
+
+.value-four-diff-six {
+  border-color: red blue orange green;
+  border-radius: 1px/1rem 2px/2rem 3px/3rem 4px/4rem;
+  border-style: dashed dotted double none;
+  border-width: inherit 10px 20px 30px;
+  margin: 1rem 2rem 3rem 4rem;
+  padding: 1px 2px 3px 4px;
+}
+
+.value-four-ident {
+  border-color: $red $red $red $red;
+  border-radius: $one $two $one $two;
+  border-style: $one $two $three $one;
+  border-width: $one $two $three $four;
+  margin: $one $two $one $three;
+  padding: $one $one $one $two;
+}
+
+.value-of-zero {
+  border-radius: 0;
+  border-width: none;
+  margin: 0 0px;
+  padding: 1px 0;
+}
+
+.value-mixed {
+    border-color: $red 1px red 1rem;
+    border-radius: 1px 1pc 1rem;
+    border-style: $red red;
+    border-width: 1px 1pc;
+}

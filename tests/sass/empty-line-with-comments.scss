@@ -1,39 +1,228 @@
-// This comment doesn't cause an error/warning
-.block {
+// First line test
+.foo {
+  content: 'foo';
+}
 
-  //////////////////////////////
-  // nested block - comment causes an error/warning
-  //////////////////////////////
-  .nested-block {
-    content: 'bar';
-  }
+// Standard
+//==============================================================================
+
+// Foobar
+.foo {
+  content: 'foo';
+}
+.bar {
+  content: 'bar';
+}
+
+
+// Foobar
+.foo {
+  content: 'foo';
+}
+.bar {
+  // Foobar
+  content: 'bar';
+}
+
+
+
+// Foobar
+.foo {
+  content: 'foo';
+}
+// Foobar
+.foo {
+  content: 'foo';
+}
+
+.foo {
+  //Foobar
+  content: 'foo';
+}
+
+
+/**
+ * Foobar
+ */
+.foo {
+  content: 'foo';
+}
+/**
+ * Foobar
+ */
+.foo {
+  content: 'foo';
+}
+
+.foo {
   /**
-  * Bar
-  **/
-  .nested-goodies {
-    content: 'bar';
+   * Foobar
+   */
+  content: 'foo';
+}
+
+
+
+/////////////////////////////
+// Foobar
+/////////////////////////////
+.foo {
+  content: 'foo';
+}
+/////////////////////////////
+// Foobar
+/////////////////////////////
+.foo {
+  content: 'foo';
+}
+
+.foo {
+  /////////////////////////////
+  // Foobar
+  /////////////////////////////
+  content: 'foo';
+}
+
+
+
+// Mixins
+//==============================================================================
+
+.foo {
+  // Foobar
+  @include bar;
+}
+
+.foo {
+  // Foobar
+  @include bar($qux) {
+    content: 'foo';
   }
-  .bar {
+}
+
+.foo {
+  // Foobar
+  @include bar($qux) {
+    // Foobar
+    content: 'foo';
+  }
+}
+
+.foo {
+
+  // Foobar
+  @include bar($qux) {
+    // Foobar
+    content: 'foo';
+  }
+}
+
+.foo {
+  // Foobar
+  @include bar($qux) {
+    &:after {
+      content: 'foo';
+    }
+  }
+}
+
+.foo {
+  // Foobar
+  @include bar($qux) {
+    // Foobar
+    &:after {
+      content: 'foo';
+    }
+  }
+}
+
+
+
+// Nested elements
+//==============================================================================
+
+.foo {
+  // Foobar
+  &__bar {
     content: 'foo';
   }
 
-  // BEM element - comment causes an error/warning
-  &__element {
-    content: 'bar';
-  }
+  content: 'foo';
+}
 
-  // BEM modifier - comment causes an error/warning
-  &--modifier {
-    content: 'bar';
-  }
+.foo {
+  content: 'foo';
 
-  // pseudo element - comment causes an error/warning
+  // Foobar
+  &__bar {
+    content: 'foo';
+  }
+}
+
+.foo {
+  content: 'foo';
+  // Foobar
+  &__bar {
+    content: 'foo';
+  }
+}
+
+
+
+// Psuedo elements
+//==============================================================================
+
+.foo {
+  // Foobar
   &:before {
-    content: 'bar';
+    content: 'foo';
   }
+}
 
-  // pseudo element - comment causes an error/warning
-  &::first-letter {
+.foo {
+  content: 'foo';
+
+  // Foobar
+  &::first-line {
+    content: 'foo';
+  }
+}
+
+
+
+// Different selectors
+//==============================================================================
+
+// Foobar
+h1 { content: 'foo'; }
+// Foobar
+h2 { content: 'foo'; }
+
+
+// Foobar
+.foo + .bar {
+  content: 'foo';
+}
+// Foobar
+.foo + .bar,
+h2 {
+  content: 'foo';
+}
+
+
+// Foobar
+[type=text] {
+  content: 'foo';
+}
+// Foobar
+h1.foo {
+  content: 'foo';
+}
+
+.foo {
+  content: 'foo'; // Foobar
+
+  .bar {
     content: 'bar';
   }
 }
