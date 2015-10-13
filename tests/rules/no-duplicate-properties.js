@@ -12,7 +12,7 @@ describe('no duplicate properties - scss', function () {
     lint.test(file, {
       'no-duplicate-properties': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,24 @@ describe('no duplicate properties - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  it('enforce - [exclude: background, display]', function (done) {
+    lint.test(file, {
+      'no-duplicate-properties': [
+        1,
+        {
+          'exclude': [
+            'background',
+            'display'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
@@ -44,7 +61,7 @@ describe('no duplicate properties - sass', function () {
     lint.test(file, {
       'no-duplicate-properties': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -60,7 +77,24 @@ describe('no duplicate properties - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
+      done();
+    });
+  });
+
+  it('enforce - [exclude: background, display]', function (done) {
+    lint.test(file, {
+      'no-duplicate-properties': [
+        1,
+        {
+          'exclude': [
+            'background',
+            'display'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
