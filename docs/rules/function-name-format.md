@@ -17,20 +17,29 @@ Settings:
 When enabled, the following are allowed:
 
 ```scss
-$foo: hyphenated-lowercase();
-$foo: _leading-underscore();
-
-.foo {
-  content: hyphenated-lowercase();
+@function hyphenated-lowercase() {
+  @return "foo";
 }
 
+@function _leading-underscore($x) {
+  @return $x;
+}
+
+.foo {
+  content: hyphenated-lowercase("bar");
+}
 ```
 
 When enabled, the following are disallowed:
 
 ```scss
-$foo: HYPHENATED-UPPERCASE();
-$foo: _camelCaseWithLeadingUnderscore();
+@function HYPHENATED-UPPERCASE() {
+  @return "foo";
+}
+
+@function _camelCaseWithLeadingUnderscore($x) {
+  @return $x;
+}
 
 .foo {
   content: snake_case();
@@ -46,7 +55,9 @@ Settings:
 When enabled, the following are allowed:
 
 ```scss
-$foo: camelCase();
+@function camelCase() {
+  @return "foo";
+}
 
 .foo {
   content: anotherCamelCase();
@@ -56,8 +67,13 @@ $foo: camelCase();
 When enabled, the following are disallowed:
 
 ```scss
-$foo: HYPHENATED-UPPERCASE();
-$foo: _camelCaseWithLeadingUnderscore();
+@function HYPHENATED-UPPERCASE() {
+  @return "foo";
+}
+
+@function _camelCaseWithLeadingUnderscore() {
+  @return "foo";
+}
 
 .foo {
   content: snake_case();
@@ -73,7 +89,9 @@ Settings:
 When enabled, the following are allowed:
 
 ```scss
-$foo: snake_case();
+@function snake_case() {
+  @return "foo";
+}
 
 .foo {
   content: another_snake_case();
@@ -83,8 +101,13 @@ $foo: snake_case();
 When enabled, the following are disallowed:
 
 ```scss
-$foo: HYPHENATED-UPPERCASE();
-$foo: _snake_case_with_leading_underscore();
+@function HYPHENATED-UPPERCASE() {
+  @return "foo";
+}
+
+@function _snake_case_with_leading_underscore() {
+  @return "foo";
+}
 
 .foo {
   content: camelCase();
@@ -96,12 +119,14 @@ $foo: _snake_case_with_leading_underscore();
 Settings:
 - `allow-leading-underscore: true`
 - `convention: '^[_A-Z]+$'`
-- `convention-explanation: 'Variables must contain only uppercase letters and underscores'`
+- `convention-explanation: 'Functions must contain only uppercase letters and underscores'`
 
 When enabled, the following are allowed:
 
 ```scss
-$foo: SCREAMING_SNAKE_CASE();
+@function SCREAMING_SNAKE_CASE() {
+  @return "foo";
+}
 
 .foo {
   content: _LEADING_UNDERSCORE();
@@ -110,11 +135,16 @@ $foo: SCREAMING_SNAKE_CASE();
 
 When enabled, the following are disallowed:
 
-(Each line with a variable will report `Variables must contain only uppercase letters and underscores` when linted.)
+(Each line with a function call/declaration will report `Functions must contain only uppercase letters and underscores` when linted.)
 
 ```scss
-$foo: HYPHENATED-UPPERCASE();
-$foo: _snake_case_with_leading_underscore();
+@function HYPHENATED-UPPERCASE() {
+  @return "foo";
+}
+
+@function _snake_case_with_leading_underscore() {
+  @return "foo";
+}
 
 .foo {
   content: camelCase();
