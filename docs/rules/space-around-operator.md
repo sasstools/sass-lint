@@ -1,6 +1,6 @@
 # Space Around Operator
 
-Rule `space-around-operator` will enforce whether or not a space should be included before and after the following operators: `+`, `-`, `/`, `*`, `%`, `<`, `>` `==`, `!=`, `<=` and `>=`.
+Rule `space-around-operator` will enforce whether or not a single space should be included before and after the following operators: `+`, `-`, `/`, `*`, `%`, `<`, `>` `==`, `!=`, `<=` and `>=`.
 
 ## Options
 
@@ -58,4 +58,15 @@ $bar: 2-1;
 @if ($foo!=$bar) {
   $baz: 1;
 }
+```
+
+When `include: true` or `include: false` multiple spaces around operators are disallowed:
+
+```scss
+.foo {
+  margin: 5px   +       15px;
+}
+
+$foo: 1      +1;
+$bar: 2-     1;
 ```
