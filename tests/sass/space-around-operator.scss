@@ -99,6 +99,14 @@ $qux: (2  +1);
   $baz: 1;
 }
 
+@if $foo>$bar {
+  $baz: 1;
+}
+
+@if $foo<$bar {
+  $baz: 1;
+}
+
 
 // No space after
 
@@ -115,6 +123,14 @@ $qux: (2  +1);
 }
 
 @if $foo <=$bar {
+  $baz: 1;
+}
+
+@if $foo >$bar {
+  $baz: 1;
+}
+
+@if $foo <$bar {
   $baz: 1;
 }
 
@@ -137,6 +153,14 @@ $qux: (2  +1);
   $baz: 1;
 }
 
+@if $foo> $bar {
+  $baz: 1;
+}
+
+@if $foo< $bar {
+  $baz: 1;
+}
+
 
 // Multiple spaces
 
@@ -153,6 +177,14 @@ $qux: (2  +1);
 }
 
 @if $foo      <= $bar {
+  $baz: 1;
+}
+
+@if $foo    >   $bar {
+  $baz: 1;
+}
+
+@if $foo  <  $bar {
   $baz: 1;
 }
 
@@ -175,6 +207,14 @@ $qux: (2  +1);
   $baz: 1;
 }
 
+@if ($foo>$bar) {
+  $baz: 1;
+}
+
+@if ($foo<$bar) {
+  $baz: 1;
+}
+
 
 // No space after
 
@@ -191,6 +231,14 @@ $qux: (2  +1);
 }
 
 @if ($foo <=$bar) {
+  $baz: 1;
+}
+
+@if ($foo >$bar) {
+  $baz: 1;
+}
+
+@if ($foo <$bar) {
   $baz: 1;
 }
 
@@ -213,6 +261,14 @@ $qux: (2  +1);
   $baz: 1;
 }
 
+@if ($foo> $bar) {
+  $baz: 1;
+}
+
+@if ($foo< $bar) {
+  $baz: 1;
+}
+
 
 // Multiple spaces
 
@@ -232,6 +288,13 @@ $qux: (2  +1);
   $baz: 1;
 }
 
+@if ($foo    >   $bar) {
+  $baz: 1;
+}
+
+@if ($foo  <  $bar) {
+  $baz: 1;
+}
 
 
 //====================
