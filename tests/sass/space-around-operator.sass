@@ -8,6 +8,29 @@
 //   background: url('image'  +  '/foo.png')
 //
 
+.foo
+  margin: 5px+15px
+
+
+.foo
+  margin: 5px -15px
+
+
+.foo
+  margin: 5px+ 15px
+
+
+$foo: 1
+$bar: 3
+
+.foo
+  margin: $foo+$bar+'px'
+
+
+.foo
+  margin: #{$foo}* #{$bar}+'px'
+
+
 // No space
 
 $foo: 1+1
