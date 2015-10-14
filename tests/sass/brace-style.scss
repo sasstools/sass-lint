@@ -1,7 +1,10 @@
-.foo {
+.foo{
   content: 'foo';
 }
 
+.foo {
+  content: 'foo';
+}
 
 .foo
 {
@@ -9,10 +12,15 @@
 }
 
 
+
+
+.foo, .bar{
+  content: 'foo';
+}
+
 .foo, .bar {
   content: 'bar';
 }
-
 
 .foo, .bar
 {
@@ -20,11 +28,17 @@
 }
 
 
+
+
+.foo,
+.bar{
+  content: 'foo';
+}
+
 .foo,
 .bar {
   content: 'bar';
 }
-
 
 .foo,
 .bar
@@ -35,10 +49,13 @@
 
 
 
-h1 {
+h1{
   content: 'foo';
 }
 
+h1 {
+  content: 'foo';
+}
 
 h1
 {
@@ -46,10 +63,15 @@ h1
 }
 
 
-h1, h2 {
+
+
+h1, h2{
   content: 'foo';
 }
 
+h1, h2 {
+  content: 'foo';
+}
 
 h1, h2
 {
@@ -57,11 +79,17 @@ h1, h2
 }
 
 
+
+
+h1,
+h2{
+  content: 'foo';
+}
+
 h1,
 h2 {
   content: 'foo';
 }
-
 
 h1,
 h2
@@ -72,10 +100,13 @@ h2
 
 
 
-#foo {
+#foo{
   content: 'foo';
 }
 
+#foo {
+  content: 'foo';
+}
 
 #foo
 {
@@ -83,10 +114,15 @@ h2
 }
 
 
-#foo, #bar {
+
+
+#foo, #bar{
   content: 'foo';
 }
 
+#foo, #bar {
+  content: 'foo';
+}
 
 #foo, #bar
 {
@@ -94,11 +130,17 @@ h2
 }
 
 
+
+
+#foo,
+#bar{
+  content: 'foo';
+}
+
 #foo,
 #bar {
   content: 'foo';
 }
-
 
 #foo,
 #bar
@@ -109,10 +151,14 @@ h2
 
 
 
-.foo[type="text"] {
+
+.foo[type="text"]{
   content: 'foo';
 }
 
+.foo[type="text"] {
+  content: 'foo';
+}
 
 .foo[type="text"]
 {
@@ -120,10 +166,15 @@ h2
 }
 
 
-.foo[type="text"], .bar[type="email"] {
+
+
+.foo[type="text"], .bar[type="email"]{
   content: 'foo';
 }
 
+.foo[type="text"], .bar[type="email"] {
+  content: 'foo';
+}
 
 .foo[type="text"], .bar[type="email"]
 {
@@ -131,11 +182,17 @@ h2
 }
 
 
+
+
+.foo[type="text"],
+.bar[type="email"]{
+  content: 'foo';
+}
+
 .foo[type="text"],
 .bar[type="email"] {
   content: 'foo';
 }
-
 
 .foo[type="text"],
 .bar[type="email"]
@@ -147,10 +204,13 @@ h2
 
 
 
-@function foo() {
+@function foo(){
   @return 'foo';
 }
 
+@function foo() {
+  @return 'foo';
+}
 
 @function foo()
 {
@@ -159,11 +219,13 @@ h2
 
 
 
+@mixin bar(){
+  content: 'bar';
+}
 
 @mixin bar() {
   content: 'bar';
 }
-
 
 @mixin bar()
 {
@@ -172,6 +234,30 @@ h2
 
 
 
+
+@if($foo){
+  $bar: 'foo';
+}@else if($bar){
+  $bar: 'bar';
+}@else{
+  $bar: false;
+}
+
+@if($foo) {
+  $bar: 'foo';
+}@else if($bar) {
+  $bar: 'bar';
+}@else {
+  $bar: false;
+}
+
+@if ($foo){
+  $bar: 'foo';
+} @else if($bar){
+  $bar: 'bar';
+} @else{
+  $bar: false;
+}
 
 @if ($foo) {
   $bar: 'foo';
@@ -182,6 +268,18 @@ h2
 }
 
 
+
+
+@if($foo){
+  $bar: 'foo';
+}
+@else if($bar){
+  $bar: 'bar';
+}
+@else{
+  $bar: false;
+}
+
 @if ($foo) {
   $bar: 'foo';
 }
@@ -191,6 +289,22 @@ h2
 @else {
   $bar: false;
 }
+
+
+
+
+@if($foo)
+{
+  $bar: 'foo';
+}@else if($bar)
+{
+  $bar: 'bar';
+}@else
+{
+  $bar: false;
+}
+
+
 
 
 @if ($foo)
@@ -207,6 +321,13 @@ h2
 }
 
 
+
+
+@for $i from 1 through 5{
+  .for-#{$i}{
+    content: 'foo';
+  }
+}
 
 
 @for $i from 1 through 5 {
@@ -230,6 +351,11 @@ h2
 $list: (foo bar baz qux);
 
 
+@each $item in $list{
+  .each-#{$item}{
+    content: #{$item};
+  }
+}
 
 @each $item in $list {
   .each-#{$item} {
@@ -250,6 +376,15 @@ $list: (foo bar baz qux);
 
 
 $total: 4;
+
+
+@while $total > 0{
+  .while-#{$total}{
+    content: #{$total};
+  }
+
+  $total: $total - 1;
+}
 
 @while $total > 0 {
   .while-#{$total} {
