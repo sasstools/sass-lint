@@ -1,5 +1,79 @@
 # Sass Lint Changelog
 
+Lint all the things!
+
+1.3.0 introduces a whole raft of changes, fixes and new rules. Enjoy!
+
+## v1.3.0
+**October 12, 2015**
+
+**Changes**
+
+* Now testing against Node 4 [#145](https://github.com/sasstools/sass-lint/pull/145#issuecomment-138744764)
+* `no-duplicate-properties` now accepts an exclusion whitelist [#156](https://github.com/sasstools/sass-lint/pull/156)
+* IDE integrations added to README (Atom & Sublime Text) [#163](https://github.com/sasstools/sass-lint/pull/163)
+* Output is now silenced on no errors [#141](https://github.com/sasstools/sass-lint/issues/141)
+* Option `config-file` will tell Sass Lint the path to a custom config file. [#226](https://github.com/sasstools/sass-lint/issues/226)
+* All rules except indentation now working correctly with `.sass` syntax [#258](https://github.com/sasstools/sass-lint/pull/258)
+* `space-between-parens` rule now allows multiline arguments [#260](https://github.com/sasstools/sass-lint/issues/260)
+* `empty-line-between-blocks` rule now optionally allows single line rulesets [#282](https://github.com/sasstools/sass-lint/issues/282)
+* The `no-duplicate-properties` rule exclusion whitelist only works for properties directly after one another. [#280](https://github.com/sasstools/sass-lint/issues/280)
+
+
+**CLI**
+
+* [-f --format]() Format flag allows you to specify output format [#127](https://github.com/sasstools/sass-lint/issues/127)
+* [-o --output]() Output flag allows you to specify a file to output to [#127](https://github.com/sasstools/sass-lint/issues/127)
+
+**Rules**
+
+* [force-attribute-nesting](https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-attribute-nesting.md)
+* [force-element-nesting](https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-element-nesting.md)
+* [force-pseudo-nesting](https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-pseudo-nesting.md)
+* [function-name-format](https://github.com/sasstools/sass-lint/blob/master/docs/rules/function-name-format.md)
+* [mixin-name-format](https://github.com/sasstools/sass-lint/blob/master/docs/rules/mixin-name-format.md)
+* [no-mergeable-selectors](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-mergeable-selectors.md)
+* [no-misspelled-properties](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-misspelled-properties.md)
+* [no-qualifying-elements](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-qualifying-elements.md)
+* [no-trailing-zero](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-trailing-zero.md)
+* [no-transition-all](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-transition-all.md)
+* [no-url-protocols](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-url-protocols.md)
+* [no-vendor-prefixes](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-vendor-prefixes.md)
+* [placeholder-name-format](https://github.com/sasstools/sass-lint/blob/master/docs/rules/placeholder-name-format.md)
+* [shorthand-values](https://github.com/sasstools/sass-lint/blob/master/docs/rules/shorthand-values.md)
+* [url-quotes](https://github.com/sasstools/sass-lint/blob/master/docs/rules/url-quotes.md)
+* [variable-name-format](https://github.com/sasstools/sass-lint/blob/master/docs/rules/variable-name-format.md)
+
+**Fixes**
+
+* Capitalised all warning messages [#137](https://github.com/sasstools/sass-lint/issues/137)
+* Line endings should now be consistently working cross platform [#154](https://github.com/sasstools/sass-lint/pull/154)
+* Fixed issue with non resetting test prefixes [#182](https://github.com/sasstools/sass-lint/issues/182)
+* Fixed resetting of test defaults [#186](https://github.com/sasstools/sass-lint/issues/186)
+* Documentation fixes [#235](https://github.com/sasstools/sass-lint/pull/235)
+* Absolute config paths being converted to relative all the time [#223](https://github.com/sasstools/sass-lint/issues/223)
+* Multiple fixes for `.sass` syntax [#258](https://github.com/sasstools/sass-lint/pull/258)
+* Fixed an issue with the warning message for `no-qualifying-elements` [#262](https://github.com/sasstools/sass-lint/pull/262)
+* Fixed a bug in `no-shorthand-values` rule [#263](https://github.com/sasstools/sass-lint/issues/263)
+* `indentation` rule now works with maps and multiline arguments also fixes a few edge cases [#104](https://github.com/sasstools/sass-lint/issues/104) [260](https://github.com/sasstools/sass-lint/issues/260)
+
+
+**Brought to you by..**
+
+* [Sam Richard](https://github.com/Snugug)
+* [Ben Griffith](https://github.com/bgriffith)
+* [Dan Purdy](https://github.com/DanPurdy)
+* [Ben Rothman](https://github.com/benthemonkey)
+* [Michael Vendivel](https://github.com/mven)
+* [Joshua Clanton](https://github.com/joshuacc)
+* [Kenneth Skovhus](https://github.com/skovhus)
+* [Nick](https://github.com/MethodGrab)
+* [Anders Olsen Sandvik](https://github.com/Andersos)
+* [Nicolas Fortin](https://github.com/zallek)
+* [Alan Souza](https://github.com/alansouzati)
+
+**A big thankyou to everyone who reported issues or contributed to the discussion around issues**
+
 ## v1.2.3
 **October 5, 2015**
 
