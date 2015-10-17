@@ -59,8 +59,6 @@ rules:
   # Mixins
   mixins-before-declarations: 1
   no-color-literals: 2
-
-  ~~~
 ```
 
 Below is a default user configured ruleset containing only one rule with `merge-default-rules: false`
