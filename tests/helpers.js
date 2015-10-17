@@ -18,21 +18,19 @@ var haystack = [
 var idNode = gonzales.createNode({
   type: 'id',
   content: [
-    gonzales.createNode(
-      {
-        type: 'ident',
-        content: 'header',
-        syntax: 'scss',
-        start: {
-          line: 1,
-          column: 2
-        },
-        end: {
-          line: 1,
-          column: 7
-        }
+    gonzales.createNode({
+      type: 'ident',
+      content: 'header',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 2
+      },
+      end: {
+        line: 1,
+        column: 7
       }
-    )
+    })
   ],
   syntax: 'scss',
   start: {
@@ -64,21 +62,19 @@ var identNode = gonzales.createNode({
 var classNode = gonzales.createNode({
   type: 'class',
   content: [
-    gonzales.createNode(
-      {
-        type: 'ident',
-        content: 'header',
-        syntax: 'scss',
-        start: {
-          line: 1,
-          column: 2
-        },
-        end: {
-          line: 1,
-          column: 7
-        }
+    gonzales.createNode({
+      type: 'ident',
+      content: 'header',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 2
+      },
+      end: {
+        line: 1,
+        column: 7
       }
-    )
+    })
   ],
   syntax: 'scss',
   start: {
@@ -95,7 +91,7 @@ var classNode = gonzales.createNode({
 var attributeNode = gonzales.createNode({
   type: 'attribute',
   content: [
-    {
+    gonzales.createNode({
       type: 'ident',
       content: 'type',
       syntax: 'scss',
@@ -107,8 +103,8 @@ var attributeNode = gonzales.createNode({
         line: 1,
         column: 10
       }
-    },
-    {
+    }),
+    gonzales.createNode({
       type: 'attributeSelector',
       content: '=',
       syntax: 'scss',
@@ -120,8 +116,8 @@ var attributeNode = gonzales.createNode({
         line: 1,
         column: 11
       }
-    },
-    {
+    }),
+    gonzales.createNode({
       type: 'ident',
       content: 'radio',
       syntax: 'scss',
@@ -133,7 +129,7 @@ var attributeNode = gonzales.createNode({
         line: 1,
         column: 16
       }
-    }
+    })
   ],
   syntax: 'scss',
   start: {
