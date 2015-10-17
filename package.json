@@ -39,6 +39,7 @@
   "devDependencies": {
     "deep-equal": "^1.0.1",
     "mocha": "^2.2.5",
-    "should": "^7.0.4"
+    "should": "^7.0.4",
+    "underscore.string": "^3.2.2"
   }
 }

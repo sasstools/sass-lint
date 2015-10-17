@@ -1165,42 +1165,6 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // capitalize
-  //////////////////////////////
-
-  it('capitalize - [hello world]', function (done) {
-    var result = helpers.capitalize('hello world'),
-        expect = 'Hello world';
-
-    assert.equal(expect, result);
-    done();
-  });
-
-  it('capitalize - [HELLO WORLD]', function (done) {
-    var result = helpers.capitalize('HELLO WORLD'),
-        expect = 'HELLO WORLD';
-
-    assert.equal(expect, result);
-    done();
-  });
-
-  it('capitalize - [helloWorld]', function (done) {
-    var result = helpers.capitalize('helloWorld'),
-        expect = 'HelloWorld';
-
-    assert.equal(expect, result);
-    done();
-  });
-
-  it('capitalize - [hello-world]', function (done) {
-    var result = helpers.capitalize('hello-world'),
-        expect = 'Hello-world';
-
-    assert.equal(expect, result);
-    done();
-  });
-
-  //////////////////////////////
   // camelCaseToHyphens
   //////////////////////////////
 
