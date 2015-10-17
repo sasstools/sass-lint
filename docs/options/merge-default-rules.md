@@ -25,9 +25,7 @@ rules:
 
   # Mixins
   mixins-before-declarations: 1
-  no-color-literals: 0
-
-  ~~~
+  no-color-literals: 1
 ```
 
 Below is a default user configured ruleset containing only one rule with `merge-default-rules: true`
@@ -40,10 +38,10 @@ files:
   include: '**/*.s+(a|c)ss'
 rules:
 
-  no-color-literals: 1
+  no-color-literals: 2
 ```
 
-With `merge-default-rules: true` the rules applied to the linter would be as follows. Notice that `no-color-literals` is now set to `1` and the default ruleset has been merged with our user config
+With `merge-default-rules: true` the rules applied to the linter would be as follows. Notice that `no-color-literals` is now set to `2` and the default ruleset has been merged with our user config
 
 ```yml
 options:
@@ -60,7 +58,7 @@ rules:
 
   # Mixins
   mixins-before-declarations: 1
-  no-color-literals: 1
+  no-color-literals: 2
 
   ~~~
 ```
@@ -90,6 +88,4 @@ files:
 rules:
 
   no-color-literals: 1
-
-  ~~~
 ```
