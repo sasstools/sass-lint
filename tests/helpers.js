@@ -1200,7 +1200,7 @@ describe('helpers', function () {
   // constructSelector
   //////////////////////////////
 
-  it('constructSelector - id node - content', function (done) {
+  it('constructSelector - id node - [#header]', function (done) {
     var result = helpers.constructSelector(idNode),
         expect = '#header';
 
@@ -1208,7 +1208,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - id node - currentValue', function (done) {
+  it('constructSelector - id node - [id]', function (done) {
     var result = helpers.constructSelector(idNode),
         expect = 'id';
 
@@ -1217,7 +1217,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - class node - content', function (done) {
+  it('constructSelector - class node - [.header]', function (done) {
     var result = helpers.constructSelector(classNode),
         expect = '.header';
 
@@ -1225,7 +1225,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - class node - currentValue', function (done) {
+  it('constructSelector - class node - [class]', function (done) {
     var result = helpers.constructSelector(classNode),
         expect = 'class';
 
@@ -1234,7 +1234,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - ident node - content', function (done) {
+  it('constructSelector - ident node - [input]', function (done) {
     var result = helpers.constructSelector(identNode),
         expect = 'input';
 
@@ -1242,7 +1242,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - ident node - currentValue', function (done) {
+  it('constructSelector - ident node - [selector]', function (done) {
     var result = helpers.constructSelector(identNode),
         expect = 'selector';
 
@@ -1251,7 +1251,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - attribute node - content', function (done) {
+  it('constructSelector - attribute node - [type=radio]', function (done) {
     var result = helpers.constructSelector(attributeNode),
         expect = '[type=radio]';
 
@@ -1259,7 +1259,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - attribute node - currentValue', function (done) {
+  it('constructSelector - attribute node - [attribute]', function (done) {
     var result = helpers.constructSelector(attributeNode),
         expect = 'attribute';
 
@@ -1268,7 +1268,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - pseudo node - content', function (done) {
+  it('constructSelector - pseudo node - [:last-child]', function (done) {
     var result = helpers.constructSelector(pseudoNode),
         expect = ':last-child';
 
@@ -1276,7 +1276,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - pseudo node - currentValue', function (done) {
+  it('constructSelector - pseudo node - [pseudoClass]', function (done) {
     var result = helpers.constructSelector(pseudoNode),
         expect = 'pseudoClass';
 
@@ -1285,7 +1285,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - pseudo element node - content', function (done) {
+  it('constructSelector - pseudo element node - [::first-line]', function (done) {
     var result = helpers.constructSelector(pseudoElementNode),
         expect = '::first-line';
 
@@ -1293,7 +1293,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - pseudo element node - currentValue', function (done) {
+  it('constructSelector - pseudo element node - [pseudoElement]', function (done) {
     var result = helpers.constructSelector(pseudoElementNode),
         expect = 'pseudoElement';
 
@@ -1302,7 +1302,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - nthSelector node - content', function (done) {
+  it('constructSelector - nthSelector node - [:nth-of-type(2)]', function (done) {
     var result = helpers.constructSelector(nthSelectorNode),
         expect = ':nth-of-type(2)';
 
@@ -1310,7 +1310,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - nthSelector node - currentValue', function (done) {
+  it('constructSelector - nthSelector node - [nthSelector]', function (done) {
     var result = helpers.constructSelector(nthSelectorNode),
         expect = 'nthSelector';
 
@@ -1319,7 +1319,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - space node - content', function (done) {
+  it('constructSelector - space node - [ ]', function (done) {
     var result = helpers.constructSelector(spaceNode),
         expect = ' ';
 
@@ -1327,7 +1327,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - space node - currentValue', function (done) {
+  it('constructSelector - space node - []', function (done) {
     var result = helpers.constructSelector(spaceNode),
         expect = '';
 
@@ -1336,7 +1336,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - parent selector node - content', function (done) {
+  it('constructSelector - parent selector node - [&]', function (done) {
     var result = helpers.constructSelector(parentSelectorNode),
         expect = '&';
 
@@ -1344,7 +1344,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - parent selector node - currentValue', function (done) {
+  it('constructSelector - parent selector node - [parentSelector]', function (done) {
     var result = helpers.constructSelector(parentSelectorNode),
         expect = 'parentSelector';
 
@@ -1353,7 +1353,7 @@ describe('helpers', function () {
   });
 
 
-  it('constructSelector - combinator node - content', function (done) {
+  it('constructSelector - combinator node - [+]', function (done) {
     var result = helpers.constructSelector(combinatorNode),
         expect = '+';
 
@@ -1361,7 +1361,7 @@ describe('helpers', function () {
     done();
   });
 
-  it('constructSelector - combinator node - currentValue', function (done) {
+  it('constructSelector - combinator node - [combinator]', function (done) {
     var result = helpers.constructSelector(combinatorNode),
         expect = 'combinator';
 
