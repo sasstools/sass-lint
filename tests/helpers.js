@@ -1165,26 +1165,6 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // camelCaseToHyphens
-  //////////////////////////////
-
-  it('camelCaseToHyphens - [helloWorld]', function (done) {
-    var result = helpers.camelCaseToHyphens('helloWorld'),
-        expect = 'hello-world';
-
-    assert.equal(expect, result);
-    done();
-  });
-
-  it('camelCaseToHyphens - [HelloWorld]', function (done) {
-    var result = helpers.camelCaseToHyphens('HelloWorld'),
-        expect = 'hello-world';
-
-    assert.equal(expect, result);
-    done();
-  });
-
-  //////////////////////////////
   // isNestable
   //////////////////////////////
 
