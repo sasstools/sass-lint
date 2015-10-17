@@ -36,10 +36,16 @@ rules:
   no-vendor-prefixes: 1
   no-warn: 1
 
-  # nesting
+  # Nesting
   force-attribute-nesting: 1
   force-element-nesting: 1
   force-pseudo-nesting: 1
+
+  # Name Formats
+  function-name-format: 1
+  mixin-name-format: 1
+  placeholder-name-format: 1
+  variable-name-format: 1
 
   # Style Guide
   border-zero: 1
