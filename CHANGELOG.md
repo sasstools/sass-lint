@@ -1,11 +1,22 @@
 # Sass Lint Changelog
 
-Lint all the things!
+## v1.3.1
+**October 17, 2015**
 
-1.3.0 introduces a whole raft of changes, fixes and new rules. Enjoy!
+**Changes**
+* Added the missing rules `function-name-format`, `mixin-name-format`, `placeholder-name-format` and `variable-name-format` to the default config [#315](https://github.com/sasstools/sass-lint/issues/315)
+
+**Fixes**
+
+* Corrected an issue with the rule `brace-style` that would crash sass-lint [#301](https://github.com/sasstools/sass-lint/issues/301)
+* Fixed an issue where user configs and options were being ignored or overwritten by default rules [#309](https://github.com/sasstools/sass-lint/issues/309)
 
 ## v1.3.0
 **October 12, 2015**
+
+Lint all the things!
+
+1.3.0 introduces a whole raft of changes, fixes and new rules. Enjoy!
 
 **Changes**
 
@@ -27,6 +38,7 @@ Lint all the things!
 
 **Rules**
 
+* [brace-style](https://github.com/sasstools/sass-lint/issues/36)
 * [force-attribute-nesting](https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-attribute-nesting.md)
 * [force-element-nesting](https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-element-nesting.md)
 * [force-pseudo-nesting](https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-pseudo-nesting.md)
