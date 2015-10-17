@@ -1,7 +1,8 @@
 'use strict';
 
 var assert = require('assert'),
-    helpers = require('../lib/helpers');
+    helpers = require('../lib/helpers'),
+    gonzales = require('gonzales-pe');
 
 var haystack = [
     {
@@ -13,6 +14,285 @@ var haystack = [
       propb: 'd'
     }
 ];
+
+var idNode = gonzales.createNode({
+  type: 'id',
+  content: [
+    gonzales.createNode(
+      {
+        type: 'ident',
+        content: 'header',
+        syntax: 'scss',
+        start: {
+          line: 1,
+          column: 2
+        },
+        end: {
+          line: 1,
+          column: 7
+        }
+      }
+    )
+  ],
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 1
+  },
+  end: {
+    line: 1,
+    column: 7
+  }
+});
+
+
+var identNode = gonzales.createNode({
+  type: 'ident',
+  content: 'input',
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 1
+  },
+  end: {
+    line: 1,
+    column: 5
+  }
+});
+
+
+var classNode = gonzales.createNode({
+  type: 'class',
+  content: [
+    gonzales.createNode(
+      {
+        type: 'ident',
+        content: 'header',
+        syntax: 'scss',
+        start: {
+          line: 1,
+          column: 2
+        },
+        end: {
+          line: 1,
+          column: 7
+        }
+      }
+    )
+  ],
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 1
+  },
+  end: {
+    line: 1,
+    column: 7
+  }
+});
+
+
+var attributeNode = gonzales.createNode({
+  type: 'attribute',
+  content: [
+    {
+      type: 'ident',
+      content: 'type',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 7
+      },
+      end: {
+        line: 1,
+        column: 10
+      }
+    },
+    {
+      type: 'attributeSelector',
+      content: '=',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 11
+      },
+      end: {
+        line: 1,
+        column: 11
+      }
+    },
+    {
+      type: 'ident',
+      content: 'radio',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 12
+      },
+      end: {
+        line: 1,
+        column: 16
+      }
+    }
+  ],
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 6
+  },
+  end: {
+    line: 1,
+    column: 17
+  }
+});
+
+
+var pseudoNode = gonzales.createNode({
+  type: 'pseudoClass',
+  content: [
+    gonzales.createNode({
+      type: 'ident',
+      content: 'last-child',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 3
+      },
+      end: {
+        line: 1,
+        column: 12
+      }
+    })
+  ],
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 2
+  },
+  end: {
+    line: 1,
+    column: 12
+  }
+});
+
+
+var pseudoElementNode = gonzales.createNode({
+  type: 'pseudoElement',
+  content: [
+    gonzales.createNode({
+      type: 'ident',
+      content: 'first-line',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 3
+      },
+      end: {
+        line: 1,
+        column: 12
+      }
+    })
+  ],
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 2
+  },
+  end: {
+    line: 1,
+    column: 12
+  }
+});
+
+
+
+var nthSelectorNode = gonzales.createNode({
+  type: 'nthSelector',
+  content: [
+    gonzales.createNode({
+      type: 'ident',
+      content: 'nth-of-type',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 3
+      },
+      end: {
+        line: 1,
+        column: 13
+      }
+    }),
+    gonzales.createNode({
+      type: 'nth',
+      content: '2',
+      syntax: 'scss',
+      start: {
+        line: 1,
+        column: 15
+      },
+      end: {
+        line: 1,
+        column: 15
+      }
+    })
+  ],
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 2
+  },
+  end: {
+    line: 1,
+    column: 16
+  }
+});
+
+
+var spaceNode = gonzales.createNode({
+  type: 'space',
+  content: ' ',
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 1
+  },
+  end: {
+    line: 1,
+    column: 1
+  }
+});
+
+
+var parentSelectorNode = gonzales.createNode({
+  type: 'parentSelector',
+  content: '&',
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 1
+  },
+  end: {
+    line: 1,
+    column: 1
+  }
+});
+
+
+var combinatorNode = gonzales.createNode({
+  type: 'combinator',
+  content: '+',
+  syntax: 'scss',
+  start: {
+    line: 1,
+    column: 6
+  },
+  end: {
+    line: 1,
+    column: 6
+  }
+});
+
+
 
 var classBlock =
     {
@@ -913,6 +1193,179 @@ describe('helpers', function () {
     var result = helpers.isNestable(current, previous, elements, nestable);
 
     assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
+  // constructSelector
+  //////////////////////////////
+
+  it('constructSelector - id node - content', function (done) {
+    var result = helpers.constructSelector(idNode),
+        expect = '#header';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - id node - currentValue', function (done) {
+    var result = helpers.constructSelector(idNode),
+        expect = 'id';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - class node - content', function (done) {
+    var result = helpers.constructSelector(classNode),
+        expect = '.header';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - class node - currentValue', function (done) {
+    var result = helpers.constructSelector(classNode),
+        expect = 'class';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - ident node - content', function (done) {
+    var result = helpers.constructSelector(identNode),
+        expect = 'input';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - ident node - currentValue', function (done) {
+    var result = helpers.constructSelector(identNode),
+        expect = 'selector';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - attribute node - content', function (done) {
+    var result = helpers.constructSelector(attributeNode),
+        expect = '[type=radio]';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - attribute node - currentValue', function (done) {
+    var result = helpers.constructSelector(attributeNode),
+        expect = 'attribute';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - pseudo node - content', function (done) {
+    var result = helpers.constructSelector(pseudoNode),
+        expect = ':last-child';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - pseudo node - currentValue', function (done) {
+    var result = helpers.constructSelector(pseudoNode),
+        expect = 'pseudoClass';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - pseudo element node - content', function (done) {
+    var result = helpers.constructSelector(pseudoElementNode),
+        expect = '::first-line';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - pseudo element node - currentValue', function (done) {
+    var result = helpers.constructSelector(pseudoElementNode),
+        expect = 'pseudoElement';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - nthSelector node - content', function (done) {
+    var result = helpers.constructSelector(nthSelectorNode),
+        expect = ':nth-of-type(2)';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - nthSelector node - currentValue', function (done) {
+    var result = helpers.constructSelector(nthSelectorNode),
+        expect = 'nthSelector';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - space node - content', function (done) {
+    var result = helpers.constructSelector(spaceNode),
+        expect = ' ';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - space node - currentValue', function (done) {
+    var result = helpers.constructSelector(spaceNode),
+        expect = '';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - parent selector node - content', function (done) {
+    var result = helpers.constructSelector(parentSelectorNode),
+        expect = '&';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - parent selector node - currentValue', function (done) {
+    var result = helpers.constructSelector(parentSelectorNode),
+        expect = 'parentSelector';
+
+    assert.equal(expect, result.currentValue);
+    done();
+  });
+
+
+  it('constructSelector - combinator node - content', function (done) {
+    var result = helpers.constructSelector(combinatorNode),
+        expect = '+';
+
+    assert.equal(expect, result.content);
+    done();
+  });
+
+  it('constructSelector - combinator node - currentValue', function (done) {
+    var result = helpers.constructSelector(combinatorNode),
+        expect = 'combinator';
+
+    assert.equal(expect, result.currentValue);
     done();
   });
 });
