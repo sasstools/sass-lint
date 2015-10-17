@@ -1208,7 +1208,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(idNode),
         expect = 'id';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1225,7 +1225,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(classNode),
         expect = 'class';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1242,7 +1242,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(identNode),
         expect = 'selector';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1259,7 +1259,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(attributeNode),
         expect = 'attribute';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1276,7 +1276,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(pseudoNode),
         expect = 'pseudoClass';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1293,7 +1293,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(pseudoElementNode),
         expect = 'pseudoElement';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1310,7 +1310,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(nthSelectorNode),
         expect = 'nthSelector';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1327,7 +1327,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(spaceNode),
         expect = '';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1344,7 +1344,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(parentSelectorNode),
         expect = 'parentSelector';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 
@@ -1361,7 +1361,7 @@ describe('helpers', function () {
     var result = helpers.constructSelector(combinatorNode),
         expect = 'combinator';
 
-    assert.equal(expect, result.currentValue);
+    assert.equal(expect, result.type);
     done();
   });
 });
