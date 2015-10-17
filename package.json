@@ -34,12 +34,12 @@
     "gonzales-pe": "3.0.0-31",
     "js-yaml": "^3.2.6",
     "merge": "^1.2.0",
-    "util": "^0.10.3"
+    "util": "^0.10.3",
+    "underscore.string": "^3.2.2"
   },
   "devDependencies": {
     "deep-equal": "^1.0.1",
     "mocha": "^2.2.5",
-    "should": "^7.0.4",
-    "underscore.string": "^3.2.2"
+    "should": "^7.0.4"
   }
 }
