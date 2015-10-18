@@ -823,6 +823,22 @@ describe('helpers', function () {
     done();
   });
 
+  it('isHyphenatedLowercase - [\'abc-\\31\\32\\33\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abc-\\31\\32\\33');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'abc-\\+\\*\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abc-\\+\\*');
+
+    assert.equal(false, result);
+    done();
+  });
+
   //////////////////////////////
   // isSnakeCase
   //////////////////////////////
