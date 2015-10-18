@@ -11,6 +11,19 @@
     height: 100vw
 
 
+.other-property
+  composes: heading
+  height: 100vh
+  display: block
+  width: 100vw
+  border: 1px
+
+.other-property-new
+  height: 100vh
+  display: block
+  width: 100vw
+  border: 1px
+  composes: heading
 
 @function test($foo)
   // The line below causes the problem
@@ -34,5 +47,5 @@
   @if not unitless($context)
     $context: strip-units($context)
 
-  @if $target == 0 @return 0 
+  @if $target == 0 @return 0
   @return $target / $context + 0em

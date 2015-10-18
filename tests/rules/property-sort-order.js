@@ -12,7 +12,7 @@ describe('property sort order - scss', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -31,7 +31,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -45,7 +45,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -59,7 +59,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -73,7 +73,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -89,7 +89,7 @@ describe('property sort order - sass', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -108,7 +108,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -122,7 +122,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -136,7 +136,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -150,7 +150,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
