@@ -4,6 +4,7 @@ Rule `class-name-format` will enforce a convention for class names.
 
 ## Options
 
+* `allow-leading-underscore`: `true`/`false` (defaults to `true`)
 * `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, [`strictbem`](https://en.bem.info/method/definitions/),
 [`hyphenatedbem`](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/),
 or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
@@ -13,6 +14,7 @@ or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
 ## Example 1
 
 Settings:
+- `allow-leading-underscore: true`
 - `convention: hyphenatedlowercase`
 
 When enabled, the following are allowed:
@@ -21,7 +23,7 @@ When enabled, the following are allowed:
 .hyphenated-lowercase {
   content: '';
 
-  &.another-hyphenated-lowercase {
+  &._with-leading-underscore {
     content: '';
   }
 }
@@ -47,6 +49,47 @@ When enabled, the following are disallowed:
 ```
 
 ## Example 2
+
+Settings:
+- `allow-leading-underscore: false`
+- `convention: hyphenatedlowercase`
+
+When enabled, the following are allowed:
+
+```scss
+.hyphenated-lowercase {
+  content: '';
+
+  &.another-hyphenated-lowercase {
+    content: '';
+  }
+}
+
+.foo {
+  @extend .hyphenated-lowercase;
+}
+
+```
+
+When enabled, the following are disallowed:
+
+```scss
+._with-leading-underscore {
+  content: '';
+}
+
+.HYPHENATED-UPPERCASE {
+  content: '';
+}
+
+.camelCase {
+  content: '';
+
+  @extend .snake_case;
+}
+```
+
+## Example 3
 
 Settings:
 - `convention: camelcase`
@@ -75,7 +118,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 3
+## Example 4
 
 Settings:
 - `convention: snakecase`
@@ -104,7 +147,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 4
+## Example 5
 
 Settings:
 - `convention: strictbem`
@@ -133,7 +176,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 5
+## Example 6
 
 Settings:
 - `convention: hyphenatedbem`
@@ -168,7 +211,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 6
+## Example 7
 
 Settings:
 - `convention: ^[_A-Z]+$`

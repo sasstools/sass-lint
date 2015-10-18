@@ -9,7 +9,7 @@ describe('class name format - scss', function () {
     lint.test(file, {
       'class-name-format': 1
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -51,7 +51,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(9, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -93,7 +93,7 @@ describe('class name format - sass', function () {
     lint.test(file, {
       'class-name-format': 1
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -135,7 +135,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(9, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
