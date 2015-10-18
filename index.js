@@ -67,10 +67,12 @@ sassLint.lintText = function (file, options, configPath) {
 
 sassLint.lintFiles = function (files, options, configPath) {
   var that = this,
-      results = [];
+      results = [],
+      ignores = '';
 
   if (files) {
-    files = glob.sync(files);
+      ignores = this.getConfig(options, configPath).files.ignore || '';
+      files = glob.sync(files, {'ignore': ignores});
   }
   else {
     files = this.getConfig(options, configPath).files;
