@@ -36,4 +36,5 @@ $foo: SCREAMING_SNAKE_CASE();
   content: snake_case();
   color: _does_NOT-fitSTANDARD('bar');
   border-color: $foo;
+  transform: translateX(1px) translateY(1px) translateZ(1px) scaleX(0.5) scaleY(0.5) scaleZ(0.5) skewX(1deg) skewY(1deg) rotateX(1deg) rotateY(1deg) rotateZ(1deg);
 }
