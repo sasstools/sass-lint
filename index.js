@@ -72,7 +72,7 @@ sassLint.lintFiles = function (files, options, configPath) {
 
   if (files) {
     ignores = this.getConfig(options, configPath).files.ignore || '';
-    files = glob.sync(files, {'ignore': ignores});
+    files = glob.sync(files, {ignore: ignores});
   }
   else {
     files = this.getConfig(options, configPath).files;
