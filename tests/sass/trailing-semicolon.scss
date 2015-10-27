@@ -1,5 +1,5 @@
 .foo {
-  content: 'bar';
+  content: 'bar'
 }
 
 .bar {
@@ -8,5 +8,13 @@
 
   .qux {
     content: 'waldo'
+  }
+}
+
+.foo {
+  font: {
+    family: 'Arial';
+    weight: bold;
+    size: 2rem;
   }
 }
