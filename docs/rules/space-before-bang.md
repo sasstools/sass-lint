@@ -1,6 +1,6 @@
 # Space Before Bang
 
-Rule `space-after-bang` will enforce whether or not a space should be included before a bang (`!`).
+Rule `space-before-bang` will enforce whether or not a space should be included before a bang (`!`).
 
 ## Options
 
