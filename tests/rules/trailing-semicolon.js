@@ -12,7 +12,7 @@ describe('trailing semicolon - scss', function () {
     lint.test(file, {
       'trailing-semicolon': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(3, data.warningCount);
       done();
     });
   });
