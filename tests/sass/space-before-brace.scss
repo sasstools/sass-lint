@@ -20,7 +20,37 @@
 
 .qux {
   content: 'bar';
+  font:{
+    family: fantasy;
+  }
   @include breakpoint{
     content: bar;
+    font: {
+      family: fantasy;
+    }
+  }
+}
+
+
+.other {
+  content: 'bar';
+  font: {
+    family: fantasy;
+  }
+  @include breakpoint {
+    content: bar;
+    font{
+      family: fantasy;
+    }
+  }
+}
+
+.selector {
+  content: '';
+
+  .mergeable {
+    font: {
+      family: fantasy;
+    }
   }
 }
