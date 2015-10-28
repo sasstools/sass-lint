@@ -12,7 +12,7 @@ describe('space before brace - scss', function () {
     lint.test(file, {
       'space-before-brace': 1
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,7 @@ describe('space before brace - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
