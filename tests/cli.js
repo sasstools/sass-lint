@@ -234,4 +234,50 @@ describe('cli', function () {
       }
     });
   });
+
+  it('should not include ignored paths', function (done) {
+
+    var sassTestsPath = path.join(__dirname, '/sass/'),
+        files = [];
+
+    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
+
+    var command = 'sass-lint -i \'**/*.s+(a|c)ss\'';
+
+    childProcess.exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+
+      files.forEach(function (file) {
+        assert(stdout.indexOf(file) === -1);
+      });
+
+      done();
+    });
+  });
+
+  it('should not include multiple ignored paths', function (done) {
+
+    var sassTestsPath = path.join(__dirname, '/sass/'),
+        files = [];
+
+    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
+
+    var command = 'sass-lint -i \'**/*.scss, **/*.sass \'';
+
+    childProcess.exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+
+      files.forEach(function (file) {
+        assert(stdout.indexOf(file) === -1);
+      });
+
+      done();
+    });
+  });
 });
