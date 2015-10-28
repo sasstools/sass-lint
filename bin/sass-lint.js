@@ -27,7 +27,7 @@ program
   .version(meta.version)
   .usage('[options] <pattern>')
   .option('-c, --config [path]', 'path to custom config file')
-  .option('-i, --ignore [pattern]', 'pattern to ignore. For multiple ignores, separate each pattern by `, `')
+  .option('-i, --ignore [pattern]', 'pattern to ignore. For multiple ignores, separate each pattern by `, ` within a string')
   .option('-q, --no-exit', 'do not exit on errors')
   .option('-v, --verbose', 'verbose output')
   .option('-f, --format [format]', 'pass one of the available eslint formats')
