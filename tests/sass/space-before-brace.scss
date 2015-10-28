@@ -39,7 +39,7 @@
   }
   @include breakpoint {
     content: bar;
-    font{
+    font:{
       family: fantasy;
     }
   }
