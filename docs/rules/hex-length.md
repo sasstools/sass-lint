@@ -25,10 +25,10 @@ $foo-color: #456;
 When `style: long`, the following are allowed. When `style: short`, the following are disallowed:
 
 ```scss
-$foo-color: #456456;
+$foo-color: #445566;
 
 .bar {
-  background: linear-gradient(top, #3ff3ff, #dddddd);
+  background: linear-gradient(top, #33ffff, #dddddd);
 }
 
 .baz {
