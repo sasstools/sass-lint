@@ -1,5 +1,20 @@
 # Sass Lint Changelog
 
+## v1.3.2
+**October 28, 2015**
+
+**Changes**
+* Add tests for ignored files when using the CLI [#72](https://github.com/sasstools/sass-lint/issues/72)
+
+**Fixes**
+* Ignored files passed in using the `-i` flag are now correctly ignored [#129](https://github.com/sasstools/sass-lint/issues/129)
+* Fixed an issue where the `no-url-protocols` rule would ignore the users' config [#335](https://github.com/sasstools/sass-lint/issues/335)
+* The `hex-length` rule now correctly handles short hexes [#341](https://github.com/sasstools/sass-lint/issues/341)
+* The `no-url-protocols` rule no longer incorrectly issues warnings for data-urls [#340](https://github.com/sasstools/sass-lint/issues/340)
+* The `trailing-semicolon` rule no longer incorrectly issues warnings for nested properties [#359](https://github.com/sasstools/sass-lint/pull/359)
+* The `space-before-brace` rule no longer incorrectly issues warnings for nested properties [#361](https://github.com/sasstools/sass-lint/pull/361)
+
+
 ## v1.3.1
 **October 17, 2015**
 
