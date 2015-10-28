@@ -403,3 +403,15 @@ $qux: (2 * 1) // FIXME: Gonzales - FIXED IN BETA
 
 @if ($foo <= $bar)
   $baz: 1
+
+// Mixins
+
+=large-text
+  font:
+    family: Arial
+    size: 20px
+    weight: bold
+  color: #ff0000
+
+h1
+  +large-text
