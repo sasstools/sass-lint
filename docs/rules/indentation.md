@@ -1,6 +1,6 @@
 # Indentation
 
-Rule `indentations` will enforce an indentation size (in spaces) and ensure that tabs and spaces are not mixed.
+Rule `indentation` will enforce an indentation size (in spaces) and ensure that tabs and spaces are not mixed.
 
 ## Options
 

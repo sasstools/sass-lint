@@ -33,6 +33,8 @@
     "glob": "^5.0.15",
     "gonzales-pe": "3.0.0-31",
     "js-yaml": "^3.2.6",
+    "lodash.capitalize": "^3.0.0",
+    "lodash.kebabcase": "^3.0.1",
     "merge": "^1.2.0",
     "util": "^0.10.3"
   },
