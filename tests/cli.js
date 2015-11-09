@@ -280,4 +280,31 @@ describe('cli', function () {
       done();
     });
   });
+
+  it('should override filename convention if a valid --syntax is provided', function (done) {
+
+    var sassTestsPath = path.join(__dirname, '/sass/'),
+        files = [];
+
+    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
+
+    var command = 'sass-lint --syntax scss tests/sass/cli.txt --verbose';
+
+    childProcess.exec(command, function (err, stdout) {
+
+      var result = 0;
+
+      if (err) {
+        return done(err);
+      }
+      result = stdout.length;
+
+      if (result !== 0) {
+        return done(new Error('warnings/errors were returned'));
+      }
+
+      return done();
+    });
+
+  });
 });
