@@ -8,7 +8,7 @@ var lint = require('./_lint');
 describe('property-units - scss', function () {
   var file = lint.file('property-units.scss');
 
-  it('globallyAllowedUnits: [], unitsAllowedForProperties: {}', function (done) {
+  it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
     lint.test(file, {
       'property-units': 1
     }, function (data) {
@@ -17,12 +17,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globallyAllowedUnits: [\'px\'], unitsAllowedForProperties: {}', function (done) {
+  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          globallyAllowedUnits: ['px']
+          'globally-allowed-units': ['px']
         }
       ]
     }, function (data) {
@@ -31,12 +31,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globallyAllowedUnits: [\'em\'], unitsAllowedForProperties: {}', function (done) {
+  it('globally-allowed-units: [\'em\'], units-allowed-for-properties: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          globallyAllowedUnits: ['em']
+          'globally-allowed-units': ['em']
         }
       ]
     }, function (data) {
@@ -45,12 +45,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globallyAllowedUnits: [], unitsAllowedForProperties: { height: [\'px\'] }', function (done) {
+  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          unitsAllowedForProperties: { height: ['px'] }
+          'units-allowed-for-properties': { height: ['px'] }
         }
       ]
     }, function (data) {
@@ -59,13 +59,13 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globallyAllowedUnits: [\'px\'], unitsAllowedForProperties: { height: [\'em\'] }', function (done) {
+  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: { height: [\'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          globallyAllowedUnits: ['px'],
-          unitsAllowedForProperties: { height: ['em'] }
+          'globally-allowed-units': ['px'],
+          'units-allowed-for-properties': { height: ['em'] }
         }
       ]
     }, function (data) {
@@ -81,7 +81,7 @@ describe('property-units - scss', function () {
 describe('border zero - sass', function () {
   var file = lint.file('property-units.sass');
 
-  it('globallyAllowedUnits: [], unitsAllowedForProperties: {}', function (done) {
+  it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
     lint.test(file, {
       'property-units': 1
     }, function (data) {
@@ -90,12 +90,12 @@ describe('border zero - sass', function () {
     });
   });
 
-  it('globallyAllowedUnits: [\'px\'], unitsAllowedForProperties: {}', function (done) {
+  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          globallyAllowedUnits: ['px']
+          'globally-allowed-units': ['px']
         }
       ]
     }, function (data) {
@@ -104,12 +104,12 @@ describe('border zero - sass', function () {
     });
   });
 
-  it('globallyAllowedUnits: [\'em\'], unitsAllowedForProperties: {}', function (done) {
+  it('globally-allowed-units: [\'em\'], units-allowed-for-properties: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          globallyAllowedUnits: ['em']
+          'globally-allowed-units': ['em']
         }
       ]
     }, function (data) {
@@ -118,12 +118,12 @@ describe('border zero - sass', function () {
     });
   });
 
-  it('globallyAllowedUnits: [], unitsAllowedForProperties: { height: [\'px\'] }', function (done) {
+  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          unitsAllowedForProperties: { height: ['px'] }
+          'units-allowed-for-properties': { height: ['px'] }
         }
       ]
     }, function (data) {
@@ -132,13 +132,13 @@ describe('border zero - sass', function () {
     });
   });
 
-  it('globallyAllowedUnits: [\'px\'], unitsAllowedForProperties: { height: [\'em\'] }', function (done) {
+  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: { height: [\'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          globallyAllowedUnits: ['px'],
-          unitsAllowedForProperties: { height: ['em'] }
+          'globally-allowed-units': ['px'],
+          'units-allowed-for-properties': { height: ['em'] }
         }
       ]
     }, function (data) {
