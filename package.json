@@ -6,7 +6,7 @@
   "scripts": {
     "preversion": "npm test",
     "pretest": "eslint .",
-    "test": "mocha tests/rules"
+    "test": "mocha tests && mocha tests/rules"
   },
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
