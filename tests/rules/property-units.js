@@ -8,7 +8,7 @@ var lint = require('./_lint');
 describe('property-units - scss', function () {
   var file = lint.file('property-units.scss');
 
-  it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
+  it('global: [], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': 1
     }, function (data) {
@@ -17,12 +17,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: {}', function (done) {
+  it('global: [\'px\'], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['px']
+          'global': ['px']
         }
       ]
     }, function (data) {
@@ -31,12 +31,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globally-allowed-units: [\'em\'], units-allowed-for-properties: {}', function (done) {
+  it('global: [\'em\'], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['em']
+          'global': ['em']
         }
       ]
     }, function (data) {
@@ -45,12 +45,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globally-allowed-units: [\'em\', \'px\'], units-allowed-for-properties: {}', function (done) {
+  it('global: [\'em\', \'px\'], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['em', 'px']
+          'global': ['em', 'px']
         }
       ]
     }, function (data) {
@@ -59,12 +59,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\'] }', function (done) {
+  it('global: [], per-property: { height: [\'px\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'units-allowed-for-properties': { height: ['px'] }
+          'per-property': { height: ['px'] }
         }
       ]
     }, function (data) {
@@ -73,12 +73,12 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\', \'em\'] }', function (done) {
+  it('global: [], per-property: { height: [\'px\', \'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'units-allowed-for-properties': { height: ['px', 'em'] }
+          'per-property': { height: ['px', 'em'] }
         }
       ]
     }, function (data) {
@@ -87,13 +87,13 @@ describe('property-units - scss', function () {
     });
   });
 
-  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: { height: [\'em\'] }', function (done) {
+  it('global: [\'px\'], per-property: { height: [\'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['px'],
-          'units-allowed-for-properties': { height: ['em'] }
+          'global': ['px'],
+          'per-property': { height: ['em'] }
         }
       ]
     }, function (data) {
@@ -109,7 +109,7 @@ describe('property-units - scss', function () {
 describe('property-units - sass', function () {
   var file = lint.file('property-units.sass');
 
-  it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
+  it('global: [], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': 1
     }, function (data) {
@@ -118,12 +118,12 @@ describe('property-units - sass', function () {
     });
   });
 
-  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: {}', function (done) {
+  it('global: [\'px\'], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['px']
+          'global': ['px']
         }
       ]
     }, function (data) {
@@ -132,12 +132,12 @@ describe('property-units - sass', function () {
     });
   });
 
-  it('globally-allowed-units: [\'em\'], units-allowed-for-properties: {}', function (done) {
+  it('global: [\'em\'], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['em']
+          'global': ['em']
         }
       ]
     }, function (data) {
@@ -146,12 +146,12 @@ describe('property-units - sass', function () {
     });
   });
 
-  it('globally-allowed-units: [\'em\', \'px\'], units-allowed-for-properties: {}', function (done) {
+  it('global: [\'em\', \'px\'], per-property: {}', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['em', 'px']
+          'global': ['em', 'px']
         }
       ]
     }, function (data) {
@@ -160,12 +160,12 @@ describe('property-units - sass', function () {
     });
   });
 
-  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\'] }', function (done) {
+  it('global: [], per-property: { height: [\'px\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'units-allowed-for-properties': { height: ['px'] }
+          'per-property': { height: ['px'] }
         }
       ]
     }, function (data) {
@@ -174,12 +174,12 @@ describe('property-units - sass', function () {
     });
   });
 
-  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\', \'em\'] }', function (done) {
+  it('global: [], per-property: { height: [\'px\', \'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'units-allowed-for-properties': { height: ['px', 'em'] }
+          'per-property': { height: ['px', 'em'] }
         }
       ]
     }, function (data) {
@@ -188,13 +188,13 @@ describe('property-units - sass', function () {
     });
   });
 
-  it('globally-allowed-units: [\'px\'], units-allowed-for-properties: { height: [\'em\'] }', function (done) {
+  it('global: [\'px\'], per-property: { height: [\'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
         1,
         {
-          'globally-allowed-units': ['px'],
-          'units-allowed-for-properties': { height: ['em'] }
+          'global': ['px'],
+          'per-property': { height: ['em'] }
         }
       ]
     }, function (data) {

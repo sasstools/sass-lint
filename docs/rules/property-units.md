@@ -1,17 +1,15 @@
 # Property Units
 
-Rule `property-units` will disallow the use of not explicitly allowed units for all properties or specific properties.
-
-Rules for specific properties override the global allowed units list.
+Rule `property-units` will disallow the use of units not specified in `global` or `per-property`. Units specified `per-property` will override the `global` units for that property.
 
 ## Options
 
-* `globally-allowed-units`: `['em', 'px', 'rem', etc]` defaults to [] or all units allowed
-* `units-allowed-for-properties`: `{ width: ['rem'] }` defaults to {} or no property-specific units allowed
+* `global`: `['em', 'px', 'rem', etc]` defaults to [] or all units allowed
+* `per-property`: `{ width: ['rem', 'px', etc], height: ['rem', 'px', etc], }` defaults to {} or no property-specific units
 
 ## Examples
 
-When enabled, `globally-allowed-units` is set to `['px']`, and `units-allowed-for-properties` is set to `{ width: ['rem'] }` the following are disallowed.
+When enabled, `global` is set to `['px']`, and `per-property` is set to `{ width: ['rem'] }` the following are disallowed.
 
 ```scss
 .literal {
