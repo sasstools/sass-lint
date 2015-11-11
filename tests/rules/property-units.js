@@ -5,7 +5,7 @@ var lint = require('./_lint');
 //////////////////////////////
 // SCSS syntax tests
 //////////////////////////////
-describe('property-units - scss', function () {
+describe.only('property-units - scss', function () {
   var file = lint.file('property-units.scss');
 
   it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
@@ -26,7 +26,7 @@ describe('property-units - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -69,7 +69,7 @@ describe('property-units - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(0, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });

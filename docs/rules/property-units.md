@@ -13,148 +13,38 @@ Rules for specific properties override the global allowed units list.
 
 When enabled, `globally-allowed-units` is set to `['px']`, and `units-allowed-for-properties` is set to `{ width: ['rem'] }` the following are disallowed.
 
-//TODO: left off here
-
 ```scss
 .literal {
-  color: mediumslateblue;
+    height: 3rem;
 }
 
-.linear-gradient-func {
-  background: linear-gradient(top, #fff, white);
+.literal-property {
+    width: 3px;
 }
 
 .box-shadow {
-  box-shadow: 1px 1px black, 1px 1px black;
+  box-shadow: 1em 1em black, 1em 1em black;
 }
 
 .background {
-  background: 1px solid white;
-}
-
-.hex {
-  color: #fff;
-}
-
-.adj {
-  color: adjust-color(rgb(255, 0, 0), $blue: 5);
-}
-
-.scale {
-  color: scale-color(hsl(120, 70%, 80%), $lightness: 50%);
-}
-
-.change {
-  color: change-color(hsl(25, 100%, 80%), $lightness: 40%, $alpha: .8);
+  background: 1em solid white;
 }
 
 .function {
-  color: test(#fff);
+  color: test(2em);
+}
+```
+
+When enabled, `globally-allowed-units` is set to `['em']`, and `units-allowed-for-properties` is set to `{ width: ['rem'] }` the following are allowed.
+
+```scss
+
+.variable {
+    width: $sizes.small;
 }
 
-.rgb {
-  color: rgb(255, 255, 255);
-}
-
-.rgba {
-  color: rgba(255, 255, 255, .3);
-}
-
-.hsl {
-  color: hsl(40, 50%, 50%);
-}
-
-.hsla {
-  color: hsla(40, 50%, 50%, .3);
-}
-
-//  using color literals as property names
-$colors: (
-  red: #fff,
-  blue : (
-    orange: #fff
-  )
+//  using literals as property names
+$sizes: (
+  small: 2em
 );
-```
-
-When enabled and `allow-rgba` is set to `false` the following are allowed.
-
-```scss
-$literal: mediumslateblue;
-$hexVar: #fff;
-$rgb: rgb(255, 255, 255);
-$rgba: rgba(255, 255, 255, .3);
-$hsl: hsl(40, 50%, 50%);
-$hsla: hsla(40, 50%, 50%, .3);
-
-.literal {
-  color: $literal;
-}
-
-.linear-gradient-func {
-  background: linear-gradient(top, $hexVar, $literal);
-}
-
-.background {
-  background: 1px solid $literal;
-}
-
-.hex {
-  color: $hexVar;
-}
-
-.adj {
-  color: adjust-color($off-red, $blue: 5);
-}
-
-.scale {
-  color: scale-color($off-blue, $lightness: 50%);
-}
-
-.change {
-  color: change-color($orange-extra, $lightness: 40%, $alpha: .8);
-}
-
-.function {
-  color: test($hexVar);
-}
-
-.rgb {
-  color: $rgb;
-}
-
-.rgba {
-  color: $rgba;
-}
-
-.hsl {
-  color: $hsl;
-}
-
-.hsla {
-  color: $hsla;
-}
-```
-
-In addition, when enabled and `allow-rgba` is set to `true`, the following will be allowed:
-
-```scss
-// rgba in variables is still fine
-$rgba: rgba(255, 0, 0, .5);
-$red: rgb(255, 255, 255,);
-
-// rgba can be used directly to alter a variables opacity
-.color {
-  color: rgba($red, .3);
-}
-```
-
-In addition, when enabled and `allow-rgba` is set to `true`, the following will be disallowed:
-
-```scss
-.color {
-  // you must use variables and not literals
-  color: rgba(0, 0, 0, .3);
-  color: rgba(black, .3);
-}
 ```
