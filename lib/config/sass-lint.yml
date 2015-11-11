@@ -72,6 +72,7 @@ rules:
   space-before-bang: 1
   space-after-bang: 1
   space-between-parens: 1
+  space-around-operator: 1
 
   # Final Items
   trailing-semicolon: 1
