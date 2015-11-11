@@ -6,7 +6,8 @@
   "scripts": {
     "preversion": "npm test",
     "pretest": "eslint .",
-    "test": "mocha tests && mocha tests/rules"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests tests/rules",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
@@ -39,7 +40,9 @@
     "util": "^0.10.3"
   },
   "devDependencies": {
+    "coveralls": "^2.11.4",
     "deep-equal": "^1.0.1",
+    "istanbul": "^0.4.0",
     "mocha": "^2.2.5",
     "should": "^7.0.4"
   }
