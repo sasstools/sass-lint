@@ -40,7 +40,21 @@ describe('property-units - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('globally-allowed-units: [\'em\', \'px\'], units-allowed-for-properties: {}', function (done) {
+    lint.test(file, {
+      'property-units': [
+        1,
+        {
+          'globally-allowed-units': ['em', 'px']
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
       done();
     });
   });
@@ -59,6 +73,20 @@ describe('property-units - scss', function () {
     });
   });
 
+  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\', \'em\'] }', function (done) {
+    lint.test(file, {
+      'property-units': [
+        1,
+        {
+          'units-allowed-for-properties': { height: ['px', 'em'] }
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
   it('globally-allowed-units: [\'px\'], units-allowed-for-properties: { height: [\'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
@@ -69,7 +97,7 @@ describe('property-units - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -78,7 +106,7 @@ describe('property-units - scss', function () {
 //////////////////////////////
 // Sass syntax tests
 //////////////////////////////
-describe.only('property-units - sass', function () {
+describe('property-units - sass', function () {
   var file = lint.file('property-units.sass');
 
   it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
@@ -113,7 +141,21 @@ describe.only('property-units - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('globally-allowed-units: [\'em\', \'px\'], units-allowed-for-properties: {}', function (done) {
+    lint.test(file, {
+      'property-units': [
+        1,
+        {
+          'globally-allowed-units': ['em', 'px']
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
       done();
     });
   });
@@ -132,6 +174,20 @@ describe.only('property-units - sass', function () {
     });
   });
 
+  it('globally-allowed-units: [], units-allowed-for-properties: { height: [\'px\', \'em\'] }', function (done) {
+    lint.test(file, {
+      'property-units': [
+        1,
+        {
+          'units-allowed-for-properties': { height: ['px', 'em'] }
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
   it('globally-allowed-units: [\'px\'], units-allowed-for-properties: { height: [\'em\'] }', function (done) {
     lint.test(file, {
       'property-units': [
@@ -142,7 +198,7 @@ describe.only('property-units - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });

@@ -25,3 +25,13 @@ $sizes: (
     important: 2rem
   )
 );
+
+.literal-property {
+    width: 3px;
+    height: 0;
+
+    .red {
+      width: 4;
+      height: 5px;
+    }
+}
