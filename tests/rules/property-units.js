@@ -5,7 +5,7 @@ var lint = require('./_lint');
 //////////////////////////////
 // SCSS syntax tests
 //////////////////////////////
-describe.only('property-units - scss', function () {
+describe('property-units - scss', function () {
   var file = lint.file('property-units.scss');
 
   it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
@@ -26,7 +26,7 @@ describe.only('property-units - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(9, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -40,7 +40,7 @@ describe.only('property-units - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });
@@ -69,7 +69,7 @@ describe.only('property-units - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });
@@ -78,7 +78,7 @@ describe.only('property-units - scss', function () {
 //////////////////////////////
 // Sass syntax tests
 //////////////////////////////
-describe('border zero - sass', function () {
+describe.only('property-units - sass', function () {
   var file = lint.file('property-units.sass');
 
   it('globally-allowed-units: [], units-allowed-for-properties: {}', function (done) {
@@ -99,7 +99,7 @@ describe('border zero - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -113,7 +113,7 @@ describe('border zero - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });
@@ -142,7 +142,7 @@ describe('border zero - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(0, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });

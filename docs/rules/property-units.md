@@ -30,9 +30,6 @@ When enabled, `globally-allowed-units` is set to `['px']`, and `units-allowed-fo
   background: 1em solid white;
 }
 
-.function {
-  color: test(2em);
-}
 ```
 
 When enabled, `globally-allowed-units` is set to `['em']`, and `units-allowed-for-properties` is set to `{ width: ['rem'] }` the following are allowed.
@@ -43,8 +40,13 @@ When enabled, `globally-allowed-units` is set to `['em']`, and `units-allowed-fo
     width: $sizes.small;
 }
 
+.function {
+  color: test(2px);
+}
+
 //  using literals as property names
 $sizes: (
-  small: 2em
+  small: 2px
 );
 ```
+
