@@ -22,6 +22,10 @@ li {
   // sass-lint:disable-block border-zero
   border: none;
 }
+
+dd {
+  border: none; // sass-lint:disable-line border-zero
+}
 ```
 
 When enabled, the following are allowed.
@@ -44,5 +48,10 @@ li {
   // We really prefer `border: none` in this file, for reasons.
   // sass-lint:disable-block border-zero
   border: none;
+}
+
+dd {
+  // We really prefer `border: none` in this file, for reasons.
+  border: none; // sass-lint:disable-line border-zero
 }
 ```

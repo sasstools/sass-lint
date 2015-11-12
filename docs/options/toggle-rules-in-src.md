@@ -21,6 +21,14 @@ p {
 }
 ```
 
+## Disable a rule for a single line
+
+```scss
+p {
+  border: none; // sass-lint:disable-line border-zero
+}
+```
+
 ## Disable all lints within a block (and all contained blocks)
 
 ```scss
