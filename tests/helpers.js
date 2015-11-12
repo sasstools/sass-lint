@@ -1572,4 +1572,21 @@ describe('helpers', function () {
     assert.equal(expect, result.type);
     done();
   });
+
+  it('collectSuffixExtensions - BEM example', function () {
+    var ruleset = gonzales.parse(['',
+      '.block {\n',
+      '  &__element {\n',
+      '    &--modifier {\n',
+      '      width: 2px;\n',
+      '    }\n',
+      '  }\n',
+      '}\n'].join(''), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class'),
+      ['block', 'block__element', 'block__element--modifier']
+    );
+  });
 });
