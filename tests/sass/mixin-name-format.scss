@@ -33,3 +33,7 @@
 .class {
   @include snake_case();
 }
+
+.test {
+  @extend .pure-u-1-6
+}
