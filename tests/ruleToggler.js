@@ -19,7 +19,7 @@ var generateToggledRules = function (filename) {
   return getToggledRules(ast);
 };
 
-describe.only('rule toggling', function () {
+describe('rule toggling', function () {
   describe('getToggledRules', function () {
     it('should allow all rules to be disabled', function () {
       assert(deepEqual(generateToggledRules('ruleToggler-disable-all.scss'), {
@@ -72,6 +72,36 @@ describe.only('rule toggling', function () {
         ruleEnable: {
           a: [[false, 1, 3], [true, 3, 1]]
         }
+      }) === true);
+    });
+    it('should be able to enable a disabled rule', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-disable-then-enable.scss');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 2, 5], [true, 4, 5]]
+        }
+      }) === true);
+    });
+    it('should ignore comments that don\'t fit known formats', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-ignore-unknown.scss');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {}
+      }) === true);
+    });
+    it('should ignore empty files', function () {
+      var ruleToggles = generateToggledRules('empty-file.scss');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {}
+      }) === true);
+    });
+    it('should ignore empty comments', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-empty-comment.scss');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {}
       }) === true);
     });
   });
@@ -134,7 +164,7 @@ describe.only('rule toggling', function () {
         column: 1
       }) === false);
     });
-    it('should support enabling a previously re-enabled then disabled rule', function () {
+    it('should support enabling a previously re-enabled then disabled rule (in enabled part)', function () {
       assert(isResultEnabled({
         globalEnable: [],
         ruleEnable: {
@@ -145,6 +175,18 @@ describe.only('rule toggling', function () {
         line: 5,
         column: 1
       }) === true);
+    });
+    it('should support enabling a previously re-enabled then disabled rule (in disabled part)', function () {
+      assert(isResultEnabled({
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 1, 1], [true, 2, 1], [false, 3, 1], [true, 4, 1]]
+        }
+      })({
+        ruleId: 'a',
+        line: 3,
+        column: 10
+      }) === false);
     });
     it('should support disabling a rule that is later re-enabled', function () {
       assert(isResultEnabled({
