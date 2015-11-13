@@ -41,12 +41,13 @@ sassLint.lintText = function (file, options, configPath) {
       results = [],
       errors = 0,
       warnings = 0,
-      ruleToggles = getToggledRules(ast);
+      ruleToggles = getToggledRules(ast),
+      isEnabledFilter = isResultEnabled(ruleToggles);
 
   if (ast.content.length > 0) {
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule)
-        .filter(isResultEnabled(ruleToggles));
+        .filter(isEnabledFilter);
       results = results.concat(detects);
       if (detects.length) {
         if (rule.severity === 1) {
