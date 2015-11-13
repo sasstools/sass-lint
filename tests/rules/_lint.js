@@ -23,7 +23,8 @@ module.exports.test = function (text, options, cb) {
 
   options = {
     'options': {
-      'merge-default-rules': false
+      'merge-default-rules': false,
+      'cache-config': false
     },
     'rules': options
   };
