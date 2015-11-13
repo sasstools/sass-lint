@@ -37,3 +37,19 @@
 .test {
   @extend .pure-u-1-6
 }
+
+.test {
+  @at-root .child_snake_case {
+    content: 'foo';
+  }
+}
+
+@import 'foo.scss';
+
+@keyframes fade_it {
+  0% { transform: scale(1.0); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1.0); }
+  75% { transform: scale(1.2); }
+  100% { transform: scale(1.1); }
+}
