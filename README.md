@@ -1,4 +1,4 @@
-# Sass Lint [![npm version](https://badge.fury.io/js/sass-lint.svg)](http://badge.fury.io/js/sass-lint) [![Build Status](https://travis-ci.org/sasstools/sass-lint.svg)](https://travis-ci.org/sasstools/sass-lint)
+# Sass Lint [![npm version](https://badge.fury.io/js/sass-lint.svg)](http://badge.fury.io/js/sass-lint) [![Build Status](https://travis-ci.org/sasstools/sass-lint.svg)](https://travis-ci.org/sasstools/sass-lint) [![Coverage Status](https://coveralls.io/repos/sasstools/sass-lint/badge.svg?branch=develop&service=github)](https://coveralls.io/github/sasstools/sass-lint?branch=develop)
 
 A Node-only Sass linter for both `sass` and `scss` syntax!
 
