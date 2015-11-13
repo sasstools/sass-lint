@@ -69,7 +69,3 @@ a {
   border: none; // Failing result reported
 }
 ```
-
-## doc-disabled-rules rule
-
-It is highly recommended that you use the doc-disabled-rules rule.
