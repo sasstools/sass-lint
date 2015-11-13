@@ -21,3 +21,9 @@
 .norf {
   border: 1px;
 }
+
+.norf {
+  // sass-lint:disable border-zero
+  border: none;
+  // sass-lint:enable border-zero
+}
