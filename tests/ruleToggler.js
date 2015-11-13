@@ -70,7 +70,7 @@ describe.only('rule toggling', function () {
       assert(deepEqual(ruleToggles, {
         globalEnable: [],
         ruleEnable: {
-          a: [[false, 1, 4], [true, 3, 1]]
+          a: [[false, 1, 3], [true, 3, 1]]
         }
       }) === true);
     });
