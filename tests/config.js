@@ -101,9 +101,7 @@ describe('config', function () {
         merged;
 
     tempOptions.options['merge-default-rules'] = false;
-
     conf = config(tempOptions);
-
     merged = merge.recursive(tempOptions, defaultConfig);
     merged.rules = tempOptions.rules;
 
@@ -111,6 +109,35 @@ describe('config', function () {
       equal(
         conf,
         merged,
+        {
+          'strict': true
+        }
+      )
+    );
+
+    done();
+  });
+
+  it('should load a cached version of the config', function (done) {
+    var tempOptions = {
+          'options': {}
+        },
+        confFirst,
+        confSecond;
+
+    tempOptions.options['cache-config'] = true;
+
+    // first pass at config to set the cache
+    confFirst = config(tempOptions);
+
+    // second pass to check if cache loads adding in a config file that shouldn't be loaded
+    tempOptions.options['config-file'] = 'tests/yml/.stylish-output.yml';
+    confSecond = config(tempOptions);
+
+    assert(
+      equal(
+        confFirst,
+        confSecond,
         {
           'strict': true
         }
