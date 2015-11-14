@@ -12,6 +12,20 @@ describe('property sort order - scss', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
+      lint.assert.equal(15, data.warningCount);
+      done();
+    });
+  });
+
+  it('[order: alphabetical, ignore-custom-properties: true]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'ignore-custom-properties': true
+        }
+      ]
+    }, function (data) {
       lint.assert.equal(12, data.warningCount);
       done();
     });
@@ -36,6 +50,47 @@ describe('property sort order - scss', function () {
     });
   });
 
+  it('[order: custom + composes, ignore-custom-properties: false]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': [
+            'height',
+            'composes',
+            'width',
+            'display',
+            'color'
+          ],
+          'ignore-custom-properties': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(10, data.warningCount);
+      done();
+    });
+  });
+
+  it('[order: custom + composes, ignore-custom-properties: true]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': [
+            'height',
+            'width',
+            'display',
+            'color'
+          ],
+          'ignore-custom-properties': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
   it('[order: recess]', function (done) {
     lint.test(file, {
       'property-sort-order': [
@@ -45,7 +100,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -59,7 +114,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -73,7 +128,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
@@ -89,6 +144,20 @@ describe('property sort order - sass', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
+      lint.assert.equal(15, data.warningCount);
+      done();
+    });
+  });
+
+  it('[order: alphabetical, ignore-custom-properties: true]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'ignore-custom-properties': true
+        }
+      ]
+    }, function (data) {
       lint.assert.equal(12, data.warningCount);
       done();
     });
@@ -113,6 +182,47 @@ describe('property sort order - sass', function () {
     });
   });
 
+  it('[order: custom + composes, ignore-custom-properties: false]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': [
+            'height',
+            'composes',
+            'width',
+            'display',
+            'color'
+          ],
+          'ignore-custom-properties': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(10, data.warningCount);
+      done();
+    });
+  });
+
+  it('[order: custom + composes, ignore-custom-properties: true]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': [
+            'height',
+            'width',
+            'display',
+            'color'
+          ],
+          'ignore-custom-properties': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
   it('[order: recess]', function (done) {
     lint.test(file, {
       'property-sort-order': [
@@ -122,7 +232,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -136,7 +246,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -150,7 +260,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
