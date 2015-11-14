@@ -34,8 +34,24 @@
   content: '';
 }
 
+.block {
+  &__element {
+    &--modifier {
+      color: green;
+    }
+  }
+}
+
 .owner-name_mod-name_mod-val {
   content: '';
+}
+
+.owner-name {
+  &_mod-name {
+    &_mod-val {
+      color: blue;
+    }
+  }
 }
 
 .site-search {
@@ -50,4 +66,31 @@
 
 .site-search--full {
   color: green;
+}
+
+.hyphentated-lowercase {
+  color: blue;
+
+  &-with-suffix-extension {
+    color: green;
+
+    &-and-another {
+      color: red;
+    }
+  }
+
+  &-INVALID {
+    color: pink;
+  }
+}
+
+.one_parent,
+.two_parents,
+.third-invalid-parent {
+  width: 10px;
+
+  &_valid_child,
+  &-invalid-child {
+    height: 10px;
+  }
 }

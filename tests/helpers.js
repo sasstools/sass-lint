@@ -1573,6 +1573,25 @@ describe('helpers', function () {
     done();
   });
 
+  it('collectSuffixExtensions - no extensions', function () {
+    var ruleset = gonzales.parse(['',
+      '.a {\n',
+      '  .b {\n',
+      '    .c {\n',
+      '      width: 2px;\n',
+      '    }\n',
+      '  }\n',
+      '}\n'].join(''), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a']
+    );
+  });
+
   it('collectSuffixExtensions - BEM example', function () {
     var ruleset = gonzales.parse(['',
       '.block {\n',
@@ -1585,8 +1604,32 @@ describe('helpers', function () {
       .first('ruleset');
 
     assert.deepEqual(
-      helpers.collectSuffixExtensions(ruleset, 'class'),
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
       ['block', 'block__element', 'block__element--modifier']
+    );
+  });
+
+  it('collectSuffixExtensions - many parents and children', function () {
+    var ruleset = gonzales.parse(['',
+      '.a,\n',
+      '.b {\n',
+      '  &c,\n',
+      '  &d {\n',
+      '    &e,\n',
+      '    &f {\n',
+      '      width: 2px;\n',
+      '    }\n',
+      '  }\n',
+      '}\n'].join(''), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a', 'b', 'ac', 'bc', 'ad', 'bd', 'ace', 'bce', 'ade', 'bde', 'acf', 'bcf', 'adf', 'bdf']
     );
   });
 });

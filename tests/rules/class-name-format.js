@@ -9,7 +9,21 @@ describe('class name format - scss', function () {
     lint.test(file, {
       'class-name-format': 1
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(21, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: hyphenatedlowercase with ignore]', function (done) {
+    lint.test(file, {
+      'class-name-format': [
+        1,
+        {
+          'ignore': ['block__element--modifier']
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(20, data.warningCount);
       done();
     });
   });
@@ -23,7 +37,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(30, data.warningCount);
       done();
     });
   });
@@ -37,7 +51,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(25, data.warningCount);
       done();
     });
   });
@@ -51,7 +65,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -65,7 +79,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -75,12 +89,28 @@ describe('class name format - scss', function () {
       'class-name-format': [
         1,
         {
-          'convention': '^[_A-Z]+$',
-          'convention-explanation': 'Its bad and you should feel bad.'
+          'convention': '^[_A-Z]+$'
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(31, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: RegExp ^[_A-Z]+$], with convention-explanation', function (done) {
+    var message = 'Its bad and you should feel bad.';
+    lint.test(file, {
+      'class-name-format': [
+        1,
+        {
+          'convention': '^[_A-Z]+$',
+          'convention-explanation': message
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(27, data.warningCount);
+      lint.assert.equal(data.messages[0].message, message);
       done();
     });
   });
@@ -93,7 +123,21 @@ describe('class name format - sass', function () {
     lint.test(file, {
       'class-name-format': 1
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(21, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: hyphenatedlowercase with ignore]', function (done) {
+    lint.test(file, {
+      'class-name-format': [
+        1,
+        {
+          'ignore': ['block__element--modifier']
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(20, data.warningCount);
       done();
     });
   });
@@ -107,7 +151,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(30, data.warningCount);
       done();
     });
   });
@@ -121,7 +165,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(25, data.warningCount);
       done();
     });
   });
@@ -135,7 +179,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -149,7 +193,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -159,12 +203,28 @@ describe('class name format - sass', function () {
       'class-name-format': [
         1,
         {
-          'convention': '^[_A-Z]+$',
-          'convention-explanation': 'Its bad and you should feel bad.'
+          'convention': '^[_A-Z]+$'
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(31, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: RegExp ^[_A-Z]+$], with convention-explanation', function (done) {
+    var message = 'Its bad and you should feel bad.';
+    lint.test(file, {
+      'class-name-format': [
+        1,
+        {
+          'convention': '^[_A-Z]+$',
+          'convention-explanation': message
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(27, data.warningCount);
+      lint.assert.equal(data.messages[0].message, message);
       done();
     });
   });

@@ -10,11 +10,11 @@
 .PascalCase
   content: ''
 
-.Camel_Snake_Case
-  content: ''
+  .Camel_Snake_Case
+    content: ''
 
-.SCREAMING_SNAKE_CASE
-  content: ''
+    .SCREAMING_SNAKE_CASE
+      content: ''
 
 ._with-leading-underscore
   content: ''
@@ -25,8 +25,18 @@
 .block-name__elem-name
   content: ''
 
+.block
+  &__element
+    &--modifier
+      color: green
+
 .owner-name_mod-name_mod-val
   content: ''
+
+.owner-name
+  &_mod-name
+    &_mod-val
+      color: blue
 
 .site-search
   color: blue
@@ -38,3 +48,24 @@
 
 .site-search--full
   color: green
+
+.hyphentated-lowercase
+  color: blue
+
+  &-with-suffix-extension
+    color: green
+
+    &-and-another
+      color: red
+
+  &-INVALID
+    color: pink
+
+.one_parent,
+.two_parents,
+.third-invalid-parent
+  width: 10px
+
+  &_valid_child,
+  &-invalid-child
+    height: 10px
