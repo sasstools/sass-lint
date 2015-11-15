@@ -1,0 +1,86 @@
+.test
+  content: ''
+
+.test-class
+  content: ''
+  display: block
+
+.test-again
+  content: ''
+  display: block
+  color: red
+
+.test-large
+  content: ''
+  display: block
+  color: red
+  border-top: 1px solid red
+  border-right: 1px solid red
+  border-bottom: 1px solid red
+  border-left: 1px solid red
+
+.nest-parent
+  color: red
+  .nest-child
+    display: block
+    .nest-grand-child
+      content: ''
+      display: block
+      color: red
+
+.nest-test
+  color: red
+  .nest-other-child
+    display: block
+  .nest-second-child
+    content: ''
+    display: block
+    color: red
+
+.foo
+  display: block
+  content: 0
+  color: red
+  .bar
+    display: block
+    content: 0
+    color: red
+    .baz
+      display: block
+      content: 0
+      color: red
+  .small
+    display: block
+
+=test
+  .test
+    content: ''
+  .test-class
+    content: ''
+    display: block
+  .test-again
+    content: ''
+    display: block
+    color: red
+  .test-large
+    content: ''
+    display: block
+    color: red
+    border-top: 1px solid red
+    border-right: 1px solid red
+    border-bottom: 1px solid red
+    border-left: 1px solid red
+  .foo
+    display: block
+    content: 0
+    color: red
+    .bar
+      display: block
+      content: 0
+      color: red
+      .baz
+        display: block
+        content: 0
+        color: red
+    .small
+      display: block
