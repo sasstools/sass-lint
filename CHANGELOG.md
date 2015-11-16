@@ -1,5 +1,16 @@
 # Sass Lint Changelog
 
+## v1.3.3
+**November 16, 2015**
+
+**Changes**
+* Added coveralls code coverage tool, updated relevant tests [#351](https://github.com/sasstools/sass-lint/pull/351)
+
+**Fixes**
+* Added missing `background-clip` property to the SMACCS sort order [#366](https://github.com/sasstools/sass-lint/issues/366)
+* Fixed an issue with negative values in the `shorthand-values` rule [#375](https://github.com/sasstools/sass-lint/issues/375)
+* Fixed an issue where `mixin-name-format` was attempting to lint extends [#396](https://github.com/sasstools/sass-lint/issues/396)
+
 ## v1.3.2
 **October 28, 2015**
 
