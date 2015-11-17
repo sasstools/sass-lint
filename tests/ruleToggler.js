@@ -104,6 +104,22 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+    it('should be ordered', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-guarantee-order.scss');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 1, 3],
+              [false, 2, 5],
+              [true, 6, 1],
+              [false, 8, 3],
+              [false, 8, 5],
+              [true, 12, 1],
+              [false, 14, 6],
+              [false, 14, 32]]
+        }
+      }) === true);
+    });
   });
   describe('isResultEnabled', function () {
     it('should disable all rules if global is disabled', function () {
