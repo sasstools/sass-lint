@@ -1574,6 +1574,44 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
+  // attemptTraversal
+  //////////////////////////////
+  it('attemptTraversal - collect all nodes', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a {',
+      '  .b {',
+      '    color: red;',
+      '  }',
+      '  .c {',
+      '    color: blue;',
+      '  }',
+      '  .d {',
+      '    color: green;',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' });
+
+    assert.deepEqual(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block', 'declaration', 'property', 'ident'])
+        .map(function (node) {
+          return node.content;
+        }),
+      ['color', 'color', 'color']
+    );
+  });
+
+  it('attemptTraversal - empty array when traversal fails', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a {',
+      '  color: red;',
+      '}'].join('\n'), { syntax: 'scss' });
+
+    assert.equal(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block']).length,
+      0
+    );
+  });
+
+  //////////////////////////////
   // collectSuffixExtensions
   //////////////////////////////
   it('collectSuffixExtensions - no extensions', function () {
