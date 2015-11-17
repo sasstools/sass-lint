@@ -1573,15 +1573,18 @@ describe('helpers', function () {
     done();
   });
 
+  //////////////////////////////
+  // collectSuffixExtensions
+  //////////////////////////////
   it('collectSuffixExtensions - no extensions', function () {
     var ruleset = gonzales.parse(['',
-      '.a {\n',
-      '  .b {\n',
-      '    .c {\n',
-      '      width: 2px;\n',
-      '    }\n',
-      '  }\n',
-      '}\n'].join(''), { syntax: 'scss' })
+      '.a {',
+      '  .b {',
+      '    .c {',
+      '      width: 2px;',
+      '    }',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' })
       .first('ruleset');
 
     assert.deepEqual(
@@ -1594,13 +1597,13 @@ describe('helpers', function () {
 
   it('collectSuffixExtensions - BEM example', function () {
     var ruleset = gonzales.parse(['',
-      '.block {\n',
-      '  &__element {\n',
-      '    &--modifier {\n',
-      '      width: 2px;\n',
-      '    }\n',
-      '  }\n',
-      '}\n'].join(''), { syntax: 'scss' })
+      '.block {',
+      '  &__element {',
+      '    &--modifier {',
+      '      width: 2px;',
+      '    }',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' })
       .first('ruleset');
 
     assert.deepEqual(
@@ -1613,16 +1616,16 @@ describe('helpers', function () {
 
   it('collectSuffixExtensions - many parents and children', function () {
     var ruleset = gonzales.parse(['',
-      '.a,\n',
-      '.b {\n',
-      '  &c,\n',
-      '  &d {\n',
-      '    &e,\n',
-      '    &f {\n',
-      '      width: 2px;\n',
-      '    }\n',
-      '  }\n',
-      '}\n'].join(''), { syntax: 'scss' })
+      '.a,',
+      '.b {',
+      '  &c,',
+      '  &d {',
+      '    &e,',
+      '    &f {',
+      '      width: 2px;',
+      '    }',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' })
       .first('ruleset');
 
     assert.deepEqual(

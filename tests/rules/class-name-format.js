@@ -2,6 +2,9 @@
 
 var lint = require('./_lint');
 
+//////////////////////////////
+// SCSS syntax tests
+//////////////////////////////
 describe('class name format - scss', function () {
   var file = lint.file('class-name-format.scss');
 
@@ -116,6 +119,9 @@ describe('class name format - scss', function () {
   });
 });
 
+//////////////////////////////
+// Sass syntax tests
+//////////////////////////////
 describe('class name format - sass', function () {
   var file = lint.file('class-name-format.sass');
 
