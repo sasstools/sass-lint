@@ -18,6 +18,6 @@ Command Line Flag        | Description
 `-i`,`--ignore [pattern]` | A pattern that should be ignored from linting. Multiple patterns can be used by separating each pattern by `, `. Patterns should be wrapped in quotes (will be merged with other ignore options)
 `-o`,`--output [output]`  | The path plus file name relative to where Sass Lint is being run from where the output should be written to.
 `-q`,`--no-exit`          | Prevents the CLI from throwing an error if there is one (useful for development work)
-`-s`,`--syntax`           | Syntax to evaluate the given file(s) with, either sass or less. Overrides filename extension-based syntax detection.
+`-s`,`--syntax`           | Syntax to evaluate the given file(s) with, either sass or scss. Use with care: overrides filename extension-based syntax detection.
 `-v`,`--verbose`          | Verbose output (fully formatted output)
 `-V`,`--version`          | Outputs the version number of Sass Lint
