@@ -13,10 +13,6 @@
 }
 
 .foo {
-  margin: 5px -15px;
-}
-
-.foo {
   margin: 5px+ 15px;
 }
 
@@ -329,7 +325,26 @@ $qux: (2  +1);
 // Valid CSS
 
 .foo {
+  margin: 5px -15px;
+}
+
+.foo {
+  margin: -10px -15px;
+}
+
+.foo {
+  top: -10px;
+}
+
+.foo {
+  margin-bottom: -20px;
+}
+
+.foo {
   font: italic small-caps bolder 16px/3 cursive;
+}
+
+.foo {
   font: italic small-caps bolder 16px/8px cursive;
 }
 
@@ -343,6 +358,9 @@ ul {
 
 .foo {
   font: italic small-caps bolder 16px / 3 cursive;
+}
+
+.foo {
   font: italic small-caps bolder 16px / 8px cursive;
 }
 

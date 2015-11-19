@@ -823,6 +823,22 @@ describe('helpers', function () {
     done();
   });
 
+  it('isHyphenatedLowercase - [\'abc-\\31\\32\\33\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abc-\\31\\32\\33');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedLowercase - [\'abc-\\+\\*\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedLowercase('abc-\\+\\*');
+
+    assert.equal(false, result);
+    done();
+  });
+
   //////////////////////////////
   // isSnakeCase
   //////////////////////////////
@@ -872,6 +888,198 @@ describe('helpers', function () {
     var result = helpers.isSnakeCase('ab_cd-ef');
 
     assert.equal(false, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isHyphenatedBEM
+  //////////////////////////////
+
+  it('isHyphenatedBEM - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'test\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [abcDEF - false]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('abcDEF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'abc---def\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('abc---def');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'abc___def\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('abc___def');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'ab__cd__ef\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('ab__cd__ef');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'ab__cd--ef\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('ab__cd--ef');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'abc_def\' - false]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('abc_def');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'abc-def\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('abc-def');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isHyphenatedBEM - [\'ab-cd__ef\' - true]', function (done) {
+
+    var result = helpers.isHyphenatedBEM('ab-cd__ef');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  //////////////////////////////
+  // isStrictBEM
+  //////////////////////////////
+
+  it('isStrictBEM - [\'TEST\' - false]', function (done) {
+
+    var result = helpers.isStrictBEM('TEST');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'test\' - true]', function (done) {
+
+    var result = helpers.isStrictBEM('test');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isStrictBEM - [abcDEF - false]', function (done) {
+
+    var result = helpers.isStrictBEM('abcDEF');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'abc---def\' - false]', function (done) {
+
+    var result = helpers.isStrictBEM('abc---def');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'abc___def\' - false]', function (done) {
+
+    var result = helpers.isStrictBEM('abc___def');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'ab__cd__ef\' - false]', function (done) {
+
+    var result = helpers.isStrictBEM('ab__cd__ef');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'ab__cd--ef\' - false]', function (done) {
+
+    var result = helpers.isStrictBEM('ab__cd--ef');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'ab__cd_ef_gh\' - true]', function (done) {
+
+    var result = helpers.isStrictBEM('ab__cd_ef_gh');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'ab-cd-ef__gh-ij-kl_mn-op-qr_st-uv-wx\' - true]', function (done) {
+
+    var result = helpers.isStrictBEM('ab-cd-ef__gh-ij-kl_mn-op-qr_st-uv-wx');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'ab__cd_ef_gh_ij\' - false]', function (done) {
+
+    var result = helpers.isStrictBEM('ab__cd_ef_gh_ij');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'abc_def\' - false]', function (done) {
+
+    var result = helpers.isStrictBEM('abc_def');
+
+    assert.equal(false, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'abc-def\' - true]', function (done) {
+
+    var result = helpers.isStrictBEM('abc-def');
+
+    assert.equal(true, result);
+    done();
+  });
+
+  it('isStrictBEM - [\'ab-cd__ef\' - true]', function (done) {
+
+    var result = helpers.isStrictBEM('ab-cd__ef');
+
+    assert.equal(true, result);
     done();
   });
 
@@ -1363,5 +1571,106 @@ describe('helpers', function () {
 
     assert.equal(expect, result.type);
     done();
+  });
+
+  //////////////////////////////
+  // attemptTraversal
+  //////////////////////////////
+  it('attemptTraversal - collect all nodes', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a {',
+      '  .b {',
+      '    color: red;',
+      '  }',
+      '  .c {',
+      '    color: blue;',
+      '  }',
+      '  .d {',
+      '    color: green;',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' });
+
+    assert.deepEqual(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block', 'declaration', 'property', 'ident'])
+        .map(function (node) {
+          return node.content;
+        }),
+      ['color', 'color', 'color']
+    );
+  });
+
+  it('attemptTraversal - empty array when traversal fails', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a {',
+      '  color: red;',
+      '}'].join('\n'), { syntax: 'scss' });
+
+    assert.equal(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block']).length,
+      0
+    );
+  });
+
+  //////////////////////////////
+  // collectSuffixExtensions
+  //////////////////////////////
+  it('collectSuffixExtensions - no extensions', function () {
+    var ruleset = gonzales.parse(['',
+      '.a {',
+      '  .b {',
+      '    .c {',
+      '      width: 2px;',
+      '    }',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a']
+    );
+  });
+
+  it('collectSuffixExtensions - BEM example', function () {
+    var ruleset = gonzales.parse(['',
+      '.block {',
+      '  &__element {',
+      '    &--modifier {',
+      '      width: 2px;',
+      '    }',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['block', 'block__element', 'block__element--modifier']
+    );
+  });
+
+  it('collectSuffixExtensions - many parents and children', function () {
+    var ruleset = gonzales.parse(['',
+      '.a,',
+      '.b {',
+      '  &c,',
+      '  &d {',
+      '    &e,',
+      '    &f {',
+      '      width: 2px;',
+      '    }',
+      '  }',
+      '}'].join('\n'), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a', 'b', 'ac', 'bc', 'ad', 'bd', 'ace', 'bce', 'ade', 'bde', 'acf', 'bcf', 'adf', 'bdf']
+    );
   });
 });
