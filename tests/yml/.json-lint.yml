@@ -1,5 +1,6 @@
 options:
   formatter: json
+  cache-config: false
 files:
   include: '**/*.s+(a|c)ss'
 rules:
