@@ -5,7 +5,7 @@ var lint = require('./_lint');
 //////////////////////////////
 // SCSS syntax tests
 //////////////////////////////
-describe('property sort order - scss', function () {
+describe.only('property sort order - scss', function () {
   var file = lint.file('property-sort-order.scss');
 
   it('[order: alphabetical]', function (done) {
