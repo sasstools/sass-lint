@@ -36,6 +36,7 @@
     "js-yaml": "^3.2.6",
     "lodash.capitalize": "^3.0.0",
     "lodash.kebabcase": "^3.0.1",
+    "lodash.sortby": "^3.1.5",
     "merge": "^1.2.0",
     "util": "^0.10.3"
   },
