@@ -12,7 +12,12 @@ describe('property sort order - scss', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "border, content, height, width", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "border, composes, display, height, width", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "border, composes, display, height, width", found "height, display, width, border, composes"', data.messages[3].message);
+
       done();
     });
   });
@@ -26,7 +31,11 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "border, content, height, width", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[3].message);
       done();
     });
   });
@@ -45,7 +54,12 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "height, width, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "height, width, display, border, composes", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "height, width, display, border, composes", found "height, display, width, border, composes"', data.messages[3].message);
+
       done();
     });
   });
@@ -66,7 +80,12 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "height, width, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "height, composes, width, display, border", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "height, composes, width, display, border", found "height, display, width, border, composes"', data.messages[3].message);
+
       done();
     });
   });
@@ -86,7 +105,12 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "height, width, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[3].message);
+
       done();
     });
   });
@@ -100,35 +124,12 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
-      done();
-    });
-  });
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "display, width, height, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "width, height, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "composes, display, width, height, border", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "composes, display, width, height, border", found "height, display, width, border, composes"', data.messages[3].message);
 
-  it('[order: smacss]', function (done) {
-    lint.test(file, {
-      'property-sort-order': [
-        1,
-        {
-          'order': 'smacss'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(12, data.warningCount);
-      done();
-    });
-  });
-
-  it('[order: concentric]', function (done) {
-    lint.test(file, {
-      'property-sort-order': [
-        1,
-        {
-          'order': 'concentric'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
@@ -144,7 +145,12 @@ describe('property sort order - sass', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "border, content, height, width", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "border, composes, display, height, width", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "border, composes, display, height, width", found "height, display, width, border, composes"', data.messages[3].message);
+
       done();
     });
   });
@@ -158,7 +164,14 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      // console.log(data.messages.map(function (m, i) { return 'lint.assert.equal(\'' + m.message + '\', data.messages[' + i + '].message);'; }).join('\n'));
+
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "border, content, height, width", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "border, display, height, width", found "height, display, width, border"', data.messages[3].message);
+
       done();
     });
   });
@@ -177,7 +190,12 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "height, width, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "height, width, display, border, composes", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "height, width, display, border, composes", found "height, display, width, border, composes"', data.messages[3].message);
+
       done();
     });
   });
@@ -198,7 +216,12 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "height, width, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "height, composes, width, display, border", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "height, composes, width, display, border", found "height, display, width, border, composes"', data.messages[3].message);
+
       done();
     });
   });
@@ -218,7 +241,12 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "height, width, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "height, width, display, border", found "height, display, width, border"', data.messages[3].message);
+
       done();
     });
   });
@@ -232,35 +260,14 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
-      done();
-    });
-  });
+      // console.log(data.messages.map(function (m, i) { return 'lint.assert.equal(\'' + m.message + '\', data.messages[' + i + '].message);'; }).join('\n'));
 
-  it('[order: smacss]', function (done) {
-    lint.test(file, {
-      'property-sort-order': [
-        1,
-        {
-          'order': 'smacss'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(12, data.warningCount);
-      done();
-    });
-  });
+      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal('Expected "display, width, height, border", found "height, display, width, border"', data.messages[0].message);
+      lint.assert.equal('Expected "width, height, border, content", found "width, content, border, height"', data.messages[1].message);
+      lint.assert.equal('Expected "composes, display, width, height, border", found "composes, height, display, width, border"', data.messages[2].message);
+      lint.assert.equal('Expected "composes, display, width, height, border", found "height, display, width, border, composes"', data.messages[3].message);
 
-  it('[order: concentric]', function (done) {
-    lint.test(file, {
-      'property-sort-order': [
-        1,
-        {
-          'order': 'concentric'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
