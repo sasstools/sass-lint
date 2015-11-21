@@ -15,6 +15,7 @@ or a Regular Expression that the id name must match (e.g. `^[_A-Z]+$`)
 Settings:
 - `allow-leading-underscore: true`
 - `convention: hyphenatedlowercase`
+- `ignore: ['IGNORED_SELECTOR']`
 
 When enabled, the following are allowed:
 
@@ -29,6 +30,10 @@ When enabled, the following are allowed:
 
 #foo {
   @extend #hyphenated-lowercase;
+}
+
+#IGNORED_SELECTOR {
+  content: '';
 }
 
 ```
