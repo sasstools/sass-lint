@@ -46,7 +46,8 @@ describe('output', function () {
   it('should have configurable formatters', function (done) {
     var formatted = lint.format(results, {
       'options': {
-        'formatter': 'json'
+        'formatter': 'json',
+        'cache-config': false
       }
     });
 
@@ -59,7 +60,8 @@ describe('output', function () {
     var options = {
       'options': {
         'formatter': 'json',
-        'output-file': 'tests/output.json'
+        'output-file': 'tests/output.json',
+        'cache-config': false
       }
     };
 
