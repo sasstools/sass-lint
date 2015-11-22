@@ -13,6 +13,10 @@
 }
 
 .foo {
+  margin: 5px -15px;
+}
+
+.foo {
   margin: 5px+ 15px;
 }
 
@@ -322,7 +326,13 @@ $qux: (2  +1);
 // Should be ok
 //====================
 
+$foo: scale-color($foo, $lightness: -14%);
+
 // Valid CSS
+
+.foo {
+  top: -10px;
+}
 
 .foo {
   margin: 5px -15px;
@@ -333,7 +343,19 @@ $qux: (2  +1);
 }
 
 .foo {
-  top: -10px;
+  margin: -10px 10px -15px;
+}
+
+.foo {
+  margin: -10px -15px -15px;
+}
+
+.foo {
+  margin: -10px -15px -15px -15px;
+}
+
+.foo {
+  margin: -10rem -15em -15px 15px;
 }
 
 .foo {
@@ -341,10 +363,19 @@ $qux: (2  +1);
 }
 
 .foo {
-  font: italic small-caps bolder 16px/3 cursive;
+  width: 100%;
 }
 
 .foo {
+  width: calc(100% - 20px);
+}
+
+.foo {
+  width: calc(100% / 2);
+}
+
+.foo {
+  font: italic small-caps bolder 16px/3 cursive;
   font: italic small-caps bolder 16px/8px cursive;
 }
 
@@ -358,9 +389,6 @@ ul {
 
 .foo {
   font: italic small-caps bolder 16px / 3 cursive;
-}
-
-.foo {
   font: italic small-caps bolder 16px / 8px cursive;
 }
 
