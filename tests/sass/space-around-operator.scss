@@ -326,9 +326,9 @@ $qux: (2  +1);
 // Should be ok
 //====================
 
-$foo: scale-color($foo, $lightness: -14%);
-
 // Valid CSS
+
+$foo: scale-color($foo, $lightness: -14%);
 
 .foo {
   top: -10px;
