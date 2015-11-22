@@ -30,8 +30,8 @@
   "dependencies": {
     "commander": "^2.8.1",
     "eslint": "^1.1.0",
-    "fs-extra": "^0.24.0",
-    "glob": "^5.0.15",
+    "fs-extra": "^0.26.0",
+    "glob": "^6.0.0",
     "gonzales-pe": "3.0.0-31",
     "js-yaml": "^3.2.6",
     "lodash.capitalize": "^3.0.0",
