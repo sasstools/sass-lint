@@ -51,6 +51,7 @@ rules:
   variable-name-format: 1
 
   # Style Guide
+  bem-depth: 0
   border-zero: 1
   brace-style: 1
   clean-import-paths: 1
