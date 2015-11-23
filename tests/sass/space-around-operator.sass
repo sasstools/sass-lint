@@ -319,7 +319,10 @@ $qux: (2  +1)
 // Should be ok
 //====================
 
-// Valid CSS
+$foo: scale-color($foo, $lightness: -14%)
+
+.foo
+  top: -10px
 
 .foo
   margin: 5px -15px
@@ -328,7 +331,28 @@ $qux: (2  +1)
   margin: -10px -15px
 
 .foo
-  top: -10px
+  margin: -10px 10px -15px
+
+.foo
+  margin: -10px -15px -15px
+
+.foo
+  margin: -10px -15px -15px -15px
+
+.foo
+  margin: -10rem -15em -15px 15px
+
+.foo
+  margin-bottom: -20px
+
+.foo
+  width: 100%
+
+.foo
+  width: calc(100% - 20px)
+
+.foo
+  width: calc(100% / 2)
 
 .foo
   margin-bottom: -20px
