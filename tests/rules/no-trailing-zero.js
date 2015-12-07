@@ -12,7 +12,7 @@ describe('no trailing zero - scss', function () {
     lint.test(file, {
       'trailing-zero': 1
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('no trailing zero - sass', function () {
     lint.test(file, {
       'trailing-zero': 1
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
