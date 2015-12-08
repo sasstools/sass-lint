@@ -1,0 +1,58 @@
+#hyphenated-lowercase {
+  content: '';
+}
+
+#snake_case {
+  content: '';
+}
+
+#camelCase {
+  content: '';
+}
+
+#PascalCase {
+  content: '';
+
+  #Camel_Snake_Case {
+    content: '';
+
+    #SCREAMING_SNAKE_CASE {
+      content: '';
+    }
+  }
+}
+
+#_with-leading-underscore {
+  content: '';
+}
+
+#_does_NOT-fitSTANDARD {
+  @extend #snake_case;
+}
+
+#hyphentated-lowercase {
+  color: blue;
+
+  &-with-suffix-extension {
+    color: green;
+
+    &-and-another {
+      color: red;
+    }
+  }
+
+  &-INVALID {
+    color: pink;
+  }
+}
+
+#one_parent,
+#two_parents,
+#third-invalid-parent {
+  width: 10px;
+
+  &_valid_child,
+  &-invalid-child {
+    height: 10px;
+  }
+}

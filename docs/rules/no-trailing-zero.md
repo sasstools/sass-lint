@@ -18,4 +18,8 @@ When enabled, the following are disallowed:
 .foo {
   margin: 0.2500rem;
 }
+
+.foo {
+  margin: 4.0rem;
+}
 ```
