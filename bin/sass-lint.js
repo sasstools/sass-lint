@@ -32,6 +32,7 @@ program
   .option('-v, --verbose', 'verbose output')
   .option('-f, --format [format]', 'pass one of the available eslint formats')
   .option('-o, --output [output]', 'the path and filename where you would like output to be written')
+  .option('-s, --syntax [syntax]', 'syntax to evaluate the file(s) with (either sass or scss)')
   .parse(process.argv);
 
 
@@ -49,6 +50,10 @@ if (program.ignore && program.ignore !== true) {
       'ignore': ignores
     };
   }
+}
+
+if (program.syntax && ['sass', 'scss'].indexOf(program.syntax) > -1) {
+  configOptions.syntax = program.syntax;
 }
 
 if (program.format && program.format !== true) {
