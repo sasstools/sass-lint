@@ -1,0 +1,35 @@
+.one
+  color: red
+  &__two
+    color: blue
+    &__three
+      color: green
+  &__two-again
+    color: pink
+
+.one__two
+  color: red
+  &--modifier
+    color: blue
+  &__three
+    color: green
+  &--modifier__three
+    color: white
+
+.block
+  color: red
+
+.block__element-one
+  color: red
+
+.block__element-one__element-two
+  color: red
+
+%one__two
+  color: red
+
+%one__two__three
+  color: blue
+
+%one__two__three__four
+  color: blue
