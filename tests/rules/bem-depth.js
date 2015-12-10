@@ -57,7 +57,6 @@ describe('bem depth - sass', function () {
     lint.test(file, {
       'bem-depth': [1, { 'max-depth': 0 }]
     }, function (data) {
-      console.log(data);
       lint.assert.equal(12, data.warningCount);
       done();
     });
@@ -67,7 +66,6 @@ describe('bem depth - sass', function () {
     lint.test(file, {
       'bem-depth': 1
     }, function (data) {
-      console.log(data);
       lint.assert.equal(6, data.warningCount);
       done();
     });
