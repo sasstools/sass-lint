@@ -1,0 +1,78 @@
+.hyphenated-lowercase
+  content: ''
+
+.snake_case
+  content: ''
+
+.camelCase
+  content: ''
+
+.PascalCase
+  content: ''
+
+  .Camel_Snake_Case
+    content: ''
+
+    .SCREAMING_SNAKE_CASE
+      content: ''
+
+._with-leading-underscore
+  content: ''
+
+._does_NOT-fitSTANDARD
+  @extend .snake_case
+
+.block-name__elem-name
+  content: ''
+
+.block
+  &__element
+    &--modifier
+      color: green
+  &__another-element
+    &--modifier
+      color: red
+    &--another-modifier
+      color: yellow
+  &--non-element-modifier
+    color: blue
+
+.owner-name_mod-name_mod-val
+  content: ''
+
+.owner-name
+  &_mod-name
+    &_mod-val
+      color: blue
+
+.site-search
+  color: blue
+  width: 50px
+  height: 100%
+
+.site-search__field
+  text-decoration: underline
+
+.site-search--full
+  color: green
+
+.hyphentated-lowercase
+  color: blue
+
+  &-with-suffix-extension
+    color: green
+
+    &-and-another
+      color: red
+
+  &-INVALID
+    color: pink
+
+.one_parent,
+.two_parents,
+.third-invalid-parent
+  width: 10px
+
+  &_valid_child,
+  &-invalid-child
+    height: 10px

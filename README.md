@@ -1,4 +1,4 @@
-# Sass Lint [![npm version](https://badge.fury.io/js/sass-lint.svg)](http://badge.fury.io/js/sass-lint) [![Build Status](https://travis-ci.org/sasstools/sass-lint.svg)](https://travis-ci.org/sasstools/sass-lint) [![Coverage Status](https://coveralls.io/repos/sasstools/sass-lint/badge.svg?branch=develop&service=github)](https://coveralls.io/github/sasstools/sass-lint?branch=develop)
+# Sass Lint [![npm version](https://badge.fury.io/js/sass-lint.svg)](http://badge.fury.io/js/sass-lint) [![Build Status](https://travis-ci.org/sasstools/sass-lint.svg)](https://travis-ci.org/sasstools/sass-lint) [![Coverage Status](https://coveralls.io/repos/sasstools/sass-lint/badge.svg?branch=develop&service=github)](https://coveralls.io/github/sasstools/sass-lint?branch=develop) [![Dependency Status](https://david-dm.org/sasstools/sass-lint.svg)](https://david-dm.org/sasstools/sass-lint#info=dependencies&view=list) [![Dev Dependency Status](https://david-dm.org/sasstools/sass-lint/dev-status.svg)](https://david-dm.org/sasstools/sass-lint#info=devDependencies&view=list)
 
 A Node-only Sass linter for both `sass` and `scss` syntax!
 
@@ -11,6 +11,8 @@ npm install sass-lint --save-dev
 ## Configuring
 
 Use the [Sample Config](docs/sass-lint.yml) as a guide to create your `.sass-lint.yml` in the root of where you are running Sass Lint from. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
+
+*Migrating from SCSS-Lint*: If you already have a config for SCSS-Lint, you can instantly convert it to the equivalent Sass Lint config at [sasstools.github.io/make-sass-lint-config](http://sasstools.github.io/make-sass-lint-config/).
 
 ### Options
 

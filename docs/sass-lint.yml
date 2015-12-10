@@ -18,7 +18,7 @@ files:
 rules:
   extends-before-mixins: 2
   extends-before-declarations: 2
-  placeholders-in-extend: 2
+  placeholder-in-extend: 2
   mixins-before-declarations:
     - 2
     -
@@ -38,6 +38,13 @@ rules:
     - 2
     -
       size: 2
+  property-sort-order:
+    - 1
+    -
+      order:
+        - display
+        - margin
+      ignore-custom-properties: true
   variable-for-property:
     - 2
     -

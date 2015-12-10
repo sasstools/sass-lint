@@ -23,5 +23,25 @@
 }
 
 .foo {
+  margin: 5.0rem;
+}
+
+.foo {
+  margin: 5.00rem;
+}
+
+.foo {
+  margin: .000rem;
+}
+
+.foo {
+  margin: 0.0rem;
+}
+
+.foo {
+  margin: .0rem;
+}
+
+.foo {
   margin: 0;
 }

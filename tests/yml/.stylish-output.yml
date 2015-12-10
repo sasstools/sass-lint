@@ -1,5 +1,6 @@
 options:
   formatter: stylish
+  cache-config: false
 files:
   include: '**/*.s+(a|c)ss'
 rules:
