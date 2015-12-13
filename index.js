@@ -40,14 +40,21 @@ sassLint.lintText = function (file, options, configPath) {
       results = [],
       errors = 0,
       warnings = 0,
-      ignoreList = config.files.ignore || '',
+      ignoredFiles = config.files.ignore || '',
       ignore = false;
 
-  ignoreList.forEach(function (ignorePath) {
-    if (minimatch(file.filename, ignorePath)) {
+  if (ignoredFiles instanceof Array && ignoredFiles.length > 0) {
+    ignoredFiles.forEach(function (ignorePath) {
+      if (minimatch(file.filename, ignorePath)) {
+        ignore = true;
+      }
+    });
+  }
+  else if (typeof ignoredFiles === 'string') {
+    if (minimatch(file.filename, ignoredFiles)) {
       ignore = true;
     }
-  });
+  }
 
   if (!ignore && ast.content.length > 0) {
     rules.forEach(function (rule) {
