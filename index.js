@@ -32,14 +32,16 @@ sassLint.resultCount = function (results) {
 };
 
 sassLint.lintText = function (file, options, configPath) {
-  var rules = slRules(this.getConfig(options, configPath)),
+  var config = this.getConfig(options, configPath),
+      rules = slRules(config),
       ast = groot(file.text, file.format, file.filename),
       detects,
       results = [],
       errors = 0,
-      warnings = 0;
+      warnings = 0,
+      ignores = config.files.ignore || '';
 
-  if (ast.content.length > 0) {
+  if (ignores.indexOf(file.filename) === -1 && ast.content.length > 0) {
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule);
       results = results.concat(detects);
