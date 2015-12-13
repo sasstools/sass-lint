@@ -49,7 +49,7 @@ sassLint.lintText = function (file, options, configPath) {
     }
   });
 
-  if (ast.content.length > 0) {
+  if (!ignore && ast.content.length > 0) {
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule);
       results = results.concat(detects);
