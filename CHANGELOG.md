@@ -39,6 +39,7 @@ The long overdue update!
 * [Dan Purdy](https://github.com/DanPurdy)
 * [Ben Rothman](https://github.com/benthemonkey)
 * [Don Abrams](https://github.com/donabrams)
+* [Andrew Hays](https://github.com/Dru89)
 * [Kaelig](https://github.com/kaelig)
 
 **A big thankyou to everyone who reported issues or contributed to the discussion around issues**
