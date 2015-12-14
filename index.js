@@ -7,8 +7,7 @@ var slConfig = require('./lib/config'),
     glob = require('glob'),
     path = require('path'),
     jsonFormatter = require('eslint/lib/formatters/json'),
-    fs = require('fs-extra'),
-    minimatch = require('minimatch');
+    fs = require('fs-extra');
 
 
 var sassLint = function (config) {
@@ -41,20 +40,8 @@ sassLint.lintText = function (file, options, configPath) {
       errors = 0,
       warnings = 0,
       ignoredFiles = config.files.ignore || '',
-      ignore = false;
+      ignore = helpers.checkIfIgnored(file, ignoredFiles);
 
-  if (ignoredFiles instanceof Array && ignoredFiles.length > 0) {
-    ignoredFiles.forEach(function (ignorePath) {
-      if (minimatch(file.filename, ignorePath)) {
-        ignore = true;
-      }
-    });
-  }
-  else if (typeof ignoredFiles === 'string') {
-    if (minimatch(file.filename, ignoredFiles)) {
-      ignore = true;
-    }
-  }
 
   if (!ignore && ast.content.length > 0) {
     rules.forEach(function (rule) {
