@@ -308,20 +308,8 @@ describe('cli', function () {
 
   });
 
-  it('should exit with exit code 1', function (done) {
-    var command = 'sass-lint -c tests/yml/.error-output.yml tests/sass/cli-error.scss --verbose';
-
-    childProcess.exec(command, function (err) {
-      if (err.code === 1) {
-        return done();
-      }
-
-      return done(new Error('Error code not 1'));
-    });
-  });
-
   it('should exit with exit code 1 when quiet', function (done) {
-    var command = 'sass-lint -c tests/yml/.error-output.yml tests/sass/cli-error.scss --verbose --quiet';
+    var command = 'sass-lint -c tests/yml/.error-output.yml tests/sass/cli-error.scss --verbose --no-exit';
 
     childProcess.exec(command, function (err) {
       if (err.code === 1) {
