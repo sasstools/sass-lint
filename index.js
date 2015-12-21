@@ -43,8 +43,8 @@ sassLint.lintText = function (file, options, configPath) {
     ast = groot(file.text, file.format, file.filename);
   }
   catch (e) {
-    errors++;
     var line = e.line || 1;
+    errors++;
 
     results = [{
       ruleId: 'Fatal',
