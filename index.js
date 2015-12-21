@@ -33,13 +33,29 @@ sassLint.resultCount = function (results) {
 
 sassLint.lintText = function (file, options, configPath) {
   var rules = slRules(this.getConfig(options, configPath)),
-      ast = groot(file.text, file.format, file.filename),
+      ast = {},
       detects,
       results = [],
       errors = 0,
       warnings = 0;
 
-  if (ast.content.length > 0) {
+  try {
+    ast = groot(file.text, file.format, file.filename);
+  }
+  catch (e) {
+    errors++;
+    var line = e.line || 1;
+
+    results = [{
+      ruleId: 'Fatal',
+      line: line,
+      column: 1,
+      message: e.message,
+      severity: 2
+    }];
+  }
+
+  if (ast.content && ast.content.length > 0) {
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule);
       results = results.concat(detects);
@@ -53,7 +69,6 @@ sassLint.lintText = function (file, options, configPath) {
       }
     });
   }
-
 
   results.sort(helpers.sortDetects);
 
