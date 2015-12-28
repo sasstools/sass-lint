@@ -90,7 +90,7 @@ sassLint.lintFiles = function (files, options, configPath) {
   files.forEach(function (file) {
     var lint = that.lintText({
       'text': fs.readFileSync(file),
-      'format': path.extname(file).replace('.', ''),
+      'format': options.syntax ? options.syntax : path.extname(file).replace('.', ''),
       'filename': file
     }, options, configPath);
     results.push(lint);

@@ -35,6 +35,7 @@ rules:
   no-url-protocols: 1
   no-vendor-prefixes: 1
   no-warn: 1
+  property-units: 0
 
   # Nesting
   force-attribute-nesting: 1
@@ -42,12 +43,15 @@ rules:
   force-pseudo-nesting: 1
 
   # Name Formats
+  class-name-format: 1
   function-name-format: 1
+  id-name-format: 0
   mixin-name-format: 1
   placeholder-name-format: 1
   variable-name-format: 1
 
   # Style Guide
+  bem-depth: 0
   border-zero: 1
   brace-style: 1
   clean-import-paths: 1
@@ -72,6 +76,7 @@ rules:
   space-before-bang: 1
   space-after-bang: 1
   space-between-parens: 1
+  space-around-operator: 1
 
   # Final Items
   trailing-semicolon: 1

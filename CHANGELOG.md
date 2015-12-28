@@ -1,5 +1,60 @@
 # Sass Lint Changelog
 
+## v1.4.0
+**December 10, 2015**
+
+The long overdue update!
+
+**Changes**
+* The config file can now be cached for a small performance boost [#279](https://github.com/sasstools/sass-lint/issues/279)
+* Added an `ignore-custom-properties` option to the property sort order rule, allowing you to ignore/include non standard properties in your property sort orders [#302](https://github.com/sasstools/sass-lint/issues/302)
+* Streamlined the `force-pseudo-nesting`, `force-element-nesting` and `force-attribute-nesting` rules [#323](https://github.com/sasstools/sass-lint/pull/323)
+* Improved the testing of our config handling [#403](https://github.com/sasstools/sass-lint/issues/403)
+* Corrected the naming of the `no-misspelled-properties` tests [#405](https://github.com/sasstools/sass-lint/pull/405)
+* Updated some of our dependencies to their latest versions [#428](https://github.com/sasstools/sass-lint/pull/428)
+* `no-trailing-zero` now acts similar to the `no-unnecessary-mantissa` rule of scss-lint in that it warns about unnecessary decimals [#438](https://github.com/sasstools/sass-lint/issues/438)
+
+**CLI**
+* [-s --syntax] Syntax flag allows you to specify syntax of the file(s) you wish to lint [#381](https://github.com/sasstools/sass-lint/issues/381)
+
+**New Rules**
+* [space-around-operator](https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-around-operator.md)
+* [class-name-format](https://github.com/sasstools/sass-lint/blob/master/docs/rules/class-name-format.md)
+* [id-name-format](https://github.com/sasstools/sass-lint/blob/master/docs/rules/id-name-format.md)
+* [property-units](https://github.com/sasstools/sass-lint/blob/master/docs/rules/property-units.md)
+* [bem-depth](https://github.com/sasstools/sass-lint/blob/master/docs/rules/bem-depth.md)
+
+**Fixes**
+* Pre emptive fix for `space-around-operator` with negative values [#394](https://github.com/sasstools/sass-lint/issues/394)
+* Pre emptive fix for `space-around-operator` with percentage values [#425](https://github.com/sasstools/sass-lint/issues/425)
+* `no-trailing-zero` now works as expected with 0 values after a decimal [#439](https://github.com/sasstools/sass-lint/issues/439)
+* Percentage values are now correctly handled and reported in the `shorthand-values` rule [#435](https://github.com/sasstools/sass-lint/issues/435)
+* `function-name-format` no longer incorrectly reports on valid default CSS & Sass functions [#442](https://github.com/sasstools/sass-lint/pull/442)
+* Corrected a typo in config file documentation [#384](https://github.com/sasstools/sass-lint/pull/384)
+
+**Brought to you by**
+
+* [Sam Richard](https://github.com/Snugug)
+* [Ben Griffith](https://github.com/bgriffith)
+* [Dan Purdy](https://github.com/DanPurdy)
+* [Ben Rothman](https://github.com/benthemonkey)
+* [Don Abrams](https://github.com/donabrams)
+* [Andrew Hays](https://github.com/Dru89)
+* [Kaelig](https://github.com/kaelig)
+
+**A big thankyou to everyone who reported issues or contributed to the discussion around issues**
+
+## v1.3.3
+**November 16, 2015**
+
+**Changes**
+* Added coveralls code coverage tool, updated relevant tests [#351](https://github.com/sasstools/sass-lint/pull/351)
+
+**Fixes**
+* Added missing `background-clip` property to the SMACCS sort order [#366](https://github.com/sasstools/sass-lint/issues/366)
+* Fixed an issue with negative values in the `shorthand-values` rule [#375](https://github.com/sasstools/sass-lint/issues/375)
+* Fixed an issue where `mixin-name-format` was attempting to lint extends [#396](https://github.com/sasstools/sass-lint/issues/396)
+
 ## v1.3.2
 **October 28, 2015**
 

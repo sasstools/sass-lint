@@ -155,3 +155,91 @@
     border-style: $red red;
     border-width: 1px 1pc;
 }
+
+.value-negative {
+  margin: -1px;
+}
+
+.value-two-negative {
+  margin: -1px -1px;
+}
+
+.value-two-diff-negative {
+  margin: -1px 1px;
+}
+
+.value-three-diff-one-negative {
+  margin: -1px -2px -1px;
+}
+
+.value-three-diff-two-negative {
+  margin: -1px -2px 1px;
+}
+
+.value-four-negative {
+  margin: -1px -1px -1px -1px;
+}
+
+.value-four-diff-one-negative {
+  margin: -1px -1px -1px 1px;
+}
+
+.value-four-diff-two-negative {
+  margin: -1px 1px -1px 1px;
+}
+
+.value-four-diff-three-negative {
+  margin: -1px 1px 1px 1px;
+}
+
+.value-four-diff-four-negative {
+  margin: -1px 2px 3px -4px;
+}
+
+.value-four-diff-four-negative-mixed {
+  margin: -1px 1px -1rem -1rem;
+}
+
+.value-percentage {
+  margin: 1%;
+}
+
+.value-two-percentage {
+  margin: 1% 1%;
+}
+
+.value-two-diff-percentage {
+  margin: 1% -1%;
+}
+
+.value-three-diff-one-percentage {
+  margin: 1% 2% 1%;
+}
+
+.value-three-diff-two-percentage {
+  margin: 1% 2% -1%;
+}
+
+.value-four-percentage {
+  margin: 1% 1% 1% 1%;
+}
+
+.value-four-diff-one-percentage {
+  margin: 1% 1% 1% -1%;
+}
+
+.value-four-diff-two-percentage {
+  margin: 1% -1% 1% -1%;
+}
+
+.value-four-diff-three-percentage {
+  margin: 1% -1% -1% -1%;
+}
+
+.value-four-diff-four-percentage {
+  margin: 1% -2% -3% 4%;
+}
+
+.value-four-diff-four-percentage-mixed {
+  margin: -1% -1% -1rem -1rem;
+}

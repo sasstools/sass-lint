@@ -1,0 +1,449 @@
+//====================
+// Should fail
+//====================
+
+// FIXME: Gonzales issue
+// https://github.com/tonyganch/gonzales-pe/issues/85
+// .foo
+//   background: url('image'  +  '/foo.png')
+//
+
+.foo
+  margin: 5px+15px
+
+.foo
+  margin: 5px+ 15px
+
+
+$foo: 1
+$bar: 3
+
+.foo
+  margin: $foo+$bar+'px'
+
+
+.foo
+  margin: #{$foo}* #{$bar}+'px'
+
+
+// No space
+
+$foo: 1+1
+$bar: 2-1
+$baz: 1/2
+$qux: 2*1
+// $norf: 5%2 Not valid SCSS
+
+
+// No space after
+
+$foo: 1 +1
+$bar: 2 -1
+$baz: 1 /2
+$qux: 2 *1
+// $norf: 5 %2 FIXME: Gonzales - FIXED IN BETA
+
+
+// No space before
+
+$foo: 1+ 1
+$bar: 2- 1
+$baz: 1/ 2
+$qux: 2* 1
+// $norf: 5% 2  Not valid SCSS. Parses as 5 percent.
+
+
+// Multiple space
+
+$foo: 1     +    1
+$bar: 2 +   1
+$baz: 1     + 2
+$qux: 2  +1
+// $norf: 5  %    2 FIXME: Gonzales - FIXED IN BETA
+
+// No space with parens
+
+$foo: (1+1)
+$bar: (2-1)
+$baz: (1/2)
+// $qux: (2*1) FIXME: Gonzales - FIXED IN BETA
+// $norf: (5%2) Not valid SCSS.
+
+
+// No space after with parens
+
+$foo: (1 +1)
+$bar: (2 -1)
+$baz: (1 /2)
+// $qux: (2 *1) FIXME: Gonzales - FIXED IN BETA
+// $norf: (5 %2) FIXME: Gonzales - FIXED IN BETA
+
+
+// No space before with parens
+
+$foo: (1+ 1)
+$bar: (2- 1)
+$baz: (1/ 2)
+// $qux: (2* 1) FIXME: Gonzales - FIXED IN BETA
+// $norf: (5% 2)  Not valid SCSS. Parses as 5 percent.
+
+
+// Multiple space with parens
+
+$foo: (1     +    1)
+$bar: (2 +   1)
+$baz: (1     + 2)
+$qux: (2  +1)
+// $norf: (5   %   2) FIXME: Gonzales - FIXED IN BETA
+
+
+
+
+// No space
+
+@if $foo==$bar
+  $baz: 1
+
+
+@if $foo!=$bar
+  $baz: 1
+
+
+@if $foo>=$bar
+  $baz: 1
+
+
+@if $foo<=$bar
+  $baz: 1
+
+
+@if $foo>$bar
+  $baz: 1
+
+
+@if $foo<$bar
+  $baz: 1
+
+
+
+// No space after
+
+@if $foo ==$bar
+  $baz: 1
+
+
+@if $foo !=$bar
+  $baz: 1
+
+
+@if $foo >=$bar
+  $baz: 1
+
+
+@if $foo <=$bar
+  $baz: 1
+
+
+@if $foo >$bar
+  $baz: 1
+
+
+@if $foo <$bar
+  $baz: 1
+
+
+
+// No space before
+
+@if $foo== $bar
+  $baz: 1
+
+
+@if $foo!= $bar
+  $baz: 1
+
+
+@if $foo>= $bar
+  $baz: 1
+
+
+@if $foo<= $bar
+  $baz: 1
+
+
+@if $foo> $bar
+  $baz: 1
+
+
+@if $foo< $bar
+  $baz: 1
+
+
+
+// Multiple spaces
+
+@if $foo  ==  $bar
+  $baz: 1
+
+
+@if $foo !=   $bar
+  $baz: 1
+
+
+@if $foo  >= $bar
+  $baz: 1
+
+
+@if $foo      <= $bar
+  $baz: 1
+
+
+@if $foo    >   $bar
+  $baz: 1
+
+
+@if $foo  <  $bar
+  $baz: 1
+
+
+
+// No space with parens
+
+@if ($foo==$bar)
+  $baz: 1
+
+
+@if ($foo!=$bar)
+  $baz: 1
+
+
+@if ($foo>=$bar)
+  $baz: 1
+
+
+@if ($foo<=$bar)
+  $baz: 1
+
+
+@if ($foo>$bar)
+  $baz: 1
+
+
+@if ($foo<$bar)
+  $baz: 1
+
+
+
+// No space after
+
+@if ($foo ==$bar)
+  $baz: 1
+
+
+@if ($foo !=$bar)
+  $baz: 1
+
+
+@if ($foo >=$bar)
+  $baz: 1
+
+
+@if ($foo <=$bar)
+  $baz: 1
+
+
+@if ($foo >$bar)
+  $baz: 1
+
+
+@if ($foo <$bar)
+  $baz: 1
+
+
+
+// No space before
+
+@if ($foo== $bar)
+  $baz: 1
+
+
+@if ($foo!= $bar)
+  $baz: 1
+
+
+@if ($foo>= $bar)
+  $baz: 1
+
+
+@if ($foo<= $bar)
+  $baz: 1
+
+
+@if ($foo> $bar)
+  $baz: 1
+
+
+@if ($foo< $bar)
+  $baz: 1
+
+
+
+// Multiple spaces
+
+@if ($foo  ==  $bar)
+  $baz: 1
+
+
+@if ($foo !=   $bar)
+  $baz: 1
+
+
+@if ($foo  >= $bar)
+  $baz: 1
+
+
+@if ($foo      <= $bar)
+  $baz: 1
+
+
+@if ($foo    >   $bar)
+  $baz: 1
+
+
+@if ($foo  <  $bar)
+  $baz: 1
+
+
+
+//====================
+// Should be ok
+//====================
+
+$foo: scale-color($foo, $lightness: -14%)
+
+.foo
+  top: -10px
+
+.foo
+  margin: 5px -15px
+
+.foo
+  margin: -10px -15px
+
+.foo
+  margin: -10px 10px -15px
+
+.foo
+  margin: -10px -15px -15px
+
+.foo
+  margin: -10px -15px -15px -15px
+
+.foo
+  margin: -10rem -15em -15px 15px
+
+.foo
+  margin-bottom: -20px
+
+.foo
+  width: 100%
+
+.foo
+  width: calc(100% - 20px)
+
+.foo
+  width: calc(100% / 2)
+
+.foo
+  margin-bottom: -20px
+
+.foo
+  font: italic small-caps bolder 16px/3 cursive
+
+.foo
+  font: italic small-caps bolder 16px/8px cursive
+
+ul
+  li:nth-child(2n+1)
+    content: ''
+
+
+
+// Invalid CSS
+
+.foo
+  font: italic small-caps bolder 16px / 3 cursive
+  font: italic small-caps bolder 16px / 8px cursive
+
+
+ul
+  li:nth-child(2n + 1)
+    content: ''
+
+
+
+
+// Values no parens
+
+$foo: 1 + 1
+$bar: 2 - 1
+$baz: 1 / 2
+$qux: 2 * 1
+// $norf: 5 % 2 FIXME: Gonzales - FIXED IN BETA
+
+// Values with parens
+
+$foo: (1 + 1)
+$bar: (2 - 1)
+$baz: (1 / 2)
+// Include: false will ignore this, so count will be one down on what it should
+// be
+$qux: (2 * 1) // FIXME: Gonzales - FIXED IN BETA
+// $norf: (5 % 2) FIXME: Gonzales - FIXED IN BETA
+
+// Space with no parens
+
+@if $foo == $bar
+  $baz: 1
+
+
+@if $foo != $bar
+  $baz: 1
+
+
+@if $foo >= $bar
+  $baz: 1
+
+
+@if $foo <= $bar
+  $baz: 1
+
+
+// Space with parens
+
+@if ($foo == $bar)
+  $baz: 1
+
+
+@if ($foo != $bar)
+  $baz: 1
+
+
+@if ($foo >= $bar)
+  $baz: 1
+
+
+@if ($foo <= $bar)
+  $baz: 1
+
+// Mixins
+
+=large-text
+  font:
+    family: Arial
+    size: 20px
+    weight: bold
+  color: #ff0000
+
+h1
+  +large-text
