@@ -54,3 +54,4 @@ Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Eac
 
 * [Atom](https://atom.io/packages/linter-sass-lint)
 * [Sublime Text](https://github.com/skovhus/SublimeLinter-contrib-sass-lint)
+* [Brackets](https://github.com/petetnt/brackets-sass-lint)
