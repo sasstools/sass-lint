@@ -383,6 +383,10 @@ var detectTestA = {
       column: 2
     };
 
+var exampleFile = {
+  filename: 'sass/main/styles.scss'
+};
+
 
 describe('helpers', function () {
 
@@ -1672,5 +1676,45 @@ describe('helpers', function () {
       }),
       ['a', 'b', 'ac', 'bc', 'ad', 'bd', 'ace', 'bce', 'ade', 'bde', 'acf', 'bcf', 'adf', 'bdf']
     );
+  });
+
+  //////////////////////////////
+  // checkIfIgnored
+  //////////////////////////////
+  it('checkIfIgnored - string with filename', function () {
+    var ignoredFiles = 'sass/main/styles.scss';
+    var ignored = helpers.checkIfIgnored(exampleFile, ignoredFiles);
+
+    assert.equal(ignored, true);
+  });
+
+  it('checkIfIgnored - string with path', function (done) {
+    var ignoredFiles = 'sass/**/*.scss';
+    var ignored = helpers.checkIfIgnored(exampleFile, ignoredFiles);
+
+    assert.equal(ignored, true);
+    done();
+  });
+
+  it('checkIfIgnored - array with filenames/paths - false', function (done) {
+    var ignoredFiles = [
+      'sass/vendor/**/*.scss',
+      'sass/variables.scss'
+    ];
+    var ignored = helpers.checkIfIgnored(exampleFile, ignoredFiles);
+
+    assert.equal(ignored, false);
+    done();
+  });
+
+  it('checkIfIgnored - array with filenames/paths - true', function (done) {
+    var ignoredFiles = [
+      'sass/vendor/**/*.scss',
+      'sass/main/**/*.scss'
+    ];
+    var ignored = helpers.checkIfIgnored(exampleFile, ignoredFiles);
+
+    assert.equal(ignored, true);
+    done();
   });
 });
