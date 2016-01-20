@@ -307,4 +307,70 @@ describe('cli', function () {
     });
 
   });
+
+  it('parse errors should report as a lint error', function (done) {
+    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+
+    childProcess.exec(command, function (err, stdout) {
+      var result = JSON.parse(stdout)[0];
+
+      if (err !== null) {
+        return done(new Error('Parse error failure'));
+      }
+
+      assert.equal(1, result.errorCount);
+      done();
+    });
+  });
+
+  it('parse errors should report as severity 2', function (done) {
+    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+
+    childProcess.exec(command, function (err, stdout) {
+      var result = JSON.parse(stdout)[0],
+          messages = result.messages[0],
+          severity = 2;
+
+      if (err !== null) {
+        return done(new Error('Parse error failure'));
+      }
+
+      assert.equal(severity, messages.severity);
+      done();
+    });
+  });
+
+  it('parse errors should report the correct message', function (done) {
+    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+
+    childProcess.exec(command, function (err, stdout) {
+      var result = JSON.parse(stdout)[0],
+          message = result.messages[0].message,
+          expected = 'Please check validity of the block starting from line #5';
+
+      if (err !== null) {
+        return done(new Error('Parse error failure'));
+      }
+
+      assert.equal(expected, message);
+      done();
+    });
+  });
+
+  it('parse errors rule Id should be \'Fatal\'', function (done) {
+    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+
+    childProcess.exec(command, function (err, stdout) {
+      var result = JSON.parse(stdout)[0],
+          messages = result.messages[0],
+          ruleId = 'Fatal';
+
+      if (err !== null) {
+        return done(new Error('Parse error failure'));
+      }
+
+      assert.equal(ruleId, messages.ruleId);
+      done();
+    });
+  });
 });
