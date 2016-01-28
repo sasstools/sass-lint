@@ -124,6 +124,13 @@ sassLint.format = function (results, options, configPath) {
   return formatted(results);
 };
 
+var counter = 0;
+function countUp()
+{
+  counter = counter + 1;
+  return counter;
+}
+
 sassLint.outputResults = function (results, options, configPath) {
   var config = this.getConfig(options, configPath);
 
@@ -133,8 +140,8 @@ sassLint.outputResults = function (results, options, configPath) {
 
     if (config.options['output-file']) {
       try {
-        fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), formatted);
-        console.log('Output successfully written to ' + path.resolve(process.cwd(), config.options['output-file']));
+        fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file'] + countUp() + "-report.html")), formatted);
+        console.log('Output successfully written to ' + path.resolve(process.cwd(), config.options['output-file'] + counter + "-report.html"));
       }
       catch (e) {
         console.log('Error: Output was unable to be written to ' + path.resolve(process.cwd(), config.options['output-file']));
