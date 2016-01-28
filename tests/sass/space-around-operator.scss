@@ -475,3 +475,8 @@ $qux: (2 * 1); // FIXME: Gonzales - FIXED IN BETA
 .foo {
   $val: 1 - ($foo * 2);
 }
+
+// Invalid Sass so compile would fail - Issue #483
+// .foo {
+//   $val: - ($foo * 2);
+// }
