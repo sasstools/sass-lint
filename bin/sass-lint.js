@@ -7,7 +7,8 @@ var program = require('commander'),
 
 var configPath,
     ignores,
-    configOptions = {};
+    configOptions = {},
+    exitCode = 0;
 
 var detectPattern = function (pattern) {
   var detects;
@@ -16,6 +17,10 @@ var detectPattern = function (pattern) {
 
   if (program.verbose) {
     lint.outputResults(detects, configOptions, configPath);
+  }
+
+  if (lint.errorCount(detects).count) {
+    exitCode = 1;
   }
 
   if (program.exit) {
@@ -86,3 +91,7 @@ else {
     detectPattern(path);
   });
 }
+
+process.on('exit', function () {
+  process.exit(exitCode); // eslint-disable-line no-process-exit
+});

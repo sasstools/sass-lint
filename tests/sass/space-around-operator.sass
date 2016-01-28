@@ -450,3 +450,19 @@ h1
 
 .foo
   z-index: -1
+
+// ========================
+// Interesting user cases
+// ========================
+
+// Should ignore the this
+.foo
+  $val: -($foo * 2)
+
+// Should flag this if rule is true
+.foo
+  $val: 1-($foo * 2)
+
+// Should flag this if rule is false
+.foo
+  $val: 1 - ($foo * 2)
