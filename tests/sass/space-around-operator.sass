@@ -447,3 +447,19 @@ $qux: (2 * 1) // FIXME: Gonzales - FIXED IN BETA
 
 h1
   +large-text
+
+// ========================
+// Interesting user cases
+// ========================
+
+// Should ignore the this
+.foo
+  $val: -($foo * 2)
+
+// Should flag this if rule is true
+.foo
+  $val: 1-($foo * 2)
+
+// Should flag this if rule is false
+.foo
+  $val: 1 - ($foo * 2)
