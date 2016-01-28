@@ -1,5 +1,24 @@
 # Sass Lint Changelog
 
+## v1.5.0
+**January 28, 2016**
+
+New year blues
+
+**Changes**
+* AST parse errors will now be returned to the user as `Fatal` lint errors this prevents un-handled errors breaking builds [#459](https://github.com/sasstools/sass-lint/pull/459)
+* Sass-lint plugin for Brackets added to the README [#470](https://github.com/sasstools/sass-lint/issues/470)
+* Sass-lint plugin for IntelliJ IDEA, RubyMine, WebStorm, PhpStorm, PyCharm, added to the README [#484](https://github.com/sasstools/sass-lint/issues/484)
+
+
+**CLI**
+* Updated error codes, whenever errors are present even when cli is using the `--no-exit` flag a error code of 1 will be output [#221](https://github.com/sasstools/sass-lint/issues/221)
+
+**Fixes**
+* Fixed an issue where an error of `next is undefined` would be thrown in the `space-after-colon` rule [#468](https://github.com/sasstools/sass-lint/issues/468)
+* Fixed an issue with negative z-index values in the `space-around-operator` rule [#454](https://github.com/sasstools/sass-lint/issues/454)
+* Fixed another minor issue with `space-around-operator` to prevent a possible crash [#483](https://github.com/sasstools/sass-lint/issues/483)
+
 ## v1.4.0
 **December 10, 2015**
 
