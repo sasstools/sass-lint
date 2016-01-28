@@ -308,15 +308,26 @@ describe('cli', function () {
 
   });
 
+  it('should exit with exit code 1 when quiet', function (done) {
+    var command = 'sass-lint -c tests/yml/.error-output.yml tests/sass/cli-error.scss --verbose --no-exit';
+
+    childProcess.exec(command, function (err) {
+      if (err.code === 1) {
+        return done();
+      }
+
+      return done(new Error('Error code not 1'));
+    });
+  });
+
+  /**
+   * We disabled eslints handle callback err rule here as we are deliberately throwing errors that we don't care about
+   */
   it('parse errors should report as a lint error', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) {
+    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0];
-
-      if (err !== null) {
-        return done(new Error('Parse error failure'));
-      }
 
       assert.equal(1, result.errorCount);
       done();
@@ -326,14 +337,10 @@ describe('cli', function () {
   it('parse errors should report as severity 2', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) {
+    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
           messages = result.messages[0],
           severity = 2;
-
-      if (err !== null) {
-        return done(new Error('Parse error failure'));
-      }
 
       assert.equal(severity, messages.severity);
       done();
@@ -343,14 +350,10 @@ describe('cli', function () {
   it('parse errors should report the correct message', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) {
+    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
           message = result.messages[0].message,
           expected = 'Please check validity of the block starting from line #5';
-
-      if (err !== null) {
-        return done(new Error('Parse error failure'));
-      }
 
       assert.equal(expected, message);
       done();
@@ -360,14 +363,10 @@ describe('cli', function () {
   it('parse errors rule Id should be \'Fatal\'', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) {
+    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
           messages = result.messages[0],
           ruleId = 'Fatal';
-
-      if (err !== null) {
-        return done(new Error('Parse error failure'));
-      }
 
       assert.equal(ruleId, messages.ruleId);
       done();

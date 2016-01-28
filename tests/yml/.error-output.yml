@@ -1,0 +1,9 @@
+options:
+  formatter: stylish
+  cache-config: false
+  merge-default-rules: false
+files:
+  include: '**/*.s+(a|c)ss'
+rules:
+  no-ids: 2
+  no-color-literals: 1
