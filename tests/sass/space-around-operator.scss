@@ -452,3 +452,7 @@ $qux: (2 * 1); // FIXME: Gonzales - FIXED IN BETA
 @if ($foo <= $bar) {
   $baz: 1;
 }
+
+.foo {
+  z-index: -1;
+}
