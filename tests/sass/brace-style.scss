@@ -444,10 +444,30 @@ $total: 4;
 
 
 
-// No parens
+// =======================
+// No paren tests
+// =======================
 
 @if $foo { $bar: 'foo'; }
 
 @if $foo {
   $bar: 'foo';
 }
+
+
+
+// =======================
+// Closing brace tests
+// =======================
+
+.foo {
+  content: 'foo'; }
+
+@if($foo) {
+  $bar: 'foo'; }
+
+@function foo() {
+  @return 'foo'; }
+
+@mixin bar() {
+  content: 'bar'; }
