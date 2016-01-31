@@ -292,7 +292,6 @@ h2
 
 
 
-
 @if($foo)
 {
   $bar: 'foo';
@@ -418,7 +417,6 @@ $total: 4;
 
 @if ($foo) { $bar: 'foo'; } @else { $bar: false; }
 @if ($foo) { $bar: 'foo'; } @else if { $bar: 'bar'; } @else { $bar: false; }
-
 
 @if ($foo) { $bar: 'foo'; }
 @else { $bar: false; }
