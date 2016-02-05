@@ -1576,7 +1576,7 @@ describe('helpers', function () {
   //////////////////////////////
   // attemptTraversal
   //////////////////////////////
-  it('attemptTraversal - collect all nodes', function () {
+  it('attemptTraversal - SCSS - collect all nodes', function () {
     var stylesheet = gonzales.parse(['',
       '.a {',
       '  .b {',
@@ -1599,7 +1599,7 @@ describe('helpers', function () {
     );
   });
 
-  it('attemptTraversal - empty array when traversal fails', function () {
+  it('attemptTraversal - SCSS - empty array when traversal fails', function () {
     var stylesheet = gonzales.parse(['',
       '.a {',
       '  color: red;',
@@ -1611,10 +1611,42 @@ describe('helpers', function () {
     );
   });
 
+  it('attemptTraversal - Sass - collect all nodes', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a',
+      '  .b',
+      '    color: red',
+      '  .c',
+      '    color: blue',
+      '  .d',
+      '    color: green',
+      ''].join('\n'), { syntax: 'sass' });
+
+    assert.deepEqual(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block', 'declaration', 'property', 'ident'])
+        .map(function (node) {
+          return node.content;
+        }),
+      ['color', 'color', 'color']
+    );
+  });
+
+  it('attemptTraversal - Sass - empty array when traversal fails', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a',
+      '  color: red',
+      ''].join('\n'), { syntax: 'sass' });
+
+    assert.equal(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block']).length,
+      0
+    );
+  });
+
   //////////////////////////////
   // collectSuffixExtensions
   //////////////////////////////
-  it('collectSuffixExtensions - no extensions', function () {
+  it('collectSuffixExtensions - SCSS - no extensions', function () {
     var ruleset = gonzales.parse(['',
       '.a {',
       '  .b {',
@@ -1633,7 +1665,7 @@ describe('helpers', function () {
     );
   });
 
-  it('collectSuffixExtensions - BEM example', function () {
+  it('collectSuffixExtensions - SCSS - BEM example', function () {
     var ruleset = gonzales.parse(['',
       '.block {',
       '  &__element {',
@@ -1652,7 +1684,7 @@ describe('helpers', function () {
     );
   });
 
-  it('collectSuffixExtensions - many parents and children', function () {
+  it('collectSuffixExtensions - SCSS - many parents and children', function () {
     var ruleset = gonzales.parse(['',
       '.a,',
       '.b {',
@@ -1664,6 +1696,57 @@ describe('helpers', function () {
       '    }',
       '  }',
       '}'].join('\n'), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a', 'b', 'ac', 'bc', 'ad', 'bd', 'ace', 'bce', 'ade', 'bde', 'acf', 'bcf', 'adf', 'bdf']
+    );
+  });
+
+  it('collectSuffixExtensions - Sass - no extensions', function () {
+    var ruleset = gonzales.parse(['',
+      '.a',
+      '  .b',
+      '    .c',
+      '      width: 2px',
+      ''].join('\n'), { syntax: 'sass' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a']
+    );
+  });
+
+  it('collectSuffixExtensions - Sass - BEM example', function () {
+    var ruleset = gonzales.parse(['',
+      '.block',
+      '  &__element',
+      '    &--modifier',
+      '      width: 2px',
+      ''].join('\n'), { syntax: 'sass' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['block', 'block__element', 'block__element--modifier']
+    );
+  });
+
+  it('collectSuffixExtensions - Sass - many parents and children', function () {
+    var ruleset = gonzales.parse(['',
+      '.a, .b',
+      '  &c, &d',
+      '    &e, &f',
+      '      width: 2px',
+      ''].join('\n'), { syntax: 'sass' })
       .first('ruleset');
 
     assert.deepEqual(
