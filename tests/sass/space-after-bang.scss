@@ -35,3 +35,22 @@ $bar: red !global;
 $baz: red! global;
 
 $qux: red ! global;
+
+// Optional
+
+.foo {
+  @extend .notice !optional;
+}
+
+.bar {
+  @extend .notice ! optional;
+}
+
+// Both the following are invalid
+// .baz {
+//   @extend .notice!optional;
+// }
+//
+// .qux {
+//   @extend .notice! optional;
+// }
