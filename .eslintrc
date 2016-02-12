@@ -64,7 +64,6 @@ rules:
   no-invalid-this: 2
   no-iterator: 2
   no-label-var: 2
-  no-labels: 2
   no-lone-blocks: 2
   no-loop-func: 2
   no-mixed-spaces-and-tabs:
