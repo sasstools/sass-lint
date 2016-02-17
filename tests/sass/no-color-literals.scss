@@ -60,6 +60,7 @@ $colors: (
 );
 
 // allowed
+$black: #000;
 $literal: mediumslateblue;
 $hexVar: #fff;
 $rgb: rgb(255, 255, 255);
@@ -118,3 +119,8 @@ $hsla: hsla(40, 50%, 50%, .3);
 .rgba-enabled {
   color: rgba($hexVar, .3);
 }
+
+// allowed - using variables named after colors as map values
+$colors: (
+  font-color: $black,
+);
