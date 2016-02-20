@@ -25,3 +25,6 @@
 @if variable-exists(google-fonts-url) {
   @import url($google-fonts-url);
 }
+
+// Test dot in filename
+@import '../../node_modules/inuit-normalize/generic.normalize';
