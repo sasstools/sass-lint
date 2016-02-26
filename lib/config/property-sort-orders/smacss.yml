@@ -101,6 +101,7 @@ order:
   # Background
 
   - 'background'
+  - 'background-attachment'
   - 'background-clip'
   - 'background-color'
   - 'background-image'
