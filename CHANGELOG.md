@@ -1,5 +1,13 @@
 # Sass Lint Changelog
 
+## v1.5.1
+**February 26, 2016**
+
+Hotfix
+
+**Fixes**
+* Fix lodash dependancy issue [#549](https://github.com/sasstools/sass-lint/issues/549)
+
 ## v1.5.0
 **January 28, 2016**
 
