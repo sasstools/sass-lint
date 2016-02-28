@@ -5,12 +5,12 @@ var lint = require('./_lint');
 //////////////////////////////
 // SCSS syntax tests
 //////////////////////////////
-describe('ban properties - scss', function () {
-  var file = lint.file('ban-properties.scss');
+describe('no disallowed properties - scss', function () {
+  var file = lint.file('no-disallowed-properties.scss');
 
   it('properties: [z-index]', function (done) {
     lint.test(file, {
-      'ban-properties': [1, { properties: ['z-index'] }]
+      'no-disallowed-properties': [1, { properties: ['z-index'] }]
     }, function (data) {
       lint.assert.equal(1, data.warningCount);
       done();
@@ -21,12 +21,12 @@ describe('ban properties - scss', function () {
 //////////////////////////////
 // Sass syntax tests
 //////////////////////////////
-describe('ban properties - sass', function () {
-  var file = lint.file('ban-properties.sass');
+describe('no disallowed properties - sass', function () {
+  var file = lint.file('no-disallowed-properties.sass');
 
   it('properties: [z-index]', function (done) {
     lint.test(file, {
-      'ban-properties': [1, { properties: ['z-index'] }]
+      'no-disallowed-properties': [1, { properties: ['z-index'] }]
     }, function (data) {
       lint.assert.equal(1, data.warningCount);
       done();
