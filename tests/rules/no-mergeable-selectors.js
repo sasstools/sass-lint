@@ -9,7 +9,7 @@ describe('no mergeable selectors - scss', function () {
     lint.test(file, {
       'no-mergeable-selectors': 1
     }, function (data) {
-      lint.assert.equal(19, data.warningCount);
+      lint.assert.equal(21, data.warningCount);
       done();
     });
   });
@@ -25,13 +25,14 @@ describe('no mergeable selectors - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(20, data.warningCount);
       done();
     });
   });
 
 });
 
+// 1 less warning than scss syntax as we dont attempt to merge media queries
 describe('no mergeable selectors - sass', function () {
   var file = lint.file('no-mergeable-selectors.sass');
 
@@ -39,11 +40,12 @@ describe('no mergeable selectors - sass', function () {
     lint.test(file, {
       'no-mergeable-selectors': 1
     }, function (data) {
-      lint.assert.equal(19, data.warningCount);
+      lint.assert.equal(20, data.warningCount);
       done();
     });
   });
 
+  // 1 less warning than scss syntax as we dont attempt to merge media queries
   it('[whitelist: div p]', function (done) {
     lint.test(file, {
       'no-mergeable-selectors': [
@@ -55,9 +57,8 @@ describe('no mergeable selectors - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(19, data.warningCount);
       done();
     });
   });
-
 });
