@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "extends-before-mixins": 1,
+    "test-rule-name": 1
+  }
+}

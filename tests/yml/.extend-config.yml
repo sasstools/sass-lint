@@ -1,0 +1,7 @@
+options:
+  extends:
+    # We call `require` for this config from the context of `lib/config.js`
+    - '../tests/json/extend'
+rules:
+  # Override rule set in `extend.json`
+  extends-before-mixins: 0

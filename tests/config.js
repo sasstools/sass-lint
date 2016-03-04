@@ -191,4 +191,19 @@ describe('config', function () {
 
     done();
   });
+
+  it('should load and override an extended config', function (done) {
+    var tempOptions = {
+          'options': {}
+        },
+        conf;
+
+    tempOptions.options['cache-config'] = false;
+    conf = config(tempOptions, path.join(__dirname, 'yml', '.extend-config.yml'));
+
+    assert(equal(conf.rules['extends-before-mixins'], 0));
+    assert(equal(conf.rules['test-rule-name'], 1));
+
+    done();
+  });
 });
