@@ -16,7 +16,7 @@ describe('cli', function () {
 
       assert(stdout.indexOf('Usage') > 0);
 
-      done(null);
+      return done(null);
     });
   });
 
@@ -30,7 +30,7 @@ describe('cli', function () {
 
       should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
 
-      done(null);
+      return done(null);
     });
   });
 
@@ -230,7 +230,7 @@ describe('cli', function () {
 
       else {
         assert.equal(expectedOutputLength, stdout.length);
-        done();
+        return done();
       }
     });
   });
@@ -254,7 +254,7 @@ describe('cli', function () {
         assert(stdout.indexOf(file) === -1);
       });
 
-      done();
+      return done();
     });
   });
 
@@ -277,7 +277,7 @@ describe('cli', function () {
         assert(stdout.indexOf(file) === -1);
       });
 
-      done();
+      return done();
     });
   });
 
