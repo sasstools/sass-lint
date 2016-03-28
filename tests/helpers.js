@@ -5,30 +5,30 @@ var assert = require('assert'),
     gonzales = require('gonzales-pe');
 
 var haystack = [
-    {
-      prop: 'a',
-      propb: 'b'
-    },
-    {
-      prop: 'c',
-      propb: 'd'
-    }
+  {
+    prop: 'a',
+    propb: 'b'
+  },
+  {
+    prop: 'c',
+    propb: 'd'
+  }
 ];
 
 var classBlock =
     {
       type: 'class',
       content:
-          [
-              {
-                type: 'ident',
-                content: 'foo',
-                syntax: 'scss',
-                start: { line: 5, column: 2 },
-                end: { line: 5, column: 4 },
-                indexHasChanged: [ 0 ]
-              }
-          ],
+      [
+        {
+          type: 'ident',
+          content: 'foo',
+          syntax: 'scss',
+          start: { line: 5, column: 2 },
+          end: { line: 5, column: 4 },
+          indexHasChanged: [ 0 ]
+        }
+      ],
       syntax: 'scss',
       start: { line: 5, column: 1 },
       end: { line: 5, column: 4 },
@@ -39,16 +39,16 @@ var classBlock =
     {
       type: 'class',
       content:
-          [
-              {
-                type: 'ident',
-                content: 'test',
-                syntax: 'scss',
-                start: { line: 9, column: 2 },
-                end: { line: 9, column: 5 },
-                indexHasChanged: [ 0 ]
-              }
-          ],
+      [
+        {
+          type: 'ident',
+          content: 'test',
+          syntax: 'scss',
+          start: { line: 9, column: 2 },
+          end: { line: 9, column: 5 },
+          indexHasChanged: [ 0 ]
+        }
+      ],
       syntax: 'scss',
       start: { line: 9, column: 1 },
       end: { line: 9, column: 5 },
@@ -129,16 +129,16 @@ describe('helpers', function () {
         {
           type: 'class',
           content:
-              [
-                  {
-                    type: 'ident',
-                    content: 'foo',
-                    syntax: 'scss',
-                    start: { line: 5, column: 2 },
-                    end: { line: 5, column: 4 },
-                    indexHasChanged: [ 0 ]
-                  }
-              ],
+          [
+            {
+              type: 'ident',
+              content: 'foo',
+              syntax: 'scss',
+              start: { line: 5, column: 2 },
+              end: { line: 5, column: 4 },
+              indexHasChanged: [ 0 ]
+            }
+          ],
           syntax: 'scss',
           start: { line: 5, column: 1 },
           end: { line: 5, column: 4 },
