@@ -2,15 +2,33 @@
 
 A Node-only Sass linter for both `sass` and `scss` syntax!
 
+---
+
 ## Install
+You can get `sass-lint` from [NPM](https://www.npmjs.com/package/sass-lint)
 
 ```
 npm install sass-lint --save-dev
 ```
 
+---
+
 ## Configuring
 
-Use the [Sample Config](docs/sass-lint.yml) as a guide to create your `.sass-lint.yml` in the root of where you are running Sass Lint from. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
+Sass-lint can be configured from a `.sass-lint.yml` file in your project. If you don't have one in the root of your project or you would like all your projects to follow a standard config file then you can specify the path to one in your projects `pacakge.json` file.
+
+For example:
+```javascript
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "sasslintConfig": "PATH/TO/YOUR/CONFIG/FILE"
+}
+```
+
+Use the [Sample Config](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) as a guide to create your own `.sass-lint.yml` config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
+
+### [Configuration Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/options)
 
 *Migrating from SCSS-Lint*: If you already have a config for SCSS-Lint, you can instantly convert it to the equivalent Sass Lint config at [sasstools.github.io/make-sass-lint-config](http://sasstools.github.io/make-sass-lint-config/).
 
@@ -18,13 +36,27 @@ Use the [Sample Config](docs/sass-lint.yml) as a guide to create your `.sass-lin
 
 The following are options that you can use to config the Sass Linter.
 
+* [cache-config](https://github.com/sasstools/sass-lint/tree/master/docs/options/cache-config.md) - Allows you to cache your config for a small speed boost when not changing the contents of your config file
+* [config-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/config-file.md) - Specify another config file to load
+* [formatter](https://github.com/sasstools/sass-lint/tree/master/docs/options/formatter.md) - Choose the format for any warnings/errors to be displayed
+* [merge-default-rules](https://github.com/sasstools/sass-lint/tree/master/docs/options/merge-default-rules.md) - Allows you to merge your rules with the default config file included with sass-lint
+* [output-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/output-file.md) - Choose to write the linters output to a file
+
+
 #### Files
 
 The `files` option can either be set to a [glob](https://github.com/isaacs/node-glob) or it can be set to an object, where the key `include` is set to the glob you want to include, and `ignore` set to either a glob string or an array of glob strings that you would like to ignore.
 
+```yml
+files:
+  include: 'sass/**/*.s+(a|c)ss'
+  ignore:
+    - 'sass/vendor/**/*.*'
+```
+
 #### Rules
 
-For all [rules](docs/rules), setting their severity to `0` turns it off, setting to `1` sets it as a warning (something that should not be committed in), and setting to `2` set it to an error (something that should not be written). If a rule is set to just a severity, it will use the default configuration (where available).
+For all [rules](https://github.com/sasstools/sass-lint/tree/master/docs/rules), setting their severity to `0` turns it off, setting to `1` sets it as a warning (something that should not be committed in), and setting to `2` sets it to an error (something that should not be written). If a rule is set to just a severity, it will use the default configuration (where available).
 
 If you want to configure options, set the rule to an array, where the first item in the array is the severity, and the second item in the array is an object including the options you would like to set.
 
@@ -37,9 +69,28 @@ indentation:
     size: 2
 ```
 
+### [Rules Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
+
+---
+
 ## CLI
 
-Sass Lint [`v1.1.0`](https://github.com/sasstools/sass-lint/releases/tag/v1.1.0) introduced the ability to run Sass Lint through a command line interface. See the [CLI Docs](docs/cli) for full documentation on how to use the CLI.
+Sass Lint [`v1.1.0`](https://github.com/sasstools/sass-lint/releases/tag/v1.1.0) introduced the ability to run Sass Lint through a command line interface. See the [CLI Docs](https://github.com/sasstools/sass-lint/tree/master/docs/cli) for full documentation on how to use the CLI.
+
+There are small differences which are useful to understand over other CLI tools you may have encountered with other linters.
+
+By default any rule set to severity: `2` in your config will throw an error which will stop the CLI on the first error it encounters. If you wish to see a list of errors and not have the CLI  then you'll need to use the `-q` or `--no-exit` flag.
+
+Warnings or any rule set to severity: `1` in your config by default will not be reported by the CLI tool unless you use verbose flag `-v` or `--verbose`.
+
+With this in mind if you would like to have the CLI show both warnings and errors then at the very least you should start with the following command.
+`sass-lint -v -q`
+
+This will be revisited and updated in `sass-lint` v2.0.0
+
+### [CLI Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/cli)
+
+---
 
 ## Creating Rules
 
