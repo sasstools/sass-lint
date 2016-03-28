@@ -123,9 +123,19 @@ For further information you can visit our CLI documentation linked below.
 
 ---
 
+## Contributions
+
+We welcome all contributions to this project but please do read our [contribution guidelines](https://github.com/sasstools/sass-lint/blob/master/CONTRIBUTING.md) first, especially before opening a pull request. It would also be good to read our [code of conduct](https://github.com/sasstools/sass-lint/blob/master/CODE_OF_CONDUCT.md).
+
+Please don't feel hurt or embarrassed if you find your issues/PR's that don't follow these guidelines closed as it can be a very time consuming process managing the quantity of issues and PR's we receive. If you have any questions just ask!
+
+---
+
 ## Creating Rules
 
 Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Each rule will be passed the full AST which they can traverse as they please. There are many different [node types](https://github.com/tonyganch/gonzales-pe/blob/dev/docs/node-types.md) that may be traversed, and an extensive [API for working with nodes](https://github.com/tonyganch/gonzales-pe/tree/dev#api). The file of the rule must have the same name as the name of the rule. All of the available rules are in our [rules directory](https://github.com/sasstools/sass-lint/tree/develop/lib/rules). Default options will be merged in with user config.
+
+---
 
 ## Task Runner Integration
 
