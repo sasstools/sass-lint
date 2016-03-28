@@ -5,305 +5,30 @@ var assert = require('assert'),
     gonzales = require('gonzales-pe');
 
 var haystack = [
-    {
-      prop: 'a',
-      propb: 'b'
-    },
-    {
-      prop: 'c',
-      propb: 'd'
-    }
+  {
+    prop: 'a',
+    propb: 'b'
+  },
+  {
+    prop: 'c',
+    propb: 'd'
+  }
 ];
-
-var idNode = gonzales.createNode({
-  type: 'id',
-  content: [
-    gonzales.createNode({
-      type: 'ident',
-      content: 'header',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 2
-      },
-      end: {
-        line: 1,
-        column: 7
-      }
-    })
-  ],
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 1
-  },
-  end: {
-    line: 1,
-    column: 7
-  }
-});
-
-
-var identNode = gonzales.createNode({
-  type: 'ident',
-  content: 'input',
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 1
-  },
-  end: {
-    line: 1,
-    column: 5
-  }
-});
-
-
-var classNode = gonzales.createNode({
-  type: 'class',
-  content: [
-    gonzales.createNode({
-      type: 'ident',
-      content: 'header',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 2
-      },
-      end: {
-        line: 1,
-        column: 7
-      }
-    })
-  ],
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 1
-  },
-  end: {
-    line: 1,
-    column: 7
-  }
-});
-
-
-var attributeNode = gonzales.createNode({
-  type: 'attribute',
-  content: [
-    gonzales.createNode({
-      type: 'ident',
-      content: 'type',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 7
-      },
-      end: {
-        line: 1,
-        column: 10
-      }
-    }),
-    gonzales.createNode({
-      type: 'attributeSelector',
-      content: '=',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 11
-      },
-      end: {
-        line: 1,
-        column: 11
-      }
-    }),
-    gonzales.createNode({
-      type: 'ident',
-      content: 'radio',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 12
-      },
-      end: {
-        line: 1,
-        column: 16
-      }
-    })
-  ],
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 6
-  },
-  end: {
-    line: 1,
-    column: 17
-  }
-});
-
-
-var pseudoNode = gonzales.createNode({
-  type: 'pseudoClass',
-  content: [
-    gonzales.createNode({
-      type: 'ident',
-      content: 'last-child',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 3
-      },
-      end: {
-        line: 1,
-        column: 12
-      }
-    })
-  ],
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 2
-  },
-  end: {
-    line: 1,
-    column: 12
-  }
-});
-
-
-var pseudoElementNode = gonzales.createNode({
-  type: 'pseudoElement',
-  content: [
-    gonzales.createNode({
-      type: 'ident',
-      content: 'first-line',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 3
-      },
-      end: {
-        line: 1,
-        column: 12
-      }
-    })
-  ],
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 2
-  },
-  end: {
-    line: 1,
-    column: 12
-  }
-});
-
-
-
-var nthSelectorNode = gonzales.createNode({
-  type: 'nthSelector',
-  content: [
-    gonzales.createNode({
-      type: 'ident',
-      content: 'nth-of-type',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 3
-      },
-      end: {
-        line: 1,
-        column: 13
-      }
-    }),
-    gonzales.createNode({
-      type: 'nth',
-      content: '2',
-      syntax: 'scss',
-      start: {
-        line: 1,
-        column: 15
-      },
-      end: {
-        line: 1,
-        column: 15
-      }
-    })
-  ],
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 2
-  },
-  end: {
-    line: 1,
-    column: 16
-  }
-});
-
-
-var spaceNode = gonzales.createNode({
-  type: 'space',
-  content: ' ',
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 1
-  },
-  end: {
-    line: 1,
-    column: 1
-  }
-});
-
-
-var parentSelectorNode = gonzales.createNode({
-  type: 'parentSelector',
-  content: '&',
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 1
-  },
-  end: {
-    line: 1,
-    column: 1
-  }
-});
-
-
-var combinatorNode = gonzales.createNode({
-  type: 'combinator',
-  content: '+',
-  syntax: 'scss',
-  start: {
-    line: 1,
-    column: 6
-  },
-  end: {
-    line: 1,
-    column: 6
-  }
-});
-
-
 
 var classBlock =
     {
       type: 'class',
       content:
-          [
-              {
-                type: 'ident',
-                content: 'foo',
-                syntax: 'scss',
-                start: { line: 5, column: 2 },
-                end: { line: 5, column: 4 },
-                indexHasChanged: [ 0 ]
-              }
-          ],
+      [
+        {
+          type: 'ident',
+          content: 'foo',
+          syntax: 'scss',
+          start: { line: 5, column: 2 },
+          end: { line: 5, column: 4 },
+          indexHasChanged: [ 0 ]
+        }
+      ],
       syntax: 'scss',
       start: { line: 5, column: 1 },
       end: { line: 5, column: 4 },
@@ -314,59 +39,21 @@ var classBlock =
     {
       type: 'class',
       content:
-          [
-              {
-                type: 'ident',
-                content: 'test',
-                syntax: 'scss',
-                start: { line: 9, column: 2 },
-                end: { line: 9, column: 5 },
-                indexHasChanged: [ 0 ]
-              }
-          ],
+      [
+        {
+          type: 'ident',
+          content: 'test',
+          syntax: 'scss',
+          start: { line: 9, column: 2 },
+          end: { line: 9, column: 5 },
+          indexHasChanged: [ 0 ]
+        }
+      ],
       syntax: 'scss',
       start: { line: 9, column: 1 },
       end: { line: 9, column: 5 },
       indexHasChanged: [ 0 ]
     };
-
-var nodeSimpleSelector = {
-      type: 'simpleSelector',
-      content:
-          [
-              {
-                type: 'ident',
-                content: 'h1',
-                syntax: 'scss',
-                start: { line: 16, column: 1 },
-                end: { line: 16, column: 2 },
-                indexHasChanged: [ 0 ]
-              }
-          ],
-      syntax: 'scss',
-      start: { line: 16, column: 1 },
-      end: { line: 16, column: 2 },
-      indexHasChanged: [ 0 ]
-    },
-
-    nodeDelim = {
-      type: 'delimiter',
-      content: ',',
-      syntax: 'scss',
-      start: { line: 16, column: 3 },
-      end: { line: 16, column: 3 },
-      indexHasChanged: [ 0 ]
-    },
-
-    nodeSpace = {
-      type: 'space',
-      content: ' ',
-      syntax: 'scss',
-      start: { line: 225, column: 5 },
-      end: { line: 225, column: 5 },
-      indexHasChanged: [ 0 ]
-    };
-
 
 var detectTestA = {
       line: 1,
@@ -442,16 +129,16 @@ describe('helpers', function () {
         {
           type: 'class',
           content:
-              [
-                  {
-                    type: 'ident',
-                    content: 'foo',
-                    syntax: 'scss',
-                    start: { line: 5, column: 2 },
-                    end: { line: 5, column: 4 },
-                    indexHasChanged: [ 0 ]
-                  }
-              ],
+          [
+            {
+              type: 'ident',
+              content: 'foo',
+              syntax: 'scss',
+              start: { line: 5, column: 2 },
+              end: { line: 5, column: 4 },
+              indexHasChanged: [ 0 ]
+            }
+          ],
           syntax: 'scss',
           start: { line: 5, column: 1 },
           end: { line: 5, column: 4 },
@@ -1345,34 +1032,6 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // mapDelims
-  //////////////////////////////
-
-  it('mapDelims - selector', function (done) {
-
-    var result = helpers.mapDelims(nodeSimpleSelector);
-
-    assert.equal('s', result);
-    done();
-  });
-
-  it('mapDelims - delim', function (done) {
-
-    var result = helpers.mapDelims(nodeDelim);
-
-    assert.equal('d', result);
-    done();
-  });
-
-  it('mapDelims - space', function (done) {
-
-    var result = helpers.mapDelims(nodeSpace);
-
-    assert.equal(false, result);
-    done();
-  });
-
-  //////////////////////////////
   // isNestable
   //////////////////////////////
 
@@ -1401,182 +1060,9 @@ describe('helpers', function () {
   });
 
   //////////////////////////////
-  // constructSelector
-  //////////////////////////////
-
-  it('constructSelector - id node - [#header]', function (done) {
-    var result = helpers.constructSelector(idNode),
-        expect = '#header';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - id node - [id]', function (done) {
-    var result = helpers.constructSelector(idNode),
-        expect = 'id';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - class node - [.header]', function (done) {
-    var result = helpers.constructSelector(classNode),
-        expect = '.header';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - class node - [class]', function (done) {
-    var result = helpers.constructSelector(classNode),
-        expect = 'class';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - ident node - [input]', function (done) {
-    var result = helpers.constructSelector(identNode),
-        expect = 'input';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - ident node - [selector]', function (done) {
-    var result = helpers.constructSelector(identNode),
-        expect = 'selector';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - attribute node - [type=radio]', function (done) {
-    var result = helpers.constructSelector(attributeNode),
-        expect = '[type=radio]';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - attribute node - [attribute]', function (done) {
-    var result = helpers.constructSelector(attributeNode),
-        expect = 'attribute';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - pseudo node - [:last-child]', function (done) {
-    var result = helpers.constructSelector(pseudoNode),
-        expect = ':last-child';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - pseudo node - [pseudoClass]', function (done) {
-    var result = helpers.constructSelector(pseudoNode),
-        expect = 'pseudoClass';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - pseudo element node - [::first-line]', function (done) {
-    var result = helpers.constructSelector(pseudoElementNode),
-        expect = '::first-line';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - pseudo element node - [pseudoElement]', function (done) {
-    var result = helpers.constructSelector(pseudoElementNode),
-        expect = 'pseudoElement';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - nthSelector node - [:nth-of-type(2)]', function (done) {
-    var result = helpers.constructSelector(nthSelectorNode),
-        expect = ':nth-of-type(2)';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - nthSelector node - [nthSelector]', function (done) {
-    var result = helpers.constructSelector(nthSelectorNode),
-        expect = 'nthSelector';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - space node - [ ]', function (done) {
-    var result = helpers.constructSelector(spaceNode),
-        expect = ' ';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - space node - []', function (done) {
-    var result = helpers.constructSelector(spaceNode),
-        expect = '';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - parent selector node - [&]', function (done) {
-    var result = helpers.constructSelector(parentSelectorNode),
-        expect = '&';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - parent selector node - [parentSelector]', function (done) {
-    var result = helpers.constructSelector(parentSelectorNode),
-        expect = 'parentSelector';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-
-  it('constructSelector - combinator node - [+]', function (done) {
-    var result = helpers.constructSelector(combinatorNode),
-        expect = '+';
-
-    assert.equal(expect, result.content);
-    done();
-  });
-
-  it('constructSelector - combinator node - [combinator]', function (done) {
-    var result = helpers.constructSelector(combinatorNode),
-        expect = 'combinator';
-
-    assert.equal(expect, result.type);
-    done();
-  });
-
-  //////////////////////////////
   // attemptTraversal
   //////////////////////////////
-  it('attemptTraversal - collect all nodes', function () {
+  it('attemptTraversal - SCSS - collect all nodes', function () {
     var stylesheet = gonzales.parse(['',
       '.a {',
       '  .b {',
@@ -1599,7 +1085,7 @@ describe('helpers', function () {
     );
   });
 
-  it('attemptTraversal - empty array when traversal fails', function () {
+  it('attemptTraversal - SCSS - empty array when traversal fails', function () {
     var stylesheet = gonzales.parse(['',
       '.a {',
       '  color: red;',
@@ -1611,10 +1097,42 @@ describe('helpers', function () {
     );
   });
 
+  it('attemptTraversal - Sass - collect all nodes', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a',
+      '  .b',
+      '    color: red',
+      '  .c',
+      '    color: blue',
+      '  .d',
+      '    color: green',
+      ''].join('\n'), { syntax: 'sass' });
+
+    assert.deepEqual(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block', 'declaration', 'property', 'ident'])
+        .map(function (node) {
+          return node.content;
+        }),
+      ['color', 'color', 'color']
+    );
+  });
+
+  it('attemptTraversal - Sass - empty array when traversal fails', function () {
+    var stylesheet = gonzales.parse(['',
+      '.a',
+      '  color: red',
+      ''].join('\n'), { syntax: 'sass' });
+
+    assert.equal(
+      helpers.attemptTraversal(stylesheet, ['ruleset', 'block', 'ruleset', 'block']).length,
+      0
+    );
+  });
+
   //////////////////////////////
   // collectSuffixExtensions
   //////////////////////////////
-  it('collectSuffixExtensions - no extensions', function () {
+  it('collectSuffixExtensions - SCSS - no extensions', function () {
     var ruleset = gonzales.parse(['',
       '.a {',
       '  .b {',
@@ -1633,7 +1151,7 @@ describe('helpers', function () {
     );
   });
 
-  it('collectSuffixExtensions - BEM example', function () {
+  it('collectSuffixExtensions - SCSS - BEM example', function () {
     var ruleset = gonzales.parse(['',
       '.block {',
       '  &__element {',
@@ -1652,7 +1170,7 @@ describe('helpers', function () {
     );
   });
 
-  it('collectSuffixExtensions - many parents and children', function () {
+  it('collectSuffixExtensions - SCSS - many parents and children', function () {
     var ruleset = gonzales.parse(['',
       '.a,',
       '.b {',
@@ -1664,6 +1182,57 @@ describe('helpers', function () {
       '    }',
       '  }',
       '}'].join('\n'), { syntax: 'scss' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a', 'b', 'ac', 'bc', 'ad', 'bd', 'ace', 'bce', 'ade', 'bde', 'acf', 'bcf', 'adf', 'bdf']
+    );
+  });
+
+  it('collectSuffixExtensions - Sass - no extensions', function () {
+    var ruleset = gonzales.parse(['',
+      '.a',
+      '  .b',
+      '    .c',
+      '      width: 2px',
+      ''].join('\n'), { syntax: 'sass' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['a']
+    );
+  });
+
+  it('collectSuffixExtensions - Sass - BEM example', function () {
+    var ruleset = gonzales.parse(['',
+      '.block',
+      '  &__element',
+      '    &--modifier',
+      '      width: 2px',
+      ''].join('\n'), { syntax: 'sass' })
+      .first('ruleset');
+
+    assert.deepEqual(
+      helpers.collectSuffixExtensions(ruleset, 'class').map(function (node) {
+        return node.content;
+      }),
+      ['block', 'block__element', 'block__element--modifier']
+    );
+  });
+
+  it('collectSuffixExtensions - Sass - many parents and children', function () {
+    var ruleset = gonzales.parse(['',
+      '.a, .b',
+      '  &c, &d',
+      '    &e, &f',
+      '      width: 2px',
+      ''].join('\n'), { syntax: 'sass' })
       .first('ruleset');
 
     assert.deepEqual(

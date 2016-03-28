@@ -12,7 +12,7 @@ describe('space after bang - scss', function () {
     lint.test(file, {
       'space-after-bang': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,7 @@ describe('space after bang - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });
@@ -42,7 +42,7 @@ describe('space after bang - sass', function () {
     lint.test(file, {
       'space-after-bang': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });
@@ -56,7 +56,7 @@ describe('space after bang - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });

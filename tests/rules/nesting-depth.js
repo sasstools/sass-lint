@@ -12,7 +12,21 @@ describe('nesting depth - scss', function () {
     lint.test(file, {
       'nesting-depth': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('[max-depth: 3]', function (done) {
+    lint.test(file, {
+      'nesting-depth': [
+        1,
+        {
+          'max-depth': 3
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });
@@ -28,7 +42,21 @@ describe('nesting depth - sass', function () {
     lint.test(file, {
       'nesting-depth': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('[max-depth: 3]', function (done) {
+    lint.test(file, {
+      'nesting-depth': [
+        1,
+        {
+          'max-depth': 3
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });

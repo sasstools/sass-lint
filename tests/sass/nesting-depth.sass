@@ -8,15 +8,15 @@
     .fail
       content: 'bob'
 
-      &:hover
+      &:hover,
+      &:active
         content: 'fail'
+
+        .bar
+          content: 'fail'
 
       .bar
         content: 'fail'
-
-
-
-
 
 .block
   content: 'bar'
@@ -27,7 +27,3 @@
 
     &--modifier
       content: 'bar'
-
-
-
-
