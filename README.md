@@ -79,12 +79,25 @@ Sass Lint [`v1.1.0`](https://github.com/sasstools/sass-lint/releases/tag/v1.1.0)
 
 There are small differences which are useful to understand over other CLI tools you may have encountered with other linters.
 
-By default any rule set to severity: `2` in your config will throw an error which will stop the CLI on the first error it encounters. If you wish to see a list of errors and not have the CLI  then you'll need to use the `-q` or `--no-exit` flag.
+By default any rule set to severity: `2` in your config will throw an error which will stop the CLI on the first error it encounters. If you wish to see a list of errors and not have the CLI exit then you'll need to use the `-q` or `--no-exit` flag.
 
 Warnings or any rule set to severity: `1` in your config by default will not be reported by the CLI tool unless you use verbose flag `-v` or `--verbose`.
 
-With this in mind if you would like to have the CLI show both warnings and errors then at the very least you should start with the following command.
+With this in mind if you would like to have the CLI show both warnings and errors then at the very least your starting point to use the cli should be the following command.
 `sass-lint -v -q`
+
+Below is an example of the command being used to load a config `-c app/config/.sass-lint.yml` file show errors and warnings on the command line and target a glob pattern `**/*.scss` being used.
+
+`sass-lint -c app/config/.sass-lint.yml '**/*.scss' -v -q`
+or with long form flags
+`sass-lint --config app/config/.sass-lint.yml '**/*.scss' --verbose --no-exit`
+
+To add a list of files to ignore `tests/**/*.scss, dist/other.scss` into the mix you could do the following:
+`sass-lint -c app/config/.sass-lint.yml '**/*.scss' -v -q -i 'tests/**/*.scss'`
+or with long form flags
+`sass-lint --config app/config/.sass-lint.yml '**/*.scss' --verbose --no-exit --ignore 'tests/**/*.scss, dist/other.scss'`
+
+Notice that glob patterns need to be wrapped in quotation or single quote marks in order to be passed to sass-lint correctly and if you want to ignore multiple paths you also need to wrap it in quotation marks and seperate each pattern/fil with a comma and a space `, `.
 
 This will be revisited and updated in `sass-lint` v2.0.0
 
