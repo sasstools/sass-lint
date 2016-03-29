@@ -15,7 +15,7 @@ npm install sass-lint --save-dev
 
 ## Configuring
 
-Sass-lint can be configured from a `.sass-lint.yml` file in your project. If you don't have one in the root of your project or you would like all your projects to follow a standard config file then you can specify the path to one in your projects `pacakge.json` file.
+Sass-lint can be configured from a `.sass-lint.yml` file in your project. If you don't have one in the root of your project or you would like all your projects to follow a standard config file then you can specify the path to one in your projects `package.json` file.
 
 For example:
 ```javascript
