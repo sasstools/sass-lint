@@ -24,7 +24,8 @@ describe('variable for property - scss', function () {
         {
           'properties': [
             'margin',
-            'content'
+            'content',
+            'background'
           ]
         }
       ]
@@ -57,7 +58,8 @@ describe('variable for property - sass', function () {
         {
           'properties': [
             'margin',
-            'content'
+            'content',
+            'background'
           ]
         }
       ]
