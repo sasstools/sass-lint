@@ -24,9 +24,9 @@ var custOptions = function () {
       'no-duplicate-properties': 0,
       'indentation': [
         2,
-          {
-            'size': 4
-          }
+        {
+          'size': 4
+        }
       ]
     }
   };
