@@ -1,5 +1,5 @@
 .foo {
-  padding: 5;
+  padding: 5px;
 
   .bar {
     content: 'baz';
@@ -19,16 +19,30 @@
   }
 }
 
+.noDepthSelector {
+  width: 100px;
+}
+
 .block {
   content: 'bar';
 
   &__element {
     content: 'bar';
 
-
     &--modifier {
       content: 'bar';
+    }
+  }
+}
 
+.secondBlock {
+  content: 'bar';
+
+  @at-root &__secondElement {
+    content: 'bar';
+
+    @at-root &--secondModifier {
+      content: 'bar';
     }
   }
 }
