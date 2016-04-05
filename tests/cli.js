@@ -2,42 +2,42 @@ var assert = require('assert'),
     should = require('should'),
     fs = require('fs-extra'),
     path = require('path'),
-    childProcess = require('child_process');
+    exec = require('child_process').exec;
 
 
 describe('cli', function () {
   it('should return help instructions', function (done) {
     var command = 'sass-lint -h';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
       if (err) {
         return done(err);
       }
 
       assert(stdout.indexOf('Usage') > 0);
 
-      done(null);
+      return done(null);
     });
   });
 
   it('should return a version', function (done) {
     var command = 'sass-lint -V';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
       if (err) {
         return done(err);
       }
 
       should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
 
-      done(null);
+      return done(null);
     });
   });
 
   it('CLI format option should output JSON', function (done) {
     var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       if (err) {
         return done(err);
@@ -58,7 +58,7 @@ describe('cli', function () {
     var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
-    childProcess.exec(command, function (err) {
+    exec(command, function (err) {
 
       if (err) {
         return done(err);
@@ -81,7 +81,7 @@ describe('cli', function () {
     var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
-    childProcess.exec(command, function (err) {
+    exec(command, function (err) {
 
       if (err) {
         return done(err);
@@ -114,7 +114,7 @@ describe('cli', function () {
     var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format JSON --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
-    childProcess.exec(command, function (err) {
+    exec(command, function (err) {
 
       if (err) {
         return done(err);
@@ -148,7 +148,7 @@ describe('cli', function () {
   it('should return JSON from a custom config', function (done) {
     var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/sass/cli.scss --verbose';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       if (err) {
         return done(err);
@@ -170,7 +170,7 @@ describe('cli', function () {
   it('output should return no errors/warnings', function (done) {
     var command = 'sass-lint -c tests/yml/.json-lint.yml tests/sass/cli.scss --verbose';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       var result = 0;
 
@@ -192,7 +192,7 @@ describe('cli', function () {
   it('should return a warning', function (done) {
     var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/sass/cli.scss --verbose';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       var result = '';
 
@@ -222,7 +222,7 @@ describe('cli', function () {
     var command = 'sass-lint -c tests/yml/.stylish-errors.yml tests/sass/cli.scss --verbose',
         expectedOutputLength = 155;
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       if (err) {
         return done(err);
@@ -230,7 +230,7 @@ describe('cli', function () {
 
       else {
         assert.equal(expectedOutputLength, stdout.length);
-        done();
+        return done();
       }
     });
   });
@@ -244,7 +244,7 @@ describe('cli', function () {
 
     var command = 'sass-lint -i \'**/*.s+(a|c)ss\'';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       if (err) {
         return done(err);
@@ -254,7 +254,7 @@ describe('cli', function () {
         assert(stdout.indexOf(file) === -1);
       });
 
-      done();
+      return done();
     });
   });
 
@@ -267,7 +267,7 @@ describe('cli', function () {
 
     var command = 'sass-lint -i \'**/*.scss, **/*.sass \'';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       if (err) {
         return done(err);
@@ -277,7 +277,7 @@ describe('cli', function () {
         assert(stdout.indexOf(file) === -1);
       });
 
-      done();
+      return done();
     });
   });
 
@@ -290,7 +290,7 @@ describe('cli', function () {
 
     var command = 'sass-lint --syntax scss tests/sass/cli.txt --verbose';
 
-    childProcess.exec(command, function (err, stdout) {
+    exec(command, function (err, stdout) {
 
       var result = 0;
 
@@ -311,7 +311,7 @@ describe('cli', function () {
   it('should exit with exit code 1 when quiet', function (done) {
     var command = 'sass-lint -c tests/yml/.error-output.yml tests/sass/cli-error.scss --verbose --no-exit';
 
-    childProcess.exec(command, function (err) {
+    exec(command, function (err) {
       if (err.code === 1) {
         return done();
       }
@@ -323,12 +323,24 @@ describe('cli', function () {
   it('should exit with exit code 1 when more warnings than --max-warnings', function (done) {
     var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/sass/cli.scss --max-warnings 0';
 
-    childProcess.exec(command, function (err) {
+    exec(command, function (err) {
       if (err && err.code === 1) {
         return done();
       }
 
       return done(new Error('Error code not 1'));
+    });
+  });
+
+  it('should not exit with an error if no config is specified', function (done) {
+    var command = 'sass-lint tests/sass/cli-clean.scss --verbose --no-exit';
+
+    exec(command, function (err) {
+      if (!err) {
+        return done();
+      }
+
+      return done(new Error('Exited with error code 1'));
     });
   });
 
@@ -338,7 +350,7 @@ describe('cli', function () {
   it('parse errors should report as a lint error', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
+    exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0];
 
       assert.equal(1, result.errorCount);
@@ -349,7 +361,7 @@ describe('cli', function () {
   it('parse errors should report as severity 2', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
+    exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
           messages = result.messages[0],
           severity = 2;
@@ -362,7 +374,7 @@ describe('cli', function () {
   it('parse errors should report the correct message', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
+    exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
           message = result.messages[0].message,
           expected = 'Please check validity of the block starting from line #5';
@@ -375,7 +387,7 @@ describe('cli', function () {
   it('parse errors rule Id should be \'Fatal\'', function (done) {
     var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
-    childProcess.exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
+    exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
           messages = result.messages[0],
           ruleId = 'Fatal';

@@ -208,7 +208,7 @@ describe('empty line between blocks - sass', function () {
     lint.test(file, {
       'empty-line-between-blocks': 1
     }, function (data) {
-      lint.assert.equal(9, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -225,7 +225,7 @@ describe('empty line between blocks - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(9, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });

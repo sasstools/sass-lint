@@ -20,8 +20,37 @@
 
 $foo: red!default;
 
-$foo: red !default;
+$bar: red !default;
 
-$foo: red! default;
+$baz: red! default;
 
-$foo: red ! default;
+$qux: red ! default;
+
+// Global
+
+$foo: red!global;
+
+$bar: red !global;
+
+$baz: red! global;
+
+$qux: red ! global;
+
+// Optional
+
+.foo {
+  @extend .notice !optional;
+}
+
+.bar {
+  @extend .notice ! optional;
+}
+
+// Both the following are invalid
+// .baz {
+//   @extend .notice!optional;
+// }
+//
+// .qux {
+//   @extend .notice! optional;
+// }

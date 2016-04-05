@@ -103,7 +103,6 @@ input:read-only
   content: ''
 
 .b-some
-
   .image + .buttons
     margin-top: 14px
 
@@ -140,7 +139,6 @@ input:read-only
 
 // mergeable with the previous block
 .b-some
-
   &__image
     width: 100%
 
@@ -152,8 +150,8 @@ input:read-only
     content: ''
 
 p::first-line
-    color: #ff0000
-    font-variant: small-caps
+  color: #ff0000
+  font-variant: small-caps
 
 // mergeable with the rule above
 p::first-line
@@ -161,7 +159,7 @@ p::first-line
   font-variant: small-caps
 
 ul ~ p
-   color: #ff0000
+  color: #ff0000
 
 .test
   .bar
@@ -172,6 +170,68 @@ ul ~ p
   .bar
     color: red
 
+// // make sure a selector inside a supports query is not marked as mergable
+// @supports (display: flex)
+//   .bar
+//     display: flex
+
 //make sure a low level selector doesn't flag with a nested selector above
 .bar
   content: ''
+
+
+.bar
+  @media (max-width: 40em) and (min-width: 20em) and (orientation: landscape)
+    content: ''
+
+// //////////////////////////////////////////////////////////////////////////////////////////////////
+// THE FOLLOWING WILL BE MANUALLY IGNORED BY THE RULE DUE TO GONZALES ISSUE WITH MEDIA QUERY NESTING
+// /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// shouldn't merge with the previous bar above
+%bar
+  @media (max-width: 40em) and (min-width: 20em) and (orientation: landscape)
+    content: ''
+
+// shouldn't merge with bar above
+@media (max-width: 40em) and (min-width: 20em) and (orientation: landscape)
+  .bar
+    content: ''
+
+// should merge with media query above
+@media (max-width: 40em) and (min-width: 20em) and (orientation: landscape)
+  .bar
+    content: ''
+
+// should merge with media query above
+@media (max-width: 40em) and (min-width: 20em) and (orientation: landscape)
+  %bar
+    content: ''
+
+// shouldn't merge
+@media (max-width: 20em) and (min-width: 10em) and (orientation: landscape)
+  .bar
+    content: ''
+
+// CRASHES GONZALES
+// // Adds keyframes blocks
+// =keyframes($name)
+//   @keyframes #{$name}
+//     @content
+
+// keyframes should be ignored completely
+// +keyframes(fade-in)
+//   0%
+//     opacity: 0
+//
+//   100%
+//     opacity: 1
+//
+//
+// +keyframes(fade-out)
+//   0%
+//     opacity: 1
+//
+//   100%
+//     opacity: 1
