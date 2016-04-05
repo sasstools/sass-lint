@@ -12,20 +12,20 @@ var results = [{
   warningCount: 2,
   errorCount: 0,
   messages: [
-      {
-        ruleId: 'empty-line-between-blocks',
-        line: 14,
-        column: 2,
-        message: 'Space expected between blocks',
-        severity: 1
-      },
-      {
-        ruleId: 'empty-line-between-blocks',
-        line: 17,
-        column: 2,
-        message: 'Space expected between blocks',
-        severity: 1
-      }
+    {
+      ruleId: 'empty-line-between-blocks',
+      line: 14,
+      column: 2,
+      message: 'Space expected between blocks',
+      severity: 1
+    },
+    {
+      ruleId: 'empty-line-between-blocks',
+      line: 17,
+      column: 2,
+      message: 'Space expected between blocks',
+      severity: 1
+    }
   ]
 }];
 
