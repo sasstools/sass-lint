@@ -5,7 +5,8 @@ Rule `placeholder-name-format` will enforce a convention for placeholder names.
 ## Options
 
 * `allow-leading-underscore`: `true`/`false` (defaults to `true`)
-* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
+* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, [`strictbem`](https://en.bem.info/method/definitions/),
+[`hyphenatedbem`](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/), or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
 * `convention-explanation`: Custom explanation to display to the user if a placeholder doesn't adhere to the convention
 
 ## Example 1
@@ -116,6 +117,72 @@ When enabled, the following are disallowed:
 ```
 
 ## Example 4
+
+Settings:
+- `convention: strictbem`
+
+When enabled, the following are allowed:
+
+```scss
+%block-name {
+  content: '';
+}
+
+%block-name__mixin {
+  content: '';
+}
+
+%block-name_mod-name {
+  content: '';
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+%HYPHENATED-UPPERCASE {
+  content: '';
+}
+
+.foo {
+  @extend %camelCase;
+}
+```
+
+## Example 5
+
+Settings:
+- `convention: hyphenatedbem`
+
+When enabled, the following are allowed:
+
+```scss
+%block-name {
+  content: '';
+}
+
+%block-name__mixin {
+  content: '';
+}
+
+%block-name--mod-name {
+  content: '';
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+%HYPHENATED-UPPERCASE {
+  content: '';
+}
+
+.foo {
+  @extend %camelCase;
+}
+```
+
+## Example 6
 
 Settings:
 - `allow-leading-underscore: true`

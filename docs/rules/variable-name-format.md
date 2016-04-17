@@ -5,7 +5,8 @@ Rule `variable-name-format` will enforce a convention for variable names.
 ## Options
 
 * `allow-leading-underscore`: `true`/`false` (defaults to `true`)
-* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
+* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, [`strictbem`](https://en.bem.info/method/definitions/),
+[`hyphenatedbem`](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/), or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
 * `convention-explanation`: Custom explanation to display to the user if a variable doesn't adhere to the convention
 
 ## Example 1
@@ -92,6 +93,60 @@ $_snake_case_with_leading_underscore: 1px;
 ```
 
 ## Example 4
+
+Settings:
+- `convention: strictbem`
+
+When enabled, the following are allowed:
+
+```scss
+$block-name__variable: 1px;
+$block-name__variable_mod-name: 1px;
+$block-name_mod-name__variable: 1px;
+
+.foo {
+  width: $block-name__variable;
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+$HYPHENATED-UPPERCASE: 1px;
+
+.foo {
+  width: $camelCase;
+}
+```
+
+## Example 5
+
+Settings:
+- `convention: hyphenatedbem`
+
+When enabled, the following are allowed:
+
+```scss
+$block-name__variable: 1px;
+$block-name__variable--mod-name: 1px;
+$block-name--mod-name__variable: 1px;
+
+.foo {
+  width: $block-name__variable;
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+$HYPHENATED-UPPERCASE: 1px;
+
+.foo {
+  width: $camelCase;
+}
+```
+
+## Example 6
 
 Settings:
 - `allow-leading-underscore: true`
