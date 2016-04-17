@@ -9,7 +9,7 @@ describe('variable name format - scss', function () {
     lint.test(file, {
       'variable-name-format': 1
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -23,7 +23,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
@@ -37,7 +37,35 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: strictbem]', function (done) {
+    lint.test(file, {
+      'variable-name-format': [
+        1,
+        {
+          'convention': 'strictbem'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(12, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: hyphenatedbem]', function (done) {
+    lint.test(file, {
+      'variable-name-format': [
+        1,
+        {
+          'convention': 'hyphenatedbem'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -52,7 +80,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -66,7 +94,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
@@ -79,7 +107,7 @@ describe('variable name format - sass', function () {
     lint.test(file, {
       'variable-name-format': 1
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -93,7 +121,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
@@ -107,7 +135,35 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: strictbem]', function (done) {
+    lint.test(file, {
+      'variable-name-format': [
+        1,
+        {
+          'convention': 'strictbem'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(12, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: hyphenatedbem]', function (done) {
+    lint.test(file, {
+      'variable-name-format': [
+        1,
+        {
+          'convention': 'hyphenatedbem'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -122,7 +178,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -136,7 +192,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
