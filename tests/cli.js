@@ -320,18 +320,6 @@ describe('cli', function () {
     });
   });
 
-  it('should exit with exit code 1 when more warnings than --max-warnings', function (done) {
-    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/sass/cli.scss --max-warnings 0';
-
-    exec(command, function (err) {
-      if (err && err.code === 1) {
-        return done();
-      }
-
-      return done(new Error('Error code not 1'));
-    });
-  });
-
   it('should not exit with an error if no config is specified', function (done) {
     var command = 'sass-lint tests/sass/cli-clean.scss --verbose --no-exit';
 
