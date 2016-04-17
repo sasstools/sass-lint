@@ -9,7 +9,7 @@ describe('function name format - scss', function () {
     lint.test(file, {
       'function-name-format': 1
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -23,7 +23,7 @@ describe('function name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -37,35 +37,7 @@ describe('function name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
-      done();
-    });
-  });
-
-  it('[convention: strictbem]', function (done) {
-    lint.test(file, {
-      'function-name-format': [
-        1,
-        {
-          'convention': 'strictbem'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(13, data.warningCount);
-      done();
-    });
-  });
-
-  it('[convention: hyphenatedbem]', function (done) {
-    lint.test(file, {
-      'function-name-format': [
-        1,
-        {
-          'convention': 'hyphenatedbem'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -80,7 +52,7 @@ describe('function name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -94,7 +66,7 @@ describe('function name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -107,7 +79,7 @@ describe('function name format - sass', function () {
     lint.test(file, {
       'function-name-format': 1
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -121,7 +93,7 @@ describe('function name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -135,35 +107,7 @@ describe('function name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
-      done();
-    });
-  });
-
-  it('[convention: strictbem]', function (done) {
-    lint.test(file, {
-      'function-name-format': [
-        1,
-        {
-          'convention': 'strictbem'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(13, data.warningCount);
-      done();
-    });
-  });
-
-  it('[convention: hyphenatedbem]', function (done) {
-    lint.test(file, {
-      'function-name-format': [
-        1,
-        {
-          'convention': 'hyphenatedbem'
-        }
-      ]
-    }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -178,7 +122,7 @@ describe('function name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -192,7 +136,7 @@ describe('function name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
