@@ -4,18 +4,7 @@ var assert = require('assert'),
     path = require('path'),
     exec = require('child_process').exec;
 
-var sassTestsPath = 'tests/sass/',
-    files = [];
-
 describe('cli', function () {
-
-  before(function () {
-    var testDirContents = fs.readdirSync(sassTestsPath);
-
-    testDirContents.forEach(function (file) {
-      files.push(sassTestsPath + file);
-    });
-  });
 
   it('should return help instructions', function (done) {
     var command = 'sass-lint -h';
@@ -255,9 +244,8 @@ describe('cli', function () {
         return done(err);
       }
 
-      files.forEach(function (file) {
-        assert(stdout.indexOf(file) === -1);
-      });
+      assert(stdout.indexOf('.scss') === -1);
+      assert(stdout.indexOf('.sass') === -1);
 
       return done();
     });
@@ -272,9 +260,8 @@ describe('cli', function () {
         return done(err);
       }
 
-      files.forEach(function (file) {
-        assert(stdout.indexOf(file) === -1);
-      });
+      assert(stdout.indexOf('.scss') === -1);
+      assert(stdout.indexOf('.sass') === -1);
 
       return done();
     });
