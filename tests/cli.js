@@ -16,7 +16,7 @@ describe('cli', function () {
 
       assert(stdout.indexOf('Usage') > 0);
 
-      return done(null);
+      return done();
     });
   });
 
@@ -30,7 +30,7 @@ describe('cli', function () {
 
       should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
 
-      return done(null);
+      return done();
     });
   });
 
