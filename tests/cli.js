@@ -237,12 +237,14 @@ describe('cli', function () {
 
   it('should not include ignored paths', function (done) {
 
-    var sassTestsPath = path.join(__dirname, '/sass/'),
-        files = [];
+    var sassTestsPath = 'tests/sass/',
+        files = [],
+        dirContents = fs.readdirSync(sassTestsPath);
 
-    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
-
-    var command = 'sass-lint -i \'**/*.s+(a|c)ss\'';
+    dirContents.forEach(function (file) {
+      files.push(sassTestsPath + file);
+    });
+    var command = 'sass-lint -i \'**/*.s*\' -v -q';
 
     exec(command, function (err, stdout) {
 
@@ -260,12 +262,15 @@ describe('cli', function () {
 
   it('should not include multiple ignored paths', function (done) {
 
-    var sassTestsPath = path.join(__dirname, '/sass/'),
-        files = [];
+    var sassTestsPath = 'tests/sass/',
+        files = [],
+        dirContents = fs.readdirSync(sassTestsPath);
 
-    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
+    dirContents.forEach(function (file) {
+      files.push(sassTestsPath + file);
+    });
 
-    var command = 'sass-lint -i \'**/*.scss, **/*.sass \'';
+    var command = 'sass-lint -i \'**/*.scss, **/*.sass \' -q -v';
 
     exec(command, function (err, stdout) {
 
