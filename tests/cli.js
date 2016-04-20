@@ -4,8 +4,19 @@ var assert = require('assert'),
     path = require('path'),
     exec = require('child_process').exec;
 
+var sassTestsPath = 'tests/sass/',
+    files = [];
 
 describe('cli', function () {
+
+  before(function () {
+    var testDirContents = fs.readdirSync(sassTestsPath);
+
+    testDirContents.forEach(function (file) {
+      files.push(sassTestsPath + file);
+    });
+  });
+
   it('should return help instructions', function (done) {
     var command = 'sass-lint -h';
 
@@ -236,14 +247,6 @@ describe('cli', function () {
   });
 
   it('should not include ignored paths', function (done) {
-
-    var sassTestsPath = 'tests/sass/',
-        files = [],
-        dirContents = fs.readdirSync(sassTestsPath);
-
-    dirContents.forEach(function (file) {
-      files.push(sassTestsPath + file);
-    });
     var command = 'sass-lint -i \'**/*.s*\' -v -q';
 
     exec(command, function (err, stdout) {
@@ -261,15 +264,6 @@ describe('cli', function () {
   });
 
   it('should not include multiple ignored paths', function (done) {
-
-    var sassTestsPath = 'tests/sass/',
-        files = [],
-        dirContents = fs.readdirSync(sassTestsPath);
-
-    dirContents.forEach(function (file) {
-      files.push(sassTestsPath + file);
-    });
-
     var command = 'sass-lint -i \'**/*.scss, **/*.sass \' -q -v';
 
     exec(command, function (err, stdout) {
@@ -287,12 +281,6 @@ describe('cli', function () {
   });
 
   it('should override filename convention if a valid --syntax is provided', function (done) {
-
-    var sassTestsPath = path.join(__dirname, '/sass/'),
-        files = [];
-
-    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
-
     var command = 'sass-lint --syntax scss tests/sass/cli.txt --verbose';
 
     exec(command, function (err, stdout) {
