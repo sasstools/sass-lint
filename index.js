@@ -164,7 +164,6 @@ sassLint.lintFiles = function (files, options, configPath) {
   }
   else {
     files = this.getConfig(options, configPath).files;
-
     if (typeof files === 'string') {
       files = glob.sync(files);
     }

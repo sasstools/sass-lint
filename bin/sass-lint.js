@@ -10,6 +10,12 @@ var configPath,
     configOptions = {},
     exitCode = 0;
 
+var tooManyWarnings = function (detects) {
+  var warningCount = lint.warningCount(detects).count;
+
+  return warningCount > 0 && warningCount > program.maxWarnings;
+};
+
 var detectPattern = function (pattern) {
   var detects;
 
@@ -19,7 +25,7 @@ var detectPattern = function (pattern) {
     lint.outputResults(detects, configOptions, configPath);
   }
 
-  if (lint.errorCount(detects).count) {
+  if (lint.errorCount(detects).count || tooManyWarnings(detects)) {
     exitCode = 1;
   }
 
@@ -38,6 +44,7 @@ program
   .option('-f, --format [format]', 'pass one of the available eslint formats')
   .option('-o, --output [output]', 'the path and filename where you would like output to be written')
   .option('-s, --syntax [syntax]', 'syntax to evaluate the file(s) with (either sass or scss)')
+  .option('--max-warnings [integer]', 'Number of warnings to trigger nonzero exit code')
   .parse(process.argv);
 
 
