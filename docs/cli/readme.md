@@ -16,6 +16,7 @@ Command Line Flag        | Description
 `-f`,`--format [format]`  | Pass one of the available [Eslint formats](https://github.com/eslint/eslint/tree/master/lib/formatters) to format the output of sass-lint results.
 `-h`,`--help`             | Outputs usage information for the CLI
 `-i`,`--ignore [pattern]` | A pattern that should be ignored from linting. Multiple patterns can be used by separating each pattern by `, `. Patterns should be wrapped in quotes (will be merged with other ignore options)
+`--max-warnings [integer]`| Normally, if SassLint runs and finds no errors (only warnings), it will exit with a success exit status. However, if this option is specified and the total warning count is greater than the specified threshold, SassLint will exit with an error status.
 `-o`,`--output [output]`  | The path plus file name relative to where Sass Lint is being run from where the output should be written to.
 `-q`,`--no-exit`          | Prevents the CLI from throwing an error if there is one (useful for development work)
 `-s`,`--syntax`           | Syntax to evaluate the given file(s) with, either sass or scss. Use with care: overrides filename extension-based syntax detection.

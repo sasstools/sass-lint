@@ -1,6 +1,12 @@
 # Variable For Property
 
-Rule `variable-for-property` will enforce the use of variables for the values of specified properties. There are no properties by default.
+Rule `variable-for-property` will enforce the use of variables for the values of specified properties.
+There are no properties by default, except for reserved words listed below which are always whitelisted:
+* inherit
+* initial
+* transparent
+* none
+* currentColor
 
 ## Options
 

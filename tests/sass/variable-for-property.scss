@@ -23,3 +23,10 @@
 @mixin red() {
   margin: 0;
 }
+
+.test {
+  background: inherit;
+  background: initial;
+  background: transparent;
+  background: none;
+}

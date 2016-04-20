@@ -66,7 +66,7 @@ $qux: 2  +1
 $foo: (1+1)
 $bar: (2-1)
 $baz: (1/2)
-// $qux: (2*1) FIXME: Gonzales - FIXED IN BETA
+$qux: (2*1)
 // $norf: (5%2) Not valid SCSS.
 
 
@@ -75,7 +75,7 @@ $baz: (1/2)
 $foo: (1 +1)
 $bar: (2 -1)
 $baz: (1 /2)
-// $qux: (2 *1) FIXME: Gonzales - FIXED IN BETA
+$qux: (2 *1)
 // $norf: (5 %2) FIXME: Gonzales - FIXED IN BETA
 
 
@@ -84,7 +84,7 @@ $baz: (1 /2)
 $foo: (1+ 1)
 $bar: (2- 1)
 $baz: (1/ 2)
-// $qux: (2* 1) FIXME: Gonzales - FIXED IN BETA
+$qux: (2* 1)
 // $norf: (5% 2)  Not valid SCSS. Parses as 5 percent.
 
 
@@ -396,9 +396,7 @@ $qux: 2 * 1
 $foo: (1 + 1)
 $bar: (2 - 1)
 $baz: (1 / 2)
-// Include: false will ignore this, so count will be one down on what it should
-// be
-$qux: (2 * 1) // FIXME: Gonzales - FIXED IN BETA
+$qux: (2 * 1)
 // $norf: (5 % 2) FIXME: Gonzales - FIXED IN BETA
 
 // Space with no parens

@@ -20,9 +20,33 @@
 
 $foo: red!default
 
-$foo: orange !default
+$bar: orange !default
 
-$foo: blue! default
+$baz: blue! default
 
-$foo: green ! default
-  
+$qux: green ! default
+
+// Global
+
+$foo: red!global
+
+$bar: orange !global
+
+$baz: blue! global
+
+$qux: green ! global
+
+// Optional
+
+.foo
+  @extend .notice !optional
+
+.bar
+  @extend .notice ! optional
+
+// Both the following are invalid
+// .baz
+//   @extend .notice!optional
+//
+// .qux
+//   @extend .notice! optional

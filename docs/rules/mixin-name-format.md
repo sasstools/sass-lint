@@ -5,7 +5,8 @@ Rule `mixin-name-format` will enforce a convention for mixin names.
 ## Options
 
 * `allow-leading-underscore`: `true`/`false` (defaults to `true`)
-* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
+* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, [`strictbem`](https://en.bem.info/method/definitions/),
+[`hyphenatedbem`](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/), or a Regular Expression that the variable name must match (e.g. `^[_A-Z]+$`)
 * `convention-explanation`: Custom explanation to display to the user if a mixin doesn't adhere to the convention
 
 ## Example 1
@@ -116,6 +117,73 @@ When enabled, the following are disallowed:
 ```
 
 ## Example 4
+
+Settings:
+- `convention: strictbem`
+
+When enabled, the following are allowed:
+
+```scss
+@mixin block-name {
+  content: '';
+}
+
+@mixin block-name__mixin {
+  content: '';
+}
+
+@mixin block-name_mod-name {
+  content: '';
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+@mixin HYPHENATED-UPPERCASE {
+  content: '';
+}
+
+.foo {
+  @include camelCase();
+}
+```
+
+## Example 5
+
+Settings:
+- `convention: hyphenatedbem`
+
+When enabled, the following are allowed:
+
+```scss
+@mixin block-name {
+  content: '';
+}
+
+@mixin block-name__mixin {
+  content: '';
+}
+
+@mixin block-name--mod-name {
+  content: '';
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+@mixin HYPHENATED-UPPERCASE {
+  content: '';
+}
+
+.foo {
+  @include camelCase();
+}
+```
+
+
+## Example 6
 
 Settings:
 - `allow-leading-underscore: true`
