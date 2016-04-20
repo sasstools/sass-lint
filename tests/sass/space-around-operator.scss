@@ -480,3 +480,8 @@ $qux: (2 * 1); // FIXME: Gonzales - FIXED IN BETA
 // .foo {
 //   $val: - ($foo * 2);
 // }
+
+@font-face {
+  font-family: 'Proxima Nova';
+  unicode-range: U+1F00-1FFF;
+}
