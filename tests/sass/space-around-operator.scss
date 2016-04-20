@@ -478,3 +478,13 @@ $norf: (5 % 2);
 // .foo {
 //   $val: - ($foo * 2);
 // }
+
+@font-face {
+  font-family: 'Proxima Nova';
+  unicode-range: U+26;
+  unicode-range: U+0-7F;
+  unicode-range: U+0025-00FF;
+  // Wildcard currently causes gonzales to fail
+  // unicode-range: U+4??;
+  // unicode-range: U+0025-00FF, U+4??;
+}
