@@ -321,6 +321,11 @@ $norf: (5   %   2);
   $baz: 1;
 }
 
+// Negative numbers
+
+.foo {
+  bottom: $var /-2;
+}
 
 //====================
 // Should be ok
@@ -487,4 +492,9 @@ $norf: (5 % 2);
   // Wildcard currently causes gonzales to fail
   // unicode-range: U+4??;
   // unicode-range: U+0025-00FF, U+4??;
+
+// Negative numbers
+
+.foo {
+  bottom: $var / -2;
 }
