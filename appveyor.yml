@@ -1,3 +1,7 @@
+# CRLF Line Endings
+init:
+  - git config --global core.autocrlf true
+
 # Test against this version of Node.js
 environment:
   matrix:
