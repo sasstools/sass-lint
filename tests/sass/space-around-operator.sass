@@ -66,7 +66,7 @@ $qux: 2  +1
 $foo: (1+1)
 $bar: (2-1)
 $baz: (1/2)
-// $qux: (2*1) FIXME: Gonzales - FIXED IN BETA
+$qux: (2*1)
 // $norf: (5%2) Not valid SCSS.
 
 
@@ -75,7 +75,7 @@ $baz: (1/2)
 $foo: (1 +1)
 $bar: (2 -1)
 $baz: (1 /2)
-// $qux: (2 *1) FIXME: Gonzales - FIXED IN BETA
+$qux: (2 *1)
 // $norf: (5 %2) FIXME: Gonzales - FIXED IN BETA
 
 
@@ -84,7 +84,7 @@ $baz: (1 /2)
 $foo: (1+ 1)
 $bar: (2- 1)
 $baz: (1/ 2)
-// $qux: (2* 1) FIXME: Gonzales - FIXED IN BETA
+$qux: (2* 1)
 // $norf: (5% 2)  Not valid SCSS. Parses as 5 percent.
 
 
@@ -314,6 +314,18 @@ $qux: (2  +1)
   $baz: 1
 
 
+// ========================
+// Interesting user cases
+// ========================
+
+.foo
+  $val: 1-($foo * 2)
+
+// Negative numbers
+
+.foo
+  bottom: $var /-2
+
 
 //====================
 // Should be ok
@@ -367,8 +379,6 @@ ul
   li:nth-child(2n+1)
     content: ''
 
-
-
 // Invalid CSS
 
 .foo
@@ -379,8 +389,6 @@ ul
 ul
   li:nth-child(2n + 1)
     content: ''
-
-
 
 
 // Values no parens
@@ -396,9 +404,7 @@ $qux: 2 * 1
 $foo: (1 + 1)
 $bar: (2 - 1)
 $baz: (1 / 2)
-// Include: false will ignore this, so count will be one down on what it should
-// be
-$qux: (2 * 1) // FIXME: Gonzales - FIXED IN BETA
+$qux: (2 * 1)
 // $norf: (5 % 2) FIXME: Gonzales - FIXED IN BETA
 
 // Space with no parens
@@ -459,10 +465,22 @@ h1
 .foo
   $val: -($foo * 2)
 
-// Should flag this if rule is true
-.foo
-  $val: 1-($foo * 2)
-
 // Should flag this if rule is false
 .foo
   $val: 1 - ($foo * 2)
+
+@font-face
+  font-family: 'Proxima Nova'
+    unicode-range: U+26
+    unicode-range: U+0-7F
+    unicode-range: U+0025-00FF
+    // TODO: Wildcard currently causes gonzales to fail
+    // unicode-range: U+4??;
+    // unicode-range: U+0025-00FF, U+4??;
+
+// Negative numbers
+.foo
+  bottom: $var / -2
+
+// Imports
+@import bar/foo

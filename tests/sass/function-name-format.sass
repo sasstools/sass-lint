@@ -19,6 +19,27 @@
 @function _with-leading-underscore()
   @return 'foo'
 
+@function strictbem()
+  @return 'foo'
+
+@function strictbem__function()
+  @return 'foo'
+
+@function strictbem__function_modifier()
+  @return 'foo'
+
+@function strictbem_modifier__function()
+  @return 'foo'
+
+@function hyphenatedbem__function()
+  @return 'foo'
+
+@function hyphenatedbem__function--modifier()
+  @return 'foo'
+
+@function hyphenatedbem--modifier__function()
+  @return 'foo'
+
 @function _does_NOT-fitSTANDARD($x)
   @return $x
 

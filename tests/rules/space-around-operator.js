@@ -12,7 +12,7 @@ describe('space around operator - scss', function () {
     lint.test(file, {
       'space-around-operator': 1
     }, function (data) {
-      lint.assert.equal(84, data.warningCount);
+      lint.assert.equal(92, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,7 @@ describe('space around operator - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(78, data.warningCount);
+      lint.assert.equal(92, data.warningCount);
       done();
     });
   });
@@ -42,7 +42,7 @@ describe('space around operator - sass', function () {
     lint.test(file, {
       'space-around-operator': 1
     }, function (data) {
-      lint.assert.equal(84, data.warningCount);
+      lint.assert.equal(88, data.warningCount);
       done();
     });
   });
@@ -56,7 +56,7 @@ describe('space around operator - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(78, data.warningCount);
+      lint.assert.equal(86, data.warningCount);
       done();
     });
   });
