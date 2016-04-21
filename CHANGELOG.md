@@ -47,7 +47,10 @@ The long lost 1.6 update
 ## v1.5.1
 **February 26, 2016**
 
-* Locked down our dependency to lodash due to npm/unpublish issues
+Hotfix
+
+**Fixes**
+* Fix lodash dependancy issue [#549](https://github.com/sasstools/sass-lint/issues/549)
 
 ## v1.5.0
 **January 28, 2016**
