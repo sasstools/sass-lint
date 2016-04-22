@@ -471,3 +471,70 @@ $total: 4;
 
 @mixin bar() {
   content: 'bar'; }
+
+
+
+// =======================
+//  Multi-line parameters
+// =======================
+
+@function foo(
+  $bar
+) {
+  content: $bar;
+}
+
+
+@function foo(
+  $bar
+)
+{
+  content: $bar;
+}
+
+
+
+@function bar(
+  $bar,
+  $baz
+) {
+  content: $bar;
+}
+
+@function bar(
+  $bar,
+  $baz
+)
+{
+  content: $bar;
+}
+
+
+@mixin foo(
+  $bar
+) {
+  content: 'foo bar';
+}
+
+@mixin foo(
+  $bar
+)
+{
+  content: 'foo bar';
+}
+
+
+@mixin bar(
+  $bar,
+  $baz
+) {
+  content: 'foo bar';
+}
+
+@mixin bar(
+  $bar,
+  $baz
+)
+{
+  content: 'foo bar';
+}
