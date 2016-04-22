@@ -1,6 +1,6 @@
 # Sass Lint Changelog
 
-## v1.6.1
+## v1.6.2
 
 **April 22, 2016**
 
@@ -10,6 +10,11 @@
 * `no-misspelled-properties` now correctly ignores vendor prefixes [#606](https://github.com/sasstools/sass-lint/issues/606)
 * Now correctly strips double-barreled vendor prefixes such as `-moz-osx-`
 
+## v.1.6.1
+
+The update that time forgot
+
+* Issues publishing to npm
 
 ## v1.6.0
 
