@@ -1,5 +1,16 @@
 # Sass Lint Changelog
 
+## v1.6.1
+
+**April 22, 2016**
+
+**Fixes**
+* Fix `brace-style` rule incorrectly flagging `@imports` as single-line statements [#634](https://github.com/sasstools/sass-lint/issues/634)
+* Fix `brace-style` rule not allowing multiline parameters [#632](https://github.com/sasstools/sass-lint/issues/632)
+* `no-misspelled-properties` now correctly ignores vendor prefixes [#606](https://github.com/sasstools/sass-lint/issues/606)
+* Now correctly strips double-barreled vendor prefixes such as `-moz-osx-`
+
+
 ## v1.6.0
 
 **April 21, 2016**
