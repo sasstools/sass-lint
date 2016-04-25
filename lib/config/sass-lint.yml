@@ -63,6 +63,7 @@ rules:
   leading-zero: 1
   nesting-depth: 1
   property-sort-order: 1
+  property-count: 0
   quotes: 1
   shorthand-values: 1
   url-quotes: 1
