@@ -56,17 +56,20 @@ $colors: (
   red: #fff,
   blue : (
     orange: #fff
-  )
+  ),
+  font-color: $black
 );
 
 // allowed
-$black: #000;
 $literal: mediumslateblue;
 $hexVar: #fff;
 $rgb: rgb(255, 255, 255);
 $rgba: rgba(255, 255, 255, .3);
 $hsl: hsl(40, 50%, 50%);
 $hsla: hsla(40, 50%, 50%, .3);
+
+// allowed by default, disallowed when allow-variable-identifiers: false
+$black: #000;
 
 .literal {
   color: $literal;
@@ -119,8 +122,3 @@ $hsla: hsla(40, 50%, 50%, .3);
 .rgba-enabled {
   color: rgba($hexVar, .3);
 }
-
-// allowed - using variables named after colors as map values
-$colors: (
-  font-color: $black,
-);
