@@ -5,7 +5,7 @@ A Node-only Sass linter for both `sass` and `scss` syntax!
 ---
 
 ## Install
-You can get `sass-lint` from [NPM](https://www.npmjs.com/package/sass-lint)
+You can get `sass-lint` from [NPM](https://www.npmjs.com/package/sass-lint):
 
 ```
 npm install sass-lint --save-dev
@@ -15,7 +15,7 @@ npm install sass-lint --save-dev
 
 ## Configuring
 
-Sass-lint can be configured from a `.sass-lint.yml` file in your project. If you don't have one in the root of your project or you would like all your projects to follow a standard config file then you can specify the path to one in your projects `package.json` file.
+Sass-lint can be configured from a `.sass-lint.yml` file in your project. If you don't have one in the root of your project or you would like all your projects to follow a standard config file then you can specify the path to one in your project's `package.json` file.
 
 For example:
 ```javascript
@@ -90,7 +90,7 @@ With this in mind if you would like to have the CLI show both warnings and error
 
 #### Specify a config
 
-Below is an example of the command being used to load a config `-c app/config/.sass-lint.yml` file show errors and warnings on the command line and target a glob pattern `**/*.scss` being used.
+Below is an example of the command being used to load a config `-c app/config/.sass-lint.yml` file, show errors and warnings on the command line, and target a glob pattern `**/*.scss`:
 
 ```
 sass-lint -c app/config/.sass-lint.yml '**/*.scss' -v -q
@@ -113,9 +113,9 @@ sass-lint --config app/config/.sass-lint.yml '**/*.scss' --verbose --no-exit --i
 ```
 
 
-> Notice that glob patterns need to be wrapped in quotation or single quote marks in order to be passed to sass-lint correctly and if you want to ignore multiple paths you also need to wrap it in quotation marks and seperate each pattern/fil with a comma and a space `, `.
+> Notice that glob patterns need to be wrapped in quotation or single quote marks in order to be passed to sass-lint correctly and if you want to ignore multiple paths you also need to wrap it in quotation marks and seperate each pattern/file with a comma and a space `, `.
 
-This will be revisited and updated in `sass-lint` v2.0.0
+This will be revisited and updated in `sass-lint` v2.0.0.
 
 For further information you can visit our CLI documentation linked below.
 
