@@ -7,8 +7,7 @@ var lint = require('./_lint');
 //////////////////////////////
 describe('final newline - scss', function () {
 
-  // With newline (testing file without)
-  it('with newline [include: true]', function (done) {
+  it('none [include: true]', function (done) {
     var file = lint.file('final-newline--none.scss');
 
     lint.test(file, {
@@ -19,7 +18,7 @@ describe('final newline - scss', function () {
     });
   });
 
-  it('with newline [include: false]', function (done) {
+  it('none [include: false]', function (done) {
     var file = lint.file('final-newline--none.scss');
 
     lint.test(file, {
@@ -63,8 +62,7 @@ describe('final newline - scss', function () {
     });
   });
 
-  // No newline (testing file with)
-  it('no newline [include: true]', function (done) {
+  it('with return [include: true]', function (done) {
     var file = lint.file('final-newline--return.scss');
 
     lint.test(file, {
@@ -75,8 +73,62 @@ describe('final newline - scss', function () {
     });
   });
 
-  it('no newline [include: false]', function (done) {
+  it('with return [include: false]', function (done) {
     var file = lint.file('final-newline--return.scss');
+
+    lint.test(file, {
+      'final-newline': [
+        1,
+        {
+          'include': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  it('with import [include: true]', function (done) {
+    var file = lint.file('final-newline--import.scss');
+
+    lint.test(file, {
+      'final-newline': 1
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  it('with import [include: false]', function (done) {
+    var file = lint.file('final-newline--import.scss');
+
+    lint.test(file, {
+      'final-newline': [
+        1,
+        {
+          'include': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  it('with nested [include: true]', function (done) {
+    var file = lint.file('final-newline--nested.scss');
+
+    lint.test(file, {
+      'final-newline': 1
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  it('with nested [include: false]', function (done) {
+    var file = lint.file('final-newline--nested.scss');
 
     lint.test(file, {
       'final-newline': [
@@ -97,8 +149,7 @@ describe('final newline - scss', function () {
 //////////////////////////////
 describe('final newline - sass', function () {
 
-  // With newline (testing file without)
-  it('with newline [include: true]', function (done) {
+  it('none [include: true]', function (done) {
     var file = lint.file('final-newline--none.sass');
 
     lint.test(file, {
@@ -109,7 +160,7 @@ describe('final newline - sass', function () {
     });
   });
 
-  it('with newline [include: false]', function (done) {
+  it('none [include: false]', function (done) {
     var file = lint.file('final-newline--none.sass');
 
     lint.test(file, {
@@ -153,8 +204,7 @@ describe('final newline - sass', function () {
     });
   });
 
-  // No newline (testing file with)
-  it('no newline [include: true]', function (done) {
+  it('with return [include: true]', function (done) {
     var file = lint.file('final-newline--return.sass');
 
     lint.test(file, {
@@ -165,8 +215,62 @@ describe('final newline - sass', function () {
     });
   });
 
-  it('no newline [include: false]', function (done) {
+  it('with return [include: false]', function (done) {
     var file = lint.file('final-newline--return.sass');
+
+    lint.test(file, {
+      'final-newline': [
+        1,
+        {
+          'include': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  it('with import [include: true]', function (done) {
+    var file = lint.file('final-newline--import.sass');
+
+    lint.test(file, {
+      'final-newline': 1
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  it('with import [include: false]', function (done) {
+    var file = lint.file('final-newline--import.sass');
+
+    lint.test(file, {
+      'final-newline': [
+        1,
+        {
+          'include': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  it('with nested [include: true]', function (done) {
+    var file = lint.file('final-newline--nested.sass');
+
+    lint.test(file, {
+      'final-newline': 1
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
+
+  it('with nested [include: false]', function (done) {
+    var file = lint.file('final-newline--nested.sass');
 
     lint.test(file, {
       'final-newline': [
