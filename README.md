@@ -105,7 +105,7 @@ sass-lint --config app/config/.sass-lint.yml '**/*.scss' --verbose --no-exit
 #### Ignore files/patterns
 To add a list of files to ignore `tests/**/*.scss, dist/other.scss` into the mix you could do the following:
 ```
-sass-lint -c app/config/.sass-lint.yml '**/*.scss' -v -q -i 'tests/**/*.scss'
+sass-lint -c app/config/.sass-lint.yml '**/*.scss' -v -q -i 'tests/**/*.scss, dist/other.scss'
 ```
 or with long form flags
 ```
