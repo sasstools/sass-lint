@@ -69,3 +69,9 @@
 .class {
   @extend %snake_case;
 }
+
+// Issue: https://github.com/sasstools/sass-lint/issues/625
+// variables/interpolation should be ignored
+%#{$var} {
+  content: '';
+}
