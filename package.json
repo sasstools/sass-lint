@@ -32,7 +32,7 @@
     "eslint": "^2.7.0",
     "fs-extra": "^0.28.0",
     "glob": "^7.0.0",
-    "gonzales-pe-sl": "3.2.7",
+    "gonzales-pe-sl": "3.2.8",
     "js-yaml": "^3.5.4",
     "lodash.capitalize": "^4.1.0",
     "lodash.kebabcase": "^4.0.0",
