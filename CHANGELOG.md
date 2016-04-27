@@ -1,5 +1,22 @@
 # Sass Lint Changelog
 
+## v1.7.0
+
+**April 27, 2016**
+
+You wait months for one release and then four come along in a week!
+
+**Fixes**
+* Fixed an issue with final newline not registering correctly for `.sass` syntax [#627](https://github.com/sasstools/sass-lint/issues/627) & [#630](https://github.com/sasstools/sass-lint/issues/630).
+* Fixed an issue with `placeholder-name-format` generating warnings on variables used as placeholder names.
+* Fixed the `empty-args` rule being wrongly labeled as `no-empty-args` in lint warnings/errors [#625](https://github.com/sasstools/sass-lint/issues/625)
+* Fixed an issue with `no-color-literals` incorrectly flagging variable names and map identifiers that shared their names with color literals [#538](https://github.com/sasstools/sass-lint/issues/538)
+* CLI examples corrected thanks to [alxndr](https://github.com/alxndr) - [#649](https://github.com/sasstools/sass-lint/issues/649)
+
+**Changes**
+* `no-color-literals` now includes two extra options `allow-map-identifiers` and `allow-variable-identifiers` which allow you to fine tune your use of color literals in map identifiers/variables on top of the existing functionality [see the docs](https://github.com/sasstools/sass-lint/blob/develop/docs/rules/no-color-literals.md)
+* Updated to `gonzales-pe-sl` v3.2.8
+
 ## v1.6.2
 
 **April 22, 2016**
