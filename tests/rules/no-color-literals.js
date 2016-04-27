@@ -12,7 +12,7 @@ describe('no color literals - scss', function () {
     lint.test(file, {
       'no-color-literals': 1
     }, function (data) {
-      lint.assert.equal(19, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,51 @@ describe('no color literals - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
+      done();
+    });
+  });
+
+  it('[allow-variable-identifiers: false]', function (done) {
+    lint.test(file, {
+      'no-color-literals': [
+        1,
+        {
+          'allow-variable-identifiers': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(20, data.warningCount);
+      done();
+    });
+  });
+
+  it('[allow-map-identifiers: false]', function (done) {
+    lint.test(file, {
+      'no-color-literals': [
+        1,
+        {
+          'allow-map-identifiers': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(19, data.warningCount);
+      done();
+    });
+  });
+
+  it('[allow-rgba: true, allow-variable-identifiers: false, allow-map-identifiers: false ]', function (done) {
+    lint.test(file, {
+      'no-color-literals': [
+        1,
+        {
+          'allow-rgba': true,
+          'allow-variable-identifiers': false,
+          'allow-map-identifiers': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(22, data.warningCount);
       done();
     });
   });
@@ -42,7 +86,7 @@ describe('no color literals - sass', function () {
     lint.test(file, {
       'no-color-literals': 1
     }, function (data) {
-      lint.assert.equal(19, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -56,7 +100,51 @@ describe('no color literals - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
+      done();
+    });
+  });
+
+  it('[allow-variable-identifiers: false]', function (done) {
+    lint.test(file, {
+      'no-color-literals': [
+        1,
+        {
+          'allow-variable-identifiers': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(20, data.warningCount);
+      done();
+    });
+  });
+
+  it('[allow-map-identifiers: false]', function (done) {
+    lint.test(file, {
+      'no-color-literals': [
+        1,
+        {
+          'allow-map-identifiers': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(19, data.warningCount);
+      done();
+    });
+  });
+
+  it('[allow-rgba: true, allow-variable-identifiers: false, allow-map-identifiers: false ]', function (done) {
+    lint.test(file, {
+      'no-color-literals': [
+        1,
+        {
+          'allow-rgba': true,
+          'allow-variable-identifiers': false,
+          'allow-map-identifiers': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(22, data.warningCount);
       done();
     });
   });
