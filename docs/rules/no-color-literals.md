@@ -192,6 +192,7 @@ $black: #000
 .test {
   color: adjust-color($off-red, $blue: 5)
 }
+
 ```
 
 When enabled and `allow-variable-identifiers` is set to `false`, the following will be allowed
