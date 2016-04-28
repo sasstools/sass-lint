@@ -215,7 +215,7 @@ sassLint.format = function (results, options, configPath) {
 sassLint.outputResults = function (results, options, configPath) {
   var config = this.getConfig(options, configPath);
 
-  // if (this.resultCount(results)) {
+  if (this.resultCount(results)) {
 
     var formatted = this.format(results, options, configPath);
 
@@ -231,7 +231,10 @@ sassLint.outputResults = function (results, options, configPath) {
     else {
       console.log(formatted);
     }
-  // }
+  }
+  else {
+    fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), '[]');
+  }
   return results;
 };
 
