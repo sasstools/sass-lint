@@ -68,6 +68,7 @@ rules:
   url-quotes: 1
   variable-for-property: 1
   zero-unit: 1
+  pseudo-element: 1
 
   # Inner Spacing
   space-after-comma: 1
