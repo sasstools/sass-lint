@@ -19,8 +19,8 @@ describe('pseudo-element - scss', function () {
       'pseudo-element': 1
     }, function (data) {
       var pseudoElementRelatedWarnings = data.messages.filter(byAttribute('message', /Pseudo-elements/));
-      lint.assert.equal(37, data.warningCount);
-      lint.assert.equal(6, pseudoElementRelatedWarnings.length);
+      lint.assert.equal(39, data.warningCount);
+      lint.assert.equal(7, pseudoElementRelatedWarnings.length);
       done();
     });
   });
@@ -30,8 +30,8 @@ describe('pseudo-element - scss', function () {
       'pseudo-element': 1
     }, function (data) {
       var pseudoClassRelatedWarnings = data.messages.filter(byAttribute('message', /Pseudo-classes/));
-      lint.assert.equal(37, data.warningCount);
-      lint.assert.equal(31, pseudoClassRelatedWarnings.length);
+      lint.assert.equal(39, data.warningCount);
+      lint.assert.equal(32, pseudoClassRelatedWarnings.length);
       done();
     });
   });
@@ -40,7 +40,7 @@ describe('pseudo-element - scss', function () {
 //////////////////////////////
 // Sass syntax tests
 //////////////////////////////
-describe('pseudo-element - scss', function () {
+describe('pseudo-element - sass', function () {
   var file = lint.file('pseudo-element.sass');
 
   var byAttribute = function byAttribute (key, value) {
@@ -54,8 +54,8 @@ describe('pseudo-element - scss', function () {
       'pseudo-element': 1
     }, function (data) {
       var pseudoElementRelatedWarnings = data.messages.filter(byAttribute('message', /Pseudo-elements/));
-      lint.assert.equal(37, data.warningCount);
-      lint.assert.equal(6, pseudoElementRelatedWarnings.length);
+      lint.assert.equal(39, data.warningCount);
+      lint.assert.equal(7, pseudoElementRelatedWarnings.length);
       done();
     });
   });
@@ -65,8 +65,8 @@ describe('pseudo-element - scss', function () {
       'pseudo-element': 1
     }, function (data) {
       var pseudoClassRelatedWarnings = data.messages.filter(byAttribute('message', /Pseudo-classes/));
-      lint.assert.equal(37, data.warningCount);
-      lint.assert.equal(31, pseudoClassRelatedWarnings.length);
+      lint.assert.equal(39, data.warningCount);
+      lint.assert.equal(32, pseudoClassRelatedWarnings.length);
       done();
     });
   });

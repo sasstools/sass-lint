@@ -16,6 +16,10 @@
 .right-element::backdrop {
   content: "right-element";
 }
+.right-element::-ms-backdrop {
+  content: "right-prefixed-element";
+}
+
 
 .wrong-element:after {
   content: "wrong-element";
@@ -34,6 +38,9 @@
 }
 .wrong-element:backdrop {
   content: "wrong-element";
+}
+.wrong-element:-ms-backdrop {
+  content: "wrong-prefixed-element";
 }
 
 .right-selector:active {
@@ -113,6 +120,9 @@
 }
 .right-selector:read-write {
   content: "right-selector";
+}
+.right-selector:-moz-read-write {
+  content: "right-prefixed-selector";
 }
 .right-selector:required {
   content: "right-selector";
@@ -207,6 +217,9 @@
 }
 .wrong-selector::read-write {
   content: "wrong-selector";
+}
+.wrong-selector::-moz-read-write {
+  content: "wrong-prefixed-selector";
 }
 .wrong-selector::required {
   content: "wrong-selector";
