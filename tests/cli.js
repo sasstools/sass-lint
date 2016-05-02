@@ -4,8 +4,8 @@ var assert = require('assert'),
     path = require('path'),
     exec = require('child_process').exec;
 
-
 describe('cli', function () {
+
   it('should return help instructions', function (done) {
     var command = 'sass-lint -h';
 
@@ -16,7 +16,7 @@ describe('cli', function () {
 
       assert(stdout.indexOf('Usage') > 0);
 
-      return done(null);
+      return done();
     });
   });
 
@@ -30,12 +30,12 @@ describe('cli', function () {
 
       should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
 
-      return done(null);
+      return done();
     });
   });
 
   it('CLI format option should output JSON', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json';
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json';
 
     exec(command, function (err, stdout) {
 
@@ -55,7 +55,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write to test file', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json --output tests/cli-output.json',
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     exec(command, function (err) {
@@ -78,7 +78,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write JSON to test file', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format json --output tests/cli-output.json',
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     exec(command, function (err) {
@@ -111,7 +111,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write JSON to test file when upper case format is used', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/sass/cli.scss --verbose --format JSON --output tests/cli-output.json',
+    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format JSON --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     exec(command, function (err) {
@@ -146,7 +146,7 @@ describe('cli', function () {
   // Test custom config path
 
   it('should return JSON from a custom config', function (done) {
-    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/sass/cli.scss --verbose';
+    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -168,7 +168,7 @@ describe('cli', function () {
   // Test 0 errors/warnings when rules set to 0 in config
 
   it('output should return no errors/warnings', function (done) {
-    var command = 'sass-lint -c tests/yml/.json-lint.yml tests/sass/cli.scss --verbose';
+    var command = 'sass-lint -c tests/yml/.json-lint.yml tests/cli/cli.scss --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -190,7 +190,7 @@ describe('cli', function () {
   // Test 1 warning when rules set to 0 in config
 
   it('should return a warning', function (done) {
-    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/sass/cli.scss --verbose';
+    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -219,8 +219,8 @@ describe('cli', function () {
   });
 
   it('should return a warning - stylish', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-errors.yml tests/sass/cli.scss --verbose',
-        expectedOutputLength = 155;
+    var command = 'sass-lint -c tests/yml/.stylish-errors.yml tests/cli/cli.scss --verbose',
+        expectedOutputLength = 154;
 
     exec(command, function (err, stdout) {
 
@@ -236,13 +236,7 @@ describe('cli', function () {
   });
 
   it('should not include ignored paths', function (done) {
-
-    var sassTestsPath = path.join(__dirname, '/sass/'),
-        files = [];
-
-    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
-
-    var command = 'sass-lint -i \'**/*.s+(a|c)ss\'';
+    var command = 'sass-lint -i **/*.scss -v -q --format json **/cli/*.scss';
 
     exec(command, function (err, stdout) {
 
@@ -250,22 +244,14 @@ describe('cli', function () {
         return done(err);
       }
 
-      files.forEach(function (file) {
-        assert(stdout.indexOf(file) === -1);
-      });
+      assert(stdout.indexOf('.scss') === -1);
 
       return done();
     });
   });
 
   it('should not include multiple ignored paths', function (done) {
-
-    var sassTestsPath = path.join(__dirname, '/sass/'),
-        files = [];
-
-    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
-
-    var command = 'sass-lint -i \'**/*.scss, **/*.sass \'';
+    var command = 'sass-lint -i \'**/*.scss, **/*.sass\' -q -v --format json';
 
     exec(command, function (err, stdout) {
 
@@ -273,22 +259,15 @@ describe('cli', function () {
         return done(err);
       }
 
-      files.forEach(function (file) {
-        assert(stdout.indexOf(file) === -1);
-      });
+      assert(stdout.indexOf('.scss') === -1);
+      assert(stdout.indexOf('.sass') === -1);
 
       return done();
     });
   });
 
   it('should override filename convention if a valid --syntax is provided', function (done) {
-
-    var sassTestsPath = path.join(__dirname, '/sass/'),
-        files = [];
-
-    files.push(sassTestsPath + fs.readdirSync(sassTestsPath));
-
-    var command = 'sass-lint --syntax scss tests/sass/cli.txt --verbose';
+    var command = 'sass-lint --syntax scss tests/cli/cli.txt --verbose --format json';
 
     exec(command, function (err, stdout) {
 
@@ -309,7 +288,7 @@ describe('cli', function () {
   });
 
   it('should exit with exit code 1 when quiet', function (done) {
-    var command = 'sass-lint -c tests/yml/.error-output.yml tests/sass/cli-error.scss --verbose --no-exit';
+    var command = 'sass-lint -c tests/yml/.error-output.yml tests/cli/cli-error.scss --verbose --no-exit';
 
     exec(command, function (err) {
       if (err.code === 1) {
@@ -320,8 +299,20 @@ describe('cli', function () {
     });
   });
 
+  it('should exit with exit code 1 when more warnings than --max-warnings', function (done) {
+    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --max-warnings 0';
+
+    exec(command, function (err) {
+      if (err && err.code === 1) {
+        return done();
+      }
+
+      return done(new Error('Error code not 1'));
+    });
+  });
+
   it('should not exit with an error if no config is specified', function (done) {
-    var command = 'sass-lint tests/sass/cli-clean.scss --verbose --no-exit';
+    var command = 'sass-lint tests/cli/cli-clean.scss --verbose --no-exit';
 
     exec(command, function (err) {
       if (!err) {

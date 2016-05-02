@@ -26,10 +26,52 @@
   content: '';
 }
 
+%strictbem {
+  content: '';
+}
+
+%strictbem_placeholder {
+  content: '';
+}
+
+%strictbem__mixin {
+  content: '';
+}
+
+%strictbem__mixin_placeholder {
+  content: '';
+}
+
+%strictbem_placeholder__mixin {
+  content: '';
+}
+
+%hyphenatedbem--placeholder {
+  content: '';
+}
+
+%hyphenatedbem__mixin {
+  content: '';
+}
+
+%hyphenatedbem__mixin--placeholder {
+  content: '';
+}
+
+%hyphenatedbem--placeholder__mixin {
+  content: '';
+}
+
 %_does_NOT-fitSTANDARD {
   content: '';
 }
 
 .class {
   @extend %snake_case;
+}
+
+// Issue: https://github.com/sasstools/sass-lint/issues/625
+// variables/interpolation should be ignored
+%#{$var} {
+  content: '';
 }

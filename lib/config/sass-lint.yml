@@ -30,6 +30,7 @@ rules:
   no-mergeable-selectors: 1
   no-misspelled-properties: 1
   no-qualifying-elements: 1
+  no-trailing-whitespace: 1
   no-trailing-zero: 1
   no-transition-all: 1
   no-url-protocols: 1
@@ -67,6 +68,7 @@ rules:
   url-quotes: 1
   variable-for-property: 1
   zero-unit: 1
+  pseudo-element: 1
 
   # Inner Spacing
   space-after-comma: 1

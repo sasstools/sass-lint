@@ -18,7 +18,11 @@ $red: #ff0000;
 
 }
 
-// FIXME Currently a parse error within gonzales-pe
-// .test-interp {
-//-webkit-#{$property}: $value;
-// }
+.test-interp {
+  -webkit-#{$property}: $value;
+}
+
+// https://github.com/sasstools/sass-lint/issues/606
+.test-vendor {
+  -moz-osx-font-smoothing: auto;
+}

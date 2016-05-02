@@ -1,5 +1,90 @@
 # Sass Lint Changelog
 
+## v1.7.0
+
+**April 27, 2016**
+
+You wait months for one release and then four come along in a week!
+
+**Fixes**
+* Fixed an issue with final newline not registering correctly for `.sass` syntax [#627](https://github.com/sasstools/sass-lint/issues/627) & [#630](https://github.com/sasstools/sass-lint/issues/630).
+* Fixed an issue with `placeholder-name-format` generating warnings on variables used as placeholder names.
+* Fixed the `empty-args` rule being wrongly labeled as `no-empty-args` in lint warnings/errors [#625](https://github.com/sasstools/sass-lint/issues/625)
+* Fixed an issue with `no-color-literals` incorrectly flagging variable names and map identifiers that shared their names with color literals [#538](https://github.com/sasstools/sass-lint/issues/538)
+* CLI examples corrected thanks to [alxndr](https://github.com/alxndr) - [#649](https://github.com/sasstools/sass-lint/issues/649)
+
+**Changes**
+* `no-color-literals` now includes two extra options `allow-map-identifiers` and `allow-variable-identifiers` which allow you to fine tune your use of color literals in map identifiers/variables on top of the existing functionality [see the docs](https://github.com/sasstools/sass-lint/blob/develop/docs/rules/no-color-literals.md)
+* Updated to `gonzales-pe-sl` v3.2.8
+
+## v1.6.2
+
+**April 22, 2016**
+
+**Fixes**
+* Fix `brace-style` rule incorrectly flagging `@imports` as single-line statements [#634](https://github.com/sasstools/sass-lint/issues/634)
+* Fix `brace-style` rule not allowing multiline parameters [#632](https://github.com/sasstools/sass-lint/issues/632)
+* `no-misspelled-properties` now correctly ignores vendor prefixes [#606](https://github.com/sasstools/sass-lint/issues/606)
+* Now correctly strips double-barreled vendor prefixes such as `-moz-osx-`
+
+## v.1.6.1
+
+The update that time forgot
+
+* Issues publishing to npm
+
+## v1.6.0
+
+**April 21, 2016**
+
+The long lost 1.6 update
+
+**WARNING**
+* We've moved to the latest version of gonzales-pe and then onto our own fork in which we've fixed our issues with CRLF etc. All of our tests are passing but there may be unforeseen regressions in gonzales that we will aim to fix. If you find a problem like this please report it to us and we'll investigate further. You can then decide to keep your sass-lint dependency to 1.5.1 if you so choose.
+
+**Changes**
+* Updated all rules to work with the new Gonzales-pe 3.2.x release [#495](https://github.com/sasstools/sass-lint/issues/495)
+> No breaking changes in the sense that all the rules are the same and pass the same tests or more BUT many did involve a complete re write.
+
+* Now using gonzales-pe-sl 3.2.7 fork
+* Update the no-mergeable-selectors rule to ignore certain situations and work a little more reliably across codebases
+* Added BEM conventions to all naming rules [#614](https://github.com/sasstools/sass-lint/pull/614)
+* Added Appveyor CI for testing against CRLF line endings on Windows
+
+
+**CLI**
+* Add max warnings option to the CLI --max-warnings [#568](https://github.com/sasstools/sass-lint/pull/568)
+
+**New Rules**
+* `no-trailing-whitespace` rule added [#605](https://github.com/sasstools/sass-lint/pull/605)
+
+**Fixes**
+* Fixed parsing error when using interpolated values [#44](https://github.com/sasstools/sass-lint/issues/44), [#184](https://github.com/sasstools/sass-lint/issues/184), [#210](https://github.com/sasstools/sass-lint/issues/210), [#222](https://github.com/sasstools/sass-lint/issues/222),
+[#321](https://github.com/sasstools/sass-lint/issues/321),
+[#486](https://github.com/sasstools/sass-lint/issues/486),
+* Fixed parsing error when using the `!global` flag [#56](https://github.com/sasstools/sass-lint/issues/56)
+* Having `-` within a class name will no longer return a parse error [#229](https://github.com/sasstools/sass-lint/issues/229)
+* Fixed parsing error when using extrapolated variable as extend name [#313](https://github.com/sasstools/sass-lint/issues/313)
+* Fixed an un-handled error thrown from the indentation rule [#389](https://github.com/sasstools/sass-lint/issues/389)
+* Fixed an issue with final newline rule for sass [#445](https://github.com/sasstools/sass-lint/issues/445)
+* Updated indentation rule to work with CRLF (indentation is mainly scss for the moment) [#524](https://github.com/sasstools/sass-lint/pull/524)
+* Fixed parsing error when using nested maps [#531](https://github.com/sasstools/sass-lint/issues/531)
+* Fixed parsing error when using variables for placeholder name [#532](https://github.com/sasstools/sass-lint/issues/532)
+* Fixed issue with dots in filenames [#541](https://github.com/sasstools/sass-lint/pull/541)
+* Fixed use of modulo operator in SCSS syntax [#565](https://github.com/sasstools/sass-lint/issues/565)
+* Fixed an issue with space-around-operator and unicode [#620](https://github.com/sasstools/sass-lint/pull/620)
+* Fixed an issue with CRLF line endings in the no-trailing-whitespace rule [#623](https://github.com/sasstools/sass-lint/pull/623)
+
+**A big thank you to everyone who reported issues or contributed to the discussion around issues and also for everyone bearing with us while we go this monster update ready for you.**
+
+## v1.5.1
+**February 26, 2016**
+
+Hotfix
+
+**Fixes**
+* Fix lodash dependancy issue [#549](https://github.com/sasstools/sass-lint/issues/549)
+
 ## v1.5.0
 **January 28, 2016**
 

@@ -321,6 +321,21 @@ $norf: (5   %   2);
   $baz: 1;
 }
 
+// ========================
+// Interesting user cases
+// ========================
+
+// Should flag this if rule is true
+.foo {
+  $val: 1-($foo * 2);
+}
+
+// Negative numbers
+
+.foo {
+  bottom: $var /-2;
+}
+
 
 //====================
 // Should be ok
@@ -459,17 +474,10 @@ $norf: (5 % 2);
 // Interesting user cases
 // ========================
 
-// Should ignore the this
 .foo {
   $val: -($foo * 2);
 }
 
-// Should flag this if rule is true
-.foo {
-  $val: 1-($foo * 2);
-}
-
-// Should flag this if rule is false
 .foo {
   $val: 1 - ($foo * 2);
 }
@@ -478,3 +486,21 @@ $norf: (5 % 2);
 // .foo {
 //   $val: - ($foo * 2);
 // }
+
+@font-face {
+  font-family: 'Proxima Nova';
+  unicode-range: U+26;
+  unicode-range: U+0-7F;
+  unicode-range: U+0025-00FF;
+  // TODO: Wildcard currently causes gonzales to fail
+  // unicode-range: U+4??;
+  // unicode-range: U+0025-00FF, U+4??;
+}
+
+// Negative numbers
+.foo {
+  bottom: $var / -2;
+}
+
+// Imports
+@import 'bar/foo';

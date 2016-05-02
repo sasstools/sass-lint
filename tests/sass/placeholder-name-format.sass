@@ -19,8 +19,40 @@
 %_with-leading-underscore
   content: ''
 
+%strictbem
+  content: ''
+
+%strictbem_modifier
+  content: ''
+
+%strictbem__placeholder
+  content: ''
+
+%strictbem__placeholder_modifier
+  content: ''
+
+%strictbem_modifier__placeholder
+  content: ''
+
+%hyphenatedbem--modifier
+  content: ''
+
+%hyphenatedbem__placeholder
+  content: ''
+
+%hyphenatedbem__placeholder--modifier
+  content: ''
+
+%hyphenatedbem--modifier__placeholder
+  content: ''
+
 %_does_NOT-fitSTANDARD
   content: ''
 
 .class
   @extend %snake_case
+
+// Issue: https://github.com/sasstools/sass-lint/issues/625
+// variables/interpolation should be ignored
+%#{$var}
+  content: ''

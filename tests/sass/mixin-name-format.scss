@@ -26,6 +26,42 @@
   content: '';
 }
 
+@mixin strictbem() {
+  content: '';
+}
+
+@mixin strictbem_modifier() {
+  content: '';
+}
+
+@mixin strictbem__mixin() {
+  content: '';
+}
+
+@mixin strictbem__mixin_modifier() {
+  content: '';
+}
+
+@mixin strictbem_modifier__mixin() {
+  content: '';
+}
+
+@mixin hyphenatedbem--modifier() {
+  content: '';
+}
+
+@mixin hyphenatedbem__mixin() {
+  content: '';
+}
+
+@mixin hyphenatedbem__mixin--modifier() {
+  content: '';
+}
+
+@mixin hyphenatedbem--modifier__mixin() {
+  content: '';
+}
+
 @mixin _does_NOT-fitSTANDARD() {
   content: '';
 }

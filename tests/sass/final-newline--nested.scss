@@ -1,0 +1,5 @@
+.foo {
+  @if $foo == 'bar' {
+    content: 'bar';
+  }
+}

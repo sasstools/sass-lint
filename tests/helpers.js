@@ -995,6 +995,14 @@ describe('helpers', function () {
     done();
   });
 
+  it('stripPrefix - [-moz-osx-font-smoothing - font-smoothing]', function (done) {
+
+    var result = helpers.stripPrefix('-moz-osx-font-smoothing');
+
+    assert.equal('font-smoothing', result);
+    done();
+  });
+
   //////////////////////////////
   // stripLastSpace
   //////////////////////////////
