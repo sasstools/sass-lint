@@ -1,0 +1,77 @@
+// Standard
+//==============================================================================
+
+[autoplay]
+  content: 'foo'
+
+[attr=value]
+  content: 'bar'
+
+[attr~=value]
+  content: 'baz'
+
+// TODO: Uncomment once gonzale-pe issue fixed
+// https://github.com/tonyganch/gonzales-pe/issues/174
+// [attr|=value]
+//   content: 'qux'
+
+[attr^=value]
+  content: 'norf'
+
+[attr$=value]
+  content: 'foo'
+
+[attr*=value]
+  content: 'bar'
+
+// Combinator
+//==============================================================================
+
+.foo [autoplay]
+  content: 'foo'
+
+.foo [attr=value]
+  content: 'bar'
+
+.foo [attr~=value]
+  content: 'baz'
+
+// TODO: Uncomment once gonzale-pe issue fixed
+// https://github.com/tonyganch/gonzales-pe/issues/174
+// .foo [attr|=value]
+//   content: 'qux'
+
+.foo [attr^=value]
+  content: 'norf'
+
+.foo [attr$=value]
+  content: 'foo'
+
+.foo [attr*=value]
+  content: 'bar'
+
+// Specific
+//==============================================================================
+
+.foo[autoplay]
+  content: 'foo'
+
+.foo[attr=value]
+  content: 'bar'
+
+.foo[attr~=value]
+  content: 'baz'
+
+// TODO: Uncomment once gonzale-pe issue fixed
+// https://github.com/tonyganch/gonzales-pe/issues/174
+// .foo[attr|=value]
+//   content: 'qux'
+
+.foo[attr^=value]
+  content: 'norf'
+
+.foo[attr$=value]
+  content: 'foo'
+
+.foo[attr*=value]
+  content: 'bar'
