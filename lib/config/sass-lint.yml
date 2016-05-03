@@ -17,6 +17,7 @@ rules:
   single-line-per-selector: 1
 
   # Disallows
+  no-attribute-selector: 0
   no-color-keywords: 1
   no-color-literals: 1
   no-css-comments: 1
