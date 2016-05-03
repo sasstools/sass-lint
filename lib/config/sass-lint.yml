@@ -63,12 +63,12 @@ rules:
   leading-zero: 1
   nesting-depth: 1
   property-sort-order: 1
+  pseudo-element: 1
   quotes: 1
   shorthand-values: 1
   url-quotes: 1
   variable-for-property: 1
   zero-unit: 1
-  pseudo-element: 1
 
   # Inner Spacing
   space-after-comma: 1
