@@ -1,0 +1,17 @@
+p {
+    // sass-lint:disable a
+    border: 0;
+    // sass-lint:disable-block a
+    font-size: 100%;
+}
+
+a { // sass-lint:disable a
+    border: 0;
+    // sass-lint:disable-block a
+    font-size: 100%;
+}
+
+li { /* sass-lint:disable a */ /* sass-lint:disable a */
+    border: 0;
+    font-size: 100%;
+}

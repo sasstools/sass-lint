@@ -4,9 +4,13 @@ var slConfig = require('./lib/config'),
     groot = require('./lib/groot'),
     helpers = require('./lib/helpers'),
     slRules = require('./lib/rules'),
+    ruleToggler = require('./lib/ruleToggler'),
     glob = require('glob'),
     path = require('path'),
     fs = require('fs-extra');
+
+var getToggledRules = ruleToggler.getToggledRules,
+    isResultEnabled = ruleToggler.isResultEnabled;
 
 var sassLint = function (config) {
   config = require('./lib/config')(config);
@@ -100,7 +104,9 @@ sassLint.lintText = function (file, options, configPath) {
       detects,
       results = [],
       errors = 0,
-      warnings = 0;
+      warnings = 0,
+      ruleToggles = getToggledRules(ast),
+      isEnabledFilter = isResultEnabled(ruleToggles);
 
   try {
     ast = groot(file.text, file.format, file.filename);
@@ -120,7 +126,8 @@ sassLint.lintText = function (file, options, configPath) {
 
   if (ast.content && ast.content.length > 0) {
     rules.forEach(function (rule) {
-      detects = rule.rule.detect(ast, rule);
+      detects = rule.rule.detect(ast, rule)
+        .filter(isEnabledFilter);
       results = results.concat(detects);
       if (detects.length) {
         if (rule.severity === 1) {
