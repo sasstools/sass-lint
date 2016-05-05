@@ -156,31 +156,49 @@ sassLint.lintText = function (file, options, configPath) {
 sassLint.lintFiles = function (files, options, configPath) {
   var that = this,
       results = [],
+      includes = [],
       ignores = '';
 
   if (files) {
+    // Usually the CLI here, files have been directly passed in
+    // load all the array of ignores from our config file
     ignores = this.getConfig(options, configPath).files.ignore || '';
-    files = glob.sync(files, {ignore: ignores});
+    if (files.indexOf(', ') !== -1) {
+      files.split(', ').forEach(function (pattern) {
+        includes = includes.concat(glob.sync(pattern, {ignore: ignores}));
+      });
+    }
+    else {
+      includes = glob.sync(files, {ignore: ignores});
+    }
   }
   else {
     files = this.getConfig(options, configPath).files;
     if (typeof files === 'string') {
-      files = glob.sync(files);
+      includes = glob.sync(files);
+    }
+    else if (files.include && files.include instanceof Array) {
+      files.include.forEach(function (pattern) {
+        includes = includes.concat(glob.sync(pattern, {ignore: files.ignore}));
+      });
     }
     else {
-      files = glob.sync(files.include, {
+      includes = glob.sync(files.include, {
         'ignore': files.ignore
       });
     }
   }
 
-  files.forEach(function (file) {
-    var lint = that.lintText({
-      'text': fs.readFileSync(file),
-      'format': options.syntax ? options.syntax : path.extname(file).replace('.', ''),
-      'filename': file
-    }, options, configPath);
-    results.push(lint);
+  includes.forEach(function (file, index) {
+    // Only lint non duplicate files from our glob results
+    if (includes.indexOf(file) === index) {
+      var lint = that.lintText({
+        'text': fs.readFileSync(file),
+        'format': options.syntax ? options.syntax : path.extname(file).replace('.', ''),
+        'filename': file
+      }, options, configPath);
+      results.push(lint);
+    }
   });
 
   return results;
