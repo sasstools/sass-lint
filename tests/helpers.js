@@ -462,7 +462,7 @@ describe('helpers', function () {
   // isPascalCase
   //////////////////////////////
 
-  it('isPascalCase - [\'TEST\' - false]', function (done) {
+  it('isPascalCase - [\'TEST\' - true]', function (done) {
 
     var result = helpers.isPascalCase('TEST');
 
