@@ -110,6 +110,23 @@ When enabled, the following are allowed:
 }
 ```
 
+## Example 4
+
+Settings:
+- `convention: pascalcase`
+
+When enabled, the following are allowed:
+
+```scss
+#PascalCase {
+  content: '';
+}
+
+#Foo {
+  @extend #AnotherPascalCase;
+}
+```
+
 When enabled, the following are disallowed:
 
 ```scss
@@ -122,7 +139,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 4
+## Example 5
 
 Settings:
 - `convention: snakecase`
@@ -151,7 +168,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 5
+## Example 6
 
 Settings:
 - `convention: ^[_A-Z]+$`
