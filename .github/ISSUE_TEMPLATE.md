@@ -2,9 +2,9 @@
 
 Please include as much information as possible about your issue/request.
 
-Make sure you've read through [contribution guidelines](https://github.com/sasstools/sass-lint/blob/develop/CONTRIBUTING.md#submitting-issues) first.
+Make sure you've read through our [contribution guidelines](https://github.com/sasstools/sass-lint/blob/develop/CONTRIBUTING.md#submitting-issues) first.
 
-If you would like to propose a feature please ignore some of the headings below but include as much information as possible and possible test case code samples.
+If you would like to propose a feature please ignore some of the headings below but include as much information as you can and if possible any relevant test case code samples.
 -->
 
 
