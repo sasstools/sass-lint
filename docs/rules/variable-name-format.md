@@ -69,6 +69,33 @@ $_camelCaseWithLeadingUnderscore: 1px;
 
 Settings:
 - `allow-leading-underscore: false`
+- `convention: pascalcase`
+
+When enabled, the following are allowed:
+
+```scss
+$PascalCase: 1px;
+
+.foo {
+  width: $AnotherPascalCase;
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+$HYPHENATED-UPPERCASE: 1px;
+$_camelCaseWithLeadingUnderscore: 1px;
+
+.foo {
+  width: $snake_case;
+}
+```
+
+## Example 4
+
+Settings:
+- `allow-leading-underscore: false`
 - `convention: snakecase`
 
 When enabled, the following are allowed:
@@ -92,7 +119,7 @@ $_snake_case_with_leading_underscore: 1px;
 }
 ```
 
-## Example 4
+## Example 5
 
 Settings:
 - `convention: strictbem`
@@ -119,7 +146,7 @@ $HYPHENATED-UPPERCASE: 1px;
 }
 ```
 
-## Example 5
+## Example 6
 
 Settings:
 - `convention: hyphenatedbem`
@@ -146,7 +173,7 @@ $HYPHENATED-UPPERCASE: 1px;
 }
 ```
 
-## Example 6
+## Example 7
 
 Settings:
 - `allow-leading-underscore: true`

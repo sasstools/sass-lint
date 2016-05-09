@@ -28,6 +28,20 @@ describe('mixin name format - scss', function () {
     });
   });
 
+  it('[convention: pascalcase]', function (done) {
+    lint.test(file, {
+      'mixin-name-format': [
+        1,
+        {
+          'convention': 'pascalcase'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(17, data.warningCount);
+      done();
+    });
+  });
+
   it('[convention: snakecase]', function (done) {
     lint.test(file, {
       'mixin-name-format': [
@@ -136,6 +150,20 @@ describe('mixin name format - sass', function () {
       ]
     }, function (data) {
       lint.assert.equal(10, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: pascalcase]', function (done) {
+    lint.test(file, {
+      'mixin-name-format': [
+        1,
+        {
+          'convention': 'pascalcase'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
