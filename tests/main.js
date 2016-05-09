@@ -12,6 +12,13 @@ var lintFile = function lintFile (file, options, cb) {
   cb(results[0]);
 };
 
+var lintFiles = function lintFiles (files, options, configPath, cb) {
+  options = options || {};
+  var results = lint.lintFiles(files, options, configPath);
+
+  cb(results);
+};
+
 var resultsObj = [{
   filePath: 'app/scss/echo-base/defaults/utilities/_mixins.scss',
   warningCount: 3,
@@ -54,10 +61,36 @@ var resultsObj = [{
   }]
 }];
 
+var multiInputResults = [{
+  filePath: 'tests/cli/cli-error.sass',
+  warningCount: 1,
+  errorCount: 0,
+  messages: [{
+    ruleId: 'no-ids',
+    line: 1,
+    column: 1,
+    message: 'ID selectors not allowed',
+    severity: 1
+  }]
+}, {
+  filePath: 'tests/cli/cli-error.scss',
+  warningCount: 1,
+  errorCount: 0,
+  messages: [{
+    ruleId: 'no-ids',
+    line: 1,
+    column: 1,
+    message: 'ID selectors not allowed',
+    severity: 1
+  }]
+}];
+
 describe('sass lint', function () {
-  //////////////////////////////
-  // Not Error on Empty Files
-  //////////////////////////////
+
+// ==============================================================================
+//  Not Error on Empty Files
+// ==============================================================================
+
   it('should not error if a file is empty', function (done) {
     lintFile('empty-file.scss', function (data) {
       assert.equal(0, data.warningCount);
@@ -67,9 +100,10 @@ describe('sass lint', function () {
     });
   });
 
-  //////////////////////////////
-  // Parse Errors should return as lint errors
-  //////////////////////////////
+// ==============================================================================
+//  Parse Errors should return as lint errors
+// ==============================================================================
+
   it('Parse Errors should return as lint errors', function (done) {
     lintFile('parse.scss', function (data) {
       assert.equal(1, data.errorCount);
@@ -114,10 +148,32 @@ describe('sass lint', function () {
   });
 });
 
+// ==============================================================================
+//  Lint files with config path
+// ==============================================================================
+
+describe('sassLint Config load', function () {
+  it('should accept multiple input sources in a config', function (done) {
+    lintFiles(null, {}, process.cwd() + '/tests/yml/.multiple-inputs.yml', function (data) {
+      assert.deepEqual(data, multiInputResults);
+      done();
+    });
+  });
+
+  it('should accept multiple input sources and ignores in a config', function (done) {
+    lintFiles(null, {}, process.cwd() + '/tests/yml/.multiple-ignores.yml', function (data) {
+      assert.deepEqual(data, []);
+      done();
+    });
+  });
+});
+
 describe('sassLint detect counts', function () {
-  //////////////////////////////
-  // Error count
-  //////////////////////////////
+
+// ==============================================================================
+//  Error Count
+// ==============================================================================
+
   it('should equal 2 errors', function (done) {
     var result = lint.errorCount(resultsObj);
 
@@ -125,9 +181,10 @@ describe('sassLint detect counts', function () {
     done();
   });
 
-  //////////////////////////////
-  // Warning count
-  //////////////////////////////
+// ==============================================================================
+//  Warning count
+// ==============================================================================
+
   it('should equal 3 warnings', function (done) {
     var result = lint.warningCount(resultsObj);
 
@@ -135,9 +192,10 @@ describe('sassLint detect counts', function () {
     done();
   });
 
-  //////////////////////////////
-  // Result count
-  //////////////////////////////
+// ==============================================================================
+//  Result count
+// ==============================================================================
+
   it('should equal 5 overall detects', function (done) {
     var result = lint.resultCount(resultsObj);
 
