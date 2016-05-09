@@ -154,14 +154,14 @@ describe('sass lint', function () {
 
 describe('sassLint Config load', function () {
   it('should accept multiple input sources in a config', function (done) {
-    lintFiles(null, {}, process.cwd() + '/tests/yml/.multiple-inputs.yml', function (data) {
+    lintFiles(null, {}, 'tests/yml/.multiple-inputs.yml', function (data) {
       assert.deepEqual(data, multiInputResults);
       done();
     });
   });
 
   it('should accept multiple input sources and ignores in a config', function (done) {
-    lintFiles(null, {}, process.cwd() + '/tests/yml/.multiple-ignores.yml', function (data) {
+    lintFiles(null, {}, 'tests/yml/.multiple-ignores.yml', function (data) {
       assert.deepEqual(data, []);
       done();
     });
