@@ -28,6 +28,20 @@ describe('function name format - scss', function () {
     });
   });
 
+  it('[convention: pascalcase]', function (done) {
+    lint.test(file, {
+      'function-name-format': [
+        1,
+        {
+          'convention': 'pascalcase'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(17, data.warningCount);
+      done();
+    });
+  });
+
   it('[convention: snakecase]', function (done) {
     lint.test(file, {
       'function-name-format': [
@@ -122,6 +136,20 @@ describe('function name format - sass', function () {
       ]
     }, function (data) {
       lint.assert.equal(16, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: pascalcase]', function (done) {
+    lint.test(file, {
+      'function-name-format': [
+        1,
+        {
+          'convention': 'pascalcase'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
