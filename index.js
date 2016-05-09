@@ -159,9 +159,8 @@ sassLint.lintFiles = function (files, options, configPath) {
       includes = [],
       ignores = '';
 
+  // Files passed as a string on the command line
   if (files) {
-    // Usually the CLI here, files have been directly passed in
-    // load all the array of ignores from our config file
     ignores = this.getConfig(options, configPath).files.ignore || '';
     if (files.indexOf(', ') !== -1) {
       files.split(', ').forEach(function (pattern) {
@@ -172,16 +171,20 @@ sassLint.lintFiles = function (files, options, configPath) {
       includes = glob.sync(files, {ignore: ignores});
     }
   }
+  // If not passed in then we look in the config file
   else {
     files = this.getConfig(options, configPath).files;
+    // A glob pattern of files can be just a string
     if (typeof files === 'string') {
       includes = glob.sync(files);
     }
+    // Look into the include property of files and check if there's an array of files
     else if (files.include && files.include instanceof Array) {
       files.include.forEach(function (pattern) {
         includes = includes.concat(glob.sync(pattern, {ignore: files.ignore}));
       });
     }
+    // Or there is only one pattern in the include property of files
     else {
       includes = glob.sync(files.include, {
         'ignore': files.ignore
