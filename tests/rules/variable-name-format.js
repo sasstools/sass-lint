@@ -2,6 +2,10 @@
 
 var lint = require('./_lint');
 
+// ==============================================================================
+//  SCSS
+// ==============================================================================
+
 describe('variable name format - scss', function () {
   var file = lint.file('variable-name-format.scss');
 
@@ -24,6 +28,20 @@ describe('variable name format - scss', function () {
       ]
     }, function (data) {
       lint.assert.equal(15, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: pascalcase]', function (done) {
+    lint.test(file, {
+      'variable-name-format': [
+        1,
+        {
+          'convention': 'pascalcase'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -100,6 +118,10 @@ describe('variable name format - scss', function () {
   });
 });
 
+// ==============================================================================
+//  Sass
+// ==============================================================================
+
 describe('variable name format - sass', function () {
   var file = lint.file('variable-name-format.sass');
 
@@ -136,6 +158,20 @@ describe('variable name format - sass', function () {
       ]
     }, function (data) {
       lint.assert.equal(10, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: pascalcase]', function (done) {
+    lint.test(file, {
+      'variable-name-format': [
+        1,
+        {
+          'convention': 'pascalcase'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });

@@ -10,7 +10,7 @@ describe('no empty rulesets - scss', function () {
 
   it('enforce', function (done) {
     lint.test(file, {
-      'empty-ruleset': 1
+      'no-empty-rulesets': 1
     }, function (data) {
       lint.assert.equal(3, data.warningCount);
       done();
