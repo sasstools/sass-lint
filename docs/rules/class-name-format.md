@@ -121,6 +121,35 @@ When enabled, the following are disallowed:
 ## Example 4
 
 Settings:
+- `convention: pascalcase`
+
+When enabled, the following are allowed:
+
+```scss
+.PascalCase {
+  content: '';
+}
+
+.Foo {
+  @extend .AnotherPascalCase;
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+.HYPHENATED-UPPERCASE {
+  content: '';
+}
+
+.foo {
+  @extend .snake_case;
+}
+```
+
+## Example 5
+
+Settings:
 - `convention: snakecase`
 
 When enabled, the following are allowed:
@@ -147,7 +176,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 5
+## Example 6
 
 Settings:
 - `convention: strictbem`
@@ -176,7 +205,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 6
+## Example 7
 
 Settings:
 - `convention: hyphenatedbem`
@@ -211,7 +240,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 7
+## Example 8
 
 Settings:
 - `convention: ^[_A-Z]+$`
