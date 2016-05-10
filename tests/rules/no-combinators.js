@@ -12,7 +12,7 @@ describe('no combinators - scss', function () {
     lint.test(file, {
       'no-combinators': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(23, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('no combinators - sass', function () {
     lint.test(file, {
       'no-combinators': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(23, data.warningCount);
       done();
     });
   });
