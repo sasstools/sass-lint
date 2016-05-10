@@ -5,12 +5,12 @@ var lint = require('./_lint');
 //////////////////////////////
 // SCSS syntax tests
 //////////////////////////////
-describe('no universal-selector - scss', function () {
-  var file = lint.file('no-universal-selector.scss');
+describe('no universal selectors - scss', function () {
+  var file = lint.file('no-universal-selectors.scss');
 
   it('enforce', function (done) {
     lint.test(file, {
-      'no-universal-selector': 1
+      'no-universal-selectors': 1
     }, function (data) {
       lint.assert.equal(6, data.warningCount);
       done();
@@ -21,12 +21,12 @@ describe('no universal-selector - scss', function () {
 //////////////////////////////
 // Sass syntax tests
 //////////////////////////////
-describe('no universal-selector - sass', function () {
-  var file = lint.file('no-universal-selector.sass');
+describe('no universal selectors - sass', function () {
+  var file = lint.file('no-universal-selectors.sass');
 
   it('enforce', function (done) {
     lint.test(file, {
-      'no-universal-selector': 1
+      'no-universal-selectors': 1
     }, function (data) {
       lint.assert.equal(6, data.warningCount);
       done();
