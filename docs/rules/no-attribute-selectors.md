@@ -1,6 +1,6 @@
-# No Attribute Selector
+# No Attribute Selectors
 
-Rule `no-attribute-selector` will enforce that the attribute selector is not allowed to be used.
+Rule `no-attribute-selectors` will enforce that the attribute selector is not allowed to be used.
 
 ## Examples
 
