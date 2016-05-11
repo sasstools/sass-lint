@@ -26,3 +26,40 @@ $red: #ff0000;
 .test-vendor {
   -moz-osx-font-smoothing: auto;
 }
+
+
+.foo {
+  font: {
+    family: fantasy;
+    size: 12px;
+  }
+  border: {
+    top: {
+      right: 1px solid #fff;
+      left: {
+        color: red;
+      }
+    }
+    left: 2px solid #000;
+  }
+}
+
+.bar {
+  font: {
+    famizy: fantasy;
+    size: 12px;
+  }
+  boder: {
+    top: {
+      rigt: 1px solid #fff;
+      left: {
+        color: red;
+      }
+    }
+    left: 2px solid #000;
+  }
+}
+
+.foo {
+  margin-#{$property-y}: -2 * $hint-arrow-width;
+}
