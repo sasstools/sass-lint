@@ -9,7 +9,7 @@ describe('no mergeable selectors - scss', function () {
     lint.test(file, {
       'no-mergeable-selectors': 1
     }, function (data) {
-      lint.assert.equal(21, data.warningCount);
+      lint.assert.equal(22, data.warningCount);
       done();
     });
   });
@@ -25,7 +25,7 @@ describe('no mergeable selectors - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(20, data.warningCount);
+      lint.assert.equal(21, data.warningCount);
       done();
     });
   });
