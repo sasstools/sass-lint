@@ -5,6 +5,9 @@ node_js:
   - '5'
   - node
   - iojs
+matrix:
+  allow_failures:
+    - node_js: "0.10"
 before_script: npm link
 after_success: npm run coveralls
 notifications:
