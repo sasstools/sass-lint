@@ -282,21 +282,41 @@ ul ~ p {
 
 //keyframes should be ignored completely
 @include keyframes(fade-in) {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @include keyframes(fade-out) {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
+  100% {
+    opacity: 0;
+  }
+}
+
+// Issue #703 - Interpolation in selector
+
+.navigation {
+  @media #{$media-query-lg-up} {
+    .nav-item {
+      display: inline-block;
     }
+  }
+  @media #{$media-query-md-down} {
+    // should not merge with the media query above
+    .nav-item {
+      display: block;
+    }
+    // should merge with the ruleset directly above
+    .nav-item {
+      color: $blue;
+    }
+  }
 }

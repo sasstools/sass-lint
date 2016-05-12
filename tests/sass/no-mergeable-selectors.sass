@@ -235,3 +235,17 @@ ul ~ p
 //
 //   100%
 //     opacity: 1
+
+// Issue #703 - Interpolation in selector - ignored in Sass syntax for now due to gonzales issue
+
+.navigation
+  @media #{$media-query-lg-up}
+    .nav-item
+      display: inline-block
+  @media #{$media-query-md-down}
+    // should not merge with the media query above
+    .nav-item
+      display: block
+    // should merge with the ruleset directly above
+    .nav-item
+      color: $blue
