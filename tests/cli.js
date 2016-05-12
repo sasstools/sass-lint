@@ -35,7 +35,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input paths', function (done) {
-    var command = 'sass-lint \'tests/cli/cli-error.scss, tests/cli/cli-error.sass\' --no-exit --verbose';
+    var command = 'sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -51,7 +51,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input globs', function (done) {
-    var command = 'sass-lint \'tests/cli/*.scss, tests/cli/*.sass\' --no-exit --verbose';
+    var command = 'sass-lint "tests/cli/*.scss, tests/cli/*.sass" --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -83,7 +83,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input paths and multiple ignore paths', function (done) {
-    var command = 'sass-lint \'tests/cli/cli-error.scss, tests/cli/cli-error.sass\' -i \'tests/cli/cli-error.scss, tests/cli/cli-error.sass\' --no-exit --verbose';
+    var command = 'sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" -i "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -315,7 +315,7 @@ describe('cli', function () {
   });
 
   it('should not include ignored paths', function (done) {
-    var command = 'sass-lint -i **/*.scss -v -q --format json **/cli/*.scss';
+    var command = 'sass-lint -i "**/*.scss" -v -q --format json "**/cli/*.scss"';
 
     exec(command, function (err, stdout) {
 
@@ -330,7 +330,7 @@ describe('cli', function () {
   });
 
   it('should not include multiple ignored paths', function (done) {
-    var command = 'sass-lint -i \'**/*.scss, **/*.sass\' -q -v --format json';
+    var command = 'sass-lint -i "**/*.scss, **/*.sass" -q -v --format json';
 
     exec(command, function (err, stdout) {
 
