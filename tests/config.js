@@ -139,30 +139,6 @@ describe('config', function () {
     done();
   });
 
-  it('should not merge custom option rules when `merge-default-rules` is false', function (done) {
-    var defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'lib', 'config', 'sass-lint.yml'), 'utf8')),
-        tempOptions = custOptions(),
-        conf,
-        merged;
-
-    tempOptions.options['merge-default-rules'] = false;
-    conf = config(tempOptions);
-    merged = merge.recursive(tempOptions, defaultConfig);
-    merged.rules = tempOptions.rules;
-
-    assert(
-      equal(
-        conf,
-        merged,
-        {
-          'strict': true
-        }
-      )
-    );
-
-    done();
-  });
-
   it('should load a cached version of the config', function (done) {
     var tempOptions = {
           'options': {}
@@ -191,4 +167,30 @@ describe('config', function () {
 
     done();
   });
+
+  it('should not merge custom option rules when `merge-default-rules` is false', function (done) {
+    var defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'lib', 'config', 'sass-lint.yml'), 'utf8')),
+        tempOptions = custOptions(),
+        conf,
+        merged;
+
+    tempOptions.options['merge-default-rules'] = false;
+    conf = config(tempOptions);
+    merged = merge.recursive(tempOptions, defaultConfig);
+    merged.rules = tempOptions.rules;
+
+    assert(
+      equal(
+        conf,
+        merged,
+        {
+          'strict': true
+        }
+      )
+    );
+
+    done();
+  });
+
+
 });

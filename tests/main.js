@@ -87,9 +87,9 @@ var multiInputResults = [{
 
 describe('sass lint', function () {
 
-// ==============================================================================
-//  Not Error on Empty Files
-// ==============================================================================
+  // ==============================================================================
+  //  Not Error on Empty Files
+  // ==============================================================================
 
   it('should not error if a file is empty', function (done) {
     lintFile('empty-file.scss', function (data) {
@@ -100,9 +100,9 @@ describe('sass lint', function () {
     });
   });
 
-// ==============================================================================
-//  Parse Errors should return as lint errors
-// ==============================================================================
+  // ==============================================================================
+  //  Parse Errors should return as lint errors
+  // ==============================================================================
 
   it('Parse Errors should return as lint errors', function (done) {
     lintFile('parse.scss', function (data) {
@@ -146,60 +146,60 @@ describe('sass lint', function () {
       done();
     });
   });
-});
 
-// ==============================================================================
-//  Lint files with config path
-// ==============================================================================
+  // ==============================================================================
+  //  Lint files with config path
+  // ==============================================================================
 
-describe('sassLint Config load', function () {
-  it('should accept multiple input sources in a config', function (done) {
-    lintFiles(null, {}, 'tests/yml/.multiple-inputs.yml', function (data) {
-      assert.deepEqual(data, multiInputResults);
-      done();
+  describe('sassLint Config load', function () {
+    it('should accept multiple input sources in a config', function (done) {
+      lintFiles(null, {options: {'cache-config': false}}, 'tests/yml/.multiple-inputs.yml', function (data) {
+        assert.deepEqual(data, multiInputResults);
+        done();
+      });
+    });
+
+    it('should accept multiple input sources and ignores in a config', function (done) {
+      lintFiles(null, {options: {'cache-config': false}}, 'tests/yml/.multiple-ignores.yml', function (data) {
+        assert.deepEqual(data, []);
+        done();
+      });
     });
   });
 
-  it('should accept multiple input sources and ignores in a config', function (done) {
-    lintFiles(null, {}, 'tests/yml/.multiple-ignores.yml', function (data) {
-      assert.deepEqual(data, []);
+  describe('sassLint detect counts', function () {
+
+  // ==============================================================================
+  //  Error Count
+  // ==============================================================================
+
+    it('should equal 2 errors', function (done) {
+      var result = lint.errorCount(resultsObj);
+
+      assert.equal(2, result.count);
       done();
     });
-  });
-});
 
-describe('sassLint detect counts', function () {
+  // ==============================================================================
+  //  Warning count
+  // ==============================================================================
 
-// ==============================================================================
-//  Error Count
-// ==============================================================================
+    it('should equal 3 warnings', function (done) {
+      var result = lint.warningCount(resultsObj);
 
-  it('should equal 2 errors', function (done) {
-    var result = lint.errorCount(resultsObj);
+      assert.equal(3, result.count);
+      done();
+    });
 
-    assert.equal(2, result.count);
-    done();
-  });
+  // ==============================================================================
+  //  Result count
+  // ==============================================================================
 
-// ==============================================================================
-//  Warning count
-// ==============================================================================
+    it('should equal 5 overall detects', function (done) {
+      var result = lint.resultCount(resultsObj);
 
-  it('should equal 3 warnings', function (done) {
-    var result = lint.warningCount(resultsObj);
-
-    assert.equal(3, result.count);
-    done();
-  });
-
-// ==============================================================================
-//  Result count
-// ==============================================================================
-
-  it('should equal 5 overall detects', function (done) {
-    var result = lint.resultCount(resultsObj);
-
-    assert.equal(5, result);
-    done();
+      assert.equal(5, result);
+      done();
+    });
   });
 });
