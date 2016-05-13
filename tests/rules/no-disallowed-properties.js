@@ -10,9 +10,33 @@ describe('no disallowed properties - scss', function () {
 
   it('properties: [z-index]', function (done) {
     lint.test(file, {
-      'no-disallowed-properties': [1, { properties: ['z-index'] }]
+      'no-disallowed-properties': [
+        1,
+        {
+          properties: [
+            'z-index'
+          ]
+        }
+      ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  it('properties: [z-index]', function (done) {
+    lint.test(file, {
+      'no-disallowed-properties': [
+        1,
+        {
+          properties: [
+            'z-index',
+            'display'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -26,9 +50,33 @@ describe('no disallowed properties - sass', function () {
 
   it('properties: [z-index]', function (done) {
     lint.test(file, {
-      'no-disallowed-properties': [1, { properties: ['z-index'] }]
+      'no-disallowed-properties': [
+        1,
+        {
+          properties: [
+            'z-index'
+          ]
+        }
+      ]
     }, function (data) {
-      lint.assert.equal(1, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  it('properties: [z-index]', function (done) {
+    lint.test(file, {
+      'no-disallowed-properties': [
+        1,
+        {
+          properties: [
+            'z-index',
+            'display'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });

@@ -21,6 +21,7 @@ rules:
   no-color-literals: 1
   no-css-comments: 1
   no-debug: 1
+  no-disallowed-properties: 0
   no-duplicate-properties: 1
   no-empty-rulesets: 1
   no-extends: 0
