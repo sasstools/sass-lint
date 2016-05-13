@@ -6,7 +6,8 @@ var slConfig = require('./lib/config'),
     slRules = require('./lib/rules'),
     glob = require('glob'),
     path = require('path'),
-    fs = require('fs-extra');
+    fs = require('fs-extra'),
+    globule = require('globule');
 
 var sassLint = function (config) {
   config = require('./lib/config')(config);
@@ -140,6 +141,31 @@ sassLint.lintText = function (file, options, configPath) {
     'warningCount': warnings,
     'errorCount': errors,
     'messages': results
+  };
+};
+
+/**
+ * Handles ignored files for plugins such as the gulp plugin. Checks every file passed to it against
+ * the ignores as specified in our users config or passed in options.
+ *
+ * @param {object} file - The file/text to be linted
+ * @param {object} options - The user defined options directly passed in
+ * @param {object} configPath - Path to a config file
+ * @returns {object} Return the results of lintText - a results object
+ */
+sassLint.lintFileText = function (file, options, configPath) {
+  var config = this.getConfig(options, configPath);
+  var ignores = config.files ? config.files.ignore : [];
+
+  if (!globule.isMatch(ignores, file.filename)) {
+    return this.lintText(file, options, configPath);
+  }
+
+  return {
+    'filePath': file.filename,
+    'warningCount': 0,
+    'errorCount': 0,
+    'messages': []
   };
 };
 
