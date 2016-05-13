@@ -85,6 +85,19 @@ var multiInputResults = [{
   }]
 }];
 
+var stringInputResults = [{
+  filePath: 'tests/cli/cli-error.sass',
+  warningCount: 1,
+  errorCount: 0,
+  messages: [{
+    ruleId: 'no-ids',
+    line: 1,
+    column: 1,
+    message: 'ID selectors not allowed',
+    severity: 1
+  }]
+}];
+
 describe('sass lint', function () {
 
   // ==============================================================================
@@ -165,13 +178,30 @@ describe('sass lint', function () {
         done();
       });
     });
+
+    it('should accept singular string input sources', function (done) {
+      lintFiles(null, {options: {'cache-config': false}}, 'tests/yml/.single-input-include-string.yml', function (data) {
+        assert.deepEqual(data, stringInputResults);
+        done();
+      });
+    });
+
+    it('should accept singular string input sources and ignores in a config file', function (done) {
+      lintFiles(null, {options: {'cache-config': false}}, 'tests/yml/.multiple-ignore-strings.yml', function (data) {
+        assert.deepEqual(data, []);
+        done();
+      });
+    });
   });
 
-  describe('sassLint detect counts', function () {
+  // ==============================================================================
+  //  Counters
+  // ==============================================================================
 
-  // ==============================================================================
-  //  Error Count
-  // ==============================================================================
+  describe('sassLint detect counts', function () {
+    // ==============================================================================
+    //  Error Count
+    // ==============================================================================
 
     it('should equal 2 errors', function (done) {
       var result = lint.errorCount(resultsObj);
@@ -180,9 +210,9 @@ describe('sass lint', function () {
       done();
     });
 
-  // ==============================================================================
-  //  Warning count
-  // ==============================================================================
+    // ==============================================================================
+    //  Warning count
+    // ==============================================================================
 
     it('should equal 3 warnings', function (done) {
       var result = lint.warningCount(resultsObj);
@@ -191,9 +221,9 @@ describe('sass lint', function () {
       done();
     });
 
-  // ==============================================================================
-  //  Result count
-  // ==============================================================================
+    // ==============================================================================
+    //  Result count
+    // ==============================================================================
 
     it('should equal 5 overall detects', function (done) {
       var result = lint.resultCount(resultsObj);
