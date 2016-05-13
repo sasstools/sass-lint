@@ -189,7 +189,7 @@ describe('sassLint', function () {
     });
 
     it('should ignore a file from the ignore section of a config file', function (done) {
-      var result = lint.lintFileText(fileObj, {}, 'tests/yml/.ignore-file.yml');
+      var result = lint.lintFileText(fileObj, {options: {'cache-config': false}}, 'tests/yml/.ignore-file.yml');
       assert(
         equal(
           result,
@@ -203,7 +203,7 @@ describe('sassLint', function () {
     });
 
     it('should lint a file from when no ignores are specified', function (done) {
-      var result = lint.lintFileText(fileObj, {}, 'tests/yml/.no-merge-default.yml');
+      var result = lint.lintFileText(fileObj, {options: {'cache-config': false}}, 'tests/yml/.no-merge-default.yml');
       assert(
         equal(
           result,
