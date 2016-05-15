@@ -176,8 +176,8 @@ describe('sassLint', function () {
   //////////////////////////////
 
   describe('lintFileText', function () {
-    var file;
-    var fileObj;
+    var file,
+        fileObj;
 
     beforeEach(function () {
       file = fs.readFileSync('tests/cli/cli.scss');

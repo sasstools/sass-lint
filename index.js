@@ -154,8 +154,8 @@ sassLint.lintText = function (file, options, configPath) {
  * @returns {object} Return the results of lintText - a results object
  */
 sassLint.lintFileText = function (file, options, configPath) {
-  var config = this.getConfig(options, configPath);
-  var ignores = config.files ? config.files.ignore : [];
+  var config = this.getConfig(options, configPath),
+      ignores = config.files ? config.files.ignore : [];
 
   if (!globule.isMatch(ignores, file.filename)) {
     return this.lintText(file, options, configPath);
