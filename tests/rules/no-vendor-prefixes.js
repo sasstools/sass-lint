@@ -12,7 +12,7 @@ describe('no vendor prefix - scss', function () {
     lint.test(file, {
       'no-vendor-prefixes': 1
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -29,7 +29,7 @@ describe('no vendor prefix - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });
@@ -64,7 +64,7 @@ describe('no vendor prefix - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -84,7 +84,38 @@ describe('no vendor prefix - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
+      done();
+    });
+  });
+
+  it('[ignore-non-standard: true]', function (done) {
+    lint.test(file, {
+      'no-vendor-prefixes': [
+        1,
+        {
+          'ignore-non-standard': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('[ignore-non-standard: true][excluded-identifiers: webkit]', function (done) {
+    lint.test(file, {
+      'no-vendor-prefixes': [
+        1,
+        {
+          'excluded-identifiers': [
+            'webkit'
+          ],
+          'ignore-non-standard': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });
@@ -100,7 +131,7 @@ describe('no vendor prefix - sass', function () {
     lint.test(file, {
       'no-vendor-prefixes': 1
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -117,7 +148,7 @@ describe('no vendor prefix - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });
@@ -152,7 +183,7 @@ describe('no vendor prefix - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -172,7 +203,38 @@ describe('no vendor prefix - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
+      done();
+    });
+  });
+
+  it('[ignore-non-standard: true]', function (done) {
+    lint.test(file, {
+      'no-vendor-prefixes': [
+        1,
+        {
+          'ignore-non-standard': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('[ignore-non-standard: true][excluded-identifiers: webkit]', function (done) {
+    lint.test(file, {
+      'no-vendor-prefixes': [
+        1,
+        {
+          'excluded-identifiers': [
+            'webkit'
+          ],
+          'ignore-non-standard': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });
