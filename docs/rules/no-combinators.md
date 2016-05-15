@@ -1,6 +1,6 @@
 # No Combinators
 
-Rule `no-combinators` will enforce that the combinators are not allowed to be used.
+Rule `no-combinators` will warn against the use of combinators.
 
 ## Examples
 
