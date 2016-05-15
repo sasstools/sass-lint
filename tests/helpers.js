@@ -1047,6 +1047,14 @@ describe('helpers', function () {
     done();
   });
 
+  it('stripPrefix - [@-webkit-keyframes - @keyframes]', function (done) {
+
+    var result = helpers.stripPrefix('@-webkit-keyframes');
+
+    assert.equal('@keyframes', result);
+    done();
+  });
+
   //////////////////////////////
   // stripLastSpace
   //////////////////////////////
