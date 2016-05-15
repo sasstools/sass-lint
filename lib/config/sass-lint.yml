@@ -33,6 +33,7 @@ rules:
   no-trailing-whitespace: 1
   no-trailing-zero: 1
   no-transition-all: 1
+  no-universal-selectors: 0
   no-url-protocols: 1
   no-vendor-prefixes: 1
   no-warn: 1
