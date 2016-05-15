@@ -270,6 +270,7 @@ justify-items
 justify-self
 kerning
 @keyframes
+keyframes
 left
 letter-spacing
 lighting-color

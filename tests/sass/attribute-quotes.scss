@@ -1,0 +1,75 @@
+span[lang] {
+  font-weight: bold;
+}
+
+////////////////////////////
+// No Quotes - Default warnings
+////////////////////////////
+
+span[lang=pt] {
+  color: green;
+}
+
+span[lang~=en-us] {
+  color: blue;
+}
+
+// TODO currently a parse error in gonzales-pe
+// span[lang|="zh"] {color: red;}
+
+// TODO currently a parse error in gonzales-pe
+// a[href^=#] {
+//   background-color: gold;
+// }
+
+span[class^=main] {
+  background-color: yellow;
+}
+
+// TODO currently a parse error in gonzales-pe
+// a[href$=.cn] {
+//   color: red;
+// }
+
+a[href*=example] {
+  background-color: #CCCCCC;
+}
+
+input[type=email i] {
+  border-color: blue;
+}
+
+////////////////////////////
+// Quotes - exclude option warnings
+////////////////////////////
+
+span[lang="pt"] {
+  color: green;
+}
+
+span[lang~="en-us"] {
+  color: blue;
+}
+
+// TODO currently a parse error in gonzales-pe
+// span[lang|="zh"] {color: red;}
+
+a[href^="#"] {
+  background-color: gold;
+}
+
+span[class^="main"] {
+  background-color: yellow;
+}
+
+a[href$=".cn"] {
+  color: red;
+}
+
+a[href*="example"] {
+  background-color: #CCCCCC;
+}
+
+input[type="email" i] {
+  border-color: blue;
+}
