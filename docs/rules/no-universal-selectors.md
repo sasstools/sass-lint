@@ -1,6 +1,6 @@
 # No Universal Selectors
 
-Rule `no-universal-selectors` will enforce that the `*` (universal) selector is not allowed to be used.
+Rule `no-universal-selectors` will warn against the use of `*` (universal) selectors.
 
 ## Examples
 
