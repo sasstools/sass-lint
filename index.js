@@ -156,31 +156,52 @@ sassLint.lintText = function (file, options, configPath) {
 sassLint.lintFiles = function (files, options, configPath) {
   var that = this,
       results = [],
+      includes = [],
       ignores = '';
 
+  // Files passed as a string on the command line
   if (files) {
     ignores = this.getConfig(options, configPath).files.ignore || '';
-    files = glob.sync(files, {ignore: ignores});
-  }
-  else {
-    files = this.getConfig(options, configPath).files;
-    if (typeof files === 'string') {
-      files = glob.sync(files);
+    if (files.indexOf(', ') !== -1) {
+      files.split(', ').forEach(function (pattern) {
+        includes = includes.concat(glob.sync(pattern, {ignore: ignores}));
+      });
     }
     else {
-      files = glob.sync(files.include, {
+      includes = glob.sync(files, {ignore: ignores});
+    }
+  }
+  // If not passed in then we look in the config file
+  else {
+    files = this.getConfig(options, configPath).files;
+    // A glob pattern of files can be just a string
+    if (typeof files === 'string') {
+      includes = glob.sync(files);
+    }
+    // Look into the include property of files and check if there's an array of files
+    else if (files.include && files.include instanceof Array) {
+      files.include.forEach(function (pattern) {
+        includes = includes.concat(glob.sync(pattern, {ignore: files.ignore}));
+      });
+    }
+    // Or there is only one pattern in the include property of files
+    else {
+      includes = glob.sync(files.include, {
         'ignore': files.ignore
       });
     }
   }
 
-  files.forEach(function (file) {
-    var lint = that.lintText({
-      'text': fs.readFileSync(file),
-      'format': options.syntax ? options.syntax : path.extname(file).replace('.', ''),
-      'filename': file
-    }, options, configPath);
-    results.push(lint);
+  includes.forEach(function (file, index) {
+    // Only lint non duplicate files from our glob results
+    if (includes.indexOf(file) === index) {
+      var lint = that.lintText({
+        'text': fs.readFileSync(file),
+        'format': options.syntax ? options.syntax : path.extname(file).replace('.', ''),
+        'filename': file
+      }, options, configPath);
+      results.push(lint);
+    }
   });
 
   return results;
