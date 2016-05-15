@@ -38,13 +38,13 @@
     "lodash.capitalize": "^4.1.0",
     "lodash.kebabcase": "^4.0.0",
     "merge": "^1.2.0",
+    "path-is-absolute": "^1.0.0",
     "util": "^0.10.3"
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
     "deep-equal": "^1.0.1",
     "istanbul": "^0.4.0",
-    "mocha": "^2.2.5",
-    "should": "^8.2.2"
+    "mocha": "^2.2.5"
   }
 }

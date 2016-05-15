@@ -1,5 +1,4 @@
 var assert = require('assert'),
-    should = require('should'),
     fs = require('fs-extra'),
     path = require('path'),
     exec = require('child_process').exec;
@@ -21,14 +20,14 @@ describe('cli', function () {
   });
 
   it('should return a version', function (done) {
-    var command = 'sass-lint -V';
+    var command = 'sass-lint --version';
 
     exec(command, function (err, stdout) {
       if (err) {
         return done(err);
       }
 
-      should(stdout).match(/^[0-9]+.[0-9]+(.[0-9]+)?/);
+      assert(stdout.match(/^[0-9]+.[0-9]+(.[0-9]+)?/));
 
       return done();
     });
