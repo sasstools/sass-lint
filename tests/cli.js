@@ -33,6 +33,85 @@ describe('cli', function () {
     });
   });
 
+  it('Should accept multiple input paths', function (done) {
+    var command = 'sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
+
+    exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+
+      assert(stdout.indexOf('.scss') !== -1);
+      assert(stdout.indexOf('.sass') !== -1);
+
+      return done();
+    });
+  });
+
+  it('Should accept multiple input globs', function (done) {
+    var command = 'sass-lint "tests/cli/*.scss, tests/cli/*.sass" --no-exit --verbose';
+
+    exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+
+      assert(stdout.indexOf('.scss') !== -1);
+      assert(stdout.indexOf('.sass') !== -1);
+
+      return done();
+    });
+  });
+
+  it('Should accept multiple input paths from a config file', function (done) {
+    var command = 'sass-lint -c tests/yml/.multiple-inputs.yml --no-exit --verbose';
+
+    exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+
+      assert(stdout.indexOf('.scss') !== -1);
+      assert(stdout.indexOf('.sass') !== -1);
+
+      return done();
+    });
+  });
+
+  it('Should accept multiple input paths and multiple ignore paths', function (done) {
+    var command = 'sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" -i "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
+
+    exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+
+      assert(stdout.indexOf('.scss') === -1);
+      assert(stdout.indexOf('.sass') === -1);
+
+      return done();
+    });
+  });
+
+  it('Should accept multiple input paths and multiple ignores from a config file', function (done) {
+    var command = 'sass-lint -c tests/yml/.multiple-ignores.yml --no-exit --verbose';
+
+    exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+      assert(stdout.indexOf('.scss') === -1);
+      assert(stdout.indexOf('.sass') === -1);
+
+      return done();
+    });
+  });
+
   it('CLI format option should output JSON', function (done) {
     var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json';
 
@@ -235,7 +314,7 @@ describe('cli', function () {
   });
 
   it('should not include ignored paths', function (done) {
-    var command = 'sass-lint -i **/*.scss -v -q --format json **/cli/*.scss';
+    var command = 'sass-lint -i "**/*.scss" -v -q --format json "**/cli/*.scss"';
 
     exec(command, function (err, stdout) {
 
@@ -250,7 +329,7 @@ describe('cli', function () {
   });
 
   it('should not include multiple ignored paths', function (done) {
-    var command = 'sass-lint -i \'**/*.scss, **/*.sass\' -q -v --format json';
+    var command = 'sass-lint -i "**/*.scss, **/*.sass" -q -v --format json';
 
     exec(command, function (err, stdout) {
 
