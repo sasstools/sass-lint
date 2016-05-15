@@ -1,6 +1,6 @@
-# Ban properties
+# No Disallowed Properties
 
-Rule `no-disallowed-properties` will disallow usage of certain properties
+Rule `no-disallowed-properties` will warn against the use of certain properties. 
 
 ## Options
 

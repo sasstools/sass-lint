@@ -24,7 +24,7 @@ describe('no disallowed properties - scss', function () {
     });
   });
 
-  it('properties: [z-index]', function (done) {
+  it('properties: [z-index, display]', function (done) {
     lint.test(file, {
       'no-disallowed-properties': [
         1,
@@ -64,7 +64,7 @@ describe('no disallowed properties - sass', function () {
     });
   });
 
-  it('properties: [z-index]', function (done) {
+  it('properties: [z-index, display]', function (done) {
     lint.test(file, {
       'no-disallowed-properties': [
         1,
