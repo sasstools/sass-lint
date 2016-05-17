@@ -33,6 +33,21 @@ describe('cli', function () {
     });
   });
 
+  it('should not try to read and lint a directory', function (done) {
+    var command = 'sass-lint "tests/dir-test/**/*.scss" --no-exit --verbose';
+
+    exec(command, function (err, stdout) {
+      if (err) {
+        return done(err);
+      }
+
+      assert(stdout.indexOf('.scss') !== -1);
+      assert(stdout.indexOf('.sass') === -1);
+
+      return done();
+    });
+  });
+
   it('Should accept multiple input paths', function (done) {
     var command = 'sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
 
