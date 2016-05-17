@@ -135,6 +135,23 @@ describe('sass lint', function () {
     });
 
     // ==============================================================================
+    //  Not try to read directories
+    // ==============================================================================
+    it('should not try to blindly read and lint a directory', function (done) {
+      lintFiles('tests/dir-test/**/*.scss', {options: {
+        'merge-default-rules': false
+      },
+      rules: {
+        'no-ids': 1
+      }}, '', function (data) {
+        assert.equal(1, data[0].warningCount);
+        assert.equal(0, data[0].errorCount);
+        assert.equal(1, data[0].messages.length);
+        done();
+      });
+    });
+
+    // ==============================================================================
     //  Parse Errors should return as lint errors
     // ==============================================================================
 
