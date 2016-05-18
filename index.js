@@ -127,6 +127,9 @@ sassLint.lintText = function (file, options, configPath) {
   }
 
   if (ast.content && ast.content.length > 0) {
+
+    ruleToggles = getToggledRules(ast);
+    isEnabledFilter = isResultEnabled(ruleToggles);
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule)
         .filter(isEnabledFilter);
