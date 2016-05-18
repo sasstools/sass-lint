@@ -34,15 +34,18 @@ describe('cli', function () {
   });
 
   it('should not try to read and lint a directory', function (done) {
-    var command = 'sass-lint "tests/dir-test/**/*.scss" --no-exit --verbose';
+    var command = 'sass-lint "tests/dir-test/**/*.scss" --no-exit --verbose --format json';
 
     exec(command, function (err, stdout) {
+      var result = JSON.parse(stdout);
       if (err) {
         return done(err);
       }
 
       assert(stdout.indexOf('.scss') !== -1);
       assert(stdout.indexOf('.sass') === -1);
+      assert.equal(result.length, 1);
+      assert.equal(result[0].filePath, 'tests/dir-test/dir.scss/test.scss');
 
       return done();
     });
