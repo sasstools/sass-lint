@@ -3,7 +3,8 @@
 var assert = require('assert'),
     equal = require('deep-equal'),
     lint = require('../index'),
-    fs = require('fs');
+    fs = require('fs'),
+    sinon = require('sinon');
 
 var lintFile = function lintFile (file, options, cb) {
   cb = cb || options;
@@ -138,6 +139,7 @@ describe('sass lint', function () {
     //  Not try to read directories
     // ==============================================================================
     it('should not try to blindly read and lint a directory', function (done) {
+      var fileSpy = sinon.spy(lint, 'lintText');
       lintFiles('tests/dir-test/**/*.scss', {options: {
         'merge-default-rules': false
       },
@@ -147,6 +149,12 @@ describe('sass lint', function () {
         assert.equal(1, data[0].warningCount);
         assert.equal(0, data[0].errorCount);
         assert.equal(1, data[0].messages.length);
+
+        assert(fileSpy.called);
+        assert(fileSpy.calledOnce);
+        assert(fileSpy.calledWithMatch({format: 'scss', filename: 'tests/dir-test/dir.scss/test.scss'}));
+        assert(fileSpy.neverCalledWithMatch({filename: 'tests/dir-test/dir.scss'}));
+        fileSpy.reset();
         done();
       });
     });
