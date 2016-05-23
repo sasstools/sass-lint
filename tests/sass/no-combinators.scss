@@ -1,0 +1,155 @@
+.foo > .bar {
+  content: 'foo';
+}
+
+.foo ~ .bar {
+  content: 'bar';
+}
+
+.foo + .bar {
+  content: 'baz';
+}
+
+.foo .bar {
+  content: 'qux';
+}
+
+
+// No space
+.foo>.bar {
+  content: 'foo';
+}
+
+.foo~.bar {
+  content: 'bar';
+}
+
+.foo+.bar {
+  content: 'baz';
+}
+
+// Ignore
+.foo.bar {
+  content: 'qux';
+}
+
+
+// Single interpolation
+.foo > #{$bar} {
+  content: 'foo';
+}
+
+.foo ~ #{$bar} {
+  content: 'bar';
+}
+
+.foo + #{$bar} {
+  content: 'baz';
+}
+
+.foo #{$bar} {
+  content: 'qux';
+}
+
+
+// Double interpolation
+#{$foo} > #{$bar} {
+  content: 'foo';
+}
+
+#{$foo} ~ #{$bar} {
+  content: 'bar';
+}
+
+#{$foo} + #{$bar} {
+  content: 'baz';
+}
+
+#{$foo} #{$bar} {
+  content: 'qux';
+}
+
+
+// Double nested interpolation
+#{$foo} > {
+  #{$bar} {
+    content: 'foo';
+  }
+}
+
+#{$foo} ~ {
+  #{$bar} {
+    content: 'bar';
+  }
+}
+
+#{$foo} + {
+  #{$bar} {
+    content: 'baz';
+  }
+}
+
+#{$foo} {
+  #{$bar} {
+    content: 'qux';
+  }
+}
+
+
+// Parent selector
+&__bar {
+  content: 'bar';
+}
+
+.foo > {
+  .bar & {
+    content: 'foo';
+  }
+}
+
+.foo > {
+  &.bar {
+    content: 'foo';
+  }
+}
+
+
+// Sassy nested combinators
+.foo > {
+  .bar {
+    content: 'baz';
+  }
+}
+
+.foo ~ {
+  .bar {
+    content: 'baz';
+  }
+}
+
+.foo + {
+  .bar {
+    content: 'baz';
+  }
+}
+
+.foo {
+  .bar {
+    content: 'baz';
+  }
+}
+
+
+// Ignore
+li:nth-child(2n + 1) {
+  content: 'foo';
+}
+
+li::first-letter:nth-child(-2n + 1) {
+  content: 'foo';
+}
+
+// Ignore
+.bar & {
+  content: 'bar';
+}

@@ -66,3 +66,7 @@ div a {
   content: '';
 }
 ```
+
+### Note for Sass syntax users
+
+Due to a bug in the current version of the AST we use, gonzales-pe, we are currently unable to enforce this rule within media queries, SCSS syntax is unaffected. We hope to rectify this soon.

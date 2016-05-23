@@ -5,11 +5,18 @@ init:
 # Test against this version of Node.js
 environment:
   matrix:
+    - nodejs_version: '0.10'
     - nodejs_version: '0.12'
-    - nodejs_version: '4'
-    # Latest version of Node
-    - nodejs_version: '5'
+      # io.js
     - nodejs_version: '1'
+    - nodejs_version: '4'
+    - nodejs_version: '5'
+      # Latest stable version of Node
+    - nodejs_version: 'stable'
+matrix:
+  # Help instructions and version number don't show in appveyor
+  allow_failures:
+    - nodejs_version: '0.10'
 
 # Install scripts. (runs after repo cloning)
 install:
