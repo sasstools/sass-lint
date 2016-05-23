@@ -107,8 +107,8 @@ sassLint.lintText = function (file, options, configPath) {
       results = [],
       errors = 0,
       warnings = 0,
-      ruleToggles = getToggledRules(ast),
-      isEnabledFilter = isResultEnabled(ruleToggles);
+      ruleToggles = null,
+      isEnabledFilter = null;
 
   try {
     ast = groot(file.text, file.format, file.filename);
@@ -127,9 +127,9 @@ sassLint.lintText = function (file, options, configPath) {
   }
 
   if (ast.content && ast.content.length > 0) {
-
     ruleToggles = getToggledRules(ast);
     isEnabledFilter = isResultEnabled(ruleToggles);
+
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule)
         .filter(isEnabledFilter);
