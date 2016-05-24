@@ -1,15 +1,15 @@
 'use strict';
 
 var slConfig = require('./lib/config'),
-    groot = require('./lib/groot'),
-    helpers = require('./lib/helpers'),
-    slRules = require('./lib/rules'),
-    glob = require('glob'),
-    path = require('path'),
-    fs = require('fs-extra'),
-    globule = require('globule');
+  groot = require('./lib/groot'),
+  helpers = require('./lib/helpers'),
+  slRules = require('./lib/rules'),
+  glob = require('glob'),
+  path = require('path'),
+  fs = require('fs-extra'),
+  globule = require('globule');
 
-var sassLint = function (config) {
+var sassLint = function(config) {
   config = require('./lib/config')(config);
   return;
 };
@@ -22,7 +22,7 @@ var sassLint = function (config) {
  * @param {string} configPath path to a config file
  * @returns {object} the compiled config object
  */
-sassLint.getConfig = function (config, configPath) {
+sassLint.getConfig = function(config, configPath) {
   return slConfig(config, configPath);
 };
 
@@ -33,13 +33,13 @@ sassLint.getConfig = function (config, configPath) {
  * @param {object} results our results object
  * @returns {object} errors object containing the error count and paths for files incl. errors
  */
-sassLint.errorCount = function (results) {
+sassLint.errorCount = function(results) {
   var errors = {
     count: 0,
     files: []
   };
 
-  results.forEach(function (result) {
+  results.forEach(function(result) {
     if (result.errorCount) {
       errors.count += result.errorCount;
       errors.files.push(result.filePath);
@@ -56,13 +56,13 @@ sassLint.errorCount = function (results) {
  * @param {object} results our results object
  * @returns {object} warnings object containing the error count and paths for files incl. warnings
  */
-sassLint.warningCount = function (results) {
+sassLint.warningCount = function(results) {
   var warnings = {
     count: 0,
     files: []
   };
 
-  results.forEach(function (result) {
+  results.forEach(function(result) {
     if (result.warningCount) {
       warnings.count += result.warningCount;
       warnings.files.push(result.filePath);
@@ -79,9 +79,9 @@ sassLint.warningCount = function (results) {
  * @param {object} results our results object
  * @returns {int} the cumulative count of errors and warnings detected
  */
-sassLint.resultCount = function (results) {
+sassLint.resultCount = function(results) {
   var warnings = this.warningCount(results),
-      errors = this.errorCount(results);
+    errors = this.errorCount(results);
 
   return warnings.count + errors.count;
 };
@@ -95,17 +95,16 @@ sassLint.resultCount = function (results) {
  * @param {string} configPath path to a config file
  * @returns {object} an object containing error & warning counts plus lint messages for each parsed file
  */
-sassLint.lintText = function (file, options, configPath) {
+sassLint.lintText = function(file, options, configPath) {
   var rules = slRules(this.getConfig(options, configPath)),
-      ast = {},
-      detects,
-      results = [],
-      errors = 0,
-      warnings = 0;
+    ast = {},
+    detects,
+    results = [],
+    errors = 0,
+    warnings = 0;
   try {
     ast = groot(file.text, file.format, file.filename);
-  }
-  catch (e) {
+  } catch (e) {
     var line = e.line || 1;
     errors++;
     results = [{
@@ -124,7 +123,7 @@ sassLint.lintText = function (file, options, configPath) {
         detects.forEach((d) => {
           if (typeof d['fix'] === 'function') {
             queuedFix = true;
-            d.fix(file.format); //modifies tree based on fix params
+            d.fix(ast, file); //modifies tree based on fix params
           }
         });
       }
@@ -132,15 +131,13 @@ sassLint.lintText = function (file, options, configPath) {
       if (detects.length) {
         if (rule.severity === 1) {
           warnings += detects.length;
-        }
-        else if (rule.severity === 2) {
+        } else if (rule.severity === 2) {
           errors += detects.length;
         }
       }
     });
     if (options.fix !== undefined && queuedFix === true) {
-      var r = ast.toString();
-      fs.writeFileSync(file.filename, r);
+      fs.writeFileSync(file.filename, ast.toString());
     }
   }
 
@@ -163,9 +160,9 @@ sassLint.lintText = function (file, options, configPath) {
  * @param {object} configPath - Path to a config file
  * @returns {object} Return the results of lintText - a results object
  */
-sassLint.lintFileText = function (file, options, configPath) {
+sassLint.lintFileText = function(file, options, configPath) {
   var config = this.getConfig(options, configPath),
-      ignores = config.files ? config.files.ignore : [];
+    ignores = config.files ? config.files.ignore : [];
 
   if (!globule.isMatch(ignores, file.filename)) {
     return this.lintText(file, options, configPath);
@@ -189,22 +186,25 @@ sassLint.lintFileText = function (file, options, configPath) {
  * @param {string} configPath path to a config file
  * @returns {object} results object containing all results
  */
-sassLint.lintFiles = function (files, options, configPath) {
+sassLint.lintFiles = function(files, options, configPath) {
   var that = this,
-      results = [],
-      includes = [],
-      ignores = '';
+    results = [],
+    includes = [],
+    ignores = '';
 
   // Files passed as a string on the command line
   if (files) {
     ignores = this.getConfig(options, configPath).files.ignore || '';
     if (files.indexOf(', ') !== -1) {
-      files.split(', ').forEach(function (pattern) {
-        includes = includes.concat(glob.sync(pattern, {ignore: ignores}));
+      files.split(', ').forEach(function(pattern) {
+        includes = includes.concat(glob.sync(pattern, {
+          ignore: ignores
+        }));
       });
-    }
-    else {
-      includes = glob.sync(files, {ignore: ignores});
+    } else {
+      includes = glob.sync(files, {
+        ignore: ignores
+      });
     }
   }
   // If not passed in then we look in the config file
@@ -216,8 +216,10 @@ sassLint.lintFiles = function (files, options, configPath) {
     }
     // Look into the include property of files and check if there's an array of files
     else if (files.include && files.include instanceof Array) {
-      files.include.forEach(function (pattern) {
-        includes = includes.concat(glob.sync(pattern, {ignore: files.ignore}));
+      files.include.forEach(function(pattern) {
+        includes = includes.concat(glob.sync(pattern, {
+          ignore: files.ignore
+        }));
       });
     }
     // Or there is only one pattern in the include property of files
@@ -228,7 +230,7 @@ sassLint.lintFiles = function (files, options, configPath) {
     }
   }
 
-  includes.forEach(function (file, index) {
+  includes.forEach(function(file, index) {
     // Only lint non duplicate files from our glob results
     if (includes.indexOf(file) === index) {
       var lint = that.lintText({
@@ -251,9 +253,9 @@ sassLint.lintFiles = function (files, options, configPath) {
  * @param {string} configPath path to a config file
  * @returns {object} results our results object in the user specified format
  */
-sassLint.format = function (results, options, configPath) {
+sassLint.format = function(results, options, configPath) {
   var config = this.getConfig(options, configPath),
-      format = config.options.formatter.toLowerCase();
+    format = config.options.formatter.toLowerCase();
 
   var formatted = require('eslint/lib/formatters/' + format);
 
@@ -269,7 +271,7 @@ sassLint.format = function (results, options, configPath) {
  * @param {string} configPath path to a config file
  * @returns {object} results our results object
  */
-sassLint.outputResults = function (results, options, configPath) {
+sassLint.outputResults = function(results, options, configPath) {
   var config = this.getConfig(options, configPath);
 
   if (this.resultCount(results)) {
@@ -280,12 +282,10 @@ sassLint.outputResults = function (results, options, configPath) {
       try {
         fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), formatted);
         console.log('Output successfully written to ' + path.resolve(process.cwd(), config.options['output-file']));
-      }
-      catch (e) {
+      } catch (e) {
         console.log('Error: Output was unable to be written to ' + path.resolve(process.cwd(), config.options['output-file']));
       }
-    }
-    else {
+    } else {
       console.log(formatted);
     }
   }
@@ -299,7 +299,7 @@ sassLint.outputResults = function (results, options, configPath) {
  * @param {object} results our results object
  * @returns {void}
  */
-sassLint.failOnError = function (results) {
+sassLint.failOnError = function(results) {
   var errorCount = this.errorCount(results);
 
   if (errorCount.count > 0) {
