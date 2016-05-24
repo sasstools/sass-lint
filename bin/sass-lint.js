@@ -87,7 +87,7 @@ if (program.output && program.output !== true) {
     };
   }
 }
-if (program.fix !== undefined) {
+if (program.fix) {
   configOptions.fix = program.fix;
 }
 
