@@ -2,7 +2,7 @@
 
 Rule `indentation` will enforce an indentation size (tabs and spaces) and it will also ensure that tabs and spaces are not mixed.
 
-The mixed warnings and tabs warnings check will always choose the first tab or space that it comes across as the de facto standard for the file it's linting regardless of the options you have in your config. If a tab and a space both appear in the first indented property/block in your file the space will be preferred over the tab. This is purely to make sure you get accurate mixed spaces and tabs warnings throughout the file and any indented elements can be linted correctly.
+The mixed warnings and tabs warnings check will take into account what you have set in your config file whether it should expect to see spaces or tabs. If it encounters a tab anywhere in a file when your rule config doesn't specify tabs it will flag a lint warning, Similarly for any whitespace using spaces when tabs are specified. Obviously spaces between properties and values etc are ignored.
 
 ## Options
 
