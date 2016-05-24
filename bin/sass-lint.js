@@ -18,7 +18,6 @@ var tooManyWarnings = function (detects) {
 
 var detectPattern = function (pattern) {
   var detects;
-  var fixes;
   detects = lint.lintFiles(pattern, configOptions, configPath);
 
   if (program.verbose) {
