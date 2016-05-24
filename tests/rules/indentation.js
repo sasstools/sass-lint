@@ -37,16 +37,31 @@ describe('indentation - scss', function () {
 //////////////////////////////
 // Sass syntax tests
 //////////////////////////////
-// describe('indentation - sass', function () {
-//   var file = lint.file('indentation.sass');
-//
-//   // Indentation
-//   it('[size: 2]', function (done) {
-//     lint.test(file, {
-//       'indentation': 1
-//     }, function (data) {
-//       lint.assert.equal(8, data.warningCount);
-//       done();
-//     });
-//   });
-// });
+describe('indentation - sass', function () {
+  var spaceFile = lint.file('indentation/indentation-spaces.sass');
+  var tabFile = lint.file('indentation/indentation-tabs.sass');
+
+  // Indentation
+  it('[size: 2]', function (done) {
+    lint.test(spaceFile, {
+      'indentation': 1
+    }, function (data) {
+      lint.assert.equal(11, data.warningCount);
+      done();
+    });
+  });
+
+  it('[size: tab]', function (done) {
+    lint.test(tabFile, {
+      'indentation': [
+        1,
+        {
+          size: 'tab'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(11, data.warningCount);
+      done();
+    });
+  });
+});
