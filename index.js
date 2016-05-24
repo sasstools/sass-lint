@@ -102,14 +102,12 @@ sassLint.lintText = function (file, options, configPath) {
       results = [],
       errors = 0,
       warnings = 0;
-
   try {
     ast = groot(file.text, file.format, file.filename);
   }
   catch (e) {
     var line = e.line || 1;
     errors++;
-
     results = [{
       ruleId: 'Fatal',
       line: line,
@@ -118,10 +116,18 @@ sassLint.lintText = function (file, options, configPath) {
       severity: 2
     }];
   }
-
-  if (ast.content && ast.content.length > 0) {
-    rules.forEach(function (rule) {
+  if (ast && ast.content && ast.content.length > 0) {
+    var queuedFix = false;
+    rules.forEach((rule) => {
       detects = rule.rule.detect(ast, rule);
+      if (options['fix'] !== undefined) {
+        detects.forEach((d) => {
+          if (typeof d['fix'] === 'function') {
+            queuedFix = true;
+            d.fix(file.format); //modifies tree based on fix params
+          }
+        });
+      }
       results = results.concat(detects);
       if (detects.length) {
         if (rule.severity === 1) {
@@ -132,6 +138,10 @@ sassLint.lintText = function (file, options, configPath) {
         }
       }
     });
+    if (options.fix !== undefined && queuedFix === true) {
+      var r = ast.toString();
+      fs.writeFileSync(file.filename, r);
+    }
   }
 
   results.sort(helpers.sortDetects);
