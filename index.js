@@ -116,9 +116,9 @@ sassLint.lintText = function (file, options, configPath) {
       severity: 2
     }];
   }
-  if (ast.tree && ast.tree.content && ast.tree.content.length > 0) {
+  if (ast && ast.content && ast.content.length > 0) {
     rules.forEach(function (rule) {
-      detects = rule.rule.detect(ast.tree, rule);
+      detects = rule.rule.detect(ast, rule);
       if (detects && options.fix && rule.rule.fix) {
         helpers.log(('Running ' + rule.rule.name + ' on ' + file.filename + '...'));
         rule.rule.fix(ast, rule);
@@ -134,7 +134,7 @@ sassLint.lintText = function (file, options, configPath) {
       }
     });
     if (options.fix) {
-      fs.writeFileSync(file.filename, ast.tree.toString());
+      fs.writeFileSync(file.filename, ast.toString());
     }
   }
 
