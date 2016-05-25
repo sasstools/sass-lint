@@ -116,17 +116,13 @@ sassLint.lintText = function (file, options, configPath) {
       severity: 2
     }];
   }
-  if (ast && ast.content && ast.content.length > 0) {
+  if (ast.tree && ast.tree.content && ast.tree.content.length > 0) {
     var queuedFix = false;
     rules.forEach(function (rule) {
-      detects = rule.rule.detect(ast, rule);
-      if (options.fix) {
-        detects.forEach(function (d) {
-          if (typeof d.fix === 'function') {
-            queuedFix = true;
-            d.fix(ast, file); // modifies tree based on fix params
-          }
-        });
+      detects = rule.rule.detect(ast.tree, rule);
+      if (detects && options.fix && rule.rule.fix) {
+        //console.log("Running " + rule.rule.name + " on " + file.filename + "...");
+        rule.rule.fix(ast, rule)
       }
       results = results.concat(detects);
       if (detects.length) {
@@ -138,8 +134,8 @@ sassLint.lintText = function (file, options, configPath) {
         }
       }
     });
-    if (options.fix && queuedFix === true) {
-      fs.writeFileSync(file.filename, ast.toString());
+    if (options.fix) {
+      fs.writeFileSync(file.filename, ast.tree.toString());
     }
   }
 
