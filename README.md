@@ -81,6 +81,12 @@ If you want to configure options, set the rule to an array, where the first item
 
 An example configuration of a rule with options look like the following:
 
+```yml
+indentation:
+  - 2
+  -
+    size: 2
+```
 
 ##### Adding Fix to Rules
 
@@ -105,14 +111,6 @@ To run the code fixer, simply use the CLI flag as seen below:
 
 `sass-lint` can also be run from `bin/sass-lint`
 
-
-```yml
-indentation:
-  - 2
-  -
-    size: 2
-```
-####
 ### [Rules Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
 
 ---
