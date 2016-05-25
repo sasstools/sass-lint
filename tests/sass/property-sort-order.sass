@@ -1,29 +1,29 @@
 .foo
-  border: 1px
-  display: block
   height: 100vh
+  display: block
   width: 100vw
+  border: 1px
 
   .bar
-    border: 1px
-    content: 'baz'
-    height: 100vw
     width: 50vw
+    content: 'baz'
+    border: 1px
+    height: 100vw
 
 
 .other-property
-  border: 1px
   composes: heading
-  display: block
   height: 100vh
+  display: block
   width: 100vw
+  border: 1px
 
 .other-property-new
+  height: 100vh
+  display: block
+  width: 100vw
   border: 1px
   composes: heading
-  display: block
-  height: 100vh
-  width: 100vw
 
 @function test($foo)
   // The line below causes the problem

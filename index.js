@@ -117,12 +117,11 @@ sassLint.lintText = function (file, options, configPath) {
     }];
   }
   if (ast.tree && ast.tree.content && ast.tree.content.length > 0) {
-    var queuedFix = false;
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast.tree, rule);
       if (detects && options.fix && rule.rule.fix) {
-        //console.log("Running " + rule.rule.name + " on " + file.filename + "...");
-        rule.rule.fix(ast, rule)
+        helpers.log(('Running ' + rule.rule.name + ' on ' + file.filename + '...'));
+        rule.rule.fix(ast, rule);
       }
       results = results.concat(detects);
       if (detects.length) {
