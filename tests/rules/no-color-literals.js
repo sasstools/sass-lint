@@ -86,7 +86,6 @@ describe('no color literals - sass', function () {
     lint.test(file, {
       'no-color-literals': 1
     }, function (data) {
-      throw new Error('h')
       lint.assert.equal(16, data.warningCount);
       done();
     });
