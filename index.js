@@ -119,8 +119,9 @@ sassLint.lintText = function (file, options, configPath) {
   if (ast && ast.content && ast.content.length > 0) {
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule);
+// helpers.log(('Running ' + rule.rule.name + ' on ' + file.filename + '...'));
+
       if (detects && options.fix && rule.rule.fix) {
-        helpers.log(('Running ' + rule.rule.name + ' on ' + file.filename + '...'));
         rule.rule.fix(ast, rule);
       }
       results = results.concat(detects);
