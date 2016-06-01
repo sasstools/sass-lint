@@ -131,3 +131,15 @@ $colors: (
         color: red;
     }
 }
+
+@media (max-width: 800px), (max-height: 600px) {
+  #unit {
+    margin: 16px;
+  }
+}
+
+@media (max-width: 800px), (max-height: 600px) {
+    #unit {
+      margin: 16px;
+    }
+}

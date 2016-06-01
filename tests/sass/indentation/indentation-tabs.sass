@@ -94,3 +94,14 @@ $colors: (base: (red: #fff, blue: #fff), text: (default: #fff, light: (brap: #98
 	@media (min--moz-device-pixel-ratio: 1.3)
 		background-image: url('../images/#{$filename}@2x.#{$extension}')
 	  	color: red
+
+.test
+	@media (max-width: 800px), (max-height: 600px)
+			#unit
+				margin: 16px
+
+// Gonzales issue with media queries
+// .test
+// 	@media (max-width: 800px), (max-height: 600px)
+// 			#unit
+// 				margin: 16px

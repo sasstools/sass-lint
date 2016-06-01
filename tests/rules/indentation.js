@@ -13,7 +13,7 @@ describe('indentation - scss', function () {
     lint.test(spaceFile, {
       'indentation': 1
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -27,7 +27,7 @@ describe('indentation - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -46,7 +46,7 @@ describe('indentation - sass', function () {
     lint.test(spaceFile, {
       'indentation': 1
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -60,7 +60,7 @@ describe('indentation - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
