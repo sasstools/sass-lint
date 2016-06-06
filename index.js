@@ -102,14 +102,12 @@ sassLint.lintText = function (file, options, configPath) {
       results = [],
       errors = 0,
       warnings = 0;
-
   try {
     ast = groot(file.text, file.format, file.filename);
   }
   catch (e) {
     var line = e.line || 1;
     errors++;
-
     results = [{
       ruleId: 'Fatal',
       line: line,
@@ -118,10 +116,14 @@ sassLint.lintText = function (file, options, configPath) {
       severity: 2
     }];
   }
-
-  if (ast.content && ast.content.length > 0) {
+  if (ast && ast.content && ast.content.length > 0) {
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule);
+// helpers.log(('Running ' + rule.rule.name + ' on ' + file.filename + '...'));
+
+      if (detects && options.fix && rule.rule.fix) {
+        rule.rule.fix(ast, rule);
+      }
       results = results.concat(detects);
       if (detects.length) {
         if (rule.severity === 1) {
@@ -132,6 +134,9 @@ sassLint.lintText = function (file, options, configPath) {
         }
       }
     });
+    if (options.fix) {
+      fs.writeFileSync(file.filename, ast.toString());
+    }
   }
 
   results.sort(helpers.sortDetects);
@@ -190,11 +195,15 @@ sassLint.lintFiles = function (files, options, configPath) {
     ignores = this.getConfig(options, configPath).files.ignore || '';
     if (files.indexOf(', ') !== -1) {
       files.split(', ').forEach(function (pattern) {
-        includes = includes.concat(glob.sync(pattern, {ignore: ignores}));
+        includes = includes.concat(glob.sync(pattern, {
+          ignore: ignores
+        }));
       });
     }
     else {
-      includes = glob.sync(files, {ignore: ignores});
+      includes = glob.sync(files, {
+        ignore: ignores
+      });
     }
   }
   // If not passed in then we look in the config file
@@ -207,7 +216,9 @@ sassLint.lintFiles = function (files, options, configPath) {
     // Look into the include property of files and check if there's an array of files
     else if (files.include && files.include instanceof Array) {
       files.include.forEach(function (pattern) {
-        includes = includes.concat(glob.sync(pattern, {ignore: files.ignore}));
+        includes = includes.concat(glob.sync(pattern, {
+          ignore: files.ignore
+        }));
       });
     }
     // Or there is only one pattern in the include property of files

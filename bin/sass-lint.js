@@ -18,7 +18,6 @@ var tooManyWarnings = function (detects) {
 
 var detectPattern = function (pattern) {
   var detects;
-
   detects = lint.lintFiles(pattern, configOptions, configPath);
 
   if (program.verbose) {
@@ -44,14 +43,13 @@ program
   .option('-f, --format [format]', 'pass one of the available eslint formats')
   .option('-o, --output [output]', 'the path and filename where you would like output to be written')
   .option('-s, --syntax [syntax]', 'syntax to evaluate the file(s) with (either sass or scss)')
+  .option('--fix', 'Automatically fixes formatting issues with code.')
   .option('--max-warnings [integer]', 'Number of warnings to trigger nonzero exit code')
   .parse(process.argv);
-
 
 if (program.config && program.config !== true) {
   configPath = program.config;
 }
-
 if (program.ignore && program.ignore !== true) {
   ignores = program.ignore.split(', ');
   if (configOptions.hasOwnProperty('files')) {
@@ -88,6 +86,9 @@ if (program.output && program.output !== true) {
       'output-file': program.output
     };
   }
+}
+if (program.fix) {
+  configOptions.fix = program.fix;
 }
 
 if (program.args.length === 0) {
