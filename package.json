@@ -6,7 +6,7 @@
   "scripts": {
     "preversion": "npm test",
     "pretest": "eslint .",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 3000 tests tests/rules",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 3000 tests tests/rules tests/helpers",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "bin": {
@@ -45,6 +45,7 @@
     "coveralls": "^2.11.4",
     "deep-equal": "^1.0.1",
     "istanbul": "^0.4.0",
-    "mocha": "^2.5.1"
+    "mocha": "^2.2.5",
+    "sinon": "^1.17.4"
   }
 }

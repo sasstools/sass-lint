@@ -8,6 +8,8 @@ There are no properties by default, except for reserved words listed below which
 * none
 * currentColor
 
+The `!important` flag will also be excluded when used.
+
 ## Options
 
 * `properties`: `[array of property names]` (defaults to empty array `[]`)
@@ -61,4 +63,22 @@ When `properties` contains the values shown in the options section example the f
   margin: $margin;
 }
 
+```
+
+The `!important` flag will be excluded from any lint warnings.
+
+For example if `properties` contains the value `color` the following would be disallowed
+
+```scss
+.foo {
+  color: red !important;
+}
+```
+
+The following would be allowed
+
+```scss
+.foo {
+  color: $red-var !important;
+}
 ```
