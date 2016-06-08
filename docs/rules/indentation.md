@@ -2,7 +2,7 @@
 
 Rule `indentation` will enforce an indentation size (tabs and spaces) and it will also ensure that tabs and spaces are not mixed.
 
-The mixed warnings and tabs warnings check will take into account what you have set in your config file whether it should expect to see spaces or tabs. If it encounters a tab anywhere in a file when your rule config doesn't specify tabs it will flag a lint warning, Similarly for any whitespace using spaces when tabs are specified. Obviously spaces between properties and values etc are ignored.
+The mixed spaces and tabs warnings check will take into account what you have set in your config file whether it should expect to see spaces or tabs. If it encounters a tab anywhere in a file when your rule config doesn't specify tabs it will flag a lint warning, Similarly for any whitespace using spaces when tabs are specified. Obviously spaces between properties and values etc are ignored.
 
 ## Options
 
