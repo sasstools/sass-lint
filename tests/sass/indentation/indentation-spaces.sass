@@ -1,0 +1,107 @@
+$foo: ('foo': 'bar', 'bar': ('foo': 'bze'))
+
+.parent
+  &__child
+    p::first-line
+      content: ''
+        content: 'ta'
+
+.foo,
+.bar
+  content: 'bar'
+
+    content: 'baz'
+        content: 'bar'
+
+  +breakpoint(500)
+    content: 'baz'
+      // comment inside block
+      content: 'qux'
+
+  +mixin-extra
+    content: 'baz'
+    content: 'qux'
+
+  +mixin-empty-args()
+    content: 'baz'
+    content: 'qux'
+
+    .qux
+      content: 'bar'
+
+
+    @if (1 == 1)
+        content: 'foo'
+
+=bar
+    content: 'bar'
+	content: 'baz'
+
+.color
+  color: rgba(255, 255, 255, 0.3)
+
+$colors: (base: (red: #fff, blue: #fff), text: (default: #fff, light: (brap: #987), not: (test: #fff)))
+
+.multilineprops
+  background: transparent linear-gradient(
+    to bottom,
+      #ff0000 0%,
+    #00ff00 40%,
+    #0000ff 40%
+  )
+
+.multilineprops-extra
+  background: transparent linear-gradient(to bottom, #ff0000 0%, #00ff00 40%, #0000ff 40%)
+
+// Top-level mixin
++hello(
+  $foo,
+  $bar,
+  $baz
+)
+
+.foo
+  // Nested Mixin
+  +hello(
+    $foo,
+    $bar,
+    $baz
+  )
+
+  // CSS built-in function
+  background: transparent linear-gradient(
+    to bottom,
+    #ff0000 0%,
+    #00ff00 40%,
+    #0000ff 40%
+  )
+
+  // User-defined function
+  content: goodbye(
+    $foo,
+      $bar
+  )
+
+@function cp($target, $container)
+  @return calc-percent($target, $container)
+
+// Issue #426 - Unexpected indenting enforcement on multiline rules
+=hidpi-background-image($filename, $background-size: 'mixed', $extension: png)
+  background-image: url('../images/#{$filename}.#{$extension}')
+  @if ($background-size != 'mixed')
+    background-size: $background-size
+
+  @media (min--moz-device-pixel-ratio: 1.3)
+    background-image: url('../images/#{$filename}@2x.#{$extension}')
+  	  color: red
+
+.test
+  @media (max-width: 800px), (max-height: 600px)
+      #unit
+        margin: 16px
+
+// Gonzales issue with media queries
+// .test
+//   @media (max-width: 800px), (max-height: 600px)
+//         #unit
+//           margin: 16px
