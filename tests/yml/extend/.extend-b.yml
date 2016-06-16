@@ -1,0 +1,5 @@
+options:
+  config-file: .extend-c.yml
+rules:
+  no-ids: 0
+  no-mergeable-selectors: 2
