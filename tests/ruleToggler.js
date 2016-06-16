@@ -21,6 +21,9 @@ var generateToggledRules = function (filename) {
 
 describe('rule toggling', function () {
   describe('getToggledRules', function () {
+    //////////////////////////////
+    // SCSS syntax tests
+    //////////////////////////////
     it('should allow all rules to be disabled', function () {
       assert(deepEqual(generateToggledRules('ruleToggler-disable-all.scss'), {
         globalEnable: [[false, 1, 1]],
@@ -117,6 +120,109 @@ describe('rule toggling', function () {
               [true, 12, 1],
               [false, 14, 6],
               [false, 14, 32]]
+        }
+      }) === true);
+    });
+
+    //////////////////////////////
+    // SASS syntax tests
+    //////////////////////////////
+    it('should allow all rules to be disabled', function () {
+      assert(deepEqual(generateToggledRules('ruleToggler-disable-all.sass'), {
+        globalEnable: [[false, 1, 1]],
+        ruleEnable: {}
+      }) === true);
+    });
+    it('should allow all rules to be disabled then re-enabled', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-disable-all-then-reenable.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [
+          [false, 1, 1],
+          [true, 3, 1]
+        ],
+        ruleEnable: {}
+      }) === true);
+    });
+    it('should allow a single rule to be disabled', function () {
+      assert(deepEqual(generateToggledRules('ruleToggler-disable-a-rule.sass'), {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 1, 1]]
+        }
+      }) === true);
+    });
+    it('should allow multiple rules to be disabled', function () {
+      assert(deepEqual(generateToggledRules('ruleToggler-disable-multiple-rules.sass'), {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 1, 1]],
+          b: [[false, 1, 1]],
+          c: [[false, 1, 1]],
+          d: [[false, 1, 1]]
+        }
+      }) === true);
+    });
+    it('should be able to disable a single line', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-disable-a-line.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 2, 1], [true, 3, 1]]
+        }
+      }) === true);
+    });
+    it('should be able to disable a block of code', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-disable-a-block.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 2, 1], [true, 2, 32]]
+        }
+      }) === true);
+    });
+    it('should be able to enable a disabled rule', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-disable-then-enable.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 2, 5], [true, 4, 5]]
+        }
+      }) === true);
+    });
+    it('should ignore comments that don\'t fit known formats', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-ignore-unknown.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {}
+      }) === true);
+    });
+    it('should ignore empty files', function () {
+      var ruleToggles = generateToggledRules('empty-file.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {}
+      }) === true);
+    });
+    it('should ignore empty comments', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-empty-comment.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {}
+      }) === true);
+    });
+    it('should be ordered', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-guarantee-order.sass');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 2, 1],
+              [false, 2, 5],
+              [true, 5, 20],
+              [false, 8, 1],
+              [false, 8, 5],
+              [true, 11, 20],
+              [false, 14, 5],
+              [false, 15, 5]]
         }
       }) === true);
     });
