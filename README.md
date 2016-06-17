@@ -7,6 +7,12 @@ A Node-only Sass linter for both `sass` and `scss` syntax!
 ## Install
 You can get `sass-lint` from [NPM](https://www.npmjs.com/package/sass-lint):
 
+Install globally
+```
+npm install -g sass-lint
+```
+
+To save to a project as a dev dependency
 ```
 npm install sass-lint --save-dev
 ```
@@ -45,13 +51,26 @@ The following are options that you can use to config the Sass Linter.
 
 #### Files
 
-The `files` option can either be set to a [glob](https://github.com/isaacs/node-glob) or it can be set to an object, where the key `include` is set to the glob you want to include, and `ignore` set to either a glob string or an array of glob strings that you would like to ignore.
+The `files` option contains two properties, `include` and `ignore`. Both can be set to either a [glob](https://github.com/isaacs/node-glob) or an array of glob strings/file paths depending on your projects' needs and setup.
 
+For example below we are providing a singular glob string to our include property and an array of patterns to our ignore property:
 ```yml
 files:
   include: 'sass/**/*.s+(a|c)ss'
   ignore:
-    - 'sass/vendor/**/*.*'
+    - 'sass/vendor/**/*.scss'
+    - 'sass/tests/**/*.scss'
+```
+
+As mentioned you can also provide an array to the include property like so
+```yml
+files:
+  include:
+    - 'sass/blocks/*.s+(a|c)ss'
+    - 'sass/elements/*.s+(a|c)ss'
+  ignore:
+    - 'sass/vendor/**/*.scss'
+    - 'sass/tests/**/*.scss'
 ```
 
 #### Rules
@@ -102,6 +121,33 @@ or with long form flags
 sass-lint --config app/config/.sass-lint.yml '**/*.scss' --verbose --no-exit
 ```
 
+#### Including multiple source destinations
+By default when specifying a directory/file to lint from the CLI you would do something similar to the following
+
+```
+sass-lint 'myapp/**/*.scss' -v -q
+```
+
+or with long form flags
+
+```
+sass-lint 'myapp/**/*.scss' --verbose --no-exit
+```
+> Notice that you need to wrap glob patterns in quotation marks
+
+If you want to specify multiple input sources then you need to include a single comma and a space `, ` to separate each pattern as shown in the following
+```
+sass-lint 'myapp/dir1/**.*.scss, myapp/dir2/**/*.scss' -v -q
+```
+
+or with long form flags
+
+```
+sass-lint 'myapp/dir1/**.*.scss, myapp/dir2/**/*.scss' --verbose --no-exit
+```
+
+If you don't include the extra space after the comma then the multiple patterns will not be interpreted correctly and you could see `sass-lint` fail.
+
 #### Ignore files/patterns
 To add a list of files to ignore `tests/**/*.scss, dist/other.scss` into the mix you could do the following:
 ```
@@ -113,7 +159,7 @@ sass-lint --config app/config/.sass-lint.yml '**/*.scss' --verbose --no-exit --i
 ```
 
 
-> Notice that glob patterns need to be wrapped in quotation or single quote marks in order to be passed to sass-lint correctly and if you want to ignore multiple paths you also need to wrap it in quotation marks and seperate each pattern/file with a comma and a space `, `.
+> Notice that glob patterns need to be wrapped in quotation or single quote marks in order to be passed to sass-lint correctly and if you want to ignore multiple paths you also need to wrap it in quotation marks and separate each pattern/file with a comma and a space `, `.
 
 This will be revisited and updated in `sass-lint` v2.0.0.
 

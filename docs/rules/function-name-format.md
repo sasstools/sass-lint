@@ -85,6 +85,40 @@ When enabled, the following are disallowed:
 
 Settings:
 - `allow-leading-underscore: false`
+- `convention: pascalcase`
+
+When enabled, the following are allowed:
+
+```scss
+@function PascalCase() {
+  @return "foo";
+}
+
+.foo {
+  content: AnotherPascalCase();
+}
+```
+
+When enabled, the following are disallowed:
+
+```scss
+@function HYPHENATED-UPPERCASE() {
+  @return "foo";
+}
+
+@function _camelCaseWithLeadingUnderscore() {
+  @return "foo";
+}
+
+.foo {
+  content: snake_case();
+}
+```
+
+## Example 4
+
+Settings:
+- `allow-leading-underscore: false`
 - `convention: snakecase`
 
 When enabled, the following are allowed:
@@ -115,7 +149,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 4
+## Example 5
 
 Settings:
 - `convention: strictbem`
@@ -148,7 +182,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 5
+## Example 6
 
 Settings:
 - `convention: hyphenatedbem`
@@ -181,7 +215,7 @@ When enabled, the following are disallowed:
 }
 ```
 
-## Example 6
+## Example 7
 
 Settings:
 - `allow-leading-underscore: true`

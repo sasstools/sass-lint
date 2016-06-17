@@ -6,7 +6,8 @@ var slConfig = require('./lib/config'),
     slRules = require('./lib/rules'),
     glob = require('glob'),
     path = require('path'),
-    fs = require('fs-extra');
+    fs = require('fs-extra'),
+    globule = require('globule');
 
 var sassLint = function (config) {
   config = require('./lib/config')(config);
@@ -144,6 +145,31 @@ sassLint.lintText = function (file, options, configPath) {
 };
 
 /**
+ * Handles ignored files for plugins such as the gulp plugin. Checks every file passed to it against
+ * the ignores as specified in our users config or passed in options.
+ *
+ * @param {object} file - The file/text to be linted
+ * @param {object} options - The user defined options directly passed in
+ * @param {object} configPath - Path to a config file
+ * @returns {object} Return the results of lintText - a results object
+ */
+sassLint.lintFileText = function (file, options, configPath) {
+  var config = this.getConfig(options, configPath),
+      ignores = config.files ? config.files.ignore : [];
+
+  if (!globule.isMatch(ignores, file.filename)) {
+    return this.lintText(file, options, configPath);
+  }
+
+  return {
+    'filePath': file.filename,
+    'warningCount': 0,
+    'errorCount': 0,
+    'messages': []
+  };
+};
+
+/**
  * Takes a glob pattern or target string and creates an array of files as targets for
  * linting taking into account any user specified ignores. For each resulting file sassLint.lintText
  * is called which returns an object of results for that file which we push to our results object.
@@ -156,31 +182,50 @@ sassLint.lintText = function (file, options, configPath) {
 sassLint.lintFiles = function (files, options, configPath) {
   var that = this,
       results = [],
+      includes = [],
       ignores = '';
 
+  // Files passed as a string on the command line
   if (files) {
     ignores = this.getConfig(options, configPath).files.ignore || '';
-    files = glob.sync(files, {ignore: ignores});
-  }
-  else {
-    files = this.getConfig(options, configPath).files;
-    if (typeof files === 'string') {
-      files = glob.sync(files);
+    if (files.indexOf(', ') !== -1) {
+      files.split(', ').forEach(function (pattern) {
+        includes = includes.concat(glob.sync(pattern, {ignore: ignores, nodir: true}));
+      });
     }
     else {
-      files = glob.sync(files.include, {
-        'ignore': files.ignore
+      includes = glob.sync(files, {ignore: ignores, nodir: true});
+    }
+  }
+  // If not passed in then we look in the config file
+  else {
+    files = this.getConfig(options, configPath).files;
+    // A glob pattern of files can be just a string
+    if (typeof files === 'string') {
+      includes = glob.sync(files, {nodir: true});
+    }
+    // Look into the include property of files and check if there's an array of files
+    else if (files.include && files.include instanceof Array) {
+      files.include.forEach(function (pattern) {
+        includes = includes.concat(glob.sync(pattern, {ignore: files.ignore, nodir: true}));
       });
+    }
+    // Or there is only one pattern in the include property of files
+    else {
+      includes = glob.sync(files.include, {ignore: files.ignore, nodir: true});
     }
   }
 
-  files.forEach(function (file) {
-    var lint = that.lintText({
-      'text': fs.readFileSync(file),
-      'format': options.syntax ? options.syntax : path.extname(file).replace('.', ''),
-      'filename': file
-    }, options, configPath);
-    results.push(lint);
+  includes.forEach(function (file, index) {
+    // Only lint non duplicate files from our glob results
+    if (includes.indexOf(file) === index) {
+      var lint = that.lintText({
+        'text': fs.readFileSync(file),
+        'format': options.syntax ? options.syntax : path.extname(file).replace('.', ''),
+        'filename': file
+      }, options, configPath);
+      results.push(lint);
+    }
   });
 
   return results;

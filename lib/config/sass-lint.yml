@@ -17,10 +17,13 @@ rules:
   single-line-per-selector: 1
 
   # Disallows
+  no-attribute-selectors: 0
   no-color-keywords: 1
   no-color-literals: 1
+  no-combinators: 0
   no-css-comments: 1
   no-debug: 1
+  no-disallowed-properties: 0
   no-duplicate-properties: 1
   no-empty-rulesets: 1
   no-extends: 0
@@ -33,6 +36,7 @@ rules:
   no-trailing-whitespace: 1
   no-trailing-zero: 1
   no-transition-all: 1
+  no-universal-selectors: 0
   no-url-protocols: 1
   no-vendor-prefixes: 1
   no-warn: 1
@@ -52,6 +56,7 @@ rules:
   variable-name-format: 1
 
   # Style Guide
+  attribute-quotes: 1
   bem-depth: 0
   border-zero: 1
   brace-style: 1
@@ -63,6 +68,7 @@ rules:
   leading-zero: 1
   nesting-depth: 1
   property-sort-order: 1
+  pseudo-element: 1
   quotes: 1
   shorthand-values: 1
   url-quotes: 1

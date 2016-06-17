@@ -1,0 +1,25 @@
+.foo
+  z-index: 10
+  display: block
+  .bar
+    .baz
+      z-index: 20
+
+.test
+  @media (max-width: 100px)
+    z-index: 10
+
+=test ($level)
+  z-index: $level
+  display: block
+
+@function myFunc($level)
+  @return $level * 2
+
+.func-res
+  z-index: myFunc(10)
+  display: block
+
+interp
+  z-index: #{20}
+  display: block
