@@ -12,7 +12,7 @@ describe('shorthand values - scss', function () {
     lint.test(file, {
       'shorthand-values': 1
     }, function (data) {
-      lint.assert.equal(64, data.warningCount);
+      lint.assert.equal(76, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('shorthand values - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(27, data.warningCount);
+      lint.assert.equal(32, data.warningCount);
       done();
     });
   });
@@ -44,7 +44,7 @@ describe('shorthand values - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(32, data.warningCount);
+      lint.assert.equal(38, data.warningCount);
       done();
     });
   });
@@ -60,7 +60,7 @@ describe('shorthand values - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(38, data.warningCount);
+      lint.assert.equal(45, data.warningCount);
       done();
     });
   });
@@ -92,7 +92,7 @@ describe('shorthand values - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(48, data.warningCount);
+      lint.assert.equal(57, data.warningCount);
       done();
     });
   });
@@ -109,7 +109,7 @@ describe('shorthand values - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(54, data.warningCount);
+      lint.assert.equal(64, data.warningCount);
       done();
     });
   });
@@ -126,7 +126,7 @@ describe('shorthand values - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(48, data.warningCount);
+      lint.assert.equal(57, data.warningCount);
       done();
     });
   });
@@ -144,7 +144,7 @@ describe('shorthand values - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(64, data.warningCount);
+      lint.assert.equal(76, data.warningCount);
       done();
     });
   });
@@ -161,7 +161,7 @@ describe('shorthand values - sass', function () {
     lint.test(file, {
       'shorthand-values': 1
     }, function (data) {
-      lint.assert.equal(64, data.warningCount);
+      lint.assert.equal(76, data.warningCount);
       done();
     });
   });
@@ -177,7 +177,7 @@ describe('shorthand values - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(27, data.warningCount);
+      lint.assert.equal(32, data.warningCount);
       done();
     });
   });
@@ -193,7 +193,7 @@ describe('shorthand values - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(32, data.warningCount);
+      lint.assert.equal(38, data.warningCount);
       done();
     });
   });
@@ -209,7 +209,7 @@ describe('shorthand values - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(38, data.warningCount);
+      lint.assert.equal(45, data.warningCount);
       done();
     });
   });
@@ -241,7 +241,7 @@ describe('shorthand values - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(48, data.warningCount);
+      lint.assert.equal(57, data.warningCount);
       done();
     });
   });
@@ -258,7 +258,7 @@ describe('shorthand values - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(54, data.warningCount);
+      lint.assert.equal(64, data.warningCount);
       done();
     });
   });
@@ -275,7 +275,7 @@ describe('shorthand values - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(48, data.warningCount);
+      lint.assert.equal(57, data.warningCount);
       done();
     });
   });
@@ -293,7 +293,7 @@ describe('shorthand values - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(64, data.warningCount);
+      lint.assert.equal(76, data.warningCount);
       done();
     });
   });
