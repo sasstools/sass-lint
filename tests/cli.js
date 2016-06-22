@@ -242,9 +242,9 @@ describe('cli', function () {
   // Test default config files
 
   it('should return JSON from .sass-lint.yml', function (done) {
-    var command = 'sass-lint ../../sass/cli.scss --verbose';
+    var command = 'sass-lint ../../cli/cli.scss --verbose';
 
-    childProcess.exec(command, { cwd: path.join(__dirname, 'yml', '.sass-lint.yml') }, function (err, stdout) {
+    exec(command, { cwd: path.join(__dirname, 'yml', '.sass-lint.yml') }, function (err, stdout) {
 
       if (err) {
         return done(err);
@@ -262,10 +262,9 @@ describe('cli', function () {
   });
 
   it('should return JSON from .sasslintrc', function (done) {
-    var command = 'sass-lint ../../sass/cli.scss --verbose';
+    var command = 'sass-lint ../../cli/cli.scss --verbose';
 
-    childProcess.exec(command, { cwd: path.join(__dirname, 'yml', '.sasslintrc') }, function (err, stdout) {
-
+    exec(command, { cwd: path.join(__dirname, 'yml', '.sasslintrc') }, function (err, stdout) {
       if (err) {
         return done(err);
       }
