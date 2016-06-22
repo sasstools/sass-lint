@@ -18,6 +18,7 @@ rules:
 
   # Disallows
   no-attribute-selectors: 0
+  no-color-hex: 0
   no-color-keywords: 1
   no-color-literals: 1
   no-combinators: 0
