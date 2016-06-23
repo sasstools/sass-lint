@@ -5,6 +5,7 @@
   border-width: inherit
   margin: 1rem
   padding: 1px
+  padding: ($gutter / 2);
 
 .value-two-ident
   border-color: red red
@@ -13,6 +14,7 @@
   border-width: inherit inherit
   margin: 1rem 1rem
   padding: 1px 1px
+  padding: ($gutter / 2) ($gutter / 2)
 
 .value-two-diff
   border-color: red blue
@@ -21,6 +23,7 @@
   border-width: inherit 2em
   margin: 1rem 2rem
   padding: 1px 2px
+  padding: ($gutter / 2) ($gutter / 3)
 
 .value-three-ident
   border-color: red red red
@@ -29,6 +32,7 @@
   border-width: inherit inherit inherit
   margin: 1rem 1rem 1rem
   padding: 1px 1px 1px
+  padding: ($gutter / 2) ($gutter / 2) ($gutter / 2)
 
 .value-three-diff-one
   border-color: blue red red
@@ -37,6 +41,7 @@
   border-width: 10px inherit inherit
   margin: 2rem 1rem 1rem
   padding: 2px 1px 1px
+  padding: ($gutter / 3) ($gutter / 2) ($gutter / 2)
 
 .value-three-diff-two
   border-color: red blue red
@@ -45,6 +50,7 @@
   border-width: inherit 10px inherit
   margin: 1rem 2rem 1rem
   padding: 1px 2px 1px
+  padding: ($gutter / 2) ($gutter / 3) ($gutter / 2)
 
 .value-three-diff-three
   border-color: red red blue
@@ -53,6 +59,7 @@
   border-width: inherit inherit 10px
   margin: 1rem 1rem 2rem
   padding: 1px 1px 2px
+  padding: ($gutter / 2) ($gutter / 2) ($gutter / 3)
 
 .value-three-diff-four
   border-color: red blue orange
@@ -61,6 +68,7 @@
   border-width: inherit 10px 20px
   margin: 1rem 2rem 3rem
   padding: 1px 2px 3px
+  padding: ($gutter / 2) ($gutter / 3) ($gutter / 4)
 
 .value-four-ident
   border-color: red red red red
@@ -69,6 +77,7 @@
   border-width: inherit inherit inherit inherit
   margin: 1rem 1rem 1rem 1rem
   padding: 1px 1px 1px 1px
+  padding: ($gutter / 2) ($gutter / 2) ($gutter / 2) ($gutter / 2)
 
 .value-four-diff-one
   border-color: blue red red red
@@ -77,6 +86,7 @@
   border-width: 10px inherit inherit inherit
   margin: 2rem 1rem 1rem 1rem
   padding: 2px 1px 1px 1px
+  padding: ($gutter / 3) ($gutter / 2) ($gutter / 2) ($gutter / 2)
 
 .value-four-diff-two
   border-color: red blue red red
@@ -85,6 +95,7 @@
   border-width: inherit 10px inherit inherit
   margin: 1rem 2rem 1rem 1rem
   padding: 1px 2px 1px 1px
+  padding: ($gutter / 2) ($gutter / 3) ($gutter / 2) ($gutter / 2)
 
 .value-four-diff-three
   border-color: red red blue red
@@ -93,6 +104,7 @@
   border-width: inherit inherit 10px inherit
   margin: 1rem 1rem 2rem 1rem
   padding: 1px 1px 2px 1px
+  padding: ($gutter / 2) ($gutter / 2) ($gutter / 3) ($gutter / 2)
 
 .value-four-diff-four
   border-color: red red red blue
@@ -101,6 +113,7 @@
   border-width: inherit inherit inherit 10px
   margin: 1rem 1rem 1rem 2rem
   padding: 1px 1px 1px 2px
+  padding: ($gutter / 2) ($gutter / 2) ($gutter / 2) ($gutter / 3)
 
 .value-four-diff-five
   border-color: red blue red blue
@@ -109,6 +122,7 @@
   border-width: inherit 10px inherit 10px
   margin: 1rem 2rem 1rem 2rem
   padding: 1px 2px 1px 2px
+  padding: ($gutter / 2) ($gutter / 3) ($gutter / 2) ($gutter / 3)
 
 .value-four-diff-six
   border-color: red blue orange green
@@ -117,6 +131,7 @@
   border-width: inherit 10px 20px 30px
   margin: 1rem 2rem 3rem 4rem
   padding: 1px 2px 3px 4px
+  padding: ($gutter / 2) ($gutter / 3) ($gutter / 4) ($gutter / 5)
 
 .value-four-ident
   border-color: $red $red $red $red
@@ -131,45 +146,58 @@
   border-width: none
   margin: 0 0px
   padding: 1px 0
+  padding: ($gutter / 2) 0
 
 .value-mixed
     border-color: $red 1px red 1rem
     border-radius: 1px 1pc 1rem
     border-style: $red red
     border-width: 1px 1pc
+    padding: ($gutter / 2) 1px
 
 .value-negative
   margin: -1px
+  padding: -($gutter / 2)
 
 .value-two-negative
   margin: -1px -1px
+  padding: -($gutter / 2) -($gutter / 2)
 
 .value-two-diff-negative
   margin: -1px 1px
+  padding: -($gutter / 2) ($gutter / 2)
 
 .value-three-diff-one-negative
   margin: -1px -2px -1px
+  padding: -($gutter / 2) -($gutter / 3) -($gutter / 2)
 
 .value-three-diff-two-negative
   margin: -1px -2px 1px
+  padding: -($gutter / 2) -($gutter / 3) ($gutter / 2)
 
 .value-four-negative
   margin: -1px -1px -1px -1px
+  padding: -($gutter / 2) -($gutter / 2) -($gutter / 2) -($gutter / 2)
 
 .value-four-diff-one-negative
   margin: -1px -1px -1px 1px
+  padding: -($gutter / 2) -($gutter / 2) -($gutter / 2) ($gutter / 2)
 
 .value-four-diff-two-negative
   margin: -1px 1px -1px 1px
+  padding: -($gutter / 2) ($gutter / 2) -($gutter / 2) ($gutter / 2)
 
 .value-four-diff-three-negative
   margin: -1px 1px 1px 1px
+  padding: -($gutter / 2) ($gutter / 2) ($gutter / 2) ($gutter / 2)
 
 .value-four-diff-four-negative
   margin: -1px 2px 3px -4px
+  padding: -($gutter / 2) ($gutter / 3) ($gutter / 4) -($gutter / 5)
 
 .value-four-diff-four-negative-mixed
   margin: -1px 1px -1rem -1rem
+  padding: -($gutter / 2) ($gutter / 2) -($gutter-ex / 2) -($gutter-ex / 2)
 
 .value-percentage
   margin: 1%
