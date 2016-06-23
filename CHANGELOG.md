@@ -1,5 +1,21 @@
 # Sass Lint Changelog
 
+## v1.8.1
+
+**June 23, 2016**
+
+Parser patching 
+
+Gonzales-pe had a few important updates so we chose to do a patch release to make sure everyone gets to benefit from less parse errors as soon as possible!
+
+**Fixes**
+* Fixed an issue in `shorthand-values` where values within parenthesis would be ignored [#748](https://github.com/sasstools/sass-lint/issues/748)
+* Corrected the documentation for `property-units` [#740](https://github.com/sasstools/sass-lint/issues/740)
+* Fixed an issue where config files were not being recursively searched for [#756](https://github.com/sasstools/sass-lint/issues/756)
+
+**Updates**
+* Gonzales-pe updated to version 3.3.5 [see changelog](https://github.com/tonyganch/gonzales-pe/blob/v3.3.5/CHANGELOG.md#21062016-version-335) [#746](https://github.com/sasstools/sass-lint/pull/746)
+
 ## v1.8.0
 
 **June 17, 2016**
