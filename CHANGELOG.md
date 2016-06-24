@@ -1,10 +1,16 @@
 # Sass Lint Changelog
 
+## v1.8.2
+
+**June 23, 2016**
+
+Unfortunately it seems a reversion snuck into gonzales-pe's latest version so we're pinning it back where it was until it's fixed. Sorry..
+
 ## v1.8.1
 
 **June 23, 2016**
 
-Parser patching 
+Parser patching
 
 Gonzales-pe had a few important updates so we chose to do a patch release to make sure everyone gets to benefit from less parse errors as soon as possible!
 
