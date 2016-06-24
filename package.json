@@ -1,12 +1,12 @@
 {
   "name": "sass-lint",
-  "version": "1.7.0",
+  "version": "1.8.2",
   "description": "All Node Sass linter!",
   "main": "index.js",
   "scripts": {
     "preversion": "npm test",
     "pretest": "eslint .",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 3000 tests tests/rules",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 3000 tests tests/rules tests/helpers",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "bin": {
@@ -33,7 +33,7 @@
     "fs-extra": "^0.30.0",
     "glob": "^7.0.0",
     "globule": "^1.0.0",
-    "gonzales-pe-sl": "3.2.8",
+    "gonzales-pe": "3.3.4",
     "js-yaml": "^3.5.4",
     "lodash.capitalize": "^4.1.0",
     "lodash.kebabcase": "^4.0.0",
@@ -45,6 +45,7 @@
     "coveralls": "^2.11.4",
     "deep-equal": "^1.0.1",
     "istanbul": "^0.4.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "sinon": "^1.17.4"
   }
 }

@@ -1,0 +1,4 @@
+options:
+  config-file: extend/.extend-c.yml
+rules:
+  no-ids: 2
