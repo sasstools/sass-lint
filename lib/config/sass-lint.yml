@@ -58,7 +58,7 @@ rules:
   # Style Guide
   attribute-quotes: 1
   bem-depth: 0
-  border-zero: 1
+  border-zero: 1 #
   brace-style: 1
   clean-import-paths: 1
   empty-args: 1
@@ -67,7 +67,7 @@ rules:
   indentation: 1
   leading-zero: 1
   nesting-depth: 1
-  property-sort-order: 1
+  property-sort-order: 1 #
   pseudo-element: 1
   quotes: 1
   shorthand-values: 1
