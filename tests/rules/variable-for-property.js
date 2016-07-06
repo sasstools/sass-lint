@@ -34,6 +34,22 @@ describe('variable for property - scss', function () {
       done();
     });
   });
+
+  it('[properties: color]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
 });
 
 //////////////////////////////
@@ -65,6 +81,22 @@ describe('variable for property - sass', function () {
       ]
     }, function (data) {
       lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
+  it('[properties: color]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });

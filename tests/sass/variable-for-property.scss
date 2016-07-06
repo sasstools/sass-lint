@@ -30,3 +30,12 @@
   background: transparent;
   background: none;
 }
+
+// Issue #714 - !important and spaces were classed as erroneous value types
+.t-neutral {
+  color: $gray-chateau !important;
+}
+
+.t-neutral {
+  color: red !important;
+}

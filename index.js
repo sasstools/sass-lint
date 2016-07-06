@@ -195,6 +195,7 @@ sassLint.lintFiles = function (files, options, configPath) {
     ignores = this.getConfig(options, configPath).files.ignore || '';
     if (files.indexOf(', ') !== -1) {
       files.split(', ').forEach(function (pattern) {
+<<<<<<< HEAD
         includes = includes.concat(glob.sync(pattern, {
           ignore: ignores
         }));
@@ -204,6 +205,13 @@ sassLint.lintFiles = function (files, options, configPath) {
       includes = glob.sync(files, {
         ignore: ignores
       });
+=======
+        includes = includes.concat(glob.sync(pattern, {ignore: ignores, nodir: true}));
+      });
+    }
+    else {
+      includes = glob.sync(files, {ignore: ignores, nodir: true});
+>>>>>>> 6f5a5096f7a8e63bffbe9bd817fceefe0d0c28c2
     }
   }
   // If not passed in then we look in the config file
@@ -211,21 +219,23 @@ sassLint.lintFiles = function (files, options, configPath) {
     files = this.getConfig(options, configPath).files;
     // A glob pattern of files can be just a string
     if (typeof files === 'string') {
-      includes = glob.sync(files);
+      includes = glob.sync(files, {nodir: true});
     }
     // Look into the include property of files and check if there's an array of files
     else if (files.include && files.include instanceof Array) {
       files.include.forEach(function (pattern) {
+<<<<<<< HEAD
         includes = includes.concat(glob.sync(pattern, {
           ignore: files.ignore
         }));
+=======
+        includes = includes.concat(glob.sync(pattern, {ignore: files.ignore, nodir: true}));
+>>>>>>> 6f5a5096f7a8e63bffbe9bd817fceefe0d0c28c2
       });
     }
     // Or there is only one pattern in the include property of files
     else {
-      includes = glob.sync(files.include, {
-        'ignore': files.ignore
-      });
+      includes = glob.sync(files.include, {ignore: files.ignore, nodir: true});
     }
   }
 
