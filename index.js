@@ -195,15 +195,11 @@ sassLint.lintFiles = function (files, options, configPath) {
     ignores = this.getConfig(options, configPath).files.ignore || '';
     if (files.indexOf(', ') !== -1) {
       files.split(', ').forEach(function (pattern) {
-        includes = includes.concat(glob.sync(pattern, {
-          ignore: ignores
-        }));
+        includes = includes.concat(glob.sync(pattern, {ignore: ignores, nodir: true}));
       });
     }
     else {
-      includes = glob.sync(files, {
-        ignore: ignores
-      });
+      includes = glob.sync(pattern, {ignore: ignores, nodir: true});
     }
   }
   // If not passed in then we look in the config file
@@ -216,9 +212,7 @@ sassLint.lintFiles = function (files, options, configPath) {
     // Look into the include property of files and check if there's an array of files
     else if (files.include && files.include instanceof Array) {
       files.include.forEach(function (pattern) {
-        includes = includes.concat(glob.sync(pattern, {
-          ignore: files.ignore
-        }));
+        includes = includes.concat(glob.sync(pattern, {ignore: ignores, nodir: true}));
       });
     }
     // Or there is only one pattern in the include property of files
