@@ -30,7 +30,7 @@ When enabled, `global` is set to `['px']`, and `per-property` is set to `{ width
 
 ```
 
-When enabled, `globally-allowed-units` is set to `['em']`, and `units-allowed-for-properties` is set to `{ width: ['rem'] }` the following are allowed.
+When enabled, `global` is set to `['em']`, and `per-property` is set to `{ width: ['rem'] }` the following are allowed.
 
 ```scss
 
@@ -47,4 +47,3 @@ $sizes: (
   small: 2px
 );
 ```
-
