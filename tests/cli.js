@@ -4,7 +4,6 @@ var assert = require('assert'),
     exec = require('child_process').exec;
 
 describe('cli', function () {
-
   it('should return help instructions', function (done) {
     var command = 'sass-lint -h';
 
@@ -468,6 +467,12 @@ describe('cli', function () {
           ruleId = 'Fatal';
 
       assert.equal(ruleId, messages.ruleId);
+      done();
+    });
+  });
+  it('should work on --fix', function (done) {
+    var cmd = './bin/sass-lint.js tests/sass/* --fix';
+    exec(cmd, function () {
       done();
     });
   });
