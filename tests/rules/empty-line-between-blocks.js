@@ -80,7 +80,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -97,7 +97,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -114,7 +114,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(26, data.warningCount);
+      lint.assert.equal(25, data.warningCount);
       done();
     });
   });
@@ -131,7 +131,7 @@ describe('empty line between blocks - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(27, data.warningCount);
+      lint.assert.equal(26, data.warningCount);
       done();
     });
   });
