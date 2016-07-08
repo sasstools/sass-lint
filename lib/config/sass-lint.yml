@@ -18,10 +18,10 @@ rules:
 
   # Disallows
   no-attribute-selectors: 0
-  no-color-keywords: 1
+  no-color-keywords: 1 #
   no-color-literals: 1
   no-combinators: 0
-  no-css-comments: 1
+  no-css-comments: 1 #
   no-debug: 1
   no-disallowed-properties: 0
   no-duplicate-properties: 1
@@ -56,18 +56,18 @@ rules:
   variable-name-format: 1
 
   # Style Guide
-  attribute-quotes: 1
+  attribute-quotes: 1 #
   bem-depth: 0
-  border-zero: 1
+  border-zero: 1 #
   brace-style: 1
   clean-import-paths: 1
   empty-args: 1
-  hex-length: 1
+  hex-length: 1 #
   hex-notation: 1
   indentation: 1
   leading-zero: 1
   nesting-depth: 1
-  property-sort-order: 1
+  property-sort-order: 1 #
   pseudo-element: 1
   quotes: 1
   shorthand-values: 1
@@ -77,8 +77,8 @@ rules:
 
   # Inner Spacing
   space-after-comma: 1
-  space-before-colon: 1
-  space-after-colon: 1
+  space-before-colon: 1 #
+  space-after-colon: 1 #
   space-before-brace: 1
   space-before-bang: 1
   space-after-bang: 1

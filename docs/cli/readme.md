@@ -22,5 +22,6 @@ Command Line Flag        | Description
 `-s`,`--syntax`           | Syntax to evaluate the given file(s) with, either sass or scss. Use with care: overrides filename extension-based syntax detection.
 `-v`,`--verbose`          | Verbose output (fully formatted output)
 `-V`,`--version`          | Outputs the version number of Sass Lint
+`--fix`                   | Automatically fixes formatting issues with code.
 
 To see more on how to use the CLI you can view the examples included within sass-lint's [readme](https://github.com/sasstools/sass-lint/blob/develop/README.md#cli)

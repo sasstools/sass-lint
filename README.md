@@ -88,6 +88,29 @@ indentation:
     size: 2
 ```
 
+##### Adding Fix to Rules
+
+Within `lib/rules/*.js`, for any file you can just add a `fix` hook to `module.exports` like so:
+
+ex.
+
+```js
+module.exports.fix = function (groot, parser) {
+  /** ... **/
+};
+```
+
+The `groot` parameter represents the parse tree. Any manipulations to this tree are reflected in
+the code after the AST is rendered to a string and written to the file.
+
+`parser` represents the configuration file for the rule.
+
+To run the code fixer, simply use the CLI flag as seen below:
+
+`sass-lint --fix`
+
+`sass-lint` can also be run from `bin/sass-lint`
+
 ### [Rules Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
 
 ---
