@@ -475,7 +475,7 @@ describe('cli', function () {
     exec(cmd, function () {
       exec('git checkout $(git rev-parse --abbrev-ref HEAD) tests/cli/cli.scss', function () {
         done();
-      })
+      });
     });
   });
 });
