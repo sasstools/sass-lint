@@ -29,7 +29,7 @@
   "homepage": "https://github.com/sasstools/sass-lint",
   "dependencies": {
     "commander": "^2.8.1",
-    "eslint": "^2.7.0",
+    "eslint": "^3.1.0",
     "fs-extra": "^0.30.0",
     "glob": "^7.0.0",
     "globule": "^1.0.0",
