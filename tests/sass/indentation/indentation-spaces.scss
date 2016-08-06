@@ -143,3 +143,18 @@ $colors: (
       margin: 16px;
     }
 }
+
+// Issue #783 and issue #779 - Import rule throws off indentation of maps etc
+
+@import 'echo-base/defaults/breakpoints';
+
+$textsizes: (
+  xs: (
+    s: 10px,
+    m: 10px
+  ),
+  s: (
+    s: 12px,
+    m: 13px
+  ),
+);
