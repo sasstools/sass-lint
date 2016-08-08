@@ -194,3 +194,4 @@ Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Eac
 * [Sublime Text](https://github.com/skovhus/SublimeLinter-contrib-sass-lint)
 * [Brackets](https://github.com/petetnt/brackets-sass-lint)
 * [IntelliJ IDEA, RubyMine, WebStorm, PhpStorm, PyCharm](https://github.com/idok/sass-lint-plugin)
+* [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
