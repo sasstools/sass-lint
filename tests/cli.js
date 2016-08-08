@@ -262,7 +262,7 @@ describe('cli', function () {
   });
 
   it('should return JSON from .sasslintrc', function (done) {
-    var command = 'sass-lint ../../cli/cli.scss --verbose';
+    var command = 'sass-lint ../../cli/cli.scss -c ".sasslintrc" --verbose';
 
     exec(command, { cwd: path.join(__dirname, 'yml', '.sasslintrc') }, function (err, stdout) {
       if (err) {
