@@ -144,7 +144,7 @@ $colors: (
     }
 }
 
-// Issue #783 and issue #779 - Import rule throws off indentation of maps etc
+// Issue #783 and issue #779 - at-rule throws off indentation of maps etc
 
 @import 'echo-base/defaults/breakpoints';
 
@@ -152,6 +152,21 @@ $textsizes: (
   xs: (
     s: 10px,
     m: 10px
+  ),
+  s: (
+    s: 12px,
+      m: 13px
+  ),
+);
+
+@function em($pixels, $context: $font-size-base) {
+  @return #{($pixels / $context)}rem;
+}
+
+$textsizes: (
+  xs: (
+    s: 10px,
+      m: 10px
   ),
   s: (
     s: 12px,
