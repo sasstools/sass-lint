@@ -41,14 +41,14 @@ When enabled, the following are disallowed:
 
 ### Additional Identifiers
 
-When `additional-identifiers` contains a custom prefix value of `test` as show below
+When `additional-identifiers` contains a custom prefix value of `khtml` as show below
 
 ```yaml
-no-vendor-prefix:
+no-vendor-prefixes:
   - 1
   -
-    'additional-identifiers':
-      - 'khtml'
+    additional-identifiers:
+      - khtml
 ```
 
 The following would now also be disallowed
@@ -64,12 +64,12 @@ The following would now also be disallowed
 When `excluded-identifiers` contains currently disallowed prefix values such as `webkit` and `moz` as show below
 
 ```yaml
-no-vendor-prefix:
+no-vendor-prefixes:
   - 1
   -
-    'excluded-identifiers':
-      - 'webkit'
-      - 'moz'
+    excluded-identifiers:
+      - webkit
+      - moz
 ```
 
 The following would now be allowed
