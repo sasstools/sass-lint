@@ -1,0 +1,26 @@
+$foo-color: #123;
+
+.foo {
+  background: linear-gradient(top, #cc2, #44d);
+  color: #fff;
+}
+
+$bar-color: #112233;
+
+.bar {
+  background: linear-gradient(top, #cccc22, #4444dd);
+  color: #ffffff;
+}
+
+.baz {
+  border-color: #123456;
+}
+
+// color literals, rgb and hsl values currently don't get returned
+// by the AST's color type
+
+$qux-color: red;
+$rgb-color: rgb(255, 255, 255);
+$rgba-color: rgba(0, 0, 0, .1);
+$hsl-color: hsl(40, 50%, 50%);
+$hsla-color: hsla(40, 50%, 50%, .3);
