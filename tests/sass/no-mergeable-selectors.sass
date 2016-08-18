@@ -249,3 +249,17 @@ ul ~ p
     // should merge with the ruleset directly above
     .nav-item
       color: $blue
+
+
+// issue 826 - media queries with functions
+@media(min-width: break('large'))
+  .test
+    float: left;
+
+@media(min-width: break('small'))
+  .test
+    float: left
+
+@media(min-width: break('small'))
+  .test
+    float: none
