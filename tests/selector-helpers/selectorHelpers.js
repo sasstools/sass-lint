@@ -129,7 +129,7 @@ describe('selectorHelpers - constructSelector', function () {
     done();
   });
 
-  // &__test
+  // tr:nth-child(even)
   it('should return the correct nth selector and typeselector', function (done) {
     assert(equal(selectorList[16], expectedSelectors[16]));
     done();
