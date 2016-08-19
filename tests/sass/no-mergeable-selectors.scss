@@ -339,3 +339,15 @@ ul ~ p {
     float: none;
   }
 }
+
+// Issue #834 - selectors/typeselectors not properly recognised
+.fake-field {
+  tbody {
+    tr:nth-child(even) {
+      background: lighten($theme-color-primary, 50%);
+    }
+    tr:nth-child(odd) {
+      background: #FFFFFF;
+    }
+  }
+}
