@@ -44,7 +44,6 @@ describe('selectorHelpers - constructSelector', function () {
       });
       selectorList.push(ruleSet);
     });
-    console.log(selectorList);
   });
 
   //////////////////////////////
