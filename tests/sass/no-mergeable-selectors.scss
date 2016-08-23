@@ -351,3 +351,12 @@ ul ~ p {
     }
   }
 }
+
+.pseudo-not {
+  &:not(:first-child) {
+    border-left: none;
+  }
+  &:not(:first-child) {
+    border-left: 2px;
+  }
+}
