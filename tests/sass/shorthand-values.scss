@@ -359,3 +359,13 @@
 .value-four-diff-four-interp-function-mixed {
   margin: calc(#{$doc-header-height} + #{$global-whitespace--regular}) calc(#{$doc-header-height} + #{$global-whitespace--regular}) calc(#{$doc-header-height} - #{$global-whitespace--regular}) calc(#{$doc-header-height} - #{$global-whitespace--regular});
 }
+
+// issue #772 - Issue with colours not being correctly interpreted
+// should be ignored;
+.test {
+  border-color: transparent transparent transparent #095b97;
+}
+
+.test {
+  border-color: transparent #095b97 transparent #095b97;
+}

@@ -59,3 +59,10 @@ p:nth-of-type(2) {
     color: red;
   }
 }
+
+tr:nth-child(even) {
+  background: lighten($theme-color-primary, 50%);
+}
+tr:nth-child(odd) {
+  background: #FFFFFF;
+}
