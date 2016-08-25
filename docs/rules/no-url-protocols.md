@@ -4,13 +4,15 @@ Rule `no-url-protocols` will enforce that protocols and domains are not used wit
 
 ## Options
 
-* `protocol-relative-urls`: `true`/`false` (defaults to `false`)
+* `allow-protocol-relative-urls`: `true`/`false` (defaults to `false`)
+> This option is scheduled to be deprecated in favour of the [no-url-domains](https://github.com/sasstools/sass-lint/blob/develop/docs/rules/no-url-domains.md) rule in sass-lint 2.0.
 
 ## Examples
 
-### `protocol-relative-urls`
+### `allow-protocol-relative-urls`
 
-When `protocol-relative-urls: false`, the following are allowed:
+
+When `allow-protocol-relative-urls: false`, the following are allowed:
 
 ```scss
 .foo {
@@ -26,7 +28,7 @@ When `protocol-relative-urls: false`, the following are allowed:
 }
 ```
 
-When `protocol-relative-urls: false`, the following are disallowed:
+When `allow-protocol-relative-urls: false`, the following are disallowed:
 
 ```scss
 .foo {
@@ -42,7 +44,7 @@ When `protocol-relative-urls: false`, the following are disallowed:
 }
 ```
 
-When `protocol-relative-urls: true`, the following are allowed:
+When `allow-protocol-relative-urls: true`, the following are allowed:
 
 ```scss
 .foo {
@@ -62,7 +64,7 @@ When `protocol-relative-urls: true`, the following are allowed:
 }
 ```
 
-When `protocol-relative-urls: true`, the following are disallowed:
+When `allow-protocol-relative-urls: true`, the following are disallowed:
 
 ```scss
 .foo {

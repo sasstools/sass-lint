@@ -1,6 +1,6 @@
-# No Domains
+# No Url Domains
 
-Rule `no-domains` will enforce that domains are not used within urls.
+Rule `no-url-domains` will enforce that domains are not used within urls.
 
 ## Examples
 
