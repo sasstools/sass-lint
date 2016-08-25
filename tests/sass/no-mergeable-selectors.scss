@@ -320,3 +320,43 @@ ul ~ p {
     }
   }
 }
+
+// issue 826 - media queries with functions
+@media(min-width: break('large')) {
+  .test {
+    float: left;
+  }
+}
+
+@media(min-width: break('small')) {
+  .test {
+    float: left;
+  }
+}
+
+@media(min-width: break('small')) {
+  .test {
+    float: none;
+  }
+}
+
+// Issue #834 - selectors/typeselectors not properly recognised
+.fake-field {
+  tbody {
+    tr:nth-child(even) {
+      background: lighten($theme-color-primary, 50%);
+    }
+    tr:nth-child(odd) {
+      background: #FFFFFF;
+    }
+  }
+}
+
+.pseudo-not {
+  &:not(:first-child) {
+    border-left: none;
+  }
+  &:not(:first-child) {
+    border-left: 2px;
+  }
+}
