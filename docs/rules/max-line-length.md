@@ -2,6 +2,10 @@
 
 Rule `max-line-length` will enforce that lines do not exceed a max length / limit.
 
+## Options
+
+* `length`: `number`, (defaults to 80)
+
 ## Examples
 
 When enabled, the following are disallowed:
