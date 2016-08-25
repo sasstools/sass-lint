@@ -17,12 +17,12 @@ describe('no url protocols - scss', function () {
     });
   });
 
-  it('allow protocol-relative urls [enforce-domains: false]', function (done) {
+  it('allow protocol-relative-urls urls [protocol-relative-urls: true]', function (done) {
     lint.test(file, {
       'no-url-protocols': [
         1,
         {
-          'enforce-domains': false
+          'protocol-relative-urls': true
         }
       ]
     }, function (data) {
@@ -48,12 +48,12 @@ describe('no url protocols - sass', function () {
     });
   });
 
-  it('allow protocol-relative urls [enforce-domains: false]', function (done) {
+  it('allow protocol-relative-urls urls [protocol-relative-urls: true]', function (done) {
     lint.test(file, {
       'no-url-protocols': [
         1,
         {
-          'enforce-domains': false
+          'protocol-relative-urls': true
         }
       ]
     }, function (data) {
