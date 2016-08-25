@@ -1,11 +1,20 @@
 # Sass Lint Changelog
 
+## v1.9.1
+
+**August 25, 2016**
+
+**Fixes**
+* Fixed an issue with nth selectors in the `no-mergeable-selectors` rule [#834](https://github.com/sasstools/sass-lint/issues/834)
+* Fixed an issue with atrule arguments containing functions in the `no-mergeable-selectors` rule [#826](https://github.com/sasstools/sass-lint/issues/826)
+* Fixed an issue with hex colors being ignored in the `shorthand-values` rule [#836](https://github.com/sasstools/sass-lint/pull/836)
+
 ## v1.9.0
 
 **August 18, 2016**
 
 **Fixes**
-* Fixed an issue with teh indentation rule when it encountered at-rules with no block immediately preceeding a map [#779](https://github.com/sasstools/sass-lint/issues/779) [#783](https://github.com/sasstools/sass-lint/issues/783)
+* Fixed an issue with the indentation rule when it encountered at-rules with no block immediately preceding a map [#779](https://github.com/sasstools/sass-lint/issues/779) [#783](https://github.com/sasstools/sass-lint/issues/783)
 * Fixed an issue in `single-lint-per-selector` where inline comments were seen as selectors [#789](https://github.com/sasstools/sass-lint/issues/789)
 * Fixed an issue with interpolation in placeholders within the `bem-depth` rule [#782](https://github.com/sasstools/sass-lint/issues/782)
 * Removed duplicated code from `no-mergeable-selectors` to helper methods
