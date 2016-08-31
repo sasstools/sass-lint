@@ -2,6 +2,7 @@
 
 var slConfig = require('./lib/config'),
     groot = require('./lib/groot'),
+    exceptions = require('./lib/exceptions'),
     helpers = require('./lib/helpers'),
     slRules = require('./lib/rules'),
     glob = require('glob'),
@@ -284,14 +285,30 @@ sassLint.outputResults = function (results, options, configPath) {
  * Throws an error if there are any errors detected. The error includes a count of all errors
  * and a list of all files that include errors.
  *
- * @param {object} results our results object
+ * @param {object} results - our results object
+ * @param {object} [options] - extra options to use when running failOnError, e.g. max-warnings
+ * @param {string} [configPath] - path to the config file
  * @returns {void}
  */
-sassLint.failOnError = function (results) {
-  var errorCount = this.errorCount(results);
+sassLint.failOnError = function (results, options, configPath) {
+  // Default parameters
+  options = typeof options !== 'undefined' ? options : {};
+  configPath = typeof configPath !== 'undefined' ? configPath : null;
+
+  var errorCount = this.errorCount(results),
+      warningCount = this.warningCount(results),
+      configOptions = this.getConfig(options, configPath).options;
 
   if (errorCount.count > 0) {
-    throw new Error(errorCount.count + ' errors were detected in \n- ' + errorCount.files.join('\n- '));
+    throw new exceptions.SassLintFailureError(errorCount.count + ' errors were detected in \n- ' + errorCount.files.join('\n- '));
+  }
+
+  if (!isNaN(configOptions['max-warnings']) && warningCount.count > configOptions['max-warnings']) {
+    throw new exceptions.MaxWarningsExceededError(
+      'Number of warnings (' + warningCount.count +
+      ') exceeds the allowed maximum of ' + configOptions['max-warnings'] +
+      '.\n'
+    );
   }
 };
 
