@@ -3,10 +3,11 @@
 }
 
 .bar {
-  content: 'qux';
+  content: 'qux';;
   padding: 0
 
   .qux {
+    float: left;;
     content: 'waldo'
   }
 }
@@ -21,7 +22,7 @@
 
 .baz {
   font: {
-    family: 'Arial';
+    family: 'Arial';;
     weight: bold;
     size: 2rem
   }
@@ -30,7 +31,7 @@
 .norf {
   border: {
     top: {
-      color: red;
+      color: red;;
 
       left: {
         radius: 5px
