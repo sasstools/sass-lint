@@ -1,5 +1,34 @@
 # Sass Lint Changelog
 
+## v1.9.1
+
+**August 25, 2016**
+
+**Fixes**
+* Fixed an issue with nth selectors in the `no-mergeable-selectors` rule [#834](https://github.com/sasstools/sass-lint/issues/834)
+* Fixed an issue with atrule arguments containing functions in the `no-mergeable-selectors` rule [#826](https://github.com/sasstools/sass-lint/issues/826)
+* Fixed an issue with hex colors being ignored in the `shorthand-values` rule [#836](https://github.com/sasstools/sass-lint/pull/836)
+
+## v1.9.0
+
+**August 18, 2016**
+
+**Fixes**
+* Fixed an issue with the indentation rule when it encountered at-rules with no block immediately preceding a map [#779](https://github.com/sasstools/sass-lint/issues/779) [#783](https://github.com/sasstools/sass-lint/issues/783)
+* Fixed an issue in `single-lint-per-selector` where inline comments were seen as selectors [#789](https://github.com/sasstools/sass-lint/issues/789)
+* Fixed an issue with interpolation in placeholders within the `bem-depth` rule [#782](https://github.com/sasstools/sass-lint/issues/782)
+* Removed duplicated code from `no-mergeable-selectors` to helper methods
+
+**Documentation**
+* Fixed typos in no-vendor-prefixes rule documentation [#787](https://github.com/sasstools/sass-lint/issues/787)
+* Added link to Visual Studio extension [#815](https://github.com/sasstools/sass-lint/pull/815)
+
+**New Rules**
+* Added the `no-color-hex` rule to disallow all hexadecimal colour definitions [#754](https://github.com/sasstools/sass-lint/issues/754)
+
+**Updates**
+* Gonzales-pe updated to version 3.4.4 which fixes a lot of longstanding issues see the [Changelog](https://github.com/tonyganch/gonzales-pe/blob/dev/CHANGELOG.md)
+
 ## v1.8.2
 
 **June 23, 2016**

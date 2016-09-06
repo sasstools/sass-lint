@@ -383,27 +383,27 @@ describe('cli', function () {
 
   });
 
-  it('should exit with exit code 1 when quiet', function (done) {
+  it('should exit with error when quiet', function (done) {
     var command = 'sass-lint -c tests/yml/.error-output.yml tests/cli/cli-error.scss --verbose --no-exit';
 
     exec(command, function (err) {
-      if (err.code === 1) {
+      if (err) {
         return done();
       }
 
-      return done(new Error('Error code not 1'));
+      return done(new Error('No error on exit'));
     });
   });
 
-  it('should exit with exit code 1 when more warnings than --max-warnings', function (done) {
+  it('should exit with error when more warnings than --max-warnings', function (done) {
     var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --max-warnings 0';
 
     exec(command, function (err) {
-      if (err && err.code === 1) {
+      if (err) {
         return done();
       }
 
-      return done(new Error('Error code not 1'));
+      return done(new Error('No error on exit'));
     });
   });
 
