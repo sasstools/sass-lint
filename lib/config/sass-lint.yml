@@ -43,6 +43,7 @@ rules:
   property-units: 0
 
   # Nesting
+  declarations-before-nesting: 1
   force-attribute-nesting: 1
   force-element-nesting: 1
   force-pseudo-nesting: 1
