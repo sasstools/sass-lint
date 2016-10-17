@@ -89,11 +89,11 @@ describe('helpers - isStrictBEM', function () {
     done();
   });
 
-  it('isStrictBEM - [\'abc_def\' - false]', function (done) {
+  it('isStrictBEM - [\'abc_def\' - true]', function (done) {
 
     var result = helpers.isStrictBEM('abc_def');
 
-    assert.equal(false, result);
+    assert.equal(true, result);
     done();
   });
 
