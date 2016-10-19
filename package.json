@@ -40,7 +40,6 @@
     "lodash.kebabcase": "^4.0.0",
     "merge": "^1.2.0",
     "path-is-absolute": "^1.0.0",
-    "strip-bom": "^3.0.0",
     "util": "^0.10.3"
   },
   "devDependencies": {
