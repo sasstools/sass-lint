@@ -16,7 +16,22 @@ describe('no url protocols - scss', function () {
       done();
     });
   });
+
+  it('[allow-protocol-relative-urls: true]', function (done) {
+    lint.test(file, {
+      'no-url-protocols': [
+        1,
+        {
+          'allow-protocol-relative-urls': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(2, data.warningCount);
+      done();
+    });
+  });
 });
+
 
 //////////////////////////////
 // Sass syntax tests
@@ -29,6 +44,20 @@ describe('no url protocols - sass', function () {
       'no-url-protocols': 1
     }, function (data) {
       lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('[allow-protocol-relative-urls: true]', function (done) {
+    lint.test(file, {
+      'no-url-protocols': [
+        1,
+        {
+          'allow-protocol-relative-urls': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(2, data.warningCount);
       done();
     });
   });
