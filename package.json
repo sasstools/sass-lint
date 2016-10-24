@@ -33,7 +33,7 @@
     "fs-extra": "^0.30.0",
     "glob": "^7.0.0",
     "globule": "^1.0.0",
-    "gonzales-pe": "3.4.5",
+    "gonzales-pe": "3.4.7",
     "js-yaml": "^3.5.4",
     "lodash.capitalize": "^4.1.0",
     "lodash.kebabcase": "^4.0.0",
