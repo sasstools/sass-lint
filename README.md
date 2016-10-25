@@ -170,6 +170,24 @@ For further information you can visit our CLI documentation linked below.
 
 ---
 
+## Front matter
+
+Certain static site generators such as [Jekyll](http://jekyllrb.com/docs/frontmatter/) include the YAML front matter block at the top of their scss file. Sass-lint by default checks a file for this block and attempts to parse your Sass without this front matter. You can see an example of a front matter block below.
+
+```scss
+
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+.test {
+  color: red;
+}
+
+```
+
+---
+
 ## Contributions
 
 We welcome all contributions to this project but please do read our [contribution guidelines](https://github.com/sasstools/sass-lint/blob/master/CONTRIBUTING.md) first, especially before opening a pull request. It would also be good to read our [code of conduct](https://github.com/sasstools/sass-lint/blob/master/CODE_OF_CONDUCT.md).
