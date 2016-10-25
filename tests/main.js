@@ -160,6 +160,18 @@ describe('sass lint', function () {
     });
 
     // ==============================================================================
+    //  Parse files with YAML front matter
+    // ==============================================================================
+
+    it('should parse a file with front matter correctly and without parse error', function (done) {
+      lintFile('front-matter/front-matter.scss', function (data) {
+        assert.equal(0, data.errorCount);
+        assert.equal(2, data.warningCount);
+        done();
+      });
+    });
+
+    // ==============================================================================
     //  Parse Errors should return as lint errors
     // ==============================================================================
 
