@@ -79,7 +79,7 @@ For all [rules](https://github.com/sasstools/sass-lint/tree/master/docs/rules), 
 
 If you want to configure options, set the rule to an array, where the first item in the array is the severity, and the second item in the array is an object including the options you would like to set.
 
-Here an is example configuration of a rule, where we are specifying that breaking the [indentation rule](https://github.com/sasstools/sass-lint/blob/master/docs/rules/indentation.md) should be treated as an error (its severity set to two), and setting the `size` option of the rule to 2 spaces:  
+Here is an example configuration of a rule, where we are specifying that breaking the [indentation rule](https://github.com/sasstools/sass-lint/blob/master/docs/rules/indentation.md) should be treated as an error (its severity set to two), and setting the `size` option of the rule to 2 spaces:  
 
 ```yml
 rules: 
