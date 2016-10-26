@@ -1,6 +1,6 @@
 # Max File Line Count
 
-Rule `max-file-line-count` will enforce that a files length doesn't exceed a certain number of lines
+Rule `max-file-line-count` will enforce that a file's length doesn't exceed a certain number of lines
 
 ## Options
 
