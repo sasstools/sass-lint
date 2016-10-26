@@ -10,6 +10,20 @@ describe('border zero - scss', function () {
 
   it('[convention: 0]', function (done) {
     lint.test(file, {
+      'border-zero': [
+        1,
+        {
+          'convention': 0
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: \'0\']', function (done) {
+    lint.test(file, {
       'border-zero': 1
     }, function (data) {
       lint.assert.equal(3, data.warningCount);
@@ -39,6 +53,20 @@ describe('border zero - sass', function () {
   var file = lint.file('border-zero.sass');
 
   it('[convention: 0]', function (done) {
+    lint.test(file, {
+      'border-zero': [
+        1,
+        {
+          'convention': 0
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('[convention: \'0\']', function (done) {
     lint.test(file, {
       'border-zero': 1
     }, function (data) {
