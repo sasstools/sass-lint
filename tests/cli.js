@@ -6,7 +6,7 @@ var assert = require('assert'),
 describe('cli', function () {
 
   it('should return help instructions', function (done) {
-    var command = 'sass-lint -h';
+    var command = 'node bin/sass-lint -h';
 
     exec(command, function (err, stdout) {
       if (err) {
@@ -20,7 +20,7 @@ describe('cli', function () {
   });
 
   it('should return a version', function (done) {
-    var command = 'sass-lint --version';
+    var command = 'node bin/sass-lint --version';
 
     exec(command, function (err, stdout) {
       if (err) {
@@ -34,7 +34,7 @@ describe('cli', function () {
   });
 
   it('should not try to read and lint a directory', function (done) {
-    var command = 'sass-lint "tests/dir-test/**/*.scss" --no-exit --verbose --format json';
+    var command = 'node bin/sass-lint "tests/dir-test/**/*.scss" --no-exit --verbose --format json';
 
     exec(command, function (err, stdout) {
       var result = JSON.parse(stdout);
@@ -52,7 +52,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input paths', function (done) {
-    var command = 'sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
+    var command = 'node bin/sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -68,7 +68,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input globs', function (done) {
-    var command = 'sass-lint "tests/cli/*.scss, tests/cli/*.sass" --no-exit --verbose';
+    var command = 'node bin/sass-lint "tests/cli/*.scss, tests/cli/*.sass" --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -84,7 +84,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input paths from a config file', function (done) {
-    var command = 'sass-lint -c tests/yml/.multiple-inputs.yml --no-exit --verbose';
+    var command = 'node bin/sass-lint -c tests/yml/.multiple-inputs.yml --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -100,7 +100,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input paths and multiple ignore paths', function (done) {
-    var command = 'sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" -i "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
+    var command = 'node bin/sass-lint "tests/cli/cli-error.scss, tests/cli/cli-error.sass" -i "tests/cli/cli-error.scss, tests/cli/cli-error.sass" --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -116,7 +116,7 @@ describe('cli', function () {
   });
 
   it('Should accept multiple input paths and multiple ignores from a config file', function (done) {
-    var command = 'sass-lint -c tests/yml/.multiple-ignores.yml --no-exit --verbose';
+    var command = 'node bin/sass-lint -c tests/yml/.multiple-ignores.yml --no-exit --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -131,7 +131,7 @@ describe('cli', function () {
   });
 
   it('CLI format option should output JSON', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json';
+    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json';
 
     exec(command, function (err, stdout) {
 
@@ -151,7 +151,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write to test file', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
+    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     exec(command, function (err) {
@@ -174,7 +174,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write JSON to test file', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
+    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     exec(command, function (err) {
@@ -207,7 +207,7 @@ describe('cli', function () {
   });
 
   it('CLI output option should write JSON to test file when upper case format is used', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format JSON --output tests/cli-output.json',
+    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format JSON --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     exec(command, function (err) {
@@ -242,7 +242,7 @@ describe('cli', function () {
   // Test custom config path
 
   it('should return JSON from a custom config', function (done) {
-    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --verbose';
+    var command = 'node bin/sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -264,7 +264,7 @@ describe('cli', function () {
   // Test 0 errors/warnings when rules set to 0 in config
 
   it('output should return no errors/warnings', function (done) {
-    var command = 'sass-lint -c tests/yml/.json-lint.yml tests/cli/cli.scss --verbose';
+    var command = 'node bin/sass-lint -c tests/yml/.json-lint.yml tests/cli/cli.scss --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -286,7 +286,7 @@ describe('cli', function () {
   // Test 1 warning when rules set to 0 in config
 
   it('should return a warning', function (done) {
-    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --verbose';
+    var command = 'node bin/sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --verbose';
 
     exec(command, function (err, stdout) {
 
@@ -315,7 +315,7 @@ describe('cli', function () {
   });
 
   it('should return a warning - stylish', function (done) {
-    var command = 'sass-lint -c tests/yml/.stylish-errors.yml tests/cli/cli.scss --verbose',
+    var command = 'node bin/sass-lint -c tests/yml/.stylish-errors.yml tests/cli/cli.scss --verbose',
         expectedOutputLength = 154;
 
     exec(command, function (err, stdout) {
@@ -332,7 +332,7 @@ describe('cli', function () {
   });
 
   it('should not include ignored paths', function (done) {
-    var command = 'sass-lint -i "**/*.scss" -v -q --format json "**/cli/*.scss"';
+    var command = 'node bin/sass-lint -i "**/*.scss" -v -q --format json "**/cli/*.scss"';
 
     exec(command, function (err, stdout) {
 
@@ -347,7 +347,7 @@ describe('cli', function () {
   });
 
   it('should not include multiple ignored paths', function (done) {
-    var command = 'sass-lint -i "**/*.scss, **/*.sass" -q -v --format json';
+    var command = 'node bin/sass-lint -i "**/*.scss, **/*.sass" -q -v --format json';
 
     exec(command, function (err, stdout) {
 
@@ -363,7 +363,7 @@ describe('cli', function () {
   });
 
   it('should override filename convention if a valid --syntax is provided', function (done) {
-    var command = 'sass-lint --syntax scss tests/cli/cli.txt --verbose --format json';
+    var command = 'node bin/sass-lint --syntax scss tests/cli/cli.txt --verbose --format json';
 
     exec(command, function (err, stdout) {
 
@@ -384,7 +384,7 @@ describe('cli', function () {
   });
 
   it('should exit with error when quiet', function (done) {
-    var command = 'sass-lint -c tests/yml/.error-output.yml tests/cli/cli-error.scss --verbose --no-exit';
+    var command = 'node bin/sass-lint -c tests/yml/.error-output.yml tests/cli/cli-error.scss --verbose --no-exit';
 
     exec(command, function (err) {
       if (err) {
@@ -396,7 +396,7 @@ describe('cli', function () {
   });
 
   it('should exit with error when more warnings than --max-warnings', function (done) {
-    var command = 'sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --max-warnings 0';
+    var command = 'node bin/sass-lint -c tests/yml/.color-keyword-errors.yml tests/cli/cli.scss --max-warnings 0';
 
     exec(command, function (err) {
       if (err) {
@@ -408,7 +408,7 @@ describe('cli', function () {
   });
 
   it('should not exit with an error if no config is specified', function (done) {
-    var command = 'sass-lint tests/cli/cli-clean.scss --verbose --no-exit';
+    var command = 'node bin/sass-lint tests/cli/cli-clean.scss --verbose --no-exit';
 
     exec(command, function (err) {
       if (!err) {
@@ -423,7 +423,7 @@ describe('cli', function () {
    * We disabled eslints handle callback err rule here as we are deliberately throwing errors that we don't care about
    */
   it('parse errors should report as a lint error', function (done) {
-    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+    var command = 'node bin/sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
     exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0];
@@ -434,7 +434,7 @@ describe('cli', function () {
   });
 
   it('parse errors should report as severity 2', function (done) {
-    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+    var command = 'node bin/sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
     exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
@@ -447,7 +447,7 @@ describe('cli', function () {
   });
 
   it('parse errors should report the correct message', function (done) {
-    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+    var command = 'node bin/sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
     exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
@@ -460,7 +460,7 @@ describe('cli', function () {
   });
 
   it('parse errors rule Id should be \'Fatal\'', function (done) {
-    var command = 'sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
+    var command = 'node bin/sass-lint --config tests/yml/.stylish-output.yml tests/sass/parse.scss --verbose --no-exit --format json';
 
     exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0],
