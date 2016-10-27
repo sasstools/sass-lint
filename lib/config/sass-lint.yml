@@ -70,6 +70,7 @@ rules:
   indentation: 1
   leading-zero: 1
   max-line-length: 0
+  max-file-line-count: 0
   nesting-depth: 1
   property-sort-order: 1
   pseudo-element: 1
