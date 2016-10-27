@@ -491,7 +491,7 @@ describe('Reading files with UTF-8 BOM', function () {
     exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0];
 
-      // Files with BOM markers that start with a mixing throw a fatal error
+      // Files with BOM markers that start with a mixin throw a fatal error
       // https://github.com/sasstools/sass-lint/issues/880
       assert.equal(result.errorCount, 0);
       done();
