@@ -305,3 +305,10 @@
 
 .test
   border-color: transparent #095b97 transparent #095b97
+
+// Issue #847 - Ignoring function arguments
+.foo
+  padding: 0 size('half-shim') 0 size('spacer')
+
+.foo
+  padding: 0 size('half-shim') 0 size('half-shim')
