@@ -12,7 +12,6 @@ describe('declarations before nesting - scss', function () {
     lint.test(file, {
       'declarations-before-nesting': 1
     }, function (data) {
-      console.log(data);
       lint.assert.equal(4, data.warningCount);
       done();
     });
