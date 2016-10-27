@@ -486,7 +486,7 @@ describe('Reading files with UTF-8 BOM', function () {
   });
 
   it('should not throw a parse error from file containing a BOM', function (done) {
-    var command = 'sass-lint -v tests/bom-utf8/starts-with-mixin-utf8-bom.scss --format json';
+    var command = 'node bin/sass-lint -v tests/bom-utf8/starts-with-mixin-utf8-bom.scss --format json';
 
     exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0];
@@ -499,7 +499,7 @@ describe('Reading files with UTF-8 BOM', function () {
   });
 
   it('should return the correct amount of warnings from a file containing BOM markers', function (done) {
-    var command = 'sass-lint -v tests/bom-utf8/var-utf8-bom.scss --format json';
+    var command = 'node bin/sass-lint -v tests/bom-utf8/var-utf8-bom.scss --format json';
 
     exec(command, function (err, stdout) { // eslint-disable-line handle-callback-err
       var result = JSON.parse(stdout)[0];
