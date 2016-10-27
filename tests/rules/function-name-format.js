@@ -65,7 +65,7 @@ describe('function name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });
@@ -177,7 +177,7 @@ describe('function name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(13, data.warningCount);
+      lint.assert.equal(10, data.warningCount);
       done();
     });
   });

@@ -69,7 +69,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -185,7 +185,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });

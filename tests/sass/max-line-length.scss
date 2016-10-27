@@ -1,0 +1,22 @@
+.really--long--class-name--that-unfortunately--isnt--very--succint--and-looks-stupid {
+  color: red;
+}
+
+@function($aReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyLongVariableName) {
+  @return 'test';
+}
+
+// ==============================================================================
+//
+// This comment is too long clearly, we should probably make sure we have a rule to
+// determine when we breach this length
+//
+// ==============================================================================
+
+
+// =============================================================================
+//
+// This comment comment on the other hand should be the perfect length, unless a
+// user decides to make their max line length === 79!
+//
+// =============================================================================
