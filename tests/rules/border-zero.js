@@ -44,6 +44,21 @@ describe('border zero - scss', function () {
       done();
     });
   });
+
+  it('invalid convention [convention: \'zero\']', function (done) {
+    // defaults to convention 0
+    lint.test(file, {
+      'border-zero': [
+        1,
+        {
+          'convention': 'zero'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
 });
 
 //////////////////////////////
@@ -85,6 +100,21 @@ describe('border zero - sass', function () {
       ]
     }, function (data) {
       lint.assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('invalid convention [convention: \'zero\']', function (done) {
+    // defaults to convention 0
+    lint.test(file, {
+      'border-zero': [
+        1,
+        {
+          'convention': 'zero'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
