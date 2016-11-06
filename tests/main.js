@@ -140,23 +140,25 @@ describe('sass lint', function () {
     // ==============================================================================
     it('should not try to blindly read and lint a directory', function (done) {
       var fileSpy = sinon.spy(lint, 'lintText');
-      lintFiles('tests/dir-test/**/*.scss', {options: {
-        'merge-default-rules': false
-      },
-      rules: {
-        'no-ids': 1
-      }}, '', function (data) {
-        assert.equal(1, data[0].warningCount);
-        assert.equal(0, data[0].errorCount);
-        assert.equal(1, data[0].messages.length);
+      lintFiles('tests/dir-test/**/*.scss', {
+        options: {
+          'merge-default-rules': false
+        },
+        rules: {
+          'no-ids': 1
+        }}, '', function (data) {
+          assert.equal(1, data[0].warningCount);
+          assert.equal(0, data[0].errorCount);
+          assert.equal(1, data[0].messages.length);
 
-        assert(fileSpy.called);
-        assert(fileSpy.calledOnce);
-        assert(fileSpy.calledWithMatch({format: 'scss', filename: 'tests/dir-test/dir.scss/test.scss'}));
-        assert(fileSpy.neverCalledWithMatch({filename: 'tests/dir-test/dir.scss'}));
-        fileSpy.reset();
-        done();
-      });
+          assert(fileSpy.called);
+          assert(fileSpy.calledOnce);
+          assert(fileSpy.calledWithMatch({format: 'scss', filename: 'tests/dir-test/dir.scss/test.scss'}));
+          assert(fileSpy.neverCalledWithMatch({filename: 'tests/dir-test/dir.scss'}));
+          fileSpy.reset();
+          done();
+        }
+      );
     });
 
     // ==============================================================================

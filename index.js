@@ -14,7 +14,7 @@ var slConfig = require('./lib/config'),
 var getToggledRules = ruleToggler.getToggledRules,
     isResultEnabled = ruleToggler.isResultEnabled;
 
-var sassLint = function (config) {
+var sassLint = function (config) { // eslint-disable-line no-unused-vars
   config = require('./lib/config')(config);
   return;
 };
