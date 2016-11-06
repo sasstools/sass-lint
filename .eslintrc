@@ -135,8 +135,12 @@ rules:
     - global
   valid-jsdoc:
     - 2
-    - prefer:
-        return: returns
+    -
+      requireParamDescription: true
+      requireReturnDescription: true
+      requireReturn: false
+      prefer:
+        return: "returns"
   wrap-iife: 2
   yoda:
     - 2
