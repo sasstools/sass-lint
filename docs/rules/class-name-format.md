@@ -191,6 +191,10 @@ When enabled, the following are allowed:
 .owner-name_mod-name_mod-val {
   content: '';
 }
+
+.block-name__elem-name_mod-bool {
+  content: '';
+}
 ```
 
 When enabled, the following are disallowed:

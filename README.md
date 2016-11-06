@@ -79,16 +79,94 @@ For all [rules](https://github.com/sasstools/sass-lint/tree/master/docs/rules), 
 
 If you want to configure options, set the rule to an array, where the first item in the array is the severity, and the second item in the array is an object including the options you would like to set.
 
-An example configuration of a rule with options look like the following:
+Here is an example configuration of a rule, where we are specifying that breaking the [indentation rule](https://github.com/sasstools/sass-lint/blob/master/docs/rules/indentation.md) should be treated as an error (its severity set to two), and setting the `size` option of the rule to 2 spaces:  
 
 ```yml
-indentation:
-  - 2
-  -
-    size: 2
+rules:
+  indentation:
+    - 2
+    -
+      size: 2
 ```
 
 ### [Rules Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
+
+---
+
+## Disabling Linters via Source
+
+Special comments can be used to disable and enable certain rules throughout your source files in a variety of scenarios. These can be useful when dealing with legacy code or with certain necessary code smells. You can read the documentation for this feature [here](https://github.com/sasstools/sass-lint/tree/master/docs/toggle-rules-in-src.md).
+
+Below are examples of how to use this feature:
+
+
+### Disable a rule for the entire file
+
+```scss
+// sass-lint:disable border-zero
+p {
+  border: none; // No lint reported
+}
+```
+
+### Disable more than 1 rule
+
+```scss
+// sass-lint:disable border-zero, quotes
+p {
+  border: none; // No lint reported
+  content: "hello"; // No lint reported
+}
+```
+
+### Disable a rule for a single line
+
+```scss
+p {
+  border: none; // sass-lint:disable-line border-zero
+}
+```
+
+### Disable all lints within a block (and all contained blocks)
+
+```scss
+p {
+  // sass-lint:disable-block border-zero
+  border: none; // No result reported
+}
+
+a {
+  border: none; // Failing result reported
+}
+```
+
+### Disable and enable again
+
+```scss
+// sass-lint:disable border-zero
+p {
+  border: none; // No result reported
+}
+// sass-lint:enable border-zero
+
+a {
+  border: none; // Failing result reported
+}
+```
+
+### Disable/enable all linters
+
+```scss
+// sass-lint:disable-all
+p {
+  border: none; // No result reported
+}
+// sass-lint:enable-all
+
+a {
+  border: none; // Failing result reported
+}
+```
 
 ---
 
@@ -166,6 +244,24 @@ This will be revisited and updated in `sass-lint` v2.0.0.
 For further information you can visit our CLI documentation linked below.
 
 ### [CLI Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/cli)
+
+---
+
+## Front matter
+
+Certain static site generators such as [Jekyll](http://jekyllrb.com/docs/frontmatter/) include the YAML front matter block at the top of their scss file. Sass-lint by default checks a file for this block and attempts to parse your Sass without this front matter. You can see an example of a front matter block below.
+
+```scss
+
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+.test {
+  color: red;
+}
+
+```
 
 ---
 

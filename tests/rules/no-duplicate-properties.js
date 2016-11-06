@@ -12,7 +12,7 @@ describe('no duplicate properties - scss', function () {
     lint.test(file, {
       'no-duplicate-properties': 1
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('no duplicate properties - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -45,7 +45,7 @@ describe('no duplicate properties - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });
@@ -61,7 +61,7 @@ describe('no duplicate properties - sass', function () {
     lint.test(file, {
       'no-duplicate-properties': 1
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });
@@ -77,7 +77,7 @@ describe('no duplicate properties - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -94,7 +94,7 @@ describe('no duplicate properties - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(5, data.warningCount);
       done();
     });
   });

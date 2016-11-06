@@ -1,6 +1,6 @@
 {
   "name": "sass-lint",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "description": "All Node Sass linter!",
   "main": "index.js",
   "scripts": {
@@ -29,11 +29,12 @@
   "homepage": "https://github.com/sasstools/sass-lint",
   "dependencies": {
     "commander": "^2.8.1",
-    "eslint": "^2.7.0",
-    "fs-extra": "^0.30.0",
+    "eslint": "^3.9.1",
+    "front-matter": "2.1.0",
+    "fs-extra": "^1.0.0",
     "glob": "^7.0.0",
     "globule": "^1.0.0",
-    "gonzales-pe": "3.4.4",
+    "gonzales-pe": "3.4.7",
     "js-yaml": "^3.5.4",
     "lodash.capitalize": "^4.1.0",
     "lodash.kebabcase": "^4.0.0",
