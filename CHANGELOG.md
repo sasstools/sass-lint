@@ -45,6 +45,18 @@ For his initial hard work in getting this off the ground. There were lots of oth
 **Documentation**
 * The documentation around configuring a rule was tidied up and made clearer [#910](https://github.com/sasstools/sass-lint/pull/910)
 
+**Special thanks to**
+
+* [bgriffith](https://github.com/bgriffith)
+* [donabrams](https://github.com/donabrams)
+* [danpurdy](https://github.com/DanPurdy)
+* [danwaz](https://github.com/danwaz)
+* [lucasjahn](https://github.com/https://github.com/lucasjahn)
+* [mrjamesriley](https://github.com/mrjamesriley)
+* [notrobin](https://github.com/nottrobin)
+* [onishiweb](https://github.com/onishiweb)
+* [richarddewit](https://github.com/https://github.com/richarddewit)
+
 ## v1.9.1
 
 **August 25, 2016**
