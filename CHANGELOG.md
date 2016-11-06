@@ -51,11 +51,11 @@ For his initial hard work in getting this off the ground. There were lots of oth
 * [donabrams](https://github.com/donabrams)
 * [danpurdy](https://github.com/DanPurdy)
 * [danwaz](https://github.com/danwaz)
-* [lucasjahn](https://github.com/https://github.com/lucasjahn)
+* [lucasjahn](https://github.com/lucasjahn)
 * [mrjamesriley](https://github.com/mrjamesriley)
 * [notrobin](https://github.com/nottrobin)
 * [onishiweb](https://github.com/onishiweb)
-* [richarddewit](https://github.com/https://github.com/richarddewit)
+* [richarddewit](https://github.com/richarddewit)
 
 ## v1.9.1
 
