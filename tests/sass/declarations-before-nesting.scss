@@ -33,3 +33,12 @@
 
   content: 'baz';
 }
+
+// issue #935 - ignore variables
+@mixin foo {
+  #{$bar} {
+    content: 'foobar';
+  }
+
+  $baz: 'qux';
+}
