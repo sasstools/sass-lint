@@ -48,3 +48,9 @@ $paint-border-2: left;
   border-#{$paint-border-2}: $size solid $color;
   border-#{$paint-border-2}: $size solid $color;
 }
+
+// issue #935 - ignore variables
+@mixin foo {
+  $i: 0;
+  $i: 1;
+}
