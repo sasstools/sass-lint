@@ -6,18 +6,30 @@ var program = require('commander'),
     lint = require('../index');
 
 var configPath,
-    configOptions = {};
+    config,
+    configOptions = {},
+    exitCode = 0;
 
-var detectPattern = function (pattern) {
-  var detects;
+var tooManyWarnings = function (detects, userConfig) {
+  var warningCount = lint.warningCount(detects).count;
 
-  detects = lint.lintFiles(pattern, configOptions, configPath);
+  return warningCount > 0 && warningCount > userConfig.options['max-warnings'];
+};
+
+var detectPattern = function (pattern, userConfig) {
+  var detects = lint.lintFiles(pattern, configOptions, configPath);
 
   if (program.verbose) {
     lint.outputResults(detects, configOptions, configPath);
   }
 
-  lint.failOnError(detects, configOptions, configPath);
+  if (lint.errorCount(detects).count || tooManyWarnings(detects, userConfig)) {
+    exitCode = 1;
+  }
+
+  if (program.exit) {
+    lint.failOnError(detects, configOptions, configPath);
+  }
 };
 
 program
@@ -33,7 +45,6 @@ program
   .option('--max-warnings [integer]', 'Number of warnings to trigger nonzero exit code')
   .parse(process.argv);
 
-// Create "options" and "files" dictionaries if they don't exist
 configOptions.files = configOptions.files || {};
 configOptions.options = configOptions.options || {};
 
@@ -61,11 +72,18 @@ if (program.maxWarnings && program.maxWarnings !== true) {
   configOptions.options['max-warnings'] = program.maxWarnings;
 }
 
+// load our config here so we only load it once for each file
+config = lint.getConfig(configOptions, configPath);
+
 if (program.args.length === 0) {
-  detectPattern(null);
+  detectPattern(null, config);
 }
 else {
   program.args.forEach(function (path) {
-    detectPattern(path);
+    detectPattern(path, config);
   });
 }
+
+process.on('exit', function () {
+  process.exit(exitCode); // eslint-disable-line no-process-exit
+});
