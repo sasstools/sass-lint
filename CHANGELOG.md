@@ -1,5 +1,15 @@
 # Sass Lint Changelog
 
+## v1.10.1
+
+**November 7th, 2016**
+
+**Fixes**
+
+* Fixed an issue with the `--no-exit` `-q` flag not being respected and unhandled errors/exceptions being thrown by the CLI 
+* Fixed an issue with variable declarations showing as properties in the `no-duplicate-properties` rule [#937](https://github.com/sasstools/sass-lint/pull/936)
+* Fixed an issue with variable declarations showing as properties in the `declarations-before-nesting` rule [#937](https://github.com/sasstools/sass-lint/pull/936)
+
 ## v1.10.0
 
 **November 6th, 2016**
