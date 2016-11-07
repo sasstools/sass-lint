@@ -25,3 +25,10 @@
     content: 'baz'
 
   content: 'baz'
+
+// issue #935 - ignore variables
++foo
+  #{$bar}
+    content: 'foobar'
+
+  $baz: 'qux'
