@@ -345,6 +345,9 @@ $norf: (5   %   2);
 
 $foo: scale-color($foo, $lightness: -14%);
 
+$foobar: #{$foo}-#{$bar};
+$foobar: #{$foo}-4;
+
 .foo {
   top: -10px;
 }
