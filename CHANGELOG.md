@@ -1,12 +1,24 @@
 # Sass Lint Changelog
 
+## v1.10.2
+
+**November 9th, 2016**
+
+**Changes**
+* Reverted back to ESlint v2.x to prevent a breaking change in Node < v4
+
+**Fixes**
+* Fixed an exception for partial idents in `space-around-operator` [#940](https://github.com/sasstools/sass-lint/pull/940)
+* Fixed an issue with negative numbers in `space-around-operator` [#945](https://github.com/sasstools/sass-lint/pull/945)
+
+
 ## v1.10.1
 
 **November 7th, 2016**
 
 **Fixes**
 
-* Fixed an issue with the `--no-exit` `-q` flag not being respected and unhandled errors/exceptions being thrown by the CLI 
+* Fixed an issue with the `--no-exit` `-q` flag not being respected and unhandled errors/exceptions being thrown by the CLI
 * Fixed an issue with variable declarations showing as properties in the `no-duplicate-properties` rule [#937](https://github.com/sasstools/sass-lint/pull/936)
 * Fixed an issue with variable declarations showing as properties in the `declarations-before-nesting` rule [#937](https://github.com/sasstools/sass-lint/pull/936)
 
