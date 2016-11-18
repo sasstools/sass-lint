@@ -12,7 +12,7 @@ describe('no attribute selectors - scss', function () {
     lint.test(file, {
       'no-attribute-selectors': 1
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(21, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('no attribute selectors - sass', function () {
     lint.test(file, {
       'no-attribute-selectors': 1
     }, function (data) {
-      lint.assert.equal(18, data.warningCount);
+      lint.assert.equal(21, data.warningCount);
       done();
     });
   });

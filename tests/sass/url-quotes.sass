@@ -12,9 +12,5 @@ $foo: 'foo.png'
   background-image: url($foo)
 
 
-// FIXME: Issue with Gonzales parser
-// .qux
-//   background-image: url('bar/' + $foo)
-//
-// .norf
-//   background-image: url(bar/ + $foo)
+.qux
+  background-image: url('bar/' + $foo)

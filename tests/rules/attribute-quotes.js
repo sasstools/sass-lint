@@ -12,7 +12,7 @@ describe('attribute-quotes - scss', function () {
     lint.test(file, {
       'attribute-quotes': 1
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,7 @@ describe('attribute-quotes - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -42,7 +42,7 @@ describe('attribute-quotes - sass', function () {
     lint.test(file, {
       'attribute-quotes': 1
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -56,7 +56,7 @@ describe('attribute-quotes - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
