@@ -28,8 +28,7 @@ describe('force pseudo nesting - sass', function () {
     lint.test(file, {
       'force-pseudo-nesting': 1
     }, function (data) {
-      // Should be 6 once the gonzales parse error is fixed see https://github.com/sasstools/sass-lint/issues/271
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });

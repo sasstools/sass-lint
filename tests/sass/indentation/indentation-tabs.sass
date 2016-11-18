@@ -33,9 +33,10 @@ $foo: ('foo': 'bar', 'bar': ('foo': 'bze'))
 		@if (1 == 1)
 				content: 'foo'
 
-=bar
-		content: 'bar'
-  content: 'baz'
+// TODO: Considered invalid Sass - re-evaluate
+// =bar
+// 		content: 'bar'
+//   content: 'baz'
 
 .color
 	color: rgba(255, 255, 255, 0.3)
@@ -100,8 +101,7 @@ $colors: (base: (red: #fff, blue: #fff), text: (default: #fff, light: (brap: #98
 			#unit
 				margin: 16px
 
-// Gonzales issue with media queries
-// .test
-// 	@media (max-width: 800px), (max-height: 600px)
-// 			#unit
-// 				margin: 16px
+.test
+	@media (max-width: 800px), (max-height: 600px)
+				#unit
+					margin: 16px
