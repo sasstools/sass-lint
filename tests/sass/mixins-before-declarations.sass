@@ -56,14 +56,13 @@
 
 // added from issue #227 https://github.com/sasstools/sass-lint/issues/227
 
-// FIXME: Currently causes a parse error with gonzales. Ok if mixin is within
-// class
+@include hello
 
-// @media (min-width: 50em)
-//   +hello
-//
-// @supports (display: flex)
-//   +hello
-//
-// @at-root
-//   +hello
+@media (min-width: 50em)
+  +hello
+
+@supports (display: flex)
+  +hello
+
+@at-root
+  +hello

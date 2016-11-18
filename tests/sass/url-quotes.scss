@@ -15,7 +15,3 @@ $foo: 'foo.png';
 .qux {
   background-image: url('bar/' + $foo);
 }
-
-.norf {
-  background-image: url(bar/ + $foo);
-}

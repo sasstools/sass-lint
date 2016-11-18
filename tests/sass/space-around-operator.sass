@@ -41,7 +41,7 @@ $foo: 1 +1
 $bar: 2 -1
 $baz: 1 /2
 $qux: 2 *1
-// $norf: 5 %2 FIXME: Gonzales - FIXED IN BETA
+$norf: 5 %2
 
 
 // No space before
@@ -59,7 +59,7 @@ $foo: 1     +    1
 $bar: 2 +   1
 $baz: 1     + 2
 $qux: 2  +1
-// $norf: 5  %    2 FIXME: Gonzales - FIXED IN BETA
+$norf: 5  %    2
 
 // No space with parens
 
@@ -76,7 +76,7 @@ $foo: (1 +1)
 $bar: (2 -1)
 $baz: (1 /2)
 $qux: (2 *1)
-// $norf: (5 %2) FIXME: Gonzales - FIXED IN BETA
+$norf: (5 %2)
 
 
 // No space before with parens
@@ -94,7 +94,7 @@ $foo: (1     +    1)
 $bar: (2 +   1)
 $baz: (1     + 2)
 $qux: (2  +1)
-// $norf: (5   %   2) FIXME: Gonzales - FIXED IN BETA
+$norf: (5   %   2)
 
 
 
@@ -400,7 +400,7 @@ $foo: 1 + 1
 $bar: 2 - 1
 $baz: 1 / 2
 $qux: 2 * 1
-// $norf: 5 % 2 FIXME: Gonzales - FIXED IN BETA
+$norf: 5 % 2
 
 // Values with parens
 
@@ -408,7 +408,7 @@ $foo: (1 + 1)
 $bar: (2 - 1)
 $baz: (1 / 2)
 $qux: (2 * 1)
-// $norf: (5 % 2) FIXME: Gonzales - FIXED IN BETA
+$norf: (5 % 2)
 
 // Space with no parens
 
