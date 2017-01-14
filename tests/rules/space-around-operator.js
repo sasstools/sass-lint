@@ -26,7 +26,7 @@ describe('space around operator - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(92, data.warningCount);
+      lint.assert.equal(94, data.warningCount);
       done();
     });
   });
@@ -56,7 +56,7 @@ describe('space around operator - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(86, data.warningCount);
+      lint.assert.equal(88, data.warningCount);
       done();
     });
   });

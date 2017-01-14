@@ -12,7 +12,7 @@ describe('class name format - scss', function () {
     lint.test(file, {
       'class-name-format': 1
     }, function (data) {
-      lint.assert.equal(27, data.warningCount);
+      lint.assert.equal(31, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(26, data.warningCount);
+      lint.assert.equal(30, data.warningCount);
       done();
     });
   });
@@ -40,7 +40,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(36, data.warningCount);
+      lint.assert.equal(40, data.warningCount);
       done();
     });
   });
@@ -54,7 +54,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(36, data.warningCount);
+      lint.assert.equal(40, data.warningCount);
       done();
     });
   });
@@ -68,7 +68,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(32, data.warningCount);
+      lint.assert.equal(36, data.warningCount);
       done();
     });
   });
@@ -82,7 +82,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(22, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -96,7 +96,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(20, data.warningCount);
+      lint.assert.equal(24, data.warningCount);
       done();
     });
   });
@@ -110,7 +110,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(38, data.warningCount);
+      lint.assert.equal(42, data.warningCount);
       done();
     });
   });
@@ -126,7 +126,7 @@ describe('class name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(34, data.warningCount);
+      lint.assert.equal(38, data.warningCount);
       lint.assert.equal(data.messages[0].message, message);
       done();
     });
@@ -143,7 +143,7 @@ describe('class name format - sass', function () {
     lint.test(file, {
       'class-name-format': 1
     }, function (data) {
-      lint.assert.equal(27, data.warningCount);
+      lint.assert.equal(31, data.warningCount);
       done();
     });
   });
@@ -157,7 +157,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(26, data.warningCount);
+      lint.assert.equal(30, data.warningCount);
       done();
     });
   });
@@ -171,7 +171,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(36, data.warningCount);
+      lint.assert.equal(40, data.warningCount);
       done();
     });
   });
@@ -185,7 +185,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(36, data.warningCount);
+      lint.assert.equal(40, data.warningCount);
       done();
     });
   });
@@ -199,7 +199,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(32, data.warningCount);
+      lint.assert.equal(36, data.warningCount);
       done();
     });
   });
@@ -213,7 +213,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(22, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -227,7 +227,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(20, data.warningCount);
+      lint.assert.equal(24, data.warningCount);
       done();
     });
   });
@@ -241,7 +241,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(38, data.warningCount);
+      lint.assert.equal(42, data.warningCount);
       done();
     });
   });
@@ -257,7 +257,7 @@ describe('class name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(34, data.warningCount);
+      lint.assert.equal(38, data.warningCount);
       lint.assert.equal(data.messages[0].message, message);
       done();
     });

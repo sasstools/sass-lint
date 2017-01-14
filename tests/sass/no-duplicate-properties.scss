@@ -37,3 +37,20 @@
   display: inline-block;
 
 }
+
+// issue #907 - interpolation/variable in property names
+$paint-border-1: top;
+$paint-border-2: left;
+
+.test {
+  border: $size solid transparent;
+  border-#{$paint-border-1}: $size solid $color;
+  border-#{$paint-border-2}: $size solid $color;
+  border-#{$paint-border-2}: $size solid $color;
+}
+
+// issue #935 - ignore variables
+@mixin foo {
+  $i: 0;
+  $i: 1;
+}

@@ -27,7 +27,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -41,7 +41,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -55,7 +55,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -69,7 +69,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -98,7 +98,7 @@ describe('variable name format - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -143,7 +143,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -157,7 +157,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(10, data.warningCount);
+      lint.assert.equal(11, data.warningCount);
       done();
     });
   });
@@ -171,7 +171,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });
@@ -185,7 +185,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(9, data.warningCount);
       done();
     });
   });
@@ -214,7 +214,7 @@ describe('variable name format - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(16, data.warningCount);
+      lint.assert.equal(17, data.warningCount);
       done();
     });
   });

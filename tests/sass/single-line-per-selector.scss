@@ -54,3 +54,13 @@
     content: 'foo';
   }
 }
+
+// Issue #789 - Issue with comments being warned as selector content on single lines
+button,
+html,
+html input[type='button'], // 6
+input[type='reset'],
+input[type='submit'] {
+    -webkit-appearance: button; // 7
+    cursor: pointer; // 8
+}

@@ -13,10 +13,6 @@
 }
 
 .foo {
-  margin: 5px -15px;
-}
-
-.foo {
   margin: 5px+ 15px;
 }
 
@@ -345,6 +341,9 @@ $norf: (5   %   2);
 
 $foo: scale-color($foo, $lightness: -14%);
 
+$foobar: #{$foo}-#{$bar};
+$foobar: #{$foo}-4;
+
 .foo {
   top: -10px;
 }
@@ -492,9 +491,8 @@ $norf: (5 % 2);
   unicode-range: U+26;
   unicode-range: U+0-7F;
   unicode-range: U+0025-00FF;
-  // TODO: Wildcard currently causes gonzales to fail
-  // unicode-range: U+4??;
-  // unicode-range: U+0025-00FF, U+4??;
+  unicode-range: U+4??;
+  unicode-range: U+0025-00FF, U+4??;
 }
 
 // Negative numbers
@@ -504,3 +502,35 @@ $norf: (5 % 2);
 
 // Imports
 @import 'bar/foo';
+
+@if -1 {
+  $bar: 1;
+}
+
+@if -$foo {
+  $bar: 1;
+}
+
+@if -#{$foo} {
+  $bar: 1;
+}
+
+@if -($foo * 2) {
+  $bar: 1;
+}
+
+@for $i from 0 through -1 {
+  $bar: 1;
+}
+
+@for $i from 0 through -$foo {
+  $bar: 1;
+}
+
+@for $i from 0 through -#{$foo} {
+  $bar: 1;
+}
+
+@for $i from 0 through -($foo * 2) {
+  $bar: 1;
+}

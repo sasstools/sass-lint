@@ -1,0 +1,68 @@
+.test{
+  color: red;
+}
+
+#test{
+  color: red;
+}
+
+%test {
+  color: red;
+}
+
+.#{test} {
+  color: red
+}
+
+.test, #test {
+  color: red;
+}
+
+input[type="text"] {
+  color: red;
+}
+
+.test > li {
+  color: red;
+}
+
+span[lang~=en-us] {
+  color: red;
+}
+
+.block__element-one {
+  color: red;
+}
+
+@media (max-width: 200px) {
+  color: red;
+}
+
+##{$id} {
+  color: red;
+}
+
+.right-element::-ms-backdrop {
+  content: "right-prefixed-element";
+}
+
+.wrong-element:selection {
+  content: "wrong-element";
+}
+
+p:nth-of-type(2) {
+  margin: 0;
+}
+
+.test {
+  &__test {
+    color: red;
+  }
+}
+
+tr:nth-child(even) {
+  background: lighten($theme-color-primary, 50%);
+}
+tr:nth-child(odd) {
+  background: #FFFFFF;
+}

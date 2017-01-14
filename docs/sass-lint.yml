@@ -9,6 +9,8 @@ options:
   formatter: html
   # Output file instead of logging results
   output-file: 'linters/sass-lint.html'
+  # Raise an error if more than 50 warnings are generated
+  max-warnings: 50
 # File Options
 files:
   include: 'sass/**/*.s+(a|c)ss'

@@ -1,0 +1,27 @@
+.foo {
+  background-image: url('https://foo.com/img/bar.png');
+}
+
+.foo {
+  background-image: url('http://foo.com/img/bar.png');
+}
+
+.foo {
+  background-image: url('//foo.com/img/bar.png');
+}
+
+.foo {
+  background-image: url('/img/bar.png');
+}
+
+.foo {
+  background-image: url('img/bar.png');
+}
+
+.foo {
+  background-image: url('bar.png');
+}
+
+.foo {
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+}

@@ -6,30 +6,29 @@ var program = require('commander'),
     lint = require('../index');
 
 var configPath,
-    ignores,
+    config,
     configOptions = {},
     exitCode = 0;
 
-var tooManyWarnings = function (detects) {
+var tooManyWarnings = function (detects, userConfig) {
   var warningCount = lint.warningCount(detects).count;
 
-  return warningCount > 0 && warningCount > program.maxWarnings;
+  return warningCount > 0 && warningCount > userConfig.options['max-warnings'];
 };
 
-var detectPattern = function (pattern) {
-  var detects;
-  detects = lint.lintFiles(pattern, configOptions, configPath);
+var detectPattern = function (pattern, userConfig) {
+  var detects = lint.lintFiles(pattern, configOptions, configPath);
 
   if (program.verbose) {
     lint.outputResults(detects, configOptions, configPath);
   }
 
-  if (lint.errorCount(detects).count || tooManyWarnings(detects)) {
+  if (lint.errorCount(detects).count || tooManyWarnings(detects, userConfig)) {
     exitCode = 1;
   }
 
   if (program.exit) {
-    lint.failOnError(detects);
+    lint.failOnError(detects, configOptions, configPath);
   }
 };
 
@@ -47,19 +46,14 @@ program
   .option('--max-warnings [integer]', 'Number of warnings to trigger nonzero exit code')
   .parse(process.argv);
 
+configOptions.files = configOptions.files || {};
+configOptions.options = configOptions.options || {};
+
 if (program.config && program.config !== true) {
   configPath = program.config;
 }
 if (program.ignore && program.ignore !== true) {
-  ignores = program.ignore.split(', ');
-  if (configOptions.hasOwnProperty('files')) {
-    configOptions.files.ignore = ignores;
-  }
-  else {
-    configOptions.files = {
-      'ignore': ignores
-    };
-  }
+  configOptions.files.ignore = program.ignore.split(', ');
 }
 
 if (program.syntax && ['sass', 'scss'].indexOf(program.syntax) > -1) {
@@ -67,36 +61,29 @@ if (program.syntax && ['sass', 'scss'].indexOf(program.syntax) > -1) {
 }
 
 if (program.format && program.format !== true) {
-  if (configOptions.hasOwnProperty('options')) {
-    configOptions.options.formatter = program.format;
-  }
-  else {
-    configOptions.options = {
-      'formatter': program.format
-    };
-  }
+  configOptions.options.formatter = program.format;
 }
 
 if (program.output && program.output !== true) {
-  if (configOptions.hasOwnProperty('options')) {
-    configOptions.options['output-file'] = program.output;
-  }
-  else {
-    configOptions.options = {
-      'output-file': program.output
-    };
-  }
+  configOptions.options['output-file'] = program.output;
 }
 if (program.fix) {
   configOptions.fix = program.fix;
 }
 
+if (program.maxWarnings && program.maxWarnings !== true) {
+  configOptions.options['max-warnings'] = program.maxWarnings;
+}
+
+// load our config here so we only load it once for each file
+config = lint.getConfig(configOptions, configPath);
+
 if (program.args.length === 0) {
-  detectPattern(null);
+  detectPattern(null, config);
 }
 else {
   program.args.forEach(function (path) {
-    detectPattern(path);
+    detectPattern(path, config);
   });
 }
 
