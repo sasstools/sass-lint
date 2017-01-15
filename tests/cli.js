@@ -470,14 +470,6 @@ describe('cli', function () {
       done();
     });
   });
-  it('should work on --fix', function (done) {
-    var cmd = './bin/sass-lint.js tests/cli/cli.scss --fix';
-    exec(cmd, function () {
-      exec('git checkout $(git rev-parse --abbrev-ref HEAD) tests/cli/cli.scss', function () {
-        done();
-      });
-    });
-  });
 });
 
 // ==============================================================================

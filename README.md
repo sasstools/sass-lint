@@ -96,13 +96,15 @@ Within `lib/rules/*.js`, for any file you can just add a `fix` hook to `module.e
 ex.
 
 ```js
-module.exports.fix = function (groot, parser) {
+module.exports.fix = function (ast, parser) {
   /** ... **/
 };
 ```
 
-The `groot` parameter represents the parse tree. Any manipulations to this tree are reflected in
-the code after the AST is rendered to a string and written to the file.
+The `ast` parameter represents the gonzales-pe abstract syntax tree.
+Any manipulations to `ast` are reflected in the code after `.fix` finishes.
+
+The changes will be reflected in any files with detected faults.
 
 `parser` represents the configuration file for the rule.
 
@@ -111,6 +113,16 @@ To run the code fixer, simply use the CLI flag as seen below:
 `sass-lint --fix`
 
 `sass-lint` can also be run from `bin/sass-lint`
+
+#### Rules Implementing Fix
+- [x] `attribute-quotes`
+- [x] `border-zero`
+- [x] `hex-length`
+- [x] `no-color-keywords`
+- [x] `no-css-comments`
+- [x] `property-sort-order`
+- [x] `space-before-colon`
+- [x] `space-after-colon`
 
 ### [Rules Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
 

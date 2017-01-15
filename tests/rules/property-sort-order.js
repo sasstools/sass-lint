@@ -1,13 +1,13 @@
 'use strict';
 
 var lint = require('./_lint');
-
+var fs = require('fs');
 //////////////////////////////
 // SCSS syntax tests
 //////////////////////////////
 describe('property sort order - scss', function () {
-  var file = lint.file('property-sort-order.scss');
-
+  var fn = 'property-sort-order.scss';
+  var file = lint.file(fn);
   it('[order: alphabetical]', function (done) {
     lint.test(file, {
       'property-sort-order': 1
@@ -17,6 +17,14 @@ describe('property sort order - scss', function () {
     });
   });
 
+  it('[order: alphabetical] --fix', function (done) {
+    lint.fix(file, {
+      'property-sort-order': 1,
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
   it('[order: alphabetical, ignore-custom-properties: true]', function (done) {
     lint.test(file, {
       'property-sort-order': [
@@ -30,7 +38,19 @@ describe('property sort order - scss', function () {
       done();
     });
   });
-
+  it('[order: alphabetical, ignore-custom-properties: true] --fix', function (done) {
+    lint.fix(file, {
+      'property-sort-order': [
+        1,
+        {
+          'ignore-custom-properties': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
   it('[order: custom]', function (done) {
     lint.test(file, {
       'property-sort-order': [
@@ -49,7 +69,24 @@ describe('property sort order - scss', function () {
       done();
     });
   });
-
+  it('[order: custom] --fix', function (done) {
+    lint.fix(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': [
+            'height',
+            'width',
+            'display',
+            'color'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(0, data.warningCount);
+      done();
+    });
+  });
   it('[order: custom + composes, ignore-custom-properties: false]', function (done) {
     lint.test(file, {
       'property-sort-order': [
