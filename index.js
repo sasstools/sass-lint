@@ -134,7 +134,9 @@ sassLint.lintText = function (file, options, configPath) {
         .filter(isEnabledFilter);
 
       if (detects && options.fix && rule.rule.fix) {
-        helpers.log('Running [' + rule.rule.name + '] on [' + file.filename + ']...');
+        if (options.verbose) {
+          helpers.log('[' + rule.rule.name + '] on [' + file.filename + ']');
+        }
         rule.rule.fix(ast, rule);
 
         detects = rule.rule.detect(ast, rule)

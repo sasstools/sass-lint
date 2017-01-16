@@ -35,12 +35,12 @@ module.exports.test = function (text, options, cb) {
   cb(results);
 };
 module.exports.fix = function (file, options, cb) {
-  var self = this
-  var tmp = '.tmp-' + Date.now() + '-' + file.filename
-
-  fs.writeFile(path.join(process.cwd(), 'tests', 'sass', tmp), file.text, 'utf8', function (err) {
-    assert.equal(err, null)
-    tmp = self.file(tmp)
+  var self = this;
+  var tmp = '.tmp-' + Date.now() + '-' + file.filename;
+  var fp = path.join(process.cwd(), 'tests', 'sass', tmp);
+  fs.writeFile(fp, file.text, 'utf8', function (err) {
+    assert.equal(err, null);
+    tmp = self.file(tmp);
 
     var embeddedOptions = {
       'options': {
@@ -50,12 +50,13 @@ module.exports.fix = function (file, options, cb) {
       'rules': options,
       'fix': true
     };
-    var results = lint.lintText(tmp, embeddedOptions);
+    var results = lint.lintText(fp, embeddedOptions);
     self.test(tmp, options, function () {
-      exec('rm ' + tmp.filename, function () {
+      exec('rm ' + fp, function (e) {
+        assert.equal(e, null);
         cb(results);
-      })
+      });
     });
-  })
+  });
 };
 module.exports.assert = assert;
