@@ -52,7 +52,6 @@ module.exports.fix = function (file, options, cb) {
       'fix': true
     };
     var results = lint.lintText(tmp, embeddedOptions);
-    cb(results);
     exec('rm ' + fp, function (e) {
       assert.equal(e, null);
       cb(results);
