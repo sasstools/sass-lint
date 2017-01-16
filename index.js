@@ -138,9 +138,9 @@ sassLint.lintText = function (file, options, configPath) {
           helpers.log('[' + rule.rule.name + '] on [' + file.filename + ']');
         }
         rule.rule.fix(ast, rule);
-
         detects = rule.rule.detect(ast, rule)
           .filter(isEnabledFilter);
+
       }
 
       results = results.concat(detects);
@@ -154,7 +154,8 @@ sassLint.lintText = function (file, options, configPath) {
       }
     });
     if (options.fix) {
-      fs.writeFileSync(file.filename, ast.toString());
+      var filename = file.path || file.filename;
+      fs.writeFileSync(filename, ast.toString());
     }
   }
 

@@ -70,6 +70,9 @@ if (program.output && program.output !== true) {
 if (program.fix) {
   configOptions.fix = program.fix;
 }
+if (program.verbose) {
+  configOptions.verbose = program.verbose;
+}
 
 if (program.maxWarnings && program.maxWarnings !== true) {
   configOptions.options['max-warnings'] = program.maxWarnings;

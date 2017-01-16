@@ -40,8 +40,9 @@ module.exports.fix = function (file, options, cb) {
   var fp = path.join(process.cwd(), 'tests', 'sass', tmp);
   fs.writeFile(fp, file.text, 'utf8', function (err) {
     assert.equal(err, null);
-    tmp = self.file(tmp);
-
+    tmp = Object.assign(self.file(tmp), {
+      path: fp
+    });
     var embeddedOptions = {
       'options': {
         'merge-default-rules': false,
@@ -50,12 +51,11 @@ module.exports.fix = function (file, options, cb) {
       'rules': options,
       'fix': true
     };
-    var results = lint.lintText(fp, embeddedOptions);
-    self.test(tmp, options, function () {
-      exec('rm ' + fp, function (e) {
-        assert.equal(e, null);
-        cb(results);
-      });
+    var results = lint.lintText(tmp, embeddedOptions);
+    cb(results);
+    exec('rm ' + fp, function (e) {
+      assert.equal(e, null);
+      cb(results);
     });
   });
 };

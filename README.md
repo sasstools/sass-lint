@@ -115,14 +115,12 @@ To run the code fixer, simply use the CLI flag as seen below:
 `sass-lint` can also be run from `bin/sass-lint`
 
 #### Rules Implementing Fix
-- [x] `attribute-quotes`
 - [x] `border-zero`
-- [x] `hex-length`
-- [x] `no-color-keywords`
+- [ ] `no-color-keywords`
 - [x] `no-css-comments`
 - [x] `property-sort-order`
-- [x] `space-before-colon`
-- [x] `space-after-colon`
+- [ ] `space-before-colon`
+- [ ] `space-after-colon`
 
 ### [Rules Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
 
