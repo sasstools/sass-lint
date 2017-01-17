@@ -12,7 +12,7 @@ describe('no empty rulesets - scss', function () {
     lint.test(file, {
       'no-empty-rulesets': 1
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
