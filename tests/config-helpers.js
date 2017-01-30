@@ -78,8 +78,8 @@ describe('config-helpers', function () {
       done();
     });
 
-    it('should return an empty config when an incorrect path is provided', function (done) {
-      var testConfig = configHelpers.loadConfig('tests/yml/non-existant.yml');
+    it('should return an empty config when no path is provided', function (done) {
+      var testConfig = configHelpers.loadConfig('');
 
       assert(equal(emptyConfig, testConfig, {
         'strict': true
@@ -93,6 +93,16 @@ describe('config-helpers', function () {
       assert(equal(emptyConfig, testConfig, {
         'strict': true
       }));
+      done();
+    });
+
+    it('should throw an error when an incorrect path is provided', function (done) {
+      assert.throws(
+        function () {
+          configHelpers.loadConfig('tests/yml/non-existant.yml');
+        },
+        'Cannot find configPath tests/yml/non-existant.yml'
+      );
       done();
     });
   });

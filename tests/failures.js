@@ -27,7 +27,7 @@ describe('failures', function () {
   it('should not raise error if indentation is only set to warn', function (done) {
     // These should produce 55 warnings and 0 errors
     var directResults = lint.lintFiles('sass/indentation/indentation-spaces.scss', {rules: {indentation: 1}});
-    var configResults = lint.lintFiles('sass/indentation/indentation-spaces.scss', {}, 'yml/.indentation-warn.yml');
+    var configResults = lint.lintFiles('sass/indentation/indentation-spaces.scss', {}, 'tests/yml/.indentation-warn.yml');
     lint.failOnError(directResults);
     lint.failOnError(configResults);
 
@@ -75,7 +75,7 @@ describe('failures', function () {
   it('should not raise error if warnings do not exceed `max-warnings` setting', function (done) {
     var results = lint.lintFiles('sass/indentation/indentation-spaces.scss', {});  // 55 warnings
     lint.failOnError(results, {'max-warnings': 100}); // should succceed
-    lint.failOnError(results, {}, 'yml/.max-100-warnings.yml'); // should succeed
+    lint.failOnError(results, {}, 'tests/yml/.max-100-warnings.yml'); // should succeed
 
     done();
   });
@@ -83,7 +83,7 @@ describe('failures', function () {
   it('should not raise error if no warnings even if `max-warnings` is zero', function (done) {
     var results = lint.lintFiles('sass/success.scss', {});  // no warnings
     lint.failOnError(results, {'max-warnings': 0}); // should still succceed
-    lint.failOnError(results, {}, 'yml/.max-0-warnings.yml'); // should still succeed
+    lint.failOnError(results, {}, 'tests/yml/.max-0-warnings.yml'); // should still succeed
 
     done();
   });
