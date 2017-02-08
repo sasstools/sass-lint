@@ -1,6 +1,6 @@
 # Attribute Quotes
 
-Rule `attribute-quotes` will enforce the use of the use of quotes in attribute values.
+Rule `attribute-quotes` will enforce the use of quotes in attribute values.
 
 ## Options
 
