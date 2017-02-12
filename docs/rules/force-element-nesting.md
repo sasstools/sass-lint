@@ -22,7 +22,7 @@ a[target="_blank"] span {
 }
 ```
 
-When enabled, the following are allowed:
+When disabled, the following are allowed:
 
 ```scss
 div {
