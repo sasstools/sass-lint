@@ -239,6 +239,16 @@ sass-lint --config app/config/.sass-lint.yml '**/*.scss' --verbose --no-exit --i
 
 > Notice that glob patterns need to be wrapped in quotation or single quote marks in order to be passed to sass-lint correctly and if you want to ignore multiple paths you also need to wrap it in quotation marks and separate each pattern/file with a comma and a space `, `.
 
+#### Export results to file
+Rather than have errors display in the command line, you could output the results to a text file.
+```
+sass-lint -c sass-lint.yml `**/*.scss` -v -q -o results.txt
+```
+or with login form flags
+```
+sass-lint --config sass-lint.yml `**/*.scss` --verbose --no-exit --output results.txt
+```
+
 This will be revisited and updated in `sass-lint` v2.0.0.
 
 For further information you can visit our CLI documentation linked below.
