@@ -4,4 +4,15 @@ Option `formatter` will determine how results from Sass Lint will be formatted f
 
 ## Options
 
-Any of the supported [ESLint Formatters](https://github.com/eslint/eslint/tree/master/lib/formatters) can be used. Defaults to `stylish`
+Any of the supported [ESLint Formatters](http://eslint.org/docs/user-guide/command-line-interface#-f---format) can be used. Defaults to `stylish`
+
+Example:
+```
+sass-lint --config sass-lint.yml `**/*.scss` -v -q -f html -o results.html
+```
+
+or with long form flags
+
+```
+sass-lint --config sass-lint.yml `**/*.scss` --verbose --no-exit --formatter html --output-file results.html
+```
