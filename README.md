@@ -244,7 +244,7 @@ Rather than have errors display in the command line, you could output the result
 ```
 sass-lint -c sass-lint.yml `**/*.scss` -v -q -o results.txt
 ```
-or with login form flags
+or with long form flags
 ```
 sass-lint --config sass-lint.yml `**/*.scss` --verbose --no-exit --output results.txt
 ```
