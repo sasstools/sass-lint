@@ -246,7 +246,7 @@ sass-lint -c sass-lint.yml `**/*.scss` -v -q -o results.txt
 ```
 or with long form flags
 ```
-sass-lint --config sass-lint.yml `**/*.scss` --verbose --no-exit --output-file results.txt
+sass-lint --config sass-lint.yml `**/*.scss` --verbose --no-exit --output results.txt
 ```
 
 This will be revisited and updated in `sass-lint` v2.0.0.
