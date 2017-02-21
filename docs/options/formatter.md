@@ -14,5 +14,5 @@ sass-lint --config sass-lint.yml `**/*.scss` -v -q -f html -o results.html
 or with long form flags
 
 ```
-sass-lint --config sass-lint.yml `**/*.scss` --verbose --no-exit --formatter html --output-file results.html
+sass-lint --config sass-lint.yml `**/*.scss` --verbose --no-exit --format html --output results.html
 ```
