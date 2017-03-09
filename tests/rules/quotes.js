@@ -8,16 +8,16 @@ var lint = require('./_lint');
 describe('quotes - scss', function () {
   var file = lint.file('quotes.scss');
 
-  it('[style: single]', function (done) {
+  it('[style: single, attribute: single]', function (done) {
     lint.test(file, {
       'quotes': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
 
-  it('[style: double]', function (done) {
+  it('[style: double, attribute: double]', function (done) {
     lint.test(file, {
       'quotes': [
         1,
@@ -26,7 +26,36 @@ describe('quotes - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  it('[style: single, attribute: double]', function (done) {
+    lint.test(file, {
+      'quotes': [
+        1,
+        {
+          'attribute': 'double'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  it('[style: double, attribute: single]', function (done) {
+    lint.test(file, {
+      'quotes': [
+        1,
+        {
+          'style': 'double',
+          'attribute': 'single'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
@@ -38,16 +67,16 @@ describe('quotes - scss', function () {
 describe('quotes - sass', function () {
   var file = lint.file('quotes.sass');
 
-  it('[style: single]', function (done) {
+  it('[style: single, attribute: single]', function (done) {
     lint.test(file, {
       'quotes': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
 
-  it('[style: double]', function (done) {
+  it('[style: double, attribute: double]', function (done) {
     lint.test(file, {
       'quotes': [
         1,
@@ -56,7 +85,36 @@ describe('quotes - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  it('[style: single, attribute: double]', function (done) {
+    lint.test(file, {
+      'quotes': [
+        1,
+        {
+          'attribute': 'double'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(6, data.warningCount);
+      done();
+    });
+  });
+
+  it('[style: double, attribute: single]', function (done) {
+    lint.test(file, {
+      'quotes': [
+        1,
+        {
+          'style': 'double',
+          'attribute': 'single'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
