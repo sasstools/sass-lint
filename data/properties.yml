@@ -369,6 +369,8 @@ min-logical-width
 min-width
 min-zoom
 mix-blend-mode
+motion-offset
+motion-path
 move-to
 nav-down
 nav-index
