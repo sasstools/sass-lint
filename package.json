@@ -12,6 +12,13 @@
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
   },
+  "files": [
+    "src",
+    "bin",
+    "data",
+    "lib",
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/sasstools/sass-lint.git"
