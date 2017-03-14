@@ -284,6 +284,10 @@ Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Eac
 * [Gulp](https://www.npmjs.com/package/gulp-sass-lint)
 * [Grunt](https://github.com/sasstools/grunt-sass-lint)
 
+## Module Bundler Integration
+
+* [rollup.js](https://github.com/kopacki/rollup-plugin-sass-lint)
+
 ## IDE Integration
 
 * [Atom](https://atom.io/packages/linter-sass-lint)
