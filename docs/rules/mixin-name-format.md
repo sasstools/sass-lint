@@ -25,11 +25,6 @@ When enabled, the following are allowed:
 @mixin _leading-underscore() {
   content: '';
 }
-
-.foo {
-  @include hyphenated-lowercase();
-}
-
 ```
 
 When enabled, the following are disallowed:
@@ -41,10 +36,6 @@ When enabled, the following are disallowed:
 
 @mixin _camelCaseWithLeadingUnderscore() {
   content: '';
-}
-
-.foo {
-  @include snake_case();
 }
 ```
 
@@ -60,10 +51,6 @@ When enabled, the following are allowed:
 @mixin camelCase() {
   content: '';
 }
-
-.foo {
-  @include anotherCamelCase();
-}
 ```
 
 When enabled, the following are disallowed:
@@ -75,10 +62,6 @@ When enabled, the following are disallowed:
 
 @mixin _camelCaseWithLeadingUnderscore() {
   content: '';
-}
-
-.foo {
-  @include snake_case();
 }
 ```
 
@@ -94,10 +77,6 @@ When enabled, the following are allowed:
 @mixin PascalCase() {
   content: '';
 }
-
-.foo {
-  @include AnotherPascalCase();
-}
 ```
 
 When enabled, the following are disallowed:
@@ -109,10 +88,6 @@ When enabled, the following are disallowed:
 
 @mixin _camelCaseWithLeadingUnderscore() {
   content: '';
-}
-
-.foo {
-  @include snake_case();
 }
 ```
 
@@ -128,10 +103,6 @@ When enabled, the following are allowed:
 @mixin snake_case() {
   content: '';
 }
-
-.foo {
-  @include another_snake_case();
-}
 ```
 
 When enabled, the following are disallowed:
@@ -143,10 +114,6 @@ When enabled, the following are disallowed:
 
 @mixin _snake_case_with_leading_underscore() {
   content: '';
-}
-
-.foo {
-  @include camelCase();
 }
 ```
 
@@ -177,10 +144,6 @@ When enabled, the following are disallowed:
 @mixin HYPHENATED-UPPERCASE {
   content: '';
 }
-
-.foo {
-  @include camelCase();
-}
 ```
 
 ## Example 6
@@ -210,10 +173,6 @@ When enabled, the following are disallowed:
 @mixin HYPHENATED-UPPERCASE {
   content: '';
 }
-
-.foo {
-  @include camelCase();
-}
 ```
 
 
@@ -230,10 +189,6 @@ When enabled, the following are allowed:
 @mixin SCREAMING_SNAKE_CASE() {
   content: '';
 }
-
-.foo {
-  @include _LEADING_UNDERSCORE();
-}
 ```
 
 When enabled, the following are disallowed:
@@ -247,9 +202,5 @@ When enabled, the following are disallowed:
 
 @mixin _snake_case_with_leading_underscore() {
   content: '';
-}
-
-.foo {
-  @include camelCase();
 }
 ```
