@@ -288,6 +288,9 @@ sassLint.outputResults = function (results, options, configPath) {
       console.log(formatted);
     }
   }
+  else {
+    fs.outputFileSync(path.resolve(process.cwd(), config.options['output-file']), '[]');
+  }
   return results;
 };
 
