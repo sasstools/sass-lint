@@ -9,6 +9,8 @@ Rule `property-sort-order` will enforce the order in which declarations are writ
 
 Property orders: https://github.com/sasstools/sass-lint/tree/develop/lib/config/property-sort-orders
 
+Property orders: https://github.com/sasstools/sass-lint/tree/develop/lib/config/property-sort-orders
+
 ## Examples
 
 When enabled (assuming `order: alphabetical`), the following are allowed:
