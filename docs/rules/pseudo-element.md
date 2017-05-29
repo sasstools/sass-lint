@@ -7,7 +7,7 @@ Rule `pseudo-element` will enforce that:
 
 ## Examples
 
-When enabled, the following are allowed:
+When disabled, the following are allowed:
 
 ```scss
 .foo::before {
