@@ -4,7 +4,6 @@ var assert = require('assert'),
     exec = require('child_process').exec;
 
 describe('cli', function () {
-
   it('should return help instructions', function (done) {
     var command = 'node bin/sass-lint -h';
 

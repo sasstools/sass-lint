@@ -116,7 +116,6 @@ sassLint.lintText = function (file, options, configPath) {
   catch (e) {
     var line = e.line || 1;
     errors++;
-
     results = [{
       ruleId: 'Fatal',
       line: line,
@@ -133,6 +132,17 @@ sassLint.lintText = function (file, options, configPath) {
     rules.forEach(function (rule) {
       detects = rule.rule.detect(ast, rule)
         .filter(isEnabledFilter);
+
+      if (detects && options.fix && rule.rule.fix) {
+        if (options.verbose) {
+          helpers.log('[' + rule.rule.name + '] on [' + file.filename + ']');
+        }
+        rule.rule.fix(ast, rule);
+        detects = rule.rule.detect(ast, rule)
+          .filter(isEnabledFilter);
+
+      }
+
       results = results.concat(detects);
       if (detects.length) {
         if (rule.severity === 1) {
@@ -143,6 +153,10 @@ sassLint.lintText = function (file, options, configPath) {
         }
       }
     });
+    if (options.fix) {
+      var filename = file.path || file.filename;
+      fs.writeFileSync(filename, ast.toString());
+    }
   }
 
   results.sort(helpers.sortDetects);

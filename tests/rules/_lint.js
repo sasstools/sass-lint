@@ -3,7 +3,8 @@
 var lint = require('../../index'),
     assert = require('assert'),
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    exec = require('child_process').exec;
 
 module.exports.file = function (file) {
   var result = {};
@@ -33,5 +34,28 @@ module.exports.test = function (text, options, cb) {
 
   cb(results);
 };
-
+module.exports.fix = function (file, options, cb) {
+  var self = this;
+  var tmp = '.tmp-' + Date.now() + '-' + file.filename;
+  var fp = path.join(process.cwd(), 'tests', 'sass', tmp);
+  fs.writeFile(fp, file.text, 'utf8', function (err) {
+    assert.equal(err, null);
+    tmp = Object.assign(self.file(tmp), {
+      path: fp
+    });
+    var embeddedOptions = {
+      'options': {
+        'merge-default-rules': false,
+        'cache-config': false
+      },
+      'rules': options,
+      'fix': true
+    };
+    var results = lint.lintText(tmp, embeddedOptions);
+    exec('rm ' + fp, function (e) {
+      assert.equal(e, null);
+      cb(results);
+    });
+  });
+};
 module.exports.assert = assert;
