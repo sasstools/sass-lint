@@ -42,6 +42,7 @@ program
   .option('-f, --format [format]', 'pass one of the available eslint formats')
   .option('-o, --output [output]', 'the path and filename where you would like output to be written')
   .option('-s, --syntax [syntax]', 'syntax to evaluate the file(s) with (either sass or scss)')
+  .option('--fix', 'Automatically fixes formatting issues with code.')
   .option('--max-warnings [integer]', 'Number of warnings to trigger nonzero exit code')
   .parse(process.argv);
 
@@ -51,7 +52,6 @@ configOptions.options = configOptions.options || {};
 if (program.config && program.config !== true) {
   configPath = program.config;
 }
-
 if (program.ignore && program.ignore !== true) {
   configOptions.files.ignore = program.ignore.split(', ');
 }
@@ -66,6 +66,12 @@ if (program.format && program.format !== true) {
 
 if (program.output && program.output !== true) {
   configOptions.options['output-file'] = program.output;
+}
+if (program.fix) {
+  configOptions.fix = program.fix;
+}
+if (program.verbose) {
+  configOptions.verbose = program.verbose;
 }
 
 if (program.maxWarnings && program.maxWarnings !== true) {
