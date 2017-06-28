@@ -1,6 +1,6 @@
 # Single Line Per Selector
 
-Rule `single-line-per-selector` will enforce whether selectors should be placed on a new line.
+Rule `single-line-per-selector` will enforce whether selectors should be placed on a single new line.
 
 ## Examples
 
@@ -17,6 +17,11 @@ When enabled, the following are disallowed:
 
 ```scss
 .foo, .bar {
+  content: 'baz';
+}
+
+.foo
+.bar {
   content: 'baz';
 }
 ```
