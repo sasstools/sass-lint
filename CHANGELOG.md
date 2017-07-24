@@ -1,5 +1,84 @@
 # Sass Lint Changelog
 
+## v1.10.2
+
+**November 9th, 2016**
+
+**Changes**
+* Reverted back to ESlint v2.x to prevent a breaking change in Node < v4
+
+**Fixes**
+* Fixed an exception for partial idents in `space-around-operator` [#940](https://github.com/sasstools/sass-lint/pull/940)
+* Fixed an issue with negative numbers in `space-around-operator` [#945](https://github.com/sasstools/sass-lint/pull/945)
+
+
+## v1.10.1
+
+**November 7th, 2016**
+
+**Fixes**
+
+* Fixed an issue with the `--no-exit` `-q` flag not being respected and unhandled errors/exceptions being thrown by the CLI
+* Fixed an issue with variable declarations showing as properties in the `no-duplicate-properties` rule [#937](https://github.com/sasstools/sass-lint/pull/936)
+* Fixed an issue with variable declarations showing as properties in the `declarations-before-nesting` rule [#937](https://github.com/sasstools/sass-lint/pull/936)
+
+## v1.10.0
+
+**November 6th, 2016**
+
+The 'you can ignore those bad habits again' update
+
+** :tada: DISABLE LINTERS :tada: **
+The ability to enable and disable linters on the fly has finally(!) been added [#677](https://github.com/sasstools/sass-lint/pull/677) [docs](https://github.com/sasstools/sass-lint/blob/master/docs/toggle-rules-in-src.md)
+
+A massive thank you to everyone who commented/contributed/reported and tested this feature this was very much a community effort here. An extra special thank you to
+* [@donabrams](https://github.com/donabrams)
+
+For his initial hard work in getting this off the ground. There were lots of others who have fixed everything from test issues to AST issues to make this possible afterwards, so thanks to you too!
+
+**New Features**
+* `max-warnings` which is available with the sass-lint CLI is now available as an option in your config file too [#857](https://github.com/sasstools/sass-lint/pull/857)
+* **New Rule** `no-url-domains` rule [#846](https://github.com/sasstools/sass-lint/pull/846) [docs](https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-url-domains.md)
+* **New Rule** `max-line-length` rule was added [#840](https://github.com/sasstools/sass-lint/pull/840) [docs](https://github.com/sasstools/sass-lint/blob/master/docs/rules/max-line-length.md)
+* **New Rule** `max-file-line-count` rule was added [#842](https://github.com/sasstools/sass-lint/pull/842) [docs](https://github.com/sasstools/sass-lint/blob/master/docs/rules/max-file-line-count.md)
+* **New Rule** `declarations-before-nesting` rule was added [#866](https://github.com/sasstools/sass-lint/pull/866) [docs](https://github.com/sasstools/sass-lint/blob/master/docs/rules/declarations-before-nesting.md)
+
+**Fixes**
+* Fixed an issue with an un handled error being thrown in certain circumstances for the `space-before-colon` rule [#894](https://github.com/sasstools/sass-lint/pull/894)
+* Operators in variable names are now handled correctly for the `variable-name-format` rule [#903](https://github.com/sasstools/sass-lint/pull/903)
+* Fixed an issue with string values in the `shorthand-values` rule [#848](https://github.com/sasstools/sass-lint/pull/848)
+* Fixed an issue with valid strict BEM producing an error in the `*-name-format` rules [#892](https://github.com/sasstools/sass-lint/pull/892)
+* Fixed an issue with non-string user conventions in the `border-zero` rule [#913](https://github.com/sasstools/sass-lint/pull/913)
+* Fixed an issue where BOM markers in files were causing parse errors or random errors/warnings [#893](https://github.com/sasstools/sass-lint/pull/893)
+* Fixed an issue with interpolates properties in the `no-duplicate-properties` rule [#915](https://github.com/sasstools/sass-lint/pull/915)
+* Fixed a possible error with invalid user conventions in the `border-zero` rule [#926](https://github.com/sasstools/sass-lint/pull/926)
+
+**Changes**
+* Node 0.10 and 0.12 are no longer officially supported by sass-lint. We've not deliberately broken these builds but we will no longer be testing against them either [#896](https://github.com/sasstools/sass-lint/issues/896) & [#924](https://github.com/sasstools/sass-lint/pull/924)
+* In future the `no-url-protocols` rule will not lint domains in URL's for now a new flag is added to mimic this behaviour. The new `no-url-domains` rule can be used instead [#813](https://github.com/sasstools/sass-lint/issues/813)
+* Front matter such as those present in Jekyll templates will now be ignored in all files before passing to the AST / Linting [897](https://github.com/sasstools/sass-lint/pull/897)
+* Running the tests no longer required sass-lint development to be `npm-link`ed or globally installed. [#911](https://github.com/sasstools/sass-lint/pull/911)
+* The concentric property list in `property-sort-order` was updated to reflect the latest release [#922](https://github.com/sasstools/sass-lint/pull/922)
+
+**Updates**
+* AST fixes have arrived with version 3.4.7 of gonzales-pe [#906](https://github.com/sasstools/sass-lint/pull/906)
+* Updated to the latest versions of many other packages
+
+**Documentation**
+* The documentation around configuring a rule was tidied up and made clearer [#910](https://github.com/sasstools/sass-lint/pull/910)
+
+**Special thanks to**
+
+* [bgriffith](https://github.com/bgriffith)
+* [donabrams](https://github.com/donabrams)
+* [danpurdy](https://github.com/DanPurdy)
+* [danwaz](https://github.com/danwaz)
+* [lucasjahn](https://github.com/lucasjahn)
+* [mrjamesriley](https://github.com/mrjamesriley)
+* [notrobin](https://github.com/nottrobin)
+* [onishiweb](https://github.com/onishiweb)
+* [richarddewit](https://github.com/richarddewit)
+
 ## v1.9.1
 
 **August 25, 2016**

@@ -1,0 +1,44 @@
+.bar {
+  content: 'baz';
+
+  .qux {
+    content: 'baz';
+  }
+}
+
+.foo {
+  .bar {
+    content: 'where';
+  }
+
+  content: 'baz';
+
+  .baz {
+    content: 'where';
+  }
+
+  content: 'baz';
+}
+
+.foo {
+  .bar {
+    content: 'where';
+
+    .baz {
+      content: 'quz';
+    }
+
+    content: 'baz';
+  }
+
+  content: 'baz';
+}
+
+// issue #935 - ignore variables
+@mixin foo {
+  #{$bar} {
+    content: 'foobar';
+  }
+
+  $baz: 'qux';
+}

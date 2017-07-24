@@ -20,3 +20,8 @@ $_does_NOT-fitSTANDARD: 1;
 .class {
   width: $snake_case;
 }
+
+// Issue #901 - operators not recognized as separate tokens by gonzales-pe
+.content-main {
+  padding: $mobile-site-gutter*1.5;
+}

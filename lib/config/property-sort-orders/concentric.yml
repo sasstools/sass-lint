@@ -11,6 +11,19 @@ order:
   - 'bottom'
   - 'left'
 
+  - 'flex'
+  - 'flex-basis'
+  - 'flex-direction'
+  - 'flex-flow'
+  - 'flex-grow'
+  - 'flex-shrink'
+  - 'flex-wrap'
+  - 'align-content'
+  - 'align-items'
+  - 'align-self'
+  - 'justify-content'
+  - 'order'
+
   - 'columns'
   - 'column-gap'
   - 'column-fill'
@@ -46,6 +59,10 @@ order:
   - 'margin-left'
 
   - 'outline'
+  - 'outline-offset'
+  - 'outline-width'
+  - 'outline-style'
+  - 'outline-color'
 
   - 'border'
   - 'border-top'
@@ -79,6 +96,8 @@ order:
   - 'box-shadow'
 
   - 'background'
+  - 'background-attachment'
+  - 'background-clip'
   - 'background-color'
   - 'background-image'
   - 'background-repeat'
