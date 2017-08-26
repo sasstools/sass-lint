@@ -36,6 +36,7 @@
     "globule": "^1.0.0",
     "gonzales-pe": "^4.1.1",
     "js-yaml": "^3.5.4",
+    "known-css-properties": "^0.3.0",
     "lodash.capitalize": "^4.1.0",
     "lodash.kebabcase": "^4.0.0",
     "merge": "^1.2.0",
