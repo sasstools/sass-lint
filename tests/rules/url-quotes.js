@@ -12,7 +12,7 @@ describe('url quotes - scss', function () {
     lint.test(file, {
       'url-quotes': 1
     }, function (data) {
-      lint.assert.equal(2, data.warningCount);
+      lint.assert.equal(1, data.warningCount);
       done();
     });
   });

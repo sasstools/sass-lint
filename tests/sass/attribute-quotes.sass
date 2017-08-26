@@ -11,18 +11,17 @@ span[lang=pt]
 span[lang~=en-us]
   color: blue
 
-// TODO currently a parse error in gonzales-pe
-// span[lang|="zh"] {color: red;}
-
-// TODO currently a parse error in gonzales-pe
-// a[href^=#] {
-//   background-color: gold;
-// }
+span[lang|=zh]
+  color: red
 
 span[class^=main]
   background-color: yellow
 
-// TODO currently a parse error in gonzales-pe
+// Invalid CSS - must be ident or string
+// a[href^=#] {
+//   background-color: gold;
+// }
+//
 // a[href$=.cn] {
 //   color: red;
 // }
@@ -43,14 +42,14 @@ span[lang="pt"]
 span[lang~="en-us"]
   color: blue
 
-// TODO currently a parse error in gonzales-pe
-// span[lang|="zh"] {color: red;}
-
-a[href^="#"]
-  background-color: gold
+span[lang|="zh"]
+  color: red
 
 span[class^="main"]
   background-color: yellow
+
+a[href^="#"]
+  background-color: gold
 
 a[href$=".cn"]
   color: red
