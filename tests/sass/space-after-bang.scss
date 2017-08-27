@@ -54,3 +54,35 @@ $qux: red ! global;
 // .qux {
 //   @extend .notice! optional;
 // }
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$important: !important;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$important:!important;}
+}
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$important: ! important;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$important:! important;}
+}
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$color: red !default;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$color: red!default;}
+}
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$color: red ! default;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$color: red! default;}
+}

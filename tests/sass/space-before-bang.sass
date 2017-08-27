@@ -25,3 +25,35 @@ $foo: orange !default
 $foo: blue! default
 
 $foo: green ! default
+
+=testcase($important: null)
+  @if $important == true
+    $important: !important
+
+=testcaseFail($important: null)
+  @if $important == true
+    $important:!important
+
+=testcase($important: null)
+  @if $important == true
+    $important: ! important
+
+=testcaseFail($important: null)
+  @if $important == true
+    $important:! important
+
+=testcase($important: null)
+  @if $important == true
+    $color: red !default
+
+=testcaseFail($important: null)
+  @if $important == true
+    $color: red!default
+
+=testcaseFail($important: null)
+  @if $important == true
+    $color: red ! default
+
+=testcaseFail($important: null)
+  @if $important == true
+    $color: red! default
