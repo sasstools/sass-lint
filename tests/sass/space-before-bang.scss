@@ -1,7 +1,7 @@
 // Important
 
 .foo {
-  color: red!important;
+  color:red!important;
 }
 
 .bar {
@@ -25,3 +25,35 @@ $foo: red !default;
 $foo: red! default;
 
 $foo: red ! default;
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$important: !important;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$important:!important;}
+}
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$important: ! important;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$important:! important;}
+}
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$color: red !default;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$color: red!default;}
+}
+
+@mixin testcase($important: null) {
+  @if ($important == true) {$color: red ! default;}
+}
+
+@mixin testcaseFail($important: null) {
+  @if ($important == true) {$color: red! default;}
+}

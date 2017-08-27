@@ -12,7 +12,7 @@ describe('space before bang - scss', function () {
     lint.test(file, {
       'space-before-bang': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,7 @@ describe('space before bang - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -42,7 +42,7 @@ describe('space before bang - sass', function () {
     lint.test(file, {
       'space-before-bang': 1
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
@@ -56,7 +56,7 @@ describe('space before bang - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(8, data.warningCount);
       done();
     });
   });
