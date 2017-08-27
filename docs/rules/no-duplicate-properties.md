@@ -40,7 +40,7 @@ When `display` is added to the exclude array the following would be allowed:
 }
 ```
 
-When `display` is added to the exclude array the following would be still be disallowed as the duplicate properties are separated by another property:
+When `display` is added to the exclude array the following would still be disallowed as the duplicate properties are separated by another property:
 
 ```scss
 .display-block {
