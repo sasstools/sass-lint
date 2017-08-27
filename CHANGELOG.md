@@ -1,5 +1,23 @@
 # Sass Lint Changelog
 
+## v1.11.0
+
+**August 27th, 2017**
+
+**New Features**
+* The `trailing-semicolon` rule now checks for double semicolons [#1107](https://github.com/sasstools/sass-lint/pull/1107)
+
+**Changes**
+* Updated `gonzales-pe` parser to use version 4.1.1
+* The `no-empty-rulesets` rule now flags rulesets that contain only comments [#998](https://github.com/sasstools/sass-lint/pull/998)
+* The `misspelled-properties` rule now uses the [known-css-properties](https://www.npmjs.com/package/known-css-properties) to validate properties.
+* The `zero-unit` rule now considers the `%` unit [#1103](https://github.com/sasstools/sass-lint/pull/1103)
+
+**Fixes**
+* Fixed a fatal error with the `space-after-bang` rule [#1108](https://github.com/sasstools/sass-lint/pull/1108)
+* Fixed an issue where line numbers were incorrect when using `front-matter` [#1060](https://github.com/sasstools/sass-lint/pull/1060)
+* Fixed an issue with the `misspelled-properties` rule incorrectly reporting multiline properties [#1106](https://github.com/sasstools/sass-lint/pull/1106)
+
 ## v1.10.2
 
 **November 9th, 2016**
@@ -10,7 +28,6 @@
 **Fixes**
 * Fixed an exception for partial idents in `space-around-operator` [#940](https://github.com/sasstools/sass-lint/pull/940)
 * Fixed an issue with negative numbers in `space-around-operator` [#945](https://github.com/sasstools/sass-lint/pull/945)
-
 
 ## v1.10.1
 
