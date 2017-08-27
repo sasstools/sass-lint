@@ -50,3 +50,35 @@ $qux: green ! global
 //
 // .qux
 //   @extend .notice! optional
+
+=testcase($important: null)
+  @if $important == true
+    $important: !important
+
+=testcaseFail($important: null)
+  @if $important == true
+    $important:!important
+
+=testcase($important: null)
+  @if $important == true
+    $important: ! important
+
+=testcaseFail($important: null)
+  @if $important == true
+    $important:! important
+
+=testcase($important: null)
+  @if $important == true
+    $color: red !default
+
+=testcaseFail($important: null)
+  @if $important == true
+    $color: red!default
+
+=testcaseFail($important: null)
+  @if $important == true
+    $color: red ! default
+
+=testcaseFail($important: null)
+  @if $important == true
+    $color: red! default
