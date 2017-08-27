@@ -173,6 +173,13 @@ describe('sass lint', function () {
       });
     });
 
+    it('should preserve line numbers after parsing a file with front matter', function (done) {
+      lintFile('front-matter/front-matter.scss', function (data) {
+        assert.equal(6, data.messages[0].line);
+        done();
+      });
+    });
+
     // ==============================================================================
     //  Parse Errors should return as lint errors
     // ==============================================================================
