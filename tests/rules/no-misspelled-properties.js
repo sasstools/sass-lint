@@ -12,7 +12,7 @@ describe('no misspelled properties - scss', function () {
     lint.test(file, {
       'no-misspelled-properties': 1
     }, function (data) {
-      lint.assert.equal(9, data.warningCount);
+      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('no misspelled properties - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -45,7 +45,7 @@ describe('no misspelled properties - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });
@@ -61,7 +61,7 @@ describe('no misspelled properties - sass', function () {
     lint.test(file, {
       'no-misspelled-properties': 1
     }, function (data) {
-      lint.assert.equal(9, data.warningCount);
+      lint.assert.equal(14, data.warningCount);
       done();
     });
   });
@@ -77,7 +77,7 @@ describe('no misspelled properties - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(8, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -94,7 +94,7 @@ describe('no misspelled properties - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(7, data.warningCount);
+      lint.assert.equal(12, data.warningCount);
       done();
     });
   });

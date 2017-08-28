@@ -2,10 +2,10 @@ $red: #ff0000;
 
 .test-failure {
   @include test;
-  -webkit-transit1on: width 2s;
-  background-sizer: contain;
-  colors: $red;
-  transit1on: width 2s;
+  -webkit-transit1on: width 2s; // 1
+  background-sizer: contain; // 2
+  colors: $red; // 3
+  transit1on: width 2s; // 4
 }
 
 .test-correct {
@@ -33,9 +33,9 @@ $red: #ff0000;
   }
   border: {
     top: {
-      right: 1px solid #fff;
+      right: 1px solid #fff; // 5
       left: {
-        color: red;
+        color: red; // 6
       }
     }
     left: 2px solid #000;
@@ -44,20 +44,63 @@ $red: #ff0000;
 
 .bar {
   font: {
-    famizy: fantasy;
+    famizy: fantasy; // 7
     size: 12px;
   }
   boder: {
     top: {
-      rigt: 1px solid #fff;
+      rigt: 1px solid #fff; // 8
       left: {
-        color: red;
+        color: red; // 9
       }
     }
-    left: 2px solid #000;
+    left: 2px solid #000; // 10
   }
 }
 
 .foo {
   margin-#{$property-y}: -2 * $hint-arrow-width;
+}
+
+// https://github.com/sasstools/sass-lint/issues/1112
+@mixin font-test1 {
+  font: {
+    family: Arial, sans-serif;
+    style: normal;
+    weight: 300;
+  }
+}
+
+@mixin font-test2 {
+  font: {
+    family: Arial, sans-serif;
+    style: normal;
+    weight: 400;
+  }
+}
+
+@mixin font-test2 {
+  font: {
+    fazily: Arial, sans-serif; // 11
+    style: normal;
+    weght: 400; // 12
+  }
+  border: {
+    top: {
+      left: {
+        radius: 5px;
+      }
+    }
+    right: 6px solid #fff;
+    botom: {
+      right: {
+        radiu: 5px; // 13
+      }
+    }
+  }
+  background: {
+    color: red;
+  }
+  background-colr: blue; // 14
+  font-size: 12rem;
 }
