@@ -1,5 +1,12 @@
 # Sass Lint Changelog
 
+## v1.11.1
+
+**August 28th, 2017**
+
+**Fixes**
+* Fixed an issue with the `misspelled-properties` rule incorrectly reporting nested properties [#1113](https://github.com/sasstools/sass-lint/pull/1113)
+
 ## v1.11.0
 
 **August 27th, 2017**
