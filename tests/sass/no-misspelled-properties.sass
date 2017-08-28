@@ -1,14 +1,15 @@
 $red: #ff0000
 
 .test-failure
-  @include test
+  +test
   -webkit-transit1on: width 2s
   background-sizer: contain
   colors: $red
   transit1on: width 2s
 
 .test-correct
-  @include test
+  +test
+
   -webkit-transition: width 2s
   background-size: contain
   color: $red
@@ -20,7 +21,6 @@ $red: #ff0000
 // https://github.com/sasstools/sass-lint/issues/606
 .test-vendor
   -moz-osx-font-smoothing: auto
-
 
 .foo
   font:
@@ -46,3 +46,34 @@ $red: #ff0000
 
 .foo
   margin-#{$property-y}: -2 * $hint-arrow-width
+
+// https://github.com/sasstools/sass-lint/issues/1112
+=font-test1
+  font:
+    family: Arial, sans-serif
+    style: normal
+    weight: 300
+
+=font-test2
+  font:
+    family: Arial, sans-serif
+    style: normal
+    weight: 400
+
+=font-test2
+  font:
+    fazily: Arial, sans-serif
+    style: normal
+    weght: 400
+  border:
+    top:
+      left:
+        radius: 5px
+    right: 6px solid #fff
+    botom:
+      right:
+        radiu: 5px
+  background:
+    color: red
+  background-colr: blue
+  font-size: 12rem
