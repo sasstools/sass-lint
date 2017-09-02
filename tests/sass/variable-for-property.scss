@@ -51,3 +51,7 @@
 .func-name-test {
   color: my-map-func(blue, light);
 }
+
+.custom-prop {
+  color: var(--my-prop); // ensure custom properties are valid
+}
