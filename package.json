@@ -43,12 +43,16 @@
     "util": "^0.10.3"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chalk": "^2.1.0",
     "coveralls": "^2.11.4",
     "deep-equal": "^1.0.1",
     "eslint": "^4.5.0",
     "istanbul": "^0.4.0",
     "mocha": "^3.0.1",
-    "sinon": "^3.2.1"
+    "proxyquire": "^1.8.0",
+    "sinon": "^3.2.1",
+    "strip-ansi": "^4.0.0"
   },
   "engines": {
     "node": ">=4"
