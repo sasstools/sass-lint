@@ -45,14 +45,14 @@ describe('formatter:junit', () => {
     it('should return a single <testcase> with a message and the line and col number in the body (error)', () => {
       const result = formatter(code);
 
-      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, Error - Unexpected foo. (foo)]]></failure></testcase></testsuite></testsuites>');
+      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, error - Unexpected foo. (foo)]]></failure></testcase></testsuite></testsuites>');
     });
 
     it('should return a single <testcase> with a message and the line and col number in the body (warning)', () => {
       code[0].messages[0].severity = 1;
       const result = formatter(code);
 
-      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, Warning - Unexpected foo. (foo)]]></failure></testcase></testsuite></testsuites>');
+      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, warning - Unexpected foo. (foo)]]></failure></testcase></testsuite></testsuites>');
     });
   });
 
@@ -77,7 +77,7 @@ describe('formatter:junit', () => {
     it('should return a multiple <testcase>\'s', () => {
       const result = formatter(code);
 
-      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="2" errors="2" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, Error - Unexpected foo. (foo)]]></failure></testcase><testcase time="0" name="org.sassLint.bar"><failure message="Unexpected bar."><![CDATA[line 6, col 11, Warning - Unexpected bar. (bar)]]></failure></testcase></testsuite></testsuites>');
+      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="2" errors="2" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, error - Unexpected foo. (foo)]]></failure></testcase><testcase time="0" name="org.sassLint.bar"><failure message="Unexpected bar."><![CDATA[line 6, col 11, warning - Unexpected bar. (bar)]]></failure></testcase></testsuite></testsuites>');
     });
   });
 
@@ -96,7 +96,7 @@ describe('formatter:junit', () => {
     it('should make them go away', () => {
       const result = formatter(code);
 
-      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected &lt;foo&gt;&lt;/foo&gt;&#8;&#9;&#10;&#12;&#13;&#29275;&#36924;."><![CDATA[line 5, col 10, Warning - Unexpected &lt;foo&gt;&lt;/foo&gt;&#8;&#9;&#10;&#12;&#13;&#29275;&#36924;. (foo)]]></failure></testcase></testsuite></testsuites>');
+      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected &lt;foo&gt;&lt;/foo&gt;&#8;&#9;&#10;&#12;&#13;&#29275;&#36924;."><![CDATA[line 5, col 10, warning - Unexpected &lt;foo&gt;&lt;/foo&gt;&#8;&#9;&#10;&#12;&#13;&#29275;&#36924;. (foo)]]></failure></testcase></testsuite></testsuites>');
     });
   });
 
@@ -124,7 +124,7 @@ describe('formatter:junit', () => {
     it('should return 2 <testsuite>\'s', () => {
       const result = formatter(code);
 
-      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, Warning - Unexpected foo. (foo)]]></failure></testcase></testsuite><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="bar.scss"><testcase time="0" name="org.sassLint.bar"><failure message="Unexpected bar."><![CDATA[line 6, col 11, Error - Unexpected bar. (bar)]]></failure></testcase></testsuite></testsuites>');
+      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, warning - Unexpected foo. (foo)]]></failure></testcase></testsuite><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="bar.scss"><testcase time="0" name="org.sassLint.bar"><failure message="Unexpected bar."><![CDATA[line 6, col 11, error - Unexpected bar. (bar)]]></failure></testcase></testsuite></testsuites>');
     });
   });
 
@@ -146,7 +146,7 @@ describe('formatter:junit', () => {
     it('should return 2 <testsuite>', () => {
       const result = formatter(code);
 
-      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, Warning - Unexpected foo. (foo)]]></failure></testcase></testsuite><testsuite package="org.sassLint" time="0" tests="0" errors="0" name="bar.scss"></testsuite></testsuites>');
+      assert.equal(result.replace(/\n/g, ''), '<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite package="org.sassLint" time="0" tests="1" errors="1" name="foo.scss"><testcase time="0" name="org.sassLint.foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, warning - Unexpected foo. (foo)]]></failure></testcase></testsuite><testsuite package="org.sassLint" time="0" tests="0" errors="0" name="bar.scss"></testsuite></testsuites>');
     });
   });
 });

@@ -45,17 +45,17 @@ describe('formatter:compact', () => {
       }]
     }];
 
-    it('should return a string in the format filename: line x, col y, Error - z for errors', () => {
+    it('should return a string in the format filename: line x, col y, error - z for errors', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss: line 5, col 10, Error - Unexpected foo. (foo)\n\n1 problem');
+      assert.equal(result, 'foo.scss: line 5, col 10, error - Unexpected foo. (foo)\n\n1 problem');
     });
 
-    it('should return a string in the format filename: line x, col y, Warning - z for warnings', () => {
+    it('should return a string in the format filename: line x, col y, warning - z for warnings', () => {
       code[0].messages[0].severity = 1;
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss: line 5, col 10, Warning - Unexpected foo. (foo)\n\n1 problem');
+      assert.equal(result, 'foo.scss: line 5, col 10, warning - Unexpected foo. (foo)\n\n1 problem');
     });
   });
 
@@ -71,10 +71,10 @@ describe('formatter:compact', () => {
       }]
     }];
 
-    it('should return a string in the format filename: line x, col y, Error - z', () => {
+    it('should return a string in the format filename: line x, col y, error - z', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss: line 5, col 10, Error - Unexpected foo. (foo)\n\n1 problem');
+      assert.equal(result, 'foo.scss: line 5, col 10, error - Unexpected foo. (foo)\n\n1 problem');
     });
   });
 
@@ -99,7 +99,7 @@ describe('formatter:compact', () => {
     it('should return a string with multiple entries', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss: line 5, col 10, Error - Unexpected foo. (foo)\nfoo.scss: line 6, col 11, Warning - Unexpected bar. (bar)\n\n2 problems');
+      assert.equal(result, 'foo.scss: line 5, col 10, error - Unexpected foo. (foo)\nfoo.scss: line 6, col 11, warning - Unexpected bar. (bar)\n\n2 problems');
     });
   });
 
@@ -127,7 +127,7 @@ describe('formatter:compact', () => {
     it('should return a string with multiple entries', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss: line 5, col 10, Error - Unexpected foo. (foo)\nbar.scss: line 6, col 11, Warning - Unexpected bar. (bar)\n\n2 problems');
+      assert.equal(result, 'foo.scss: line 5, col 10, error - Unexpected foo. (foo)\nbar.scss: line 6, col 11, warning - Unexpected bar. (bar)\n\n2 problems');
     });
   });
 
@@ -143,7 +143,7 @@ describe('formatter:compact', () => {
     it('should return a string without line and column', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss: line 0, col 0, Error - Couldn\'t find foo.scss.\n\n1 problem');
+      assert.equal(result, 'foo.scss: line 0, col 0, error - Couldn\'t find foo.scss.\n\n1 problem');
     });
   });
 });

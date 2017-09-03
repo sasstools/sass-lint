@@ -19,7 +19,7 @@ const assert = require('chai').assert,
 // Tests
 //------------------------------------------------------------------------------
 
-describe('formatter:compact', () => {
+describe('formatter:unix', () => {
   describe('when passed no messages', () => {
     const code = [{
       filePath: 'foo.scss',
@@ -45,17 +45,17 @@ describe('formatter:compact', () => {
       }]
     }];
 
-    it('should return a string in the format filename:line:column: error [Error/rule_id]', () => {
+    it('should return a string in the format filename:line:column: error [error/rule_id]', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [Error/foo]\n\n1 problem');
+      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [error/foo]\n\n1 problem');
     });
 
-    it('should return a string in the format filename:line:column: warning [Warning/rule_id]', () => {
+    it('should return a string in the format filename:line:column: warning [warning/rule_id]', () => {
       code[0].messages[0].severity = 1;
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [Warning/foo]\n\n1 problem');
+      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [warning/foo]\n\n1 problem');
     });
   });
 
@@ -72,10 +72,10 @@ describe('formatter:compact', () => {
   //     }]
   //   }];
   //
-  //   it('should return a string in the format filename:line:column: error [Error/rule_id]', () => {
+  //   it('should return a string in the format filename:line:column: error [error/rule_id]', () => {
   //     const result = formatter(code);
   //
-  //     assert.equal(result, 'foo.scss:5:10: Unexpected foo. [Error/foo]\n\n1 problem');
+  //     assert.equal(result, 'foo.scss:5:10: Unexpected foo. [error/foo]\n\n1 problem');
   //   });
   // });
 
@@ -100,7 +100,7 @@ describe('formatter:compact', () => {
     it('should return a string with multiple entries', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [Error/foo]\nfoo.scss:6:11: Unexpected bar. [Warning/bar]\n\n2 problems');
+      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [error/foo]\nfoo.scss:6:11: Unexpected bar. [warning/bar]\n\n2 problems');
     });
   });
 
@@ -128,7 +128,7 @@ describe('formatter:compact', () => {
     it('should return a string with multiple entries', () => {
       const result = formatter(code);
 
-      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [Error/foo]\nbar.scss:6:11: Unexpected bar. [Warning/bar]\n\n2 problems');
+      assert.equal(result, 'foo.scss:5:10: Unexpected foo. [error/foo]\nbar.scss:6:11: Unexpected bar. [warning/bar]\n\n2 problems');
     });
   });
 
@@ -145,7 +145,7 @@ describe('formatter:compact', () => {
   //   it('should return a string without line and column', () => {
   //     const result = formatter(code);
   //
-  //     assert.equal(result, 'foo.scss:0:0: Couldn\'t find foo.scss. [Error]\n\n1 problem');
+  //     assert.equal(result, 'foo.scss:0:0: Couldn\'t find foo.scss. [error]\n\n1 problem');
   //   });
   // });
 });
