@@ -1,0 +1,6 @@
+input::-moz-placeholder { color: red; }
+dialog::-webkit-backdrop { background: rgba(255, 0, 0, .25); }
+dialog::-webkit-non-standard { background: rgba(255, 0, 0, .25); }
+
+input::placeholder { color: red; }
+dialog::backdrop { background: rgba(255, 0, 0, .25); }
