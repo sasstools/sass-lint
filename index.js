@@ -254,7 +254,7 @@ sassLint.lintFiles = function (files, options, configPath) {
 sassLint.format = function (results, options, configPath) {
   var config = this.getConfig(options, configPath);
 
-  var formatted = getFormatter(config.options.formatter);
+  var formatted = getFormatter(config.options.formatter, config);
 
   return formatted(results);
 };
