@@ -6,7 +6,7 @@
   "scripts": {
     "preversion": "npm test",
     "pretest": "eslint .",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 3000 tests tests/rules tests/helpers",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 3000 tests tests/helpers tests/formatters tests/rules",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "bin": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/sasstools/sass-lint",
   "dependencies": {
+    "chalk": "^2.1.0",
     "commander": "^2.8.1",
     "front-matter": "^2.2.0",
     "fs-extra": "^4.0.1",
@@ -45,6 +46,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chalk": "^2.1.0",
+    "cheerio": "^1.0.0-rc.2",
     "coveralls": "^2.11.4",
     "deep-equal": "^1.0.1",
     "eslint": "^4.5.0",
