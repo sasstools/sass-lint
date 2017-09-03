@@ -1,4 +1,4 @@
-# No Property Vendor Prefix
+# No At Rule Vendor Prefix
 
 Rule `no-at-rule-vendor-prefix` will enforce that vendor prefixes for at rule names are not allowed to be used.
 We check against Autoprefixers list of prefixable at rule names from [caniuse.com](https://caniuse.com). If Autoprefixer would handle the prefixing of a at rule automatically for you it will be flagged as invalid here. If the prefixed at rule is non standard and Autoprefixer wouldn't handle this for you then this rule will allow it.
