@@ -16,20 +16,13 @@ var tooManyWarnings = function (detects, userConfig) {
   return warningCount > 0 && warningCount > userConfig.options['max-warnings'];
 };
 
-var detectPattern = function (pattern, userConfig) {
+var detectPattern = function (pattern) {
   var detects = lint.lintFiles(pattern, configOptions, configPath);
-
-  if (program.verbose) {
-    lint.outputResults(detects, configOptions, configPath);
-  }
-
-  if (lint.errorCount(detects).count || tooManyWarnings(detects, userConfig)) {
-    exitCode = 1;
-  }
 
   if (program.exit) {
     lint.failOnError(detects, configOptions, configPath);
   }
+  return detects;
 };
 
 program
@@ -72,17 +65,28 @@ if (program.maxWarnings && program.maxWarnings !== true) {
   configOptions.options['max-warnings'] = program.maxWarnings;
 }
 
-// load our config here so we only load it once for each file
-config = lint.getConfig(configOptions, configPath);
+(function () {
+  // load our config here so we only load it once for each file
+  config = lint.getConfig(configOptions, configPath);
+  var results = [];
 
-if (program.args.length === 0) {
-  detectPattern(null, config);
-}
-else {
-  program.args.forEach(function (path) {
-    detectPattern(path, config);
-  });
-}
+  if (program.args.length === 0) {
+    results = results.concat(detectPattern(null));
+  }
+  else {
+    program.args.forEach(function (path) {
+      results = results.concat(detectPattern(path));
+    });
+  }
+
+  if (program.verbose) {
+    lint.outputResults(results, configOptions, configPath);
+  }
+
+  if (lint.errorCount(results).count || tooManyWarnings(results, config)) {
+    exitCode = 1;
+  }
+}());
 
 process.on('exit', function () {
   process.exit(exitCode); // eslint-disable-line no-process-exit
