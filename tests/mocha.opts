@@ -1,0 +1,3 @@
+-R spec
+-t 3000
+tests tests/rules tests/helpers
