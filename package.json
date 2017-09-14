@@ -6,7 +6,7 @@
   "scripts": {
     "preversion": "npm test",
     "pretest": "eslint .",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 3000 tests tests/rules tests/helpers",
+    "test": "nyc mocha --opts tests/mocha.opts",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "bin": {
@@ -29,7 +29,6 @@
   "homepage": "https://github.com/sasstools/sass-lint",
   "dependencies": {
     "commander": "^2.8.1",
-    "eslint": "^4.5.0",
     "front-matter": "^2.2.0",
     "fs-extra": "^4.0.1",
     "glob": "^7.0.0",
@@ -46,11 +45,17 @@
   "devDependencies": {
     "coveralls": "^2.11.4",
     "deep-equal": "^1.0.1",
-    "istanbul": "^0.4.0",
+    "eslint": "^4.6.1",
     "mocha": "^3.0.1",
+    "nyc": "^11.2.1",
     "sinon": "^3.2.1"
   },
   "engines": {
     "node": ">=4"
+  },
+  "nyc": {
+    "reporter": [
+      "lcovonly"
+    ]
   }
 }
