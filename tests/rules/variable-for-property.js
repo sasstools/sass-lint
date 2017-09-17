@@ -46,6 +46,59 @@ describe('variable for property - scss', function () {
         }
       ]
     }, function (data) {
+      lint.assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('[properties: [\'color\'], allow-map-get: true]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ],
+          'allow-map-get': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('[properties: [\'color\'], allow-map-get: false]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ],
+          'allow-map-get': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('[properties: [\'color\'], allowed-functions: [\'my-map-func\']]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ],
+          'allowed-functions': [
+            'my-map-func'
+          ]
+        }
+      ]
+    }, function (data) {
       lint.assert.equal(1, data.warningCount);
       done();
     });
@@ -92,6 +145,59 @@ describe('variable for property - sass', function () {
         {
           'properties': [
             'color'
+          ]
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('[properties: [\'color\'], allow-map-get: true]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ],
+          'allow-map-get': true
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(2, data.warningCount);
+      done();
+    });
+  });
+
+  it('[properties: [\'color\'], allow-map-get: false]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ],
+          'allow-map-get': false
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(3, data.warningCount);
+      done();
+    });
+  });
+
+  it('[properties: [\'color\'], allowed-functions: [\'my-map-func\']]', function (done) {
+    lint.test(file, {
+      'variable-for-property': [
+        1,
+        {
+          'properties': [
+            'color'
+          ],
+          'allowed-functions': [
+            'my-map-func'
           ]
         }
       ]
