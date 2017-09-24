@@ -263,4 +263,18 @@ describe('empty line between blocks - sass', function () {
       done();
     });
   });
+
+  it('does not throw an error when missing a space', function (done) {
+    var file = lint.file('empty-line-adjacent-to-include.sass');
+
+    var test = function () {
+      lint.test(file, {
+        'empty-line-between-blocks': [1]
+      }, function () {
+        done();
+      });
+    };
+
+    lint.assert.doesNotThrow(test);
+  });
 });
