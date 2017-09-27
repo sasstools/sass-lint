@@ -30,7 +30,7 @@ describe('no disallowed property values - scss', function () {
         1,
         {
           properties: {
-            'display': ['inline']
+            'display': 'inline'
           }
         }
       ]
@@ -69,7 +69,7 @@ describe('no disallowed property values - sass', function () {
         1,
         {
           properties: {
-            'display': ['inline']
+            'display': 'inline'
           }
         }
       ]
