@@ -30,6 +30,22 @@ describe('no disallowed property values - scss', function () {
         1,
         {
           properties: {
+            'display': ['inline']
+          }
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  it('properties: { display: inline }', function (done) {
+    lint.test(file, {
+      'no-disallowed-property-values': [
+        1,
+        {
+          properties: {
             'display': 'inline'
           }
         }
@@ -64,6 +80,22 @@ describe('no disallowed property values - sass', function () {
   });
 
   it('properties: { display: [inline] }', function (done) {
+    lint.test(file, {
+      'no-disallowed-property-values': [
+        1,
+        {
+          properties: {
+            'display': ['inline']
+          }
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(1, data.warningCount);
+      done();
+    });
+  });
+
+  it('properties: { display: inline }', function (done) {
     lint.test(file, {
       'no-disallowed-property-values': [
         1,
