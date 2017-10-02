@@ -1,0 +1,20 @@
+$foo: 1px;
+$bar: 2px;
+
+@function my-fn() {
+  @return '2px';
+}
+
+.foo {
+  width: calc( #{$foo} + #{$bar} );
+}
+
+.bar {
+  width: calc( my-fn() + #{$foo} );
+}
+
+
+// values are added at compile time
+.baz {
+  width: calc( $foo + $bar );
+}
