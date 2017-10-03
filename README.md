@@ -21,7 +21,7 @@ npm install sass-lint --save-dev
 
 ## Configuring
 
-Sass-lint can be configured from a `.sass-lint.yml` file in your project. If you don't have one in the root of your project or you would like all your projects to follow a standard config file then you can specify the path to one in your project's `package.json` file.
+Sass-lint can be configured from a `.sass-lint.yml` or `.sasslintrc` file in your project. The `.sasslintrc` file can be in either JSON format or YAML. Both formats are interchangeable easily using tools such as [json2yaml](https://www.json2yaml.com/). If you don't either file in the root of your project or you would like all your projects to follow a standard config file then you can specify the path to one in your project's `package.json` file with the `sasslintConfig` option.
 
 For example:
 ```javascript
@@ -32,7 +32,7 @@ For example:
 }
 ```
 
-Use the [Sample Config](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) as a guide to create your own `.sass-lint.yml` config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
+Use the [Sample Config (YAML)](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) or [Sample Config (JSON)](https://github.com/sasstools/sass-lint/tree/master/docs/sasslintrc) as a guide to create your own config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
 
 ### [Configuration Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/options)
 
@@ -47,7 +47,6 @@ The following are options that you can use to config the Sass Linter.
 * [formatter](https://github.com/sasstools/sass-lint/tree/master/docs/options/formatter.md) - Choose the format for any warnings/errors to be displayed
 * [merge-default-rules](https://github.com/sasstools/sass-lint/tree/master/docs/options/merge-default-rules.md) - Allows you to merge your rules with the default config file included with sass-lint
 * [output-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/output-file.md) - Choose to write the linters output to a file
-
 
 #### Files
 
@@ -283,6 +282,10 @@ Our AST is [Gonzales-PE](https://github.com/tonyganch/gonzales-pe/tree/dev). Eac
 
 * [Gulp](https://www.npmjs.com/package/gulp-sass-lint)
 * [Grunt](https://github.com/sasstools/grunt-sass-lint)
+
+## Module Bundler Integration
+
+* [rollup.js](https://github.com/kopacki/rollup-plugin-sass-lint)
 
 ## IDE Integration
 

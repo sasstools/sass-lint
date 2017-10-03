@@ -122,3 +122,13 @@ $black: #000;
 .rgba-enabled {
   color: rgba($hexVar, .3);
 }
+
+.some-element {
+    border-bottom: 1px solid rgba($light-gray, .5);
+    color: rgba(shade($some-color), 0.5); // functions should be allowed as rgba params
+}
+
+.color {
+  border: 1px solid var(--white);
+  color: rgba(var(--my-color), 0.5);
+}

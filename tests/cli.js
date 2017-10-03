@@ -262,6 +262,47 @@ describe('cli', function () {
     });
   });
 
+  // Test default config files
+
+  it('should return JSON from .sass-lint.yml', function (done) {
+    var command = 'node ../../../bin/sass-lint ../../cli/cli.scss --verbose';
+
+    exec(command, { cwd: path.join(__dirname, 'yml', '.sass-lint.yml') }, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+      else {
+        try {
+          JSON.parse(stdout);
+          return done();
+        }
+        catch (e) {
+          return done(new Error('Not JSON'));
+        }
+      }
+    });
+  });
+
+  it('should return JSON from .sasslintrc', function (done) {
+    var command = 'node ../../../bin/sass-lint ../../cli/cli.scss -c ".sasslintrc" --verbose';
+
+    exec(command, { cwd: path.join(__dirname, 'yml', '.sasslintrc') }, function (err, stdout) {
+      if (err) {
+        return done(err);
+      }
+      else {
+        try {
+          JSON.parse(stdout);
+          return done();
+        }
+        catch (e) {
+          return done(new Error('Not JSON'));
+        }
+      }
+    });
+  });
+
   // Test custom config path
 
   it('should return JSON from a custom config', function (done) {

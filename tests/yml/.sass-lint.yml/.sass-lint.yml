@@ -1,0 +1,8 @@
+options:
+  formatter: json
+  cache-config: false
+  merge-default-rules: false
+files:
+  include: '**/*.s+(a|c)ss'
+rules:
+  no-color-keywords: 1
