@@ -150,6 +150,29 @@ describe('cli', function () {
     });
   });
 
+  it('CLI format option should output valid JSON', function (done) {
+    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/*.scss --verbose --format json';
+
+    exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+      else {
+        try {
+          var result = JSON.parse(stdout);
+          if (result && result.length && result.length > 1) {
+            return done();
+          }
+          return done(new Error('Output is not combined'));
+        }
+        catch (e) {
+          return done(new Error('Not JSON'));
+        }
+      }
+    });
+  });
+
   it('CLI output option should write to test file', function (done) {
     var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
