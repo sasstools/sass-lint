@@ -1,0 +1,14 @@
+.github
+coverage
+docs
+tests
+.editorconfig
+.eslintrc
+.gitignore
+.npmignore
+.npmrc
+.travis.yml
+.nvmrc
+appveyor.yml
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md

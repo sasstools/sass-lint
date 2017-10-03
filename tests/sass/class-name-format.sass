@@ -94,3 +94,20 @@
 
 .strict-bem__elem_key--fail
   color: red
+
+
+// Issue #988 - Fix interpolation in class names
+
+.#{$primary-class}--small
+  color: red
+
+  &__child
+    color: red
+
+.test
+  &#{$primary-class}
+    color: red
+
+  &__block
+    &--mod
+      color: blue
