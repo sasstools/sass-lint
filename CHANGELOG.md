@@ -6,8 +6,8 @@
 
 **Fixes**
 * Fixed an issue with custom properties being flagged in the misspelled-properties rule [#1122](https://github.com/sasstools/sass-lint/pull/1122)
-* Fixed an issue where custom properties with colors in their name would be flagged as invalid by no-color-keywords [#1124](https://github.com/sasstools/sass-lint/pull/1124/files)
-* Fixed a crash in empty-line-between-blocks where acessing the content of a parent node of type string would throw an error [#1125](https://github.com/sasstools/sass-lint/pull/1125/files)
+* Fixed an issue where custom properties with colors in their name would be flagged as invalid by no-color-keywords [#1124](https://github.com/sasstools/sass-lint/pull/1124)
+* Fixed a crash in empty-line-between-blocks where acessing the content of a parent node of type string would throw an error [#1125](https://github.com/sasstools/sass-lint/pull/1125)
 * Functions and custom properties were being incorrectly flagged as invalid within rgba functions for no-color-literals [#1127](https://github.com/sasstools/sass-lint/pull/1127)
 * Fixed an incorrect warning in space-after-colon when using `@at-root` [#1129](https://github.com/sasstools/sass-lint/pull/1129)
 * Fixed an issue where interpolation was incorrectly flagging within the class-name-format rule [#1131](https://github.com/sasstools/sass-lint/pull/1131)
