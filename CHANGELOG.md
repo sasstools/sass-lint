@@ -1,5 +1,24 @@
 # Sass Lint Changelog
 
+## v1.12.0
+
+**October 3rd, 2017**
+
+**Fixes**
+* Fixed an issue with custom properties being flagged in the misspelled-properties rule [#1122](https://github.com/sasstools/sass-lint/pull/1122)
+* Fixed an issue where custom properties with colors in their name would be flagged as invalid by no-color-keywords [#1124](https://github.com/sasstools/sass-lint/pull/1124)
+* Fixed a crash in empty-line-between-blocks where acessing the content of a parent node of type string would throw an error [#1125](https://github.com/sasstools/sass-lint/pull/1125)
+* Functions and custom properties were being incorrectly flagged as invalid within rgba functions for no-color-literals [#1127](https://github.com/sasstools/sass-lint/pull/1127)
+* Fixed an incorrect warning in space-after-colon when using `@at-root` [#1129](https://github.com/sasstools/sass-lint/pull/1129)
+* Fixed an issue where interpolation was incorrectly flagging within the class-name-format rule [#1131](https://github.com/sasstools/sass-lint/pull/1131)
+
+
+**New Features**
+* Rollup.js integration added to integration list
+* Added an npmignore to remove unnecessary dev files from a sass-lint install / release [#1132](https://github.com/sasstools/sass-lint/pull/1132)
+* Added basic support for a `.sasslintrc` json config file [#1135](https://github.com/sasstools/sass-lint/pull/1135)
+* Added two new options to the variable-for-property rule - [allow-map-get](https://github.com/sasstools/sass-lint/blob/master/docs/rules/variable-for-property.md#allow-map-get-true) & [allowed-functions](https://github.com/sasstools/sass-lint/blob/master/docs/rules/variable-for-property.md#allowed-functions-) - [#1128](https://github.com/sasstools/sass-lint/pull/1128)
+
 ## v1.11.1
 
 **August 28th, 2017**
