@@ -72,7 +72,7 @@ When `style: '1tbs'`, the following are allowed. When `style: 'stroustrup'` or `
 }
 ```
 
-When `style: 'stroustrup'`, the following are allowed. When `style: '1tbs'` or `style: 'stroustrup'`, the following are disallowed:
+When `style: 'stroustrup'` or `style: 'allman'`, the following are allowed. When `style: '1tbs'`, the following are disallowed:
 
 ```scss
 @if ($foo) {
