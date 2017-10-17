@@ -29,9 +29,9 @@
   "homepage": "https://github.com/sasstools/sass-lint",
   "dependencies": {
     "commander": "^2.8.1",
-    "eslint": "^2.7.0",
-    "front-matter": "2.1.2",
-    "fs-extra": "^3.0.1",
+    "eslint": "^4.5.0",
+    "front-matter": "^2.2.0",
+    "fs-extra": "^4.0.1",
     "glob": "^7.0.0",
     "globule": "^1.0.0",
     "gonzales-pe-sl": "^4.2.3",
@@ -48,6 +48,9 @@
     "deep-equal": "^1.0.1",
     "istanbul": "^0.4.0",
     "mocha": "^3.0.1",
-    "sinon": "^2.3.2"
+    "sinon": "^3.2.1"
+  },
+  "engines": {
+    "node": ">=4"
   }
 }
