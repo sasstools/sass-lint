@@ -6,6 +6,7 @@ Rule `property-sort-order` will enforce the order in which declarations are writ
 
 * `order`: `'alphabetical'`, [`'concentric'`](http://rhodesmill.org/brandon/2011/concentric-css/), [`'recess'`](http://twitter.github.io/recess/), [`'smacss'`](http://smacss.com/book/formatting), or `[array of properties]` (defaults to `alphabetical`. Unknown properties are sorted alphabetically)
 * `ignore-custom-properties`: `true`/`false` (defaults to `false`)
+* `display-mode`: `lines`/`blocks` (defaults to `lines`)
 
 Property orders: https://github.com/sasstools/sass-lint/tree/develop/lib/config/property-sort-orders
 
@@ -99,3 +100,64 @@ When `ignore-custom-properties: true` (assume `order: 'alphabetical'`) the follo
   display: block;
 }
 ```
+
+### Display Mode
+When `display-mode: lines` every property is reported in separate message.
+
+```scss
+.foo {
+  height: 100vh;
+  display: block;
+  width: 100vw;
+  border: 1px;
+}
+```
+
+```yaml
+property-sort-order:
+  - 1
+  -
+    order:
+      - height
+      - width
+      - display
+      - color
+    display-mode: lines
+```
+
+Results:
+```
+Expected `width`, found `display`
+Expected `display`, found `width`
+```
+
+When `display-mode: blocks` linter tries to detect and report whole block.
+
+Example:
+
+```scss
+.foo {
+  height: 100vh;
+  display: block;
+  width: 100vw;
+  border: 1px;
+}
+```
+
+```yaml
+property-sort-order:
+  - 1
+  -
+    order:
+      - height
+      - width
+      - display
+      - color
+    display-mode: blocks
+```
+
+Results:
+```
+Expected order `width, display`, found `display, width`
+```
+
