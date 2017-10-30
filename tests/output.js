@@ -29,9 +29,17 @@ var results = [{
   ]
 }];
 
+var successResults = [{
+  filePath: 'sass/empty-line-between-blocks.scss',
+  warningCount: 0,
+  errorCount: 0,
+  messages: []
+}];
+
 var styled = {
   'stylish': stylish(results),
-  'json': jason(results)
+  'json': jason(results),
+  'stylishSuccess': stylish(successResults)
 };
 
 describe('output', function () {
@@ -74,5 +82,36 @@ describe('output', function () {
     assert.equal(styled.json, output);
 
     done();
+  });
+
+  it.only('should output on success if configured to do so', function (done) {
+    var formatted = lint.outputResults(successResults, {
+      'options': {
+        'verbose-success': true,
+        'cache-config': false
+      }
+    });
+
+    console.log(formatted);
+
+    assert.equal(styled.stylishSuccess, formatted);
+
+    done();
+    // var options = {
+    //   'options': {
+    //     'verbose-success': true,
+    //     'cache-config': false
+    //   }
+    // };
+    //
+    // var outPath = path.resolve(process.cwd(), options.options['output-file']),
+    //     output = lint.outputResults(succesResults, options);
+    //
+    // output = fs.readFileSync(outPath, 'utf-8');
+    // fs.removeSync(outPath);
+    //
+    // assert.equal(styled.succesResults, output);
+    //
+    // done();
   });
 });

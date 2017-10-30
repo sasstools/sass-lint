@@ -23,7 +23,7 @@ var sassLint = function (config) { // eslint-disable-line no-unused-vars
  * Takes any user specified options and a configPath
  * which returns a compiled config object
  *
- * @param {object} config user specified rules/options passed in
+ * @param {object} config user specified rules/options p assed in
  * @param {string} configPath path to a config file
  * @returns {object} the compiled config object
  */
@@ -271,7 +271,7 @@ sassLint.format = function (results, options, configPath) {
 sassLint.outputResults = function (results, options, configPath) {
   var config = this.getConfig(options, configPath);
 
-  if (this.resultCount(results)) {
+  if (this.resultCount(results) || config.options['verbose-success']) {
 
     var formatted = this.format(results, options, configPath);
 

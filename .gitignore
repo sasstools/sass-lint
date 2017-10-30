@@ -30,3 +30,6 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+#Editor specific folders
+.idea
