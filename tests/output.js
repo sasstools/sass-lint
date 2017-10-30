@@ -39,7 +39,7 @@ var successResults = [{
 var styled = {
   'stylish': stylish(results),
   'json': jason(results),
-  'stylishSuccess': stylish(successResults)
+  'jsonSuccess': jason(successResults)
 };
 
 describe('output', function () {
@@ -58,6 +58,8 @@ describe('output', function () {
         'cache-config': false
       }
     });
+    console.log(styled.json);
+    console.log(formatted);
 
     assert.equal(styled.json, formatted);
 
@@ -84,34 +86,42 @@ describe('output', function () {
     done();
   });
 
-  it.only('should output on success if configured to do so', function (done) {
-    var formatted = lint.outputResults(successResults, {
+  it.only('should output on success if configured', function (done) {
+    var options = {
       'options': {
+        'formatter': 'json',
+        'output-file': 'tests/output.json',
         'verbose-success': true,
         'cache-config': false
       }
-    });
+    };
 
-    console.log(formatted);
+    var outPath = path.resolve(process.cwd(), options.options['output-file']),
+      output = lint.outputResults(successResults, options);
 
-    assert.equal(styled.stylishSuccess, formatted);
+    output = fs.readFileSync(outPath, 'utf-8');
+    fs.removeSync(outPath);
+
+    assert.equal(styled.jsonSuccess, output);
 
     done();
-    // var options = {
-    //   'options': {
-    //     'verbose-success': true,
-    //     'cache-config': false
-    //   }
-    // };
-    //
-    // var outPath = path.resolve(process.cwd(), options.options['output-file']),
-    //     output = lint.outputResults(succesResults, options);
-    //
-    // output = fs.readFileSync(outPath, 'utf-8');
-    // fs.removeSync(outPath);
-    //
-    // assert.equal(styled.succesResults, output);
-    //
-    // done();
+  });
+
+  it.only('should not output on success by default', function (done) {
+    var options = {
+      'options': {
+        'formatter': 'json',
+        'output-file': 'tests/output.json',
+        'cache-config': false
+      }
+    };
+
+    var outPath = path.resolve(process.cwd(), options.options['output-file']),
+      output = lint.outputResults(successResults, options);
+
+    output = fs.existsSync(outPath);
+    assert.equal(false, output);
+
+    done();
   });
 });
