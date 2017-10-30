@@ -2,16 +2,16 @@
 
 var assert = require('assert'),
     helpers = require('../../lib/helpers'),
-    gonzales = require('gonzales-pe');
+    gonzales = require('gonzales-pe-sl');
 
 var lfBlock = gonzales.createNode(
-  {
-    type: 'space',
-    content: '\n',
-    syntax: 'scss',
-    start: { line: 1, column: 1 },
-    end: { line: 2, column: 1 }
-  }),
+      {
+        type: 'space',
+        content: '\n',
+        syntax: 'scss',
+        start: { line: 1, column: 1 },
+        end: { line: 2, column: 1 }
+      }),
     crlfBlock = gonzales.createNode(
       {
         type: 'space',
