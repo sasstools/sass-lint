@@ -58,8 +58,6 @@ describe('output', function () {
         'cache-config': false
       }
     });
-    console.log(styled.json);
-    console.log(formatted);
 
     assert.equal(styled.json, formatted);
 
