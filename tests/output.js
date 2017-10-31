@@ -84,7 +84,7 @@ describe('output', function () {
     done();
   });
 
-  it.only('should output on success if configured', function (done) {
+  it('should output on success if configured', function (done) {
     var options = {
       'options': {
         'formatter': 'json',
@@ -95,7 +95,7 @@ describe('output', function () {
     };
 
     var outPath = path.resolve(process.cwd(), options.options['output-file']),
-      output = lint.outputResults(successResults, options);
+        output = lint.outputResults(successResults, options);
 
     output = fs.readFileSync(outPath, 'utf-8');
     fs.removeSync(outPath);
@@ -105,7 +105,7 @@ describe('output', function () {
     done();
   });
 
-  it.only('should not output on success by default', function (done) {
+  it('should not output on success by default', function (done) {
     var options = {
       'options': {
         'formatter': 'json',
@@ -115,7 +115,7 @@ describe('output', function () {
     };
 
     var outPath = path.resolve(process.cwd(), options.options['output-file']),
-      output = lint.outputResults(successResults, options);
+        output = lint.outputResults(successResults, options);
 
     output = fs.existsSync(outPath);
     assert.equal(false, output);
