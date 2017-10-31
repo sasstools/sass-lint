@@ -264,7 +264,7 @@ sassLint.format = function (results, options, configPath) {
  * Passes results to the format function to ensure results are output in the chosen format
  *
  * @param {Array} results our results array
- * @param {object} options user specified rules/options passed in
+ * @param {object} options user specified rules/options pa ssed in
  * @param {string} configPath path to a config file
  * @returns {string} the formatted results string
  */
