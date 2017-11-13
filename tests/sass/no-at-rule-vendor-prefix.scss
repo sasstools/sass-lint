@@ -1,0 +1,27 @@
+@-webkit-keyframes test {
+  0% {
+    top: 0;
+  }
+}
+
+@-ms-viewport {
+  orientation: landscape;
+}
+
+@-non-standard {
+  orientation: landscape;
+}
+
+@-non-standard-2 {
+  orientation: landscape;
+}
+
+@keyframes test2 {
+  0% {
+    top: 0;
+  }
+}
+
+@viewport {
+  orientation: landscape;
+}

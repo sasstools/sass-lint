@@ -40,9 +40,15 @@ rules:
   no-universal-selectors: 0
   no-url-domains: 1
   no-url-protocols: 1
-  no-vendor-prefixes: 1
   no-warn: 1
   property-units: 0
+
+  # No Vendor Prefixes
+  no-selector-vendor-prefix: 1
+  no-property-vendor-prefix: 1
+  no-value-vendor-prefix: 1
+  no-media-feature-vendor-prefix: 1
+  no-at-rule-vendor-prefix: 1
 
   # Nesting
   declarations-before-nesting: 1
