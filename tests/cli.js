@@ -1,7 +1,7 @@
-var assert = require('assert'),
-    fs = require('fs-extra'),
-    path = require('path'),
-    exec = require('child_process').exec;
+const assert = require('assert');
+const fs = require('fs-extra');
+const path = require('path');
+const exec = require('child_process').exec;
 
 describe('cli', function () {
 
