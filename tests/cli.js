@@ -229,34 +229,42 @@ describe('cli', function () {
     });
   });
 
-  it('CLI output option should write JSON to test file when upper case format is used', function (done) {
-    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format JSON --output tests/cli-output.json',
-        outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
+  // Test default config files
 
-    exec(command, function (err) {
+  it('should return JSON from .sass-lint.yml', function (done) {
+    var command = 'node ../../../bin/sass-lint ../../cli/cli.scss --verbose';
+
+    exec(command, { cwd: path.join(__dirname, 'yml', '.sass-lint.yml') }, function (err, stdout) {
 
       if (err) {
         return done(err);
       }
       else {
-        var contents = fs.readFileSync(outputFile, 'utf8');
-
-        if (contents.length > 0) {
-
-          try {
-            JSON.parse(contents);
-            fs.removeSync(outputFile);
-            return done();
-          }
-          catch (e) {
-            fs.removeSync(outputFile);
-            return done(new Error('Written file is not in JSON format'));
-          }
-
+        try {
+          JSON.parse(stdout);
+          return done();
         }
-        else {
-          fs.removeSync(outputFile);
-          return done(new Error(outputFile + 'is empty'));
+        catch (e) {
+          return done(new Error('Not JSON'));
+        }
+      }
+    });
+  });
+
+  it('should return JSON from .sasslintrc', function (done) {
+    var command = 'node ../../../bin/sass-lint ../../cli/cli.scss -c ".sasslintrc" --verbose';
+
+    exec(command, { cwd: path.join(__dirname, 'yml', '.sasslintrc') }, function (err, stdout) {
+      if (err) {
+        return done(err);
+      }
+      else {
+        try {
+          JSON.parse(stdout);
+          return done();
+        }
+        catch (e) {
+          return done(new Error('Not JSON'));
         }
       }
     });

@@ -14,3 +14,17 @@
 
 $qux: 'qux';
 $norf:'norf';
+
+.foo {
+    @at-root button#{&}:hover {
+    }
+}
+
+.foo:hover {
+  @include test;
+}
+
+$map: {
+  test:'red',
+  other: blue,
+}

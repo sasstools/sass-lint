@@ -2,7 +2,7 @@
 
 var assert = require('assert'),
     helpers = require('../../lib/helpers'),
-    gonzales = require('gonzales-pe');
+    gonzales = require('gonzales-pe-sl');
 
 describe('helpers - attemptTraversal', function () {
 

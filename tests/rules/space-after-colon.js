@@ -12,7 +12,7 @@ describe('space after colon - scss', function () {
     lint.test(file, {
       'space-after-colon': 1
     }, function (data) {
-      lint.assert.equal(3, data.warningCount);
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
@@ -26,7 +26,7 @@ describe('space after colon - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(4, data.warningCount);
+      lint.assert.equal(6, data.warningCount);
       done();
     });
   });
