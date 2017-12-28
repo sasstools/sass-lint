@@ -37,7 +37,7 @@
     "gonzales-pe-sl": "^4.2.3",
     "gray-matter": "^3.1.1",
     "js-yaml": "^3.5.4",
-    "known-css-properties": "^0.4.1",
+    "known-css-properties": "^0.5.0",
     "lodash.capitalize": "^4.1.0",
     "lodash.kebabcase": "^4.0.0",
     "lodash.map": "^4.6.0",
