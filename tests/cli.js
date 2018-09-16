@@ -13,7 +13,7 @@ describe('cli', function () {
         return done(err);
       }
 
-      assert(stdout.indexOf('Usage') > 0);
+      assert(stdout.indexOf('Usage') > -1);
 
       return done();
     });
