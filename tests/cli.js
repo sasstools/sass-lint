@@ -450,6 +450,20 @@ describe('cli', function () {
     });
   });
 
+  it('should not throw an error on program.exit', function (done) {
+    var command = 'node bin/sass-lint tests/cli/cli-error.scss -c tests/yml/.error-output.yml --verbose';
+
+    exec(command, function (err, stdout, stderr) {
+      if (!err) {
+        return done();
+      }
+
+      assert(stderr.indexOf('throw') < 0);
+
+      return done();
+    });
+  });
+
   /**
    * We disabled eslints handle callback err rule here as we are deliberately throwing errors that we don't care about
    */
