@@ -9,7 +9,8 @@ var slConfig = require('./lib/config'),
     glob = require('glob'),
     path = require('path'),
     fs = require('fs-extra'),
-    globule = require('globule');
+    globule = require('globule'),
+    getFormatter = require('./lib/format/getFormatter');
 
 var getToggledRules = ruleToggler.getToggledRules,
     isResultEnabled = ruleToggler.isResultEnabled;
@@ -251,10 +252,9 @@ sassLint.lintFiles = function (files, options, configPath) {
  * @returns {string} results our results object in the user specified format
  */
 sassLint.format = function (results, options, configPath) {
-  var config = this.getConfig(options, configPath),
-      format = config.options.formatter.toLowerCase();
+  var config = this.getConfig(options, configPath);
 
-  var formatted = require('eslint/lib/formatters/' + format);
+  var formatted = getFormatter(config.options.formatter, config);
 
   return formatted(results);
 };

@@ -1,5 +1,12 @@
 # Sass Lint Changelog
 
+## v1.12.1
+
+**October 17th, 2017**
+
+**Fixes**
+* Temporarily move to our gonzales-pe-sl fork to publish fixes that currently don't exist on the gonzales-pe published version
+
 ## v1.12.0
 
 **October 3rd, 2017**
