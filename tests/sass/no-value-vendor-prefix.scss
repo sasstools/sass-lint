@@ -1,4 +1,4 @@
-.foo { display: -webkit-flex; }
+.foo { display: -webkit-flex; --css-variable: 1px; }
 .bar { max-width: -moz-max-content; }
 .baz { background: -webkit-linear-gradient(bottom, #000, #fff); }
 .non-standard {display: -webkit-non-standard}
