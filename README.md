@@ -32,7 +32,7 @@ For example:
 }
 ```
 
-Use the [Sample Config (YAML)](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) or [Sample Config (JSON)](https://github.com/sasstools/sass-lint/tree/master/docs/.sasslintrc) as a guide to create your own config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
+Use the [Sample Config (YAML)](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) or [Sample Config (JSON)](https://github.com/sasstools/sass-lint/blob/develop/docs/.sasslintrc) as a guide to create your own config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
 
 ### [Configuration Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/options)
 
