@@ -53,8 +53,8 @@
     "coveralls": "^3.0.0",
     "deep-equal": "^1.0.1",
     "eslint": "^4.5.0",
-    "istanbul": "^0.4.0",
-    "mocha": "^4.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
     "proxyquire": "^1.8.0",
     "sinon": "^4.1.2",
     "strip-ansi": "^4.0.0"
