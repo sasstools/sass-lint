@@ -85,8 +85,7 @@ Here is an example configuration of a rule, where we are specifying that breakin
 rules:
   indentation:
     - 2
-    -
-      size: 2
+    - size: 2
 ```
 
 ### [Rules Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
