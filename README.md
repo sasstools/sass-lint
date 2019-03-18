@@ -32,7 +32,7 @@ For example:
 }
 ```
 
-Use the [Sample Config (YAML)](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) or [Sample Config (JSON)](https://github.com/sasstools/sass-lint/tree/master/docs/sasslintrc) as a guide to create your own config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
+Use the [Sample Config (YAML)](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) or [Sample Config (JSON)](https://github.com/sasstools/sass-lint/blob/develop/docs/.sasslintrc) as a guide to create your own config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
 
 ### [Configuration Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/options)
 
@@ -44,6 +44,7 @@ The following are options that you can use to config the Sass Linter.
 
 * [cache-config](https://github.com/sasstools/sass-lint/tree/master/docs/options/cache-config.md) - Allows you to cache your config for a small speed boost when not changing the contents of your config file
 * [config-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/config-file.md) - Specify another config file to load
+* [cwd](https://github.com/sasstools/sass-lint/tree/master/docs/options/cwd.md) - Specify a directory to treat as the current working directory - formatters only for now
 * [formatter](https://github.com/sasstools/sass-lint/tree/master/docs/options/formatter.md) - Choose the format for any warnings/errors to be displayed
 * [merge-default-rules](https://github.com/sasstools/sass-lint/tree/master/docs/options/merge-default-rules.md) - Allows you to merge your rules with the default config file included with sass-lint
 * [output-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/output-file.md) - Choose to write the linters output to a file
