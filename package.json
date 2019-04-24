@@ -9,8 +9,7 @@
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --opts mocha.opts --timeout 10000",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once",
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "travis-deploy-once": "travis-deploy-once"
   },
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
@@ -81,7 +80,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run pretest",
-      "pre-push": "npm run preversion"
+      "pre-push": "npm run preversion",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
   "release": {
