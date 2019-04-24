@@ -6,7 +6,7 @@
   "scripts": {
     "preversion": "npm test",
     "pretest": "eslint .",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --opts mocha.opts",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --opts mocha.opts --timeout 10000",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once",
