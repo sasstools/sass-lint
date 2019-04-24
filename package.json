@@ -8,8 +8,7 @@
     "pretest": "eslint .",
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --opts mocha.opts --timeout 10000",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "semantic-release": "semantic-release"
   },
   "bin": {
     "sass-lint": "./bin/sass-lint.js"
@@ -63,10 +62,9 @@
     "lint-staged": "^8.1.5",
     "mocha": "^5.2.0",
     "proxyquire": "^1.8.0",
-    "semantic-release": "^15.13.3",
+    "semantic-release": "^15.13.12",
     "sinon": "^4.1.2",
-    "strip-ansi": "^4.0.0",
-    "travis-deploy-once": "^5.0.11"
+    "strip-ansi": "^4.0.0"
   },
   "engines": {
     "node": ">=6"
