@@ -68,6 +68,15 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+    it('should be able to disable next line', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-disable-next-line.scss');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 3, 1], [true, 4, 1]]
+        }
+      }) === true);
+    });
     it('should be able to disable a block of code', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-a-block.scss');
       assert(deepEqual(ruleToggles, {
