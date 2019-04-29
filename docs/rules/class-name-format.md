@@ -5,7 +5,7 @@ Rule `class-name-format` will enforce a convention for class names.
 ## Options
 
 * `allow-leading-underscore`: `true`/`false` (defaults to `true`)
-* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `snakecase`, [`strictbem`](https://en.bem.info/method/definitions/),
+* `convention`: `'hyphenatedlowercase'` (default), `camelcase`, `pascalcase`, `snakecase`, [`strictbem`](https://en.bem.info/method/definitions/),
 [`hyphenatedbem`](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/),
 or a Regular Expression that the class name must match (e.g. `^[_A-Z]+$`)
 * `convention-explanation`: Custom explanation to display to the user if a class doesn't adhere to the convention
