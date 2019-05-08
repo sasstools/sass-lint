@@ -310,7 +310,8 @@ sassLint.failOnError = function (results, options, configPath) {
       configOptions = this.getConfig(options, configPath).options;
 
   if (errorCount.count > 0) {
-    throw new exceptions.SassLintFailureError(errorCount.count + ' errors were detected in \n- ' + errorCount.files.join('\n- '));
+    const pluralized = errorCount.count === 1 ? 'error was' : 'errors were';
+    throw new exceptions.SassLintFailureError(errorCount.count + ' ' + pluralized + ' detected in \n- ' + errorCount.files.join('\n- '));
   }
 
   if (!isNaN(configOptions['max-warnings']) && warningCount.count > configOptions['max-warnings']) {
