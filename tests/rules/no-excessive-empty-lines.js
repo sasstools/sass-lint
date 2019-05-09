@@ -5,14 +5,14 @@ var lint = require('./_lint');
 //////////////////////////////
 // SCSS syntax tests
 //////////////////////////////
-describe('no multiple empty lines - scss', function () {
-  var file = lint.file('no-multiple-empty-lines.scss');
+describe('no excessive empty lines - scss', function () {
+  var file = lint.file('no-excessive-empty-lines.scss');
 
   it('enforce', function (done) {
     lint.test(file, {
-      'no-multiple-empty-lines': 1
+      'no-excessive-empty-lines': 1
     }, function (data) {
-      lint.assert.equal(5, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
@@ -21,14 +21,14 @@ describe('no multiple empty lines - scss', function () {
 //////////////////////////////
 // Sass syntax tests
 //////////////////////////////
-describe('no multiple empty lines - sass', function () {
-  var file = lint.file('no-multiple-empty-lines.sass');
+describe('no excessive empty lines - sass', function () {
+  var file = lint.file('no-excessive-empty-lines.sass');
 
   it('enforce', function (done) {
     lint.test(file, {
-      'no-multiple-empty-lines': 1
+      'no-excessive-empty-lines': 1
     }, function (data) {
-      lint.assert.equal(11, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });

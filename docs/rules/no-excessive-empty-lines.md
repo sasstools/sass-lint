@@ -1,6 +1,10 @@
-# No Multiple Empty Lines
+# No Excessive Empty Lines
 
-Rule `no-multiple-empty-lines` will disallow multiple consecutive empty lines.
+Rule `no-excessive-empty-lines` will disallow excessive amounts of empty lines.
+
+- Consecutive blank lines are not allowed
+- Blank lines at the start of a block are not allowed
+- Blank lines at the end of a block are not allowed
 
 ## Examples
 
@@ -29,6 +33,7 @@ When enabled the following are disallowed:
 
   .waldo {
     content: 'where'
+
   }
 }
 
