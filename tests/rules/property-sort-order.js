@@ -132,6 +132,20 @@ describe('property sort order - scss', function () {
       done();
     });
   });
+
+  it('[order: tjw]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': 'tjw'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(14, data.warningCount);
+      done();
+    });
+  });
 });
 
 //////////////////////////////
@@ -257,6 +271,20 @@ describe('property sort order - sass', function () {
         1,
         {
           'order': 'concentric'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(14, data.warningCount);
+      done();
+    });
+  });
+
+  it('[order: tjw]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': 'tjw'
         }
       ]
     }, function (data) {
