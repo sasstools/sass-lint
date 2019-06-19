@@ -4,7 +4,7 @@ Rule `property-sort-order` will enforce the order in which declarations are writ
 
 ## Options
 
-* `order`: `'alphabetical'`, [`'concentric'`](http://rhodesmill.org/brandon/2011/concentric-css/), [`'recess'`](http://twitter.github.io/recess/), [`'smacss'`](http://smacss.com/book/formatting), or `[array of properties]` (defaults to `alphabetical`. Unknown properties are sorted alphabetically)
+* `order`: `'alphabetical'`, [`'concentric'`](http://rhodesmill.org/brandon/2011/concentric-css/), [`'recess'`](http://twitter.github.io/recess/), [`'smacss'`](http://smacss.com/book/formatting), [`tjw`](https://github.com/TheJaredWilcurt/tjw-sasslint-rules), or `[array of properties]` (defaults to `alphabetical`. Unknown properties are sorted alphabetically)
 * `ignore-custom-properties`: `true`/`false` (defaults to `false`)
 
 Property orders: https://github.com/sasstools/sass-lint/tree/develop/lib/config/property-sort-orders
