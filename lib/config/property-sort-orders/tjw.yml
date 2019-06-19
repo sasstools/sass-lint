@@ -2,6 +2,7 @@
 ##                                             ##
 ##      TheJaredWilcurt's Sass-Lint Rules      ##
 ##       (from the makers of Scout-App!)       ##
+##                   v2.1.0                    ##
 ##                                             ##
 #################################################
 ## https://Scout-App.io                        ##
@@ -54,9 +55,11 @@ order:
   - flex-wrap
   - align-content
   - align-items
+  - -ms-grid-row-align
   - align-self
   - justify-content
   - justify-items
+  - -ms-grid-column-align
   - justify-self
   - place-content
   - place-items
@@ -72,16 +75,22 @@ order:
   - gap
   - grid-template
   - grid-template-areas
+  - -ms-grid-columns
   - grid-template-columns
+  - -ms-grid-rows
   - grid-template-rows
   - grid-columns
   - grid-column
+  - -ms-grid-column
   - grid-column-start
+  - -ms-grid-column-span
   - grid-column-end
   - grid-column-gap
   - grid-rows
   - grid-row
+  - -ms-grid-row
   - grid-row-start
+  - -ms-grid-row-span
   - grid-row-end
   - grid-row-gap
   - row-gap
@@ -140,10 +149,12 @@ order:
   - border-block-width
   - border-block-style
   - border-block-color
+  - -webkit-border-before
   - border-block-start
   - border-block-start-color
   - border-block-start-style
   - border-block-start-width
+  - -webkit-border-after
   - border-block-end
   - border-block-end-color
   - border-block-end-style
@@ -152,10 +163,12 @@ order:
   - border-inline-width
   - border-inline-style
   - border-inline-color
+  - -webkit-border-start
   - border-inline-start
   - border-inline-start-width
   - border-inline-start-style
   - border-inline-start-color
+  - -webkit-border-end
   - border-inline-end
   - border-inline-end-width
   - border-inline-end-style
@@ -182,10 +195,14 @@ order:
   - margin-left
   - margin-left-collapse
   - margin-block
+  - -webkit-margin-before
   - margin-block-start
+  - -webkit-margin-after
   - margin-block-end
   - margin-inline
+  - -webkit-margin-start
   - margin-inline-start
+  - -webkit-margin-end
   - margin-inline-end
   - padding
   - padding-top
@@ -193,10 +210,14 @@ order:
   - padding-bottom
   - padding-left
   - padding-block
+  - -webkit-padding-before
   - padding-block-start
+  - -webkit-padding-after
   - padding-block-end
   - padding-inline
+  - -webkit-padding-start
   - padding-inline-start
+  - -webkit-padding-end
   - padding-inline-end
   # Text treatment
   - color
@@ -208,6 +229,7 @@ order:
   - font-emphasize-style
   - font-family
   - font-feature-settings
+  - -webkit-font-kerning
   - font-kerning
   - font-language-override
   - font-optical-sizing
@@ -230,6 +252,8 @@ order:
   - font-variation-settings
   - font-weight
   - hanging-punctuation
+  - -webkit-hyphens
+  - -ms-hyphens
   - hyphens
   - letter-spacing
   - line-break
@@ -244,19 +268,29 @@ order:
   - quotes
   - speak
   - src
+  - -moz-tab-size
   - tab-size
   - text-align
   - text-align-last
   - text-combine-upright
+  - -webkit-text-decoration
   - text-decoration
+  - -webkit-text-decoration-color
   - text-decoration-color
+  - -webkit-text-decoration-line
   - text-decoration-line
+  - -webkit-text-decoration-skip
   - text-decoration-skip
   - text-decoration-skip-ink
+  - -webkit-text-decoration-style
   - text-decoration-style
+  - -webkit-text-emphasis
   - text-emphasis
+  - -webkit-text-emphasis-color
   - text-emphasis-color
+  - -webkit-text-emphasis-style
   - text-emphasis-style
+  - -webkit-text-emphasis-position
   - text-emphasis-position
   - text-indent
   - text-justify
@@ -267,6 +301,9 @@ order:
   - text-overflow-mode
   - text-rendering
   - text-shadow
+  - -webkit-text-size-adjust
+  - -moz-text-size-adjust
+  - -ms-text-size-adjust
   - text-size-adjust
   - text-transform
   - text-underline-position
@@ -278,6 +315,7 @@ order:
   - word-break
   - word-spacing
   - word-wrap
+  - -ms-writing-mode
   - writing-mode
   # Less common properties go to the bottom
   - additive-symbols
@@ -294,9 +332,11 @@ order:
   - -moz-appearance
   - -webkit-appearance
   - appearance
+  - -webkit-backface-visibility
   - backface-visibility
   - block-size
   - min-block-size
+  - -webkit-box-decoration-break
   - box-decoration-break
   - box-shadow
   - box-sizing
@@ -309,7 +349,9 @@ order:
   - caret-color
   - clear
   - clip
+  - -webkit-clip-path
   - clip-path
+  - -webkit-print-color-adjust
   - color-adjust
   - counter-reset
   - counter-increment
@@ -333,14 +375,22 @@ order:
   - inset-inline-end
   - isolation
   - marks
+  - -webkit-mask
   - mask
+  - -webkit-mask-clip
   - mask-clip
+  - -webkit-mask-composite
   - mask-composite
+  - -webkit-mask-image
   - mask-image
   - mask-mode
+  - -webkit-mask-origin
   - mask-origin
+  - -webkit-mask-position
   - mask-position
+  - -webkit-mask-repeat
   - mask-repeat
+  - -webkit-mask-size
   - mask-size
   - mask-type
   - mix-blend-mode
@@ -398,6 +448,7 @@ order:
   - scroll-padding-inline-end
   - scroll-snap-align
   - scroll-snap-stop
+  - -ms-scroll-snap-type
   - scroll-snap-type
   - scrollbar-width
   - scrollbar-color
@@ -427,6 +478,9 @@ order:
   - transition-timing-function
   - transition-delay
   - translate
+  - -webkit-user-select
+  - -moz-user-select
+  - -ms-user-select
   - user-select
   - user-zoom
   - vertical-align
