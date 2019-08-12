@@ -73,7 +73,7 @@ By making a contribution to this project, I certify that:
 
 ## Emoji Cheatsheet
 
-When creating creating commits or updating the CHANGELOG, please **start** the commit message or update with one of the following applicable Emoji. Emoji should not be used at the start of issue or pull request titles.
+When creating commits or updating the CHANGELOG, please **start** the commit message or update with one of the following applicable Emoji. Emoji should not be used at the start of issue or pull request titles.
 
 * :art: `:art:` when improving the format/structure of the code
 * :racehorse: `:racehorse:` when improving performance
