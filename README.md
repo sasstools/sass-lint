@@ -1,3 +1,8 @@
+# THIS PROJECT IS CURRENTLY UNMAINTAINED - LAST DEVELOPMENT/STABLE RELEASE (OCTOBER 2017)
+# DEVELOP BRANCH CONTAINS UNFINISHED/UNSTABLE DEVELOPMENT WORK FOR A V2
+# MASTER BRANCH INCLUDES STABLE CODE AND LATEST RELEASE
+# V1.13.0 SHOULD NOT BE USED - READ HERE https://github.com/sasstools/sass-lint/issues/1279#issuecomment-487003499
+
 # Sass Lint [![npm version](https://badge.fury.io/js/sass-lint.svg)](http://badge.fury.io/js/sass-lint) [![Build Status](https://travis-ci.org/sasstools/sass-lint.svg?branch=develop)](https://travis-ci.org/sasstools/sass-lint) [![Coverage Status](https://coveralls.io/repos/sasstools/sass-lint/badge.svg?branch=develop&service=github)](https://coveralls.io/github/sasstools/sass-lint?branch=develop) [![Dependency Status](https://david-dm.org/sasstools/sass-lint.svg)](https://david-dm.org/sasstools/sass-lint#info=dependencies&view=list) [![Dev Dependency Status](https://david-dm.org/sasstools/sass-lint/dev-status.svg)](https://david-dm.org/sasstools/sass-lint#info=devDependencies&view=list)
 
 A Node-only Sass linter for both `sass` and `scss` syntax!
