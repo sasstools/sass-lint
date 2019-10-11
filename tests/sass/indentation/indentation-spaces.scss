@@ -173,3 +173,21 @@ $textsizes: (
     m: 13px
   ),
 );
+
+// Issue #591 - multiline structures
+@font-face {
+  font-family: "Freight Sans Pro";
+  src: url("../fonts/FreightSansProMedium.woff") format("woff"),
+        url("../fonts/FreightSansProMedium.ttf")  format("truetype"),
+       url("../fonts/FreightSansProMedium.ttf")  format("truetype");
+}
+
+.foo {
+  transition: transform $in-out-speed,
+              visibility 0s $in-out-speed;
+}
+
+.bar {
+  transition: transform $in-out-speed,
+    visibility 0s $in-out-speed;
+}
