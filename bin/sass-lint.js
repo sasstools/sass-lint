@@ -20,7 +20,12 @@ var detectPattern = function (pattern) {
   var detects = lint.lintFiles(pattern, configOptions, configPath);
 
   if (program.exit) {
-    lint.failOnError(detects, configOptions, configPath);
+    try {
+      lint.failOnError(detects, configOptions, configPath);
+    }
+    catch (e) {
+      console.error(e.message);
+    }
   }
   return detects;
 };
