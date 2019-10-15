@@ -1,0 +1,13 @@
+.a {
+  content: 'foo';
+}
+
+.b .c {
+  content: 'foo';
+}
+
+
+.d,
+.e .f {
+  content: 'foo';
+}
