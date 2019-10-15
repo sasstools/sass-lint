@@ -29,9 +29,17 @@ var results = [{
   ]
 }];
 
+var successResults = [{
+  filePath: 'sass/empty-line-between-blocks.scss',
+  warningCount: 0,
+  errorCount: 0,
+  messages: []
+}];
+
 var styled = {
   'stylish': stylish(results),
-  'json': jason(results)
+  'json': jason(results),
+  'jsonSuccess': jason(successResults)
 };
 
 describe('output', function () {
@@ -72,6 +80,45 @@ describe('output', function () {
     fs.removeSync(outPath);
 
     assert.equal(styled.json, output);
+
+    done();
+  });
+
+  it('should output on success if configured', function (done) {
+    var options = {
+      'options': {
+        'formatter': 'json',
+        'output-file': 'tests/output.json',
+        'verbose-success': true,
+        'cache-config': false
+      }
+    };
+
+    var outPath = path.resolve(process.cwd(), options.options['output-file']),
+        output = lint.outputResults(successResults, options);
+
+    output = fs.readFileSync(outPath, 'utf-8');
+    fs.removeSync(outPath);
+
+    assert.equal(styled.jsonSuccess, output);
+
+    done();
+  });
+
+  it('should not output on success by default', function (done) {
+    var options = {
+      'options': {
+        'formatter': 'json',
+        'output-file': 'tests/output.json',
+        'cache-config': false
+      }
+    };
+
+    var outPath = path.resolve(process.cwd(), options.options['output-file']),
+        output = lint.outputResults(successResults, options);
+
+    output = fs.existsSync(outPath);
+    assert.equal(false, output);
 
     done();
   });

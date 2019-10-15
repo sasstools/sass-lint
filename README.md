@@ -53,6 +53,7 @@ The following are options that you can use to config the Sass Linter.
 * [formatter](https://github.com/sasstools/sass-lint/tree/master/docs/options/formatter.md) - Choose the format for any warnings/errors to be displayed
 * [merge-default-rules](https://github.com/sasstools/sass-lint/tree/master/docs/options/merge-default-rules.md) - Allows you to merge your rules with the default config file included with sass-lint
 * [output-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/output-file.md) - Choose to write the linters output to a file
+* [verbose-success](https://github.com/sasstools/sass-lint/tree/master/docs/options/verbose-success.md) - Choose to output on success
 
 #### Files
 
