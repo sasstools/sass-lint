@@ -50,6 +50,26 @@ describe('property sort order - scss', function () {
     });
   });
 
+  it('[order: custom, display-mode: blocks]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': [
+            'height',
+            'width',
+            'display',
+            'color'
+          ],
+          'display-mode': 'blocks'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
+      done();
+    });
+  });
+
   it('[order: custom + composes, ignore-custom-properties: false]', function (done) {
     lint.test(file, {
       'property-sort-order': [
@@ -178,6 +198,26 @@ describe('property sort order - sass', function () {
       ]
     }, function (data) {
       lint.assert.equal(8, data.warningCount);
+      done();
+    });
+  });
+
+  it('[order: custom, display-mode: blocks]', function (done) {
+    lint.test(file, {
+      'property-sort-order': [
+        1,
+        {
+          'order': [
+            'height',
+            'width',
+            'display',
+            'color'
+          ],
+          'display-mode': 'blocks'
+        }
+      ]
+    }, function (data) {
+      lint.assert.equal(4, data.warningCount);
       done();
     });
   });
