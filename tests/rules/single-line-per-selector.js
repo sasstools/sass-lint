@@ -12,7 +12,7 @@ describe('single line per selector - scss', function () {
     lint.test(file, {
       'single-line-per-selector': 1
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });
@@ -28,7 +28,7 @@ describe('single line per selector - sass', function () {
     lint.test(file, {
       'single-line-per-selector': 1
     }, function (data) {
-      lint.assert.equal(6, data.warningCount);
+      lint.assert.equal(7, data.warningCount);
       done();
     });
   });
