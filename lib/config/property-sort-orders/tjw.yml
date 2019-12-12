@@ -16,14 +16,13 @@
 #################################################
 ##                                             ##
 ## These are part of a much larger set of very ##
-## strict Sass-Lint rules available from the   ##
-## link below:                                 ##
+## strict Sass-Lint rules available here:      ##
+##                                             ##
+##    github.com/tjw-lint/tjw-sasslint-rules   ##
 ##                                             ##
 #################################################
 
-# https://github.com/TheJaredWilcurt/tjw-sasslint-rules
-
-# Based on: https://github.com/TheJaredWilcurt/tjw-sasslint-rules/blob/master/tjwsasslint.yml
+# Based on: https://github.com/tjw-lint/tjw-sasslint-rules/blob/master/tjwsasslint.yml
 
 order:
   # Effects if the element exists
