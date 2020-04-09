@@ -35,7 +35,7 @@
     "fs-extra": "^5.0.0",
     "glob": "^7.0.0",
     "globule": "^1.0.0",
-    "gonzales-pe": "4.2.4",
+    "gonzales-pe": "4.3.0",
     "gray-matter": "^3.1.1",
     "js-yaml": "^3.13.1",
     "known-css-properties": "^0.5.0",
