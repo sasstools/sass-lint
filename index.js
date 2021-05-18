@@ -15,6 +15,7 @@ var getToggledRules = ruleToggler.getToggledRules,
     isResultEnabled = ruleToggler.isResultEnabled;
 
 var sassLint = function (config) { // eslint-disable-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   config = require('./lib/config')(config);
   return;
 };
@@ -254,7 +255,7 @@ sassLint.format = function (results, options, configPath) {
   var config = this.getConfig(options, configPath),
       format = config.options.formatter.toLowerCase();
 
-  var formatted = require('eslint/lib/formatters/' + format);
+  var formatted = require('eslint/lib/cli-engine/formatters/' + format);
 
   return formatted(results);
 };

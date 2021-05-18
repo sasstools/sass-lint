@@ -112,14 +112,16 @@ describe('rule toggling', function () {
       assert(deepEqual(ruleToggles, {
         globalEnable: [],
         ruleEnable: {
-          a: [[false, 1, 3],
-              [false, 2, 5],
-              [true, 6, 1],
-              [false, 8, 3],
-              [false, 8, 5],
-              [true, 12, 1],
-              [false, 14, 6],
-              [false, 14, 32]]
+          a: [
+            [false, 1, 3],
+            [false, 2, 5],
+            [true, 6, 1],
+            [false, 8, 3],
+            [false, 8, 5],
+            [true, 12, 1],
+            [false, 14, 6],
+            [false, 14, 32]
+          ]
         }
       }) === true);
     });
@@ -215,14 +217,16 @@ describe('rule toggling', function () {
       assert(deepEqual(ruleToggles, {
         globalEnable: [],
         ruleEnable: {
-          a: [[false, 2, 1],
-              [false, 2, 5],
-              [true, 5, 20],
-              [false, 8, 1],
-              [false, 8, 5],
-              [true, 11, 20],
-              [false, 14, 5],
-              [false, 15, 5]]
+          a: [
+            [false, 2, 1],
+            [false, 2, 5],
+            [true, 5, 20],
+            [false, 8, 1],
+            [false, 8, 5],
+            [true, 11, 20],
+            [false, 14, 5],
+            [false, 15, 5]
+          ]
         }
       }) === true);
     });

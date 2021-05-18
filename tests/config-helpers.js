@@ -12,8 +12,8 @@ var emptyConfig = {
   files: {},
   rules: {}
 };
-var defaultConfig = yaml.safeLoad(fs.readFileSync(path.resolve('lib/config/sass-lint.yml'), 'utf8'));
-var ignoreConfig = yaml.safeLoad(fs.readFileSync('tests/yml/.ignore-file.yml', 'utf8'));
+var defaultConfig = yaml.load(fs.readFileSync(path.resolve('lib/config/sass-lint.yml'), 'utf8'));
+var ignoreConfig = yaml.load(fs.readFileSync('tests/yml/.ignore-file.yml', 'utf8'));
 
 var extendableConfigA1 = {
   'options': {
@@ -99,7 +99,7 @@ describe('config-helpers', function () {
 
   describe('checkForConfigExtend', function () {
     it('should return the config it was provided when no extend is found', function (done) {
-      var config = yaml.safeLoad(fs.readFileSync('tests/yml/.ignore-file.yml', 'utf8'));
+      var config = yaml.load(fs.readFileSync('tests/yml/.ignore-file.yml', 'utf8'));
       var testConfig = configHelpers.checkForConfigExtend(config);
 
       assert(equal(config, testConfig));
