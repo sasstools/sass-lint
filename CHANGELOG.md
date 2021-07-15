@@ -1,5 +1,15 @@
 # Sass Lint Changelog
 
+## v1.13.1
+
+**Fixes**
+* Same as v1.12.1 - 1.13.0 was released by accident and contains many breaking changes - npm unpublishing failed so this unfortnately bumps our version a few spots - 
+
+
+## v1.13.0
+
+**IGNORE ME - SORRY**
+
 ## v1.12.1
 
 **October 17th, 2017**
