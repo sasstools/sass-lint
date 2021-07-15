@@ -2,8 +2,8 @@
 
 var lint = require('../index'),
     assert = require('assert'),
-    stylish = require('eslint/lib/formatters/stylish'),
-    jason = require('eslint/lib/formatters/json'),
+    stylish = require('eslint/lib/cli-engine/formatters/stylish'),
+    jason = require('eslint/lib/cli-engine/formatters/json'),
     path = require('path'),
     fs = require('fs-extra');
 
