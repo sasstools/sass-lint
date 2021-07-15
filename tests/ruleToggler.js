@@ -68,6 +68,15 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+    it('should be able to disable next line', function () {
+      var ruleToggles = generateToggledRules('ruleToggler-disable-next-line.scss');
+      assert(deepEqual(ruleToggles, {
+        globalEnable: [],
+        ruleEnable: {
+          a: [[false, 3, 1], [true, 4, 1]]
+        }
+      }) === true);
+    });
     it('should be able to disable a block of code', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-a-block.scss');
       assert(deepEqual(ruleToggles, {
@@ -112,16 +121,14 @@ describe('rule toggling', function () {
       assert(deepEqual(ruleToggles, {
         globalEnable: [],
         ruleEnable: {
-          a: [
-            [false, 1, 3],
+          a: [[false, 1, 3],
             [false, 2, 5],
             [true, 6, 1],
             [false, 8, 3],
             [false, 8, 5],
             [true, 12, 1],
             [false, 14, 6],
-            [false, 14, 32]
-          ]
+            [false, 14, 32]]
         }
       }) === true);
     });
@@ -217,16 +224,14 @@ describe('rule toggling', function () {
       assert(deepEqual(ruleToggles, {
         globalEnable: [],
         ruleEnable: {
-          a: [
-            [false, 2, 1],
+          a: [[false, 2, 1],
             [false, 2, 5],
             [true, 5, 20],
             [false, 8, 1],
             [false, 8, 5],
             [true, 11, 20],
             [false, 14, 5],
-            [false, 15, 5]
-          ]
+            [false, 15, 5]]
         }
       }) === true);
     });

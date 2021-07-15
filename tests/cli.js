@@ -1,7 +1,7 @@
-var assert = require('assert'),
-    fs = require('fs-extra'),
-    path = require('path'),
-    exec = require('child_process').exec;
+const assert = require('assert');
+const fs = require('fs-extra');
+const path = require('path');
+const exec = require('child_process').exec;
 
 describe('cli', function () {
 
@@ -13,7 +13,7 @@ describe('cli', function () {
         return done(err);
       }
 
-      assert(stdout.indexOf('Usage') >= 0);
+      assert(stdout.indexOf('Usage') > -1);
 
       return done();
     });
@@ -150,6 +150,29 @@ describe('cli', function () {
     });
   });
 
+  it('CLI format option should output valid JSON', function (done) {
+    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/*.scss --verbose --format json';
+
+    exec(command, function (err, stdout) {
+
+      if (err) {
+        return done(err);
+      }
+      else {
+        try {
+          var result = JSON.parse(stdout);
+          if (result && result.length && result.length > 1) {
+            return done();
+          }
+          return done(new Error('Output is not combined'));
+        }
+        catch (e) {
+          return done(new Error('Not JSON'));
+        }
+      }
+    });
+  });
+
   it('CLI output option should write to test file', function (done) {
     var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
@@ -175,39 +198,6 @@ describe('cli', function () {
 
   it('CLI output option should write JSON to test file', function (done) {
     var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format json --output tests/cli-output.json',
-        outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
-
-    exec(command, function (err) {
-
-      if (err) {
-        return done(err);
-      }
-      else {
-        var contents = fs.readFileSync(outputFile, 'utf8');
-
-        if (contents.length > 0) {
-
-          try {
-            JSON.parse(contents);
-            fs.removeSync(outputFile);
-            return done();
-          }
-          catch (e) {
-            fs.removeSync(outputFile);
-            return done(new Error('Written file is not in JSON format'));
-          }
-
-        }
-        else {
-          fs.removeSync(outputFile);
-          return done(new Error(outputFile + 'is empty'));
-        }
-      }
-    });
-  });
-
-  it('CLI output option should write JSON to test file when upper case format is used', function (done) {
-    var command = 'node bin/sass-lint -c tests/yml/.stylish-output.yml tests/cli/cli.scss --verbose --format JSON --output tests/cli-output.json',
         outputFile = path.resolve(process.cwd(), 'tests/cli-output.json');
 
     exec(command, function (err) {

@@ -1,3 +1,8 @@
+# THIS PROJECT IS CURRENTLY UNMAINTAINED - LAST DEVELOPMENT/STABLE RELEASE (OCTOBER 2017)
+# DEVELOP BRANCH CONTAINS UNFINISHED/UNSTABLE DEVELOPMENT WORK FOR A V2
+# MASTER BRANCH INCLUDES STABLE CODE AND LATEST RELEASE
+# V1.13.0 SHOULD NOT BE USED - READ HERE https://github.com/sasstools/sass-lint/issues/1279#issuecomment-487003499
+
 # Sass Lint [![npm version](https://badge.fury.io/js/sass-lint.svg)](http://badge.fury.io/js/sass-lint) [![Build Status](https://travis-ci.org/sasstools/sass-lint.svg?branch=develop)](https://travis-ci.org/sasstools/sass-lint) [![Coverage Status](https://coveralls.io/repos/sasstools/sass-lint/badge.svg?branch=develop&service=github)](https://coveralls.io/github/sasstools/sass-lint?branch=develop) [![Dependency Status](https://david-dm.org/sasstools/sass-lint.svg)](https://david-dm.org/sasstools/sass-lint#info=dependencies&view=list) [![Dev Dependency Status](https://david-dm.org/sasstools/sass-lint/dev-status.svg)](https://david-dm.org/sasstools/sass-lint#info=devDependencies&view=list)
 
 A Node-only Sass linter for both `sass` and `scss` syntax!
@@ -32,7 +37,7 @@ For example:
 }
 ```
 
-Use the [Sample Config (YAML)](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) or [Sample Config (JSON)](https://github.com/sasstools/sass-lint/tree/master/docs/sasslintrc) as a guide to create your own config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
+Use the [Sample Config (YAML)](https://github.com/sasstools/sass-lint/tree/master/docs/sass-lint.yml) or [Sample Config (JSON)](https://github.com/sasstools/sass-lint/blob/develop/docs/.sasslintrc) as a guide to create your own config file. The default configuration can be found [here](https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml).
 
 ### [Configuration Documentation](https://github.com/sasstools/sass-lint/tree/master/docs/options)
 
@@ -44,6 +49,7 @@ The following are options that you can use to config the Sass Linter.
 
 * [cache-config](https://github.com/sasstools/sass-lint/tree/master/docs/options/cache-config.md) - Allows you to cache your config for a small speed boost when not changing the contents of your config file
 * [config-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/config-file.md) - Specify another config file to load
+* [cwd](https://github.com/sasstools/sass-lint/tree/master/docs/options/cwd.md) - Specify a directory to treat as the current working directory - formatters only for now
 * [formatter](https://github.com/sasstools/sass-lint/tree/master/docs/options/formatter.md) - Choose the format for any warnings/errors to be displayed
 * [merge-default-rules](https://github.com/sasstools/sass-lint/tree/master/docs/options/merge-default-rules.md) - Allows you to merge your rules with the default config file included with sass-lint
 * [output-file](https://github.com/sasstools/sass-lint/tree/master/docs/options/output-file.md) - Choose to write the linters output to a file
@@ -78,7 +84,7 @@ For all [rules](https://github.com/sasstools/sass-lint/tree/master/docs/rules), 
 
 If you want to configure options, set the rule to an array, where the first item in the array is the severity, and the second item in the array is an object including the options you would like to set.
 
-Here is an example configuration of a rule, where we are specifying that breaking the [indentation rule](https://github.com/sasstools/sass-lint/blob/master/docs/rules/indentation.md) should be treated as an error (its severity set to two), and setting the `size` option of the rule to 2 spaces:  
+Here is an example configuration of a rule, where we are specifying that breaking the [indentation rule](https://github.com/sasstools/sass-lint/blob/master/docs/rules/indentation.md) should be treated as an error (its severity set to two), and setting the `size` option of the rule to 2 spaces:
 
 ```yml
 rules:
@@ -123,6 +129,15 @@ p {
 ```scss
 p {
   border: none; // sass-lint:disable-line border-zero
+}
+```
+
+### Disable a rule for text next line
+
+```scss
+p {
+  // sass-lint:disable-next-line border-zero
+  border: none;
 }
 ```
 
