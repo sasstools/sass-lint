@@ -29,6 +29,15 @@ p {
 }
 ```
 
+## Disable a rule for the next line
+
+```scss
+p {
+  // sass-lint:disable-next-line border-zero
+  border: none;
+}
+```
+
 ## Disable all lints within a block (and all contained blocks)
 
 ```scss
