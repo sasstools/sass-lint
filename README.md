@@ -26,7 +26,7 @@ npm install sass-lint --save-dev
 
 ## Configuring
 
-Sass-lint can be configured from a `.sass-lint.yml` or `.sasslintrc` file in your project. The `.sasslintrc` file can be in either JSON or YAML format. Both formats are interchangeable easily using tools such as [json2yaml](https://www.json2yaml.com/). If you don't have either file your project root, or you would like all of your projects to follow a standard config file, then you can specify the path to a common config file in your project's `package.json` file using the `sasslintConfig` option.
+Sass-lint can be configured from a `.sass-lint.yml` or `.sasslintrc` file in your project. The `.sasslintrc` file can be in either JSON or YAML format. Both formats are interchangeable easily using tools such as [json2yaml](https://www.json2yaml.com/). If you don't want to place either file in your project root, or you would like all of your projects to follow a standard config file, then you can specify the path to a common config file in your project's `package.json` file using the `sasslintConfig` option.
 
 For example:
 ```javascript
