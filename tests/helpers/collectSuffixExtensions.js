@@ -2,7 +2,7 @@
 
 var assert = require('assert'),
     helpers = require('../../lib/helpers'),
-    gonzales = require('gonzales-pe-sl');
+    gonzales = require('gonzales-pe');
 
 describe('helpers - collectSuffixExtensions', function () {
 
