@@ -12,7 +12,7 @@ describe('property sort order - scss', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -100,7 +100,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -114,7 +114,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(14, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
@@ -128,7 +128,7 @@ describe('property sort order - scss', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(14, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
@@ -144,7 +144,7 @@ describe('property sort order - sass', function () {
     lint.test(file, {
       'property-sort-order': 1
     }, function (data) {
-      lint.assert.equal(15, data.warningCount);
+      lint.assert.equal(16, data.warningCount);
       done();
     });
   });
@@ -232,7 +232,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(12, data.warningCount);
+      lint.assert.equal(13, data.warningCount);
       done();
     });
   });
@@ -246,7 +246,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(14, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
@@ -260,7 +260,7 @@ describe('property sort order - sass', function () {
         }
       ]
     }, function (data) {
-      lint.assert.equal(14, data.warningCount);
+      lint.assert.equal(15, data.warningCount);
       done();
     });
   });
